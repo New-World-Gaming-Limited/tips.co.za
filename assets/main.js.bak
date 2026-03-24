@@ -9,6 +9,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // In-memory storage fallback (for sandboxed iframes)
+  const _memStore = {};
+  const safeStorage = {
+    getItem: (k) => { try { return safeStorage.getItem(k); } catch(e) { return _memStore[k] || null; } },
+    setItem: (k, v) => { try { safeStorage.setItem(k, v); } catch(e) { _memStore[k] = v; } },
+    removeItem: (k) => { try { safeStorage.removeItem(k); } catch(e) { delete _memStore[k]; } }
+  };
+  const safeSession = {
+    getItem: (k) => { try { return safeSession.getItem(k); } catch(e) { return _memStore['s_'+k] || null; } },
+    setItem: (k, v) => { try { safeSession.setItem(k, v); } catch(e) { _memStore['s_'+k] = v; } },
+    removeItem: (k) => { try { safeSession.removeItem(k); } catch(e) { delete _memStore['s_'+k]; } }
+  };
+
+
   // ─────────────────────────────────────────────
   // 1. THEME TOGGLE (Dark / Light Mode)
   // ─────────────────────────────────────────────
@@ -50,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Resolve initial preference: localStorage → system preference
-    const stored = localStorage.getItem('theme');
+    const stored = safeStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = stored ? stored === 'dark' : prefersDark;
 
@@ -62,13 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentlyDark = html.getAttribute('data-theme') === 'dark';
         const next = !currentlyDark;
         applyTheme(next);
-        localStorage.setItem('theme', next ? 'dark' : 'light');
+        safeStorage.setItem('theme', next ? 'dark' : 'light');
       });
     }
 
     // Sync with OS preference changes (only when no explicit user choice stored)
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
+      if (!safeStorage.getItem('theme')) {
         applyTheme(e.matches);
       }
     });
@@ -478,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bar) return;
 
     // Check if already dismissed this session
-    if (sessionStorage.getItem('disclosureDismissed') === 'true') {
+    if (safeSession.getItem('disclosureDismissed') === 'true') {
       bar.style.display = 'none';
       return;
     }
@@ -496,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
           bar.style.display = 'none';
         }, { once: true });
 
-        sessionStorage.setItem('disclosureDismissed', 'true');
+        safeSession.setItem('disclosureDismissed', 'true');
       });
     }
   })();
@@ -661,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─────────────────────────────────────────────
   (function initCookieConsent() {
     const STORAGE_KEY = 'cookieConsent';
-    const existing    = localStorage.getItem(STORAGE_KEY);
+    const existing    = safeStorage.getItem(STORAGE_KEY);
 
     // Already responded — do nothing
     if (existing === 'accepted' || existing === 'declined') return;
@@ -706,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(banner);
 
     function dismissBanner(choice) {
-      localStorage.setItem(STORAGE_KEY, choice);
+      safeStorage.setItem(STORAGE_KEY, choice);
       banner.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
       banner.style.transform  = 'translateY(100%)';
       banner.style.opacity    = '0';
