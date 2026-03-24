@@ -3158,6 +3158,82 @@ a:focus-visible {
 }
 
 /* ============================================================
+   46b. LEGAL HUB — TIMELINE
+   ============================================================ */
+
+.timeline {
+  position: relative;
+  padding-left: var(--space-10);
+  margin-bottom: var(--space-8);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-primary-light);
+  border-radius: 2px;
+}
+
+.timeline-entry {
+  position: relative;
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-4);
+}
+
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+  border: 3px solid var(--color-primary-light);
+  border-radius: 50%;
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-content h3 {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-content p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   46c. LEGAL HUB — PROVINCE MAP
+   ============================================================ */
+
+.province-map {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
+
+[data-theme="dark"] .timeline::before {
+  background: var(--color-primary-dark);
+}
+
+[data-theme="dark"] .timeline-entry::before {
+  border-color: var(--color-primary-dark);
+}
+
+/* ============================================================
    47. RESPONSIVE — TABLET (max-width: 1024px)
    ============================================================ */
 
@@ -3398,6 +3474,17 @@ a:focus-visible {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-1);
+  }
+
+  /* Timeline adjustments */
+  .timeline {
+    padding-left: var(--space-8);
+  }
+
+  .timeline-entry::before {
+    left: -26px;
+    width: 10px;
+    height: 10px;
   }
 }
 
