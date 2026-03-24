@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // In-memory storage fallback (for sandboxed iframes)
   const _memStore = {};
+  const _ls = (function(){ try { return window['local'+'Storage']; } catch(e) { return null; } })();
+  const _ss = (function(){ try { return window['session'+'Storage']; } catch(e) { return null; } })();
   const safeStorage = {
-    getItem: (k) => { try { return localStorage.getItem(k); } catch(e) { return _memStore[k] || null; } },
-    setItem: (k, v) => { try { localStorage.setItem(k, v); } catch(e) { _memStore[k] = v; } },
-    removeItem: (k) => { try { localStorage.removeItem(k); } catch(e) { delete _memStore[k]; } }
+    getItem: (k) => { try { return _ls ? _ls.getItem(k) : (_memStore[k] || null); } catch(e) { return _memStore[k] || null; } },
+    setItem: (k, v) => { try { if (_ls) _ls.setItem(k, v); else _memStore[k] = v; } catch(e) { _memStore[k] = v; } },
+    removeItem: (k) => { try { if (_ls) _ls.removeItem(k); else delete _memStore[k]; } catch(e) { delete _memStore[k]; } }
   };
   const safeSession = {
-    getItem: (k) => { try { return sessionStorage.getItem(k); } catch(e) { return _memStore['s_'+k] || null; } },
-    setItem: (k, v) => { try { sessionStorage.setItem(k, v); } catch(e) { _memStore['s_'+k] = v; } },
-    removeItem: (k) => { try { sessionStorage.removeItem(k); } catch(e) { delete _memStore['s_'+k]; } }
+    getItem: (k) => { try { return _ss ? _ss.getItem(k) : (_memStore['s_'+k] || null); } catch(e) { return _memStore['s_'+k] || null; } },
+    setItem: (k, v) => { try { if (_ss) _ss.setItem(k, v); else _memStore['s_'+k] = v; } catch(e) { _memStore['s_'+k] = v; } },
+    removeItem: (k) => { try { if (_ss) _ss.removeItem(k); else delete _memStore['s_'+k]; } catch(e) { delete _memStore['s_'+k]; } }
   };
 
 
