@@ -220,6 +220,31 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] .site-logo img { filter: brightness(0) invert(1); }
 .site-footer .site-logo img { filter: brightness(0) invert(1); }
 
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+[data-theme="dark"] .logo-text { color: var(--color-text); }
+
 .nav-desktop {
   display: none;
   align-items: center;
