@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /link/
 
-Sitemap: https://southafricancasinosites.co.za/sitemap.xml
+Sitemap: https://tips.co.za/sitemap.xml

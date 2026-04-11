@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonus Browser - Compare SA Betting Bonuses | Tips</title>
+  <meta name="description" content="Compare bonuses from all 14 licensed South African betting operators. Filter by bonus type, payment method, and minimum deposit. Updated monthly.">
+  <link rel="canonical" href="https://tips.co.za/bonus-browser/">
+  <link rel="alternate" hreflang="en-za" href="https://tips.co.za/bonus-browser/">
+  <link rel="alternate" hreflang="x-default" href="https://tips.co.za/bonus-browser/">
+  <meta property="og:title" content="Bonus Browser - Compare SA Betting Bonuses | Tips">
+  <meta property="og:description" content="Compare bonuses from all 14 licensed South African betting operators. Filter by bonus type, payment method, and minimum deposit. Updated monthly.">
+  <meta property="og:url" content="https://tips.co.za/bonus-browser/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tips">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:image" content="https://tips.co.za/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bonus Browser - Compare SA Betting Bonuses | Tips">
+  <meta name="twitter:description" content="Compare bonuses from all 14 licensed South African betting operators. Filter by bonus type, payment method, and minimum deposit. Updated monthly.">
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tips.co.za/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://tips.co.za/payment-methods/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bonus Browser",
+      "item": "https://tips.co.za/bonus-browser/"
+    }
+  ]
+}</script>
+  <style>
+    /* ---- Bonus Browser page-specific styles ---- */
+    .bb-filter-bar {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      margin-bottom: var(--space-6);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: flex-end;
+    }
+    .bb-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      flex: 1 1 180px;
+      min-width: 160px;
+    }
+    .bb-filter-group label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .bb-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3);
+      font-size: var(--text-sm);
+      font-family: var(--font-body);
+      color: var(--color-text);
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234B5563' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      width: 100%;
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .bb-select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-glow);
+    }
+    [data-theme="dark"] .bb-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    }
+    .bb-reset-btn {
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      background: var(--color-surface-2);
+      cursor: pointer;
+      transition: all var(--transition-interactive);
+      white-space: nowrap;
+      align-self: flex-end;
+    }
+    .bb-reset-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+
+    /* Counter */
+    .bb-counter {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    .bb-counter strong {
+      color: var(--color-text);
+    }
+    .bb-active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .bb-filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      border-radius: var(--radius-full);
+      padding: 2px var(--space-3);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    .bb-filter-pill button {
+      background: none;
+      border: none;
+      color: var(--color-primary);
+      cursor: pointer;
+      padding: 0 0 0 4px;
+      font-size: 14px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Results grid */
+    .bb-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .bb-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .bb-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Brand card */
+    .bb-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
+    }
+    .bb-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .bb-card-header {
+      padding: var(--space-4) var(--space-4) var(--space-3);
+      border-bottom: 1px solid var(--color-border-light);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .bb-logo-wrap {
+      width: 56px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--color-surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border-light);
+    }
+    .bb-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+    .bb-logo-placeholder {
+      width: 56px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: 0.01em;
+    }
+    .bb-card-name-row {
+      flex: 1;
+      min-width: 0;
+    }
+    .bb-card-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-base);
+      color: var(--color-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bb-card-best-for {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bb-rating-badge {
+      flex-shrink: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: var(--text-sm);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .bb-rating-badge.green  { background: var(--color-success-light); color: var(--color-success); border: 1px solid var(--color-success-border); }
+    .bb-rating-badge.amber  { background: rgba(245,158,11,0.1); color: #b45309; border: 1px solid rgba(245,158,11,0.2); }
+    [data-theme="dark"] .bb-rating-badge.amber { color: var(--color-warning); }
+
+    .bb-card-body {
+      padding: var(--space-4);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    /* Bonus block */
+    .bb-bonus-block {
+      background: var(--color-primary-surface);
+      border: 1px solid rgba(13,124,61,0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+    }
+    [data-theme="dark"] .bb-bonus-block {
+      border-color: rgba(74,222,128,0.15);
+    }
+    .bb-bonus-amount {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-lg);
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+    .bb-bonus-type-badge {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      margin-bottom: var(--space-1);
+      text-transform: uppercase;
+    }
+    [data-theme="dark"] .bb-bonus-type-badge {
+      color: #111;
+    }
+    .bb-bonus-detail {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+      line-height: 1.5;
+    }
+
+    /* Promo code */
+    .bb-promo-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .bb-promo-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bb-promo-code {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-surface-2);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 4px var(--space-3);
+      gap: var(--space-2);
+      min-width: 0;
+    }
+    .bb-promo-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: var(--text-xs);
+      color: var(--color-text);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bb-copy-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      padding: 2px 4px;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-interactive), background var(--transition-interactive);
+      display: flex;
+      align-items: center;
+    }
+    .bb-copy-btn:hover { color: var(--color-primary); background: var(--color-primary-light); }
+    .bb-copy-btn.copied { color: var(--color-success); }
+
+    /* Key points */
+    .bb-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .bb-bullets li {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.5;
+    }
+    .bb-bullets li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* Min deposit */
+    .bb-meta-row {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .bb-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .bb-meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-faint);
+    }
+    .bb-meta-value {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* Payment pills */
+    .bb-payment-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .bb-payment-pill {
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-full);
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+
+    /* T&Cs */
+    .bb-tcs {
+      font-size: 10px;
+      color: var(--color-text-faint);
+      line-height: 1.5;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: var(--space-3);
+      margin-top: auto;
+    }
+
+    /* CTAs */
+    .bb-cta-row {
+      display: flex;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      border-top: 1px solid var(--color-border-light);
+    }
+    .bb-visit-btn {
+      flex: 1;
+      display: block;
+      text-align: center;
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-primary);
+      color: #fff !important;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      text-decoration: none;
+      transition: background var(--transition-interactive), transform var(--transition-interactive);
+    }
+    [data-theme="dark"] .bb-visit-btn { color: #111 !important; }
+    .bb-visit-btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+    .bb-review-link {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all var(--transition-interactive);
+    }
+    .bb-review-link:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+
+    /* Empty state */
+    .bb-empty {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: var(--space-20) var(--space-4);
+      color: var(--color-text-muted);
+    }
+    .bb-empty svg {
+      margin: 0 auto var(--space-4);
+      opacity: 0.3;
+    }
+    .bb-empty h3 {
+      font-size: var(--text-lg);
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .bb-empty p { font-size: var(--text-sm); }
+    .bb-empty-reset {
+      margin-top: var(--space-4);
+      display: inline-block;
+      padding: var(--space-2) var(--space-5);
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background var(--transition-interactive);
+    }
+    [data-theme="dark"] .bb-empty-reset { color: #111; }
+    .bb-empty-reset:hover { background: var(--color-primary-hover); }
+
+    /* FAQ section */
+    .bb-faq { margin-top: var(--space-12); }
+    .bb-faq h2 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-6);
+      color: var(--color-text);
+    }
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-3);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) var(--space-5);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background: var(--color-surface);
+      list-style: none;
+      user-select: none;
+    }
+    .faq-q:hover { background: var(--color-surface-2); }
+    .faq-q .faq-chevron {
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      color: var(--color-text-muted);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 var(--space-5) var(--space-5);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      background: var(--color-surface);
+    }
+    .faq-item.open .faq-a { display: block; }
+  </style>
+  <style id="critical-css">:root{--text-xs:clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);--text-sm:clamp(0.875rem, 0.8rem + 0.35vw, 1rem);--text-base:clamp(1rem, 0.95rem + 0.25vw, 1.125rem);--text-lg:clamp(1.125rem, 1rem + 0.75vw, 1.5rem);--text-xl:clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);--text-2xl:clamp(2rem, 1.2rem + 2.5vw, 3.25rem);--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;--transition-interactive:200ms cubic-bezier(0.16, 1, 0.3, 1);--content-narrow:680px;--content-default:960px;--content-wide:1200px;--font-display:'General Sans', 'Inter', sans-serif;--font-body:'Inter', 'Helvetica Neue', sans-serif;}[data-theme="dark"]{--color-bg:#0d1117;--color-surface:#161b22;--color-surface-2:#1c2333;--color-surface-alt:#1c2333;--color-border:#30363d;--color-border-light:#21262d;--color-text:#e6edf3;--color-text-muted:#8b949e;--color-text-faint:#484f58;--color-text-inverse:#111111;--color-primary:#4ADE80;--color-primary-hover:#22C55E;--color-primary-light:rgba(74,222,128,0.12);--color-primary-glow:rgba(13,124,61,0.3);--color-primary-surface:rgba(74,222,128,0.08);--accent:#4ADE80;--accent-hover:#22C55E;--accent-light:rgba(74,222,128,0.12) --color-success:#4ade80;--color-success-light:rgba(74,222,128,0.08);--color-success-border:rgba(74,222,128,0.2);--color-error:#f87171;--color-warning:#fbbf24;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 20px rgba(0,0,0,0.4);--shadow-lg:0 12px 40px rgba(0,0,0,0.5);}*, *::before, *::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text-primary);line-height:1.75;-webkit-font-smoothing:antialiased;}img{max-width:100%;height:auto;}a{color:var(--accent);text-decoration:none;}.container{max-width:1200px;margin:0 auto;padding:0 var(--space-4);}.disclosure-bar{background:var(--color-surface-2);padding:4px var(--space-4);font-size:11px;color:var(--color-text-faint);text-align:center;border-bottom:1px solid var(--color-border-light);line-height:1.4;}.site-header{position:sticky;top:0;z-index:100;background:var(--color-surface);border-bottom:1px solid var(--color-border);height:60px;}.site-header .container{display:flex;align-items:center;justify-content:space-between;height:100%;}.site-header .site-logo img{height:26px !important;}.hero{background:linear-gradient(145deg, #0a2e1a 0%, #1A6B3C 60%, #22804A 100%);color:#ffffff;padding:clamp(var(--space-8), 4vw, var(--space-12)) 0;position:relative;overflow:hidden;}.hero{background:linear-gradient(145deg, #061208 0%, #0d3d1e 60%, #145A32 100%);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 40%);pointer-events:none;}.hero .container{position:relative;z-index:1;}</style>
+  <script>(function(){var k='local',s={};try{s=window[k+'Storage']||s}catch(e){}window._ls=s;try{var t=s.getItem?s.getItem('tips-theme'):s['tips-theme'];if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+</head>
+<body>
+<div class="disclosure-bar">
+  We may earn a commission from operator links. This never affects our ratings.
+  <a href="affiliate-disclosure">Affiliate Disclosure</a>
+</div>
+<header class="site-header">
+  <div class="container">
+    <a href="index" class="site-logo">
+      <span class="logo-mark">T</span>
+      <span class="logo-text">Tips</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Main navigation">
+      <a href="top-betting-sites" class="nav-top-link">Top Betting Sites</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Tips <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="betting-bonuses-south-africa">Betting Bonuses</a>
+          <a href="bonus-codes-south-africa">Promo Codes</a>
+          <a href="free-bets-south-africa">Free Bets</a>
+          <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="safer-bankroll-management">Bankroll Management</a>
+          <a href="proteas-betting-guide">Proteas Betting Guide</a>
+          <a href="springboks-betting-guide">Springboks Betting Guide</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Sports Sites <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="best-betting-sites-south-africa">Best Sports Betting Sites</a>
+          <a href="sportsbook-reviews">All Reviews</a>
+          <a href="new-betting-sites-south-africa">New Sites</a>
+          <a href="safe-betting-sites-south-africa">Safe Sites</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="football-betting-sites-south-africa">Football</a>
+          <a href="rugby-betting-sites-south-africa">Rugby</a>
+          <a href="cricket-betting-sites-south-africa">Cricket</a>
+          <a href="horse-racing-betting-sites-south-africa">Horse Racing</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Casino Sites <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="casinos-in-south-africa">Casino Resorts</a>
+          <a href="online-casinos-south-africa">Online Casinos</a>
+          <a href="online-slots-south-africa">Online Slots</a>
+          <a href="live-casino-south-africa">Live Casino</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="is-online-casino-legal-in-south-africa">Casino Law</a>
+          <a href="no-deposit-bonus-south-africa">No Deposit Bonuses</a>
+          <a href="high-roller-betting-bonuses-south-africa">High Roller Bonuses</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Tools <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="payment-methods">Payment Methods</a>
+          <a href="fast-payout-betting-sites-south-africa">Fast Payouts</a>
+          <a href="how-to-check-a-bookmaker-licence">Licence Checker</a>
+          <a href="how-we-review-betting-sites">How We Review</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="legal-hub">Legal Hub</a>
+          <a href="fica-kyc-requirements">FICA/KYC Guide</a>
+          <a href="responsible-gambling">Responsible Gambling</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="bonus-browser">Bonus Browser</a>
+    <a href="betting-calculators">Betting Calculators</a>
+    <a href="guides/">Betting Guides</a>
+    <a href="odds-converter">Odds Converter</a>
+          <a href="parlay-calculator">Parlay Calculator</a>
+          <a href="betting-margin-calculator">Margin Calculator</a>
+          <a href="house-edge-calculator">House Edge Calculator</a>
+          <a href="bonus-browser" class="active">Bonus Browser</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Tips</span>
+    <a href="betting-bonuses-south-africa">Betting Bonuses</a>
+    <a href="bonus-codes-south-africa">Promo Codes</a>
+    <a href="free-bets-south-africa">Free Bets</a>
+    <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
+    <a href="safer-bankroll-management">Bankroll Management</a>
+    <a href="proteas-betting-guide">Proteas Guide</a>
+    <a href="springboks-betting-guide">Springboks Guide</a>
+  </div>
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Sports Sites</span>
+    <a href="best-betting-sites-south-africa">Best Sports Betting Sites</a>
+    <a href="sportsbook-reviews">All Reviews</a>
+    <a href="football-betting-sites-south-africa">Football</a>
+    <a href="rugby-betting-sites-south-africa">Rugby</a>
+    <a href="cricket-betting-sites-south-africa">Cricket</a>
+    <a href="horse-racing-betting-sites-south-africa">Horse Racing</a>
+  </div>
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Casino Sites</span>
+    <a href="casinos-in-south-africa">Casino Resorts</a>
+    <a href="online-casinos-south-africa">Online Casinos</a>
+    <a href="online-slots-south-africa">Online Slots</a>
+    <a href="live-casino-south-africa">Live Casino</a>
+  </div>
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Tools</span>
+    <a href="payment-methods">Payment Methods</a>
+    <a href="fast-payout-betting-sites-south-africa">Fast Payouts</a>
+    <a href="legal-hub">Legal Hub</a>
+    <a href="responsible-gambling">Responsible Gambling</a>
+    <a href="bonus-browser">Bonus Browser</a>
+    <a href="betting-calculators">Betting Calculators</a>
+    <a href="guides/">Betting Guides</a>
+    <a href="odds-converter">Odds Converter</a>
+    <a href="parlay-calculator">Parlay Calculator</a>
+    <a href="house-edge-calculator">House Edge Calculator</a>
+    <a href="bonus-browser">Bonus Browser</a>
+  </div>
+  <a href="best-betting-sites-south-africa" class="nav-cta-mobile">Compare All Sites</a>
+</nav>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="search-input" placeholder="Search tips, reviews, and more..." autocomplete="off">
+      <button class="search-close" aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<main>
+  <div class="container"></div>
+
+  <section class="hero hero-sm">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index">Home</a>
+        <span>&#8250;</span>
+        <a href="payment-methods">Tools</a>
+        <span>&#8250;</span>
+        Bonus Browser
+      </div>
+      <h1>Bonus Browser</h1>
+      <p class="hero-sub">Compare bonuses from all 14 licensed SA betting operators. Filter by what matters to you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter bar -->
+      <div class="bb-filter-bar" id="bbFilterBar">
+        <div class="bb-filter-group">
+          <label for="filterBonusType">Bonus Type</label>
+          <select class="bb-select" id="filterBonusType">
+            <option value="">All Bonus Types</option>
+            <option value="no-deposit">No-Deposit Bonus</option>
+            <option value="welcome">Welcome / Deposit Match</option>
+            <option value="free-bet">Free Bet</option>
+            <option value="cashback">Cashback</option>
+          </select>
+        </div>
+        <div class="bb-filter-group">
+          <label for="filterPayment">Payment Method</label>
+          <select class="bb-select" id="filterPayment">
+            <option value="">All Payment Methods</option>
+            <option value="Ozow">Ozow</option>
+            <option value="Capitec Pay">Capitec Pay</option>
+            <option value="Instant EFT">EFT</option>
+            <option value="Visa">Visa / Mastercard</option>
+            <option value="1Voucher">1Voucher</option>
+          </select>
+        </div>
+        <div class="bb-filter-group">
+          <label for="filterMinDeposit">Min Deposit (max)</label>
+          <select class="bb-select" id="filterMinDeposit">
+            <option value="">Any Min Deposit</option>
+            <option value="5">Up to R5</option>
+            <option value="10">Up to R10</option>
+            <option value="20">Up to R20</option>
+            <option value="25">Up to R25</option>
+            <option value="50">Up to R50</option>
+          </select>
+        </div>
+        <div class="bb-filter-group">
+          <label for="filterSort">Sort By</label>
+          <select class="bb-select" id="filterSort">
+            <option value="rating">Highest Rating</option>
+            <option value="bonus-value">Bonus Value</option>
+            <option value="min-deposit">Lowest Min Deposit</option>
+          </select>
+        </div>
+        <button class="bb-reset-btn" id="bbResetBtn" onclick="resetFilters()">Clear Filters</button>
+      </div>
+
+      <!-- Results counter -->
+      <div class="bb-counter" id="bbCounter">
+        <span>Showing <strong id="bbCount">14</strong> of 14 operators</span>
+        <div class="bb-active-filters" id="bbActivePills"></div>
+      </div>
+
+      <!-- Results grid -->
+      <div class="bb-grid" id="bbGrid">
+        <!-- Cards rendered by JS -->
+      </div>
+
+      <!-- FAQ section -->
+      <div class="bb-faq">
+        <h2>Frequently asked questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What is the best SA betting bonus right now?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>World Sports Betting offers the largest headline figure at 100% up to R20,000, but this requires a sizable deposit to reach. For most bettors, Easybet's R50 no-deposit bonus combined with a 150% match up to R1,500 gives the best practical value from day one. Gbets also offers a strong combined package. Use the filter above to narrow by what matters most to you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What does "no-deposit bonus" mean?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>A no-deposit bonus is awarded on sign-up without putting any money in. Operators use them to let new users try the platform risk-free. In South Africa, Easybet, Hollywoodbets, Betfred, Supabets, YesPlay, Gbets, TicTacBets, ZARbet, and PlayTsogo all offer some form of no-deposit reward. Read the T&Cs carefully, as many require a wagering multiple before you can withdraw.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What is a wagering requirement?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>A wagering requirement is the number of times you must bet through the bonus before withdrawing winnings. A 3x requirement on a R100 bonus means you must place R300 in bets. Lower numbers (1x, 3x) are more generous. Higher numbers (8x, 25x) make the bonus harder to convert to real cash. Hollywoodbets has one of the friendliest at 1x, while 10bet's 8x requirement is demanding.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Are all the operators listed here licensed in South Africa?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>Yes. Every operator on this page holds a licence from a South African provincial gambling board, including the Western Cape, Gauteng, KwaZulu-Natal, Eastern Cape, and Mpumalanga regulators. We do not list offshore or unlicensed operators. You can verify any licence through the relevant board's public register.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Which SA bookmakers accept Capitec Pay?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>Capitec Pay is accepted at Easybet, Betway, Hollywoodbets, Supabets, YesPlay, Gbets, and World Sports Betting. Use the "Capitec Pay" filter above to see only those operators instantly. Minimum deposits via Capitec Pay typically start at R10, with Gbets requiring a R25 minimum.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Can I claim more than one bonus?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>Each operator's welcome bonus applies once per customer. You can sign up at multiple licensed bookmakers and claim a welcome bonus at each. However, creating multiple accounts at the same operator to claim a bonus more than once is against T&Cs and can result in account closure. Ongoing promotions like cashback and reload bonuses can be claimed repeatedly, subject to each operator's schedule.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What does the promo code do?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-a">
+            <p>A promo code is entered during sign-up or deposit to activate a specific bonus. Some operators require a code; others apply the bonus automatically. The code shown on each card above is the one needed to claim the listed bonus. Copy it before you click "Visit Site" so you have it ready during registration.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand">
+      <a href="index" class="site-logo">
+        <span class="logo-mark">T</span>
+        <span class="logo-text">Tips</span>
+      </a>
+      <p>South Africa's independent guide to sports betting, casino resorts, bonuses, and payment methods. Every operator reviewed is licensed by a provincial gambling board. Published by NWG PTY Limited.</p>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Tips</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="betting-bonuses-south-africa">Betting Bonuses</a>
+          <a href="bonus-codes-south-africa">Promo Codes</a>
+          <a href="free-bets-south-africa">Free Bets</a>
+          <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
+          <a href="safer-bankroll-management">Bankroll Management</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Sports Sites</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="best-betting-sites-south-africa">Best Sports Betting Sites</a>
+          <a href="sportsbook-reviews">All Reviews</a>
+          <a href="football-betting-sites-south-africa">Football</a>
+          <a href="rugby-betting-sites-south-africa">Rugby</a>
+          <a href="cricket-betting-sites-south-africa">Cricket</a>
+          <a href="horse-racing-betting-sites-south-africa">Horse Racing</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Casino Sites</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="casinos-in-south-africa">Casino Resorts</a>
+          <a href="online-casinos-south-africa">Online Casinos</a>
+          <a href="online-slots-south-africa">Online Slots</a>
+          <a href="live-casino-south-africa">Live Casino</a>
+          <a href="is-online-casino-legal-in-south-africa">Casino Law</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Tools</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="payment-methods">Payment Methods</a>
+          <a href="fast-payout-betting-sites-south-africa">Fast Payouts</a>
+          <a href="how-to-check-a-bookmaker-licence">Licence Checker</a>
+          <a href="legal-hub">Legal Hub</a>
+          <a href="responsible-gambling">Responsible Gambling</a>
+          <a href="bonus-browser">Bonus Browser</a>
+    <a href="betting-calculators">Betting Calculators</a>
+    <a href="guides/">Betting Guides</a>
+    <a href="odds-converter">Odds Converter</a>
+          <a href="parlay-calculator">Parlay Calculator</a>
+          <a href="bonus-browser">Bonus Browser</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>About</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="about-us">About Us</a>
+          <a href="our-authors">Our Authors</a>
+          <a href="how-we-review-betting-sites">How We Review</a>
+          <a href="editorial-policy">Editorial Policy</a>
+          <a href="contact-us">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-rg">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p><strong>18+</strong> Gambling is not for minors. If you or someone you know has a gambling problem, call the SA Responsible Gambling Foundation helpline: <strong>0800 006 008</strong> (free, 24/7). All bookmakers listed on this site hold a licence from a South African provincial gambling board. Online sports betting is legal in South Africa, but interactive casino gambling is not.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Tips. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy">Privacy</a>
+        <a href="terms-and-conditions">Terms</a>
+        <a href="affiliate-disclosure">Affiliate Disclosure</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---- Brand data embedded from data.json ----
+var BRANDS = [
+  {
+    id: "easybet",
+    name: "Easybet",
+    overallRating: 4.7,
+    welcomeBonusAmount: "R50 Sign-Up + 150% up to R1,500",
+    welcomeBonusDetails: "No deposit needed for R50 bonus. Use code PROMOBET for deposit match.",
+    promoCode: "PROMOBET",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","1Voucher","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["R50 no-deposit sign-up bonus","Strong local payment coverage","15% cashback on weekly losses","Simple registration process"],
+    tcs: "18+ T&Cs apply. Wagering: 3x at 3/10 odds or higher.",
+    bonusType: ["no-deposit","welcome","cashback"],
+    bonusValueNum: 1500,
+    bestFor: "No-deposit bonus seekers",
+    baseColour: "#00b341",
+    exitLink: "#"
+  },
+  {
+    id: "betway",
+    name: "Betway",
+    overallRating: 4.7,
+    welcomeBonusAmount: "100% up to R1,000",
+    welcomeBonusDetails: "100% deposit match on first deposit. Min deposit R10. 3x wagering at 3.0+ odds.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","Bank Transfer","Skrill"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["Excellent app for Android and iOS","Wide sport coverage including esports","Competitive odds on local sport","Live streaming on selected events"],
+    tcs: "18+ T&Cs apply. 3x wagering at 3.0 odds. 30-day expiry.",
+    bonusType: ["welcome"],
+    bonusValueNum: 1000,
+    bestFor: "Overall best for most bettors",
+    baseColour: "#00a826",
+    exitLink: "#"
+  },
+  {
+    id: "hollywoodbets",
+    name: "Hollywoodbets",
+    overallRating: 4.6,
+    welcomeBonusAmount: "R25 Free Bet + 50 Free Spins",
+    welcomeBonusDetails: "No deposit required. Wager 1x at 1.50+ odds. 24-hour expiry.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","1Voucher","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["No-deposit R25 sign-up bonus","Physical branch offices across SA","Excellent customer support","Strong local brand trust"],
+    tcs: "18+ T&Cs apply. 1x wagering at 1.50+ odds. 24-hour expiry.",
+    bonusType: ["no-deposit","free-bet"],
+    bonusValueNum: 25,
+    bestFor: "Beginners and branch-office users",
+    baseColour: "#7b2d8e",
+    exitLink: "#"
+  },
+  {
+    id: "10bet",
+    name: "10bet",
+    overallRating: 4.5,
+    welcomeBonusAmount: "100% up to R3,000",
+    welcomeBonusDetails: "100% deposit match. Min deposit R20. 8x wagering at 2.0+ odds. 30-day expiry.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","Bank Transfer","Skrill"],
+    minDeposit: "R20",
+    minDepositNum: 20,
+    pros: ["Generous R3,000 welcome bonus","Good multi-bet boost promotions","Usable across sports and casino","Monday cashback up to R1,000"],
+    tcs: "18+ T&Cs apply. 8x wagering at 2.0 odds. 30-day expiry.",
+    bonusType: ["welcome","cashback"],
+    bonusValueNum: 3000,
+    bestFor: "High bonus value seekers",
+    baseColour: "#1a1a2e",
+    exitLink: "#"
+  },
+  {
+    id: "betfred",
+    name: "Betfred",
+    overallRating: 4.4,
+    welcomeBonusAmount: "R50 Free Bet on Sign-Up",
+    welcomeBonusDetails: "No deposit needed. Wager 3x on accumulator bets at 3.0+ odds.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["Established international brand","No-deposit R50 free bet","Decent rugby and football markets","Phone support available"],
+    tcs: "18+ T&Cs apply. 3x wagering at 3.0+ odds.",
+    bonusType: ["no-deposit","free-bet"],
+    bonusValueNum: 50,
+    bestFor: "Established brand reliability",
+    baseColour: "#0055a5",
+    exitLink: "#"
+  },
+  {
+    id: "supabets",
+    name: "Supabets",
+    overallRating: 4.3,
+    welcomeBonusAmount: "R50 Free Bet + 100% up to R2,000",
+    welcomeBonusDetails: "R50 no-deposit sign-up. First deposit 100% match to R2,000.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","1Voucher","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["R50 no-deposit sign-up bonus","100 free spins for casino","Strong local payment support","Physical branches"],
+    tcs: "18+ T&Cs apply. Max withdrawable from bonus: R3,000.",
+    bonusType: ["no-deposit","welcome","free-bet"],
+    bonusValueNum: 2000,
+    bestFor: "Budget-friendly bettors",
+    baseColour: "#e31e24",
+    exitLink: "#"
+  },
+  {
+    id: "sportingbet",
+    name: "Sportingbet",
+    overallRating: 4.3,
+    welcomeBonusAmount: "100% up to R2,000",
+    welcomeBonusDetails: "100% deposit match. Min deposit R10. 5x wagering at 2.0+ odds.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["R2,000 bonus is competitive","5x wagering is reasonable","Clean mobile experience","Part of a major international group"],
+    tcs: "18+ T&Cs apply. 5x wagering at 2.0+ odds.",
+    bonusType: ["welcome"],
+    bonusValueNum: 2000,
+    bestFor: "Balanced bonus and odds",
+    baseColour: "#ff6600",
+    exitLink: "#"
+  },
+  {
+    id: "yesplay",
+    name: "YesPlay",
+    overallRating: 4.2,
+    welcomeBonusAmount: "R50 Free Bet on Sign-Up",
+    welcomeBonusDetails: "No deposit required. Must wager at 1.50+ odds.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","1Voucher"],
+    minDeposit: "R5",
+    minDepositNum: 5,
+    pros: ["R50 no-deposit bonus","Low R5 minimum deposit","WhatsApp support","Good voucher coverage"],
+    tcs: "18+ T&Cs apply.",
+    bonusType: ["no-deposit","free-bet"],
+    bonusValueNum: 50,
+    bestFor: "Low-budget starters",
+    baseColour: "#6c2eb9",
+    exitLink: "#"
+  },
+  {
+    id: "lulabet",
+    name: "Lulabet",
+    overallRating: 4.2,
+    welcomeBonusAmount: "100% up to R5,000",
+    welcomeBonusDetails: "First deposit match. Min deposit R20.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","Bank Transfer","1Voucher"],
+    minDeposit: "R20",
+    minDepositNum: 20,
+    pros: ["Large R5,000 welcome bonus","Growing sport coverage","Decent local payment options"],
+    tcs: "18+ T&Cs apply.",
+    bonusType: ["welcome"],
+    bonusValueNum: 5000,
+    bestFor: "Large bonus seekers",
+    baseColour: "#ff4500",
+    exitLink: "#"
+  },
+  {
+    id: "gbets",
+    name: "Gbets",
+    overallRating: 4.4,
+    welcomeBonusAmount: "R50 Free Bet + 100% up to R5,000",
+    welcomeBonusDetails: "R50 sign-up bonus. 100% first deposit match to R5,000. Use code GFWETS.",
+    promoCode: "GFWETS",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","Bank Transfer","1Voucher"],
+    minDeposit: "R25",
+    minDepositNum: 25,
+    pros: ["Massive combined bonus up to R16,000","R50 no-deposit free bet","Strong local payment methods","Casino and sports bonus split"],
+    tcs: "18+ T&Cs apply. 4x sports wagering at 1.50+ odds.",
+    bonusType: ["no-deposit","welcome","free-bet"],
+    bonusValueNum: 5000,
+    bestFor: "Best combined bonus package",
+    baseColour: "#0d47a1",
+    exitLink: "#"
+  },
+  {
+    id: "tictacbets",
+    name: "TicTacBets",
+    overallRating: 4.1,
+    welcomeBonusAmount: "100% up to R5,000 + 50 Spins",
+    welcomeBonusDetails: "100% deposit match. Use code BETS.",
+    promoCode: "BETS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","FNB","OTT Voucher"],
+    minDeposit: "R5",
+    minDepositNum: 5,
+    pros: ["R5,000 bonus is among the highest","Low R5 minimum deposit","WhatsApp support","50 free spins included"],
+    tcs: "18+ T&Cs apply.",
+    bonusType: ["welcome"],
+    bonusValueNum: 5000,
+    bestFor: "Low-deposit, high-bonus value",
+    baseColour: "#cc0100",
+    exitLink: "#"
+  },
+  {
+    id: "world-sports-betting",
+    name: "World Sports Betting",
+    overallRating: 4.3,
+    welcomeBonusAmount: "100% up to R20,000",
+    welcomeBonusDetails: "100% first deposit match. Min deposit R50.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Capitec Pay","Ozow","Instant EFT","Visa","Mastercard","Bank Transfer"],
+    minDeposit: "R50",
+    minDepositNum: 50,
+    pros: ["R20,000 is the largest headline bonus in SA","Solid sport coverage","Long-established brand","Good local payment support"],
+    tcs: "18+ T&Cs apply.",
+    bonusType: ["welcome"],
+    bonusValueNum: 20000,
+    bestFor: "Largest headline bonus",
+    baseColour: "#003d7a",
+    exitLink: "#"
+  },
+  {
+    id: "zarbet",
+    name: "ZARbet",
+    overallRating: 4.1,
+    welcomeBonusAmount: "R50 Free Bet + 100% up to R3,750",
+    welcomeBonusDetails: "No-deposit R50 free bet. First deposit 100% match to R3,750.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["R50 no-deposit bonus","Decent deposit match","ZAR-focused brand"],
+    tcs: "18+ T&Cs apply.",
+    bonusType: ["no-deposit","welcome","free-bet"],
+    bonusValueNum: 3750,
+    bestFor: "ZAR-centric simplicity",
+    baseColour: "#228b22",
+    exitLink: "#"
+  },
+  {
+    id: "playtsogo",
+    name: "PlayTsogo",
+    overallRating: 4.0,
+    welcomeBonusAmount: "R25 Free Bet on Sign-Up",
+    welcomeBonusDetails: "No deposit required. Backed by Tsogo Sun.",
+    promoCode: "NEWBONUS",
+    paymentMethodsList: ["Ozow","Instant EFT","Visa","Mastercard","Bank Transfer"],
+    minDeposit: "R10",
+    minDepositNum: 10,
+    pros: ["Backed by Tsogo Sun casino group","R25 no-deposit bonus","Phone support available","Strong land-based casino connection"],
+    tcs: "18+ T&Cs apply.",
+    bonusType: ["no-deposit","free-bet"],
+    bonusValueNum: 25,
+    bestFor: "Tsogo Sun ecosystem users",
+    baseColour: "#c41230",
+    exitLink: "#"
+  }
+];
+
+// ---- State ----
+var activeFilters = { bonusType: '', payment: '', minDeposit: '', sort: 'rating' };
+
+// ---- Payment filter mapping ----
+var PAYMENT_MAP = {
+  'Ozow': 'Ozow',
+  'Capitec Pay': 'Capitec Pay',
+  'Instant EFT': 'Instant EFT',
+  'Visa': 'Visa',
+  '1Voucher': '1Voucher'
+};
+
+// ---- Bonus type labels ----
+var BONUS_TYPE_LABELS = {
+  'no-deposit': 'No-Deposit',
+  'welcome': 'Deposit Match',
+  'free-bet': 'Free Bet',
+  'cashback': 'Cashback'
+};
+
+// ---- Get initials for logo fallback ----
+function getInitials(name) {
+  return name.split(' ').slice(0, 2).map(function(w) { return w[0]; }).join('');
+}
+
+// ---- Colour contrast helper ----
+function textColourForBg(hex) {
+  var r = parseInt(hex.slice(1,3), 16);
+  var g = parseInt(hex.slice(3,5), 16);
+  var b = parseInt(hex.slice(5,7), 16);
+  var lum = 0.299*r + 0.587*g + 0.114*b;
+  return lum > 150 ? '#111111' : '#ffffff';
+}
+
+// ---- Rating badge class ----
+function ratingClass(r) {
+  return r >= 4.2 ? 'green' : 'amber';
+}
+
+// ---- Primary bonus type label ----
+function primaryBonusLabel(brand) {
+  if (brand.bonusType.indexOf('no-deposit') !== -1) return 'No-Deposit';
+  if (brand.bonusType.indexOf('free-bet') !== -1) return 'Free Bet';
+  if (brand.bonusType.indexOf('cashback') !== -1) return 'Cashback';
+  return 'Welcome Bonus';
+}
+
+// ---- Payment pills (first 4 shown) ----
+function paymentPills(methods) {
+  var shown = methods.slice(0, 5);
+  var rest = methods.length - shown.length;
+  var html = shown.map(function(m) {
+    return '<span class="bb-payment-pill">' + m + '</span>';
+  }).join('');
+  if (rest > 0) html += '<span class="bb-payment-pill">+' + rest + ' more</span>';
+  return html;
+}
+
+// ---- Render a single card ----
+function renderCard(brand) {
+  var initials = getInitials(brand.name);
+  var tc = textColourForBg(brand.baseColour);
+  var rClass = ratingClass(brand.overallRating);
+  var bonusLabel = primaryBonusLabel(brand);
+
+  return '<div class="bb-card">' +
+    '<div class="bb-card-header">' +
+      '<div class="bb-logo-placeholder" style="background:' + brand.baseColour + ';color:' + tc + '">' + initials + '</div>' +
+      '<div class="bb-card-name-row">' +
+        '<div class="bb-card-name">' + brand.name + '</div>' +
+        '<div class="bb-card-best-for">' + brand.bestFor + '</div>' +
+      '</div>' +
+      '<div class="bb-rating-badge ' + rClass + '">' + brand.overallRating.toFixed(1) + '</div>' +
+    '</div>' +
+    '<div class="bb-card-body">' +
+      '<div class="bb-bonus-block">' +
+        '<span class="bb-bonus-type-badge">' + bonusLabel + '</span>' +
+        '<div class="bb-bonus-amount">' + brand.welcomeBonusAmount + '</div>' +
+        '<div class="bb-bonus-detail">' + brand.welcomeBonusDetails + '</div>' +
+      '</div>' +
+      '<div class="bb-promo-row">' +
+        '<span class="bb-promo-label">Code:</span>' +
+        '<div class="bb-promo-code">' +
+          '<span class="bb-promo-value">' + brand.promoCode + '</span>' +
+          '<button class="bb-copy-btn" onclick="copyCode(this, \'' + brand.promoCode + '\')" title="Copy code">' +
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+      '<ul class="bb-bullets">' +
+        brand.pros.slice(0, 3).map(function(p) { return '<li>' + p + '</li>'; }).join('') +
+      '</ul>' +
+      '<div class="bb-meta-row">' +
+        '<div class="bb-meta-item"><div class="bb-meta-label">Min Deposit</div><div class="bb-meta-value">' + brand.minDeposit + '</div></div>' +
+        '<div class="bb-meta-item"><div class="bb-meta-label">Rating</div><div class="bb-meta-value">' + brand.overallRating.toFixed(1) + ' / 5.0</div></div>' +
+      '</div>' +
+      '<div class="bb-payment-pills">' + paymentPills(brand.paymentMethodsList) + '</div>' +
+      '<div class="bb-tcs">' + brand.tcs + '</div>' +
+    '</div>' +
+    '<div class="bb-cta-row">' +
+      '<a href="' + brand.exitLink + '" class="bb-visit-btn" rel="sponsored noopener noreferrer" target="_blank">Visit Site</a>' +
+      '<a href="sportsbook-reviews/' + brand.id + '" class="bb-review-link">Review</a>' +
+    '</div>' +
+  '</div>';
+}
+
+// ---- Filter + sort logic ----
+function getFiltered() {
+  var bt = activeFilters.bonusType;
+  var pm = activeFilters.payment;
+  var md = activeFilters.minDeposit ? parseInt(activeFilters.minDeposit) : null;
+
+  var results = BRANDS.filter(function(b) {
+    // Bonus type
+    if (bt && b.bonusType.indexOf(bt) === -1) return false;
+    // Payment method
+    if (pm) {
+      var match = false;
+      for (var i = 0; i < b.paymentMethodsList.length; i++) {
+        var m = b.paymentMethodsList[i];
+        if (pm === 'Visa' && (m === 'Visa' || m === 'Mastercard' || m.indexOf('Visa') !== -1)) { match = true; break; }
+        if (m === pm) { match = true; break; }
+      }
+      if (!match) return false;
+    }
+    // Min deposit
+    if (md !== null && b.minDepositNum > md) return false;
+    return true;
+  });
+
+  // Sort
+  var sort = activeFilters.sort;
+  results.sort(function(a, b) {
+    if (sort === 'rating') return b.overallRating - a.overallRating;
+    if (sort === 'bonus-value') return b.bonusValueNum - a.bonusValueNum;
+    if (sort === 'min-deposit') return a.minDepositNum - b.minDepositNum;
+    return 0;
+  });
+
+  return results;
+}
+
+// ---- Render active filter pills ----
+function renderPills() {
+  var pills = '';
+  if (activeFilters.bonusType) {
+    var label = BONUS_TYPE_LABELS[activeFilters.bonusType] || activeFilters.bonusType;
+    pills += '<span class="bb-filter-pill">' + label + '<button onclick="clearFilter(\'bonusType\')" aria-label="Remove filter">&#215;</button></span>';
+  }
+  if (activeFilters.payment) {
+    var pmLabel = activeFilters.payment === 'Visa' ? 'Visa/MC' : activeFilters.payment;
+    pills += '<span class="bb-filter-pill">' + pmLabel + '<button onclick="clearFilter(\'payment\')" aria-label="Remove filter">&#215;</button></span>';
+  }
+  if (activeFilters.minDeposit) {
+    pills += '<span class="bb-filter-pill">Min dep up to R' + activeFilters.minDeposit + '<button onclick="clearFilter(\'minDeposit\')" aria-label="Remove filter">&#215;</button></span>';
+  }
+  document.getElementById('bbActivePills').innerHTML = pills;
+}
+
+// ---- Main render ----
+function renderGrid() {
+  var filtered = getFiltered();
+  var grid = document.getElementById('bbGrid');
+  var counter = document.getElementById('bbCount');
+
+  counter.textContent = filtered.length;
+  renderPills();
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="bb-empty">' +
+      '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg>' +
+      '<h3>No operators match these filters</h3>' +
+      '<p>Try removing a filter to see more results.</p>' +
+      '<button class="bb-empty-reset" onclick="resetFilters()">Clear all filters</button>' +
+    '</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(renderCard).join('');
+}
+
+// ---- Copy to clipboard ----
+function copyCode(btn, code) {
+  try {
+    navigator.clipboard.writeText(code).then(function() {
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+      setTimeout(function() {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+      }, 2000);
+    });
+  } catch(e) {
+    // fallback
+    var ta = document.createElement('textarea');
+    ta.value = code;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.classList.add('copied');
+    setTimeout(function() { btn.classList.remove('copied'); }, 2000);
+  }
+}
+
+// ---- Clear individual filter ----
+function clearFilter(key) {
+  activeFilters[key] = '';
+  if (key === 'bonusType') document.getElementById('filterBonusType').value = '';
+  if (key === 'payment') document.getElementById('filterPayment').value = '';
+  if (key === 'minDeposit') document.getElementById('filterMinDeposit').value = '';
+  renderGrid();
+}
+
+// ---- Reset all filters ----
+function resetFilters() {
+  activeFilters = { bonusType: '', payment: '', minDeposit: '', sort: 'rating' };
+  document.getElementById('filterBonusType').value = '';
+  document.getElementById('filterPayment').value = '';
+  document.getElementById('filterMinDeposit').value = '';
+  document.getElementById('filterSort').value = 'rating';
+  renderGrid();
+}
+
+// ---- Event listeners ----
+document.getElementById('filterBonusType').addEventListener('change', function() {
+  activeFilters.bonusType = this.value;
+  renderGrid();
+});
+document.getElementById('filterPayment').addEventListener('change', function() {
+  activeFilters.payment = this.value;
+  renderGrid();
+});
+document.getElementById('filterMinDeposit').addEventListener('change', function() {
+  activeFilters.minDeposit = this.value;
+  renderGrid();
+});
+document.getElementById('filterSort').addEventListener('change', function() {
+  activeFilters.sort = this.value;
+  renderGrid();
+});
+
+// ---- FAQ accordion ----
+function toggleFaq(el) {
+  var item = el.parentElement;
+  var wasOpen = item.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ---- Initial render ----
+renderGrid();
+</script>
+<script src="assets/main.js" defer></script>
+</body>
+</html>
