@@ -1089,8 +1089,12 @@
 <header class="site-header">
   <div class="container">
     <a href="index" class="site-logo">
-      <span class="logo-mark">T</span>
-      <span class="logo-text">Tips</span>
+      <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="10" fill="#0d7c3d"/>
+        <path d="M10 24L16 16L20 20L26 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 12H26V16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-wordmark"><span class="logo-word">Tips</span><span class="logo-tld">.co.za</span></span>
     </a>
     <nav class="nav-desktop" aria-label="Main navigation">
       <a href="top-betting-sites" class="nav-top-link">Top Betting Sites</a>
@@ -1504,8 +1508,12 @@
   <div class="container">
     <div class="footer-brand">
       <a href="index" class="site-logo">
-        <span class="logo-mark">T</span>
-        <span class="logo-text">Tips</span>
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="10" fill="#0d7c3d"/>
+          <path d="M10 24L16 16L20 20L26 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 12H26V16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-wordmark"><span class="logo-word">Tips</span><span class="logo-tld">.co.za</span></span>
       </a>
       <p>South Africa's independent guide to sports betting, casino resorts, bonuses, and payment methods. Every operator reviewed is licensed by a provincial gambling board. Published by NWG PTY Limited.</p>
     </div>
@@ -1705,6 +1713,37 @@
   }
 
   // ================================================================
+  // ENRICH VALUE BETS WITH MATCH NAMES
+  // ================================================================
+  async function enrichBets(bets) {
+    // Collect unique event IDs
+    var ids = {};
+    bets.forEach(function(b) { if (b.eventId) ids[b.eventId] = true; });
+    var uniqueIds = Object.keys(ids);
+
+    // Fetch odds (which contain team names) for each event
+    var eventMap = {};
+    await Promise.all(uniqueIds.map(async function(eid) {
+      try {
+        var od = await fetchOdds(eid);
+        if (od) eventMap[eid] = od;
+      } catch (e) {}
+    }));
+
+    // Merge team names + league back into bets
+    bets.forEach(function(b) {
+      var ev = eventMap[b.eventId];
+      if (ev) {
+        b.home = ev.home || '';
+        b.away = ev.away || '';
+        b.league = ev.league || b.league;
+        b.date = ev.date || '';
+      }
+    });
+    return bets;
+  }
+
+  // ================================================================
   // TIP OF THE DAY
   // ================================================================
   async function loadTipOfDay() {
@@ -1716,6 +1755,12 @@
       var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake&apiKey=' + API_KEY);
       var allBets = [].concat(norm(bwBets), norm(skBets));
 
+      // Filter to ML (moneyline) bets only for cleaner tips
+      var mlBets = allBets.filter(function(b) {
+        return b.market && (b.market.name === 'ML' || b.market.name === '1X2' || b.market.name === 'Moneyline');
+      });
+      if (mlBets.length) allBets = mlBets;
+
       allBets.sort(function(a, b) {
         return (parseFloat(b.expectedValue) || 0) - (parseFloat(a.expectedValue) || 0);
       });
@@ -1724,6 +1769,9 @@
         container.innerHTML = '<div class="totd-empty">No tip of the day right now. Check back closer to kickoff.</div>';
         return allBets;
       }
+
+      // Enrich with team names from odds API
+      allBets = await enrichBets(allBets);
 
       var tip = allBets[0];
       var ev = parseFloat(tip.expectedValue) || 100;
@@ -1736,7 +1784,7 @@
       var sideKey = side.toLowerCase();
       var sideOddsVal = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
       var fairOddsVal = sideKey === 'home' ? (market.home || '-') : (sideKey === 'away' ? (market.away || '-') : (market.draw || market.home || '-'));
-      var matchName = tip.home && tip.away ? (tip.home + ' vs ' + tip.away) : (tip.eventId || 'Match');
+      var matchName = tip.home && tip.away ? (tip.home + ' vs ' + tip.away) : 'Match';
       var leagueName = (tip.league && (tip.league.name || tip.league)) || '';
       var betLink = bkOdds.href || '#';
 
@@ -1790,9 +1838,15 @@
         var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway&apiKey=' + API_KEY);
         var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake&apiKey=' + API_KEY);
         allBets = [].concat(norm(bwBets), norm(skBets));
+        // Filter to ML bets
+        var mlBets = allBets.filter(function(b) {
+          return b.market && (b.market.name === 'ML' || b.market.name === '1X2' || b.market.name === 'Moneyline');
+        });
+        if (mlBets.length) allBets = mlBets;
         allBets.sort(function(a, b) {
           return (parseFloat(b.expectedValue) || 0) - (parseFloat(a.expectedValue) || 0);
         });
+        allBets = await enrichBets(allBets);
       }
 
       if (!allBets.length) {
@@ -1817,7 +1871,7 @@
         var sideOdds = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
         var fairOdds = sideKey === 'home' ? fairHome : (sideKey === 'away' ? fairAway : (market.draw ? parseFloat(market.draw).toFixed(2) : fairHome));
         var leagueName = (bet.league && (bet.league.name || bet.league)) || '';
-        var matchName = bet.home && bet.away ? (bet.home + ' vs ' + bet.away) : (bet.eventId || 'Match');
+        var matchName = bet.home && bet.away ? (bet.home + ' vs ' + bet.away) : 'Match';
 
         return '<div class="vb-card">' +
           '<div class="vb-header"><div>' +

@@ -230,29 +230,31 @@ h1, h2, h3, h4, h5, h6 {
 .site-footer .site-logo img { filter: brightness(0) invert(1); }
 
 
-.logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0;
-  flex-shrink: 0;
+.logo-icon { flex-shrink: 0; }
+.logo-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
 }
-.logo-text {
+.logo-word {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--text-lg);
-  letter-spacing: -0.02em;
+  font-size: 22px;
+  letter-spacing: -0.03em;
   color: var(--color-text);
 }
-[data-theme="dark"] .logo-text { color: var(--color-text); }
+.logo-tld {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0;
+  color: var(--accent);
+  margin-left: 1px;
+}
+[data-theme="dark"] .logo-word { color: var(--color-text); }
+[data-theme="dark"] .logo-tld { color: #4ADE80; }
+.site-footer .logo-word { color: #fff; }
+.site-footer .logo-tld { color: #4ADE80; }
 
 .nav-desktop {
   display: none;
