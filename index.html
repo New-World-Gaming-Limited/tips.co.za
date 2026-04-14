@@ -1077,6 +1077,474 @@
   .preview-card { flex-direction: column; align-items: flex-start; }
   .preview-right { align-self: flex-end; }
 }
+
+/* ================================================================
+   REDESIGNED HOMEPAGE — ACTION-FIRST LAYOUT
+   ================================================================ */
+
+/* ---- HERO BAR (slim) ---- */
+.hero-bar {
+  background: linear-gradient(135deg, #064e24 0%, #0d7c3d 50%, #064e24 100%);
+  padding: 18px 0;
+  color: #fff;
+}
+.hero-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hero-bar h1 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+.hero-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+.hero-bar-right .live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(74,222,128,0); }
+}
+
+/* ---- DASHBOARD GRID ---- */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+}
+@media (max-width: 900px) {
+  .dash-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- SECTION HEADER (reusable) ---- */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+.section-head h2 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-head .section-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badge-live { background: rgba(74,222,128,0.15); color: #16a34a; }
+[data-theme="dark"] .badge-live { background: rgba(74,222,128,0.12); color: #4ade80; }
+.badge-value { background: rgba(13,124,61,0.1); color: #0d7c3d; }
+[data-theme="dark"] .badge-value { background: rgba(74,222,128,0.1); color: #4ade80; }
+
+/* ---- DASHBOARD PANEL ---- */
+.dash-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  overflow: hidden;
+}
+[data-theme="dark"] .dash-panel {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+/* ---- TIP OF DAY (compact banner inside value panel) ---- */
+.totd-banner {
+  background: linear-gradient(135deg, rgba(13,124,61,0.08) 0%, rgba(13,124,61,0.02) 100%);
+  border: 1px solid rgba(13,124,61,0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+[data-theme="dark"] .totd-banner {
+  background: linear-gradient(135deg, rgba(74,222,128,0.06) 0%, rgba(74,222,128,0.02) 100%);
+  border-color: rgba(74,222,128,0.15);
+}
+.totd-banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.totd-banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0d7c3d;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+[data-theme="dark"] .totd-banner-label { color: #4ade80; }
+.totd-banner-match {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.totd-banner-detail {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.totd-banner-detail .ev-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+.totd-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.totd-banner-cta:hover { opacity: 0.9; }
+
+/* ---- VALUE BET ROW (compact) ---- */
+.vb-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 12px;
+}
+.vb-row:last-child { border-bottom: none; }
+.vb-row-left { min-width: 0; flex: 1; }
+.vb-row-match {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vb-row-league {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+.vb-row-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.vb-row-side {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-surface-alt, #f0f2f5);
+  color: var(--color-text);
+}
+[data-theme="dark"] .vb-row-side { background: var(--color-surface-2, #1c2333); }
+.vb-row-odds {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  color: var(--accent);
+  min-width: 40px;
+  text-align: right;
+}
+.vb-row-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.ev-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.ev-high { background: rgba(13,124,61,0.1); color: #0d7c3d; }
+.ev-mid  { background: rgba(234,179,8,0.1); color: #b45309; }
+[data-theme="dark"] .ev-high { background: rgba(74,222,128,0.1); color: #4ade80; }
+[data-theme="dark"] .ev-mid  { background: rgba(234,179,8,0.1); color: #fbbf24; }
+
+/* ---- INTEL ROW (compact) ---- */
+.intel-row-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 12px;
+}
+.intel-row-v2:last-child { border-bottom: none; }
+.intel-v2-left { min-width: 0; flex: 1; }
+.intel-v2-match {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.intel-v2-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  display: flex;
+  gap: 8px;
+}
+.intel-v2-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.intel-v2-odds {
+  font-size: 13px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.intel-v2-odds .old { text-decoration: line-through; opacity: 0.5; }
+.intel-v2-odds .arrow { font-size: 10px; }
+.intel-v2-odds .new { font-weight: 700; color: var(--color-text); }
+.intel-v2-drop {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.drop-down { background: rgba(239,68,68,0.1); color: #dc2626; }
+.drop-up   { background: rgba(74,222,128,0.1); color: #16a34a; }
+[data-theme="dark"] .drop-down { background: rgba(248,113,113,0.1); color: #f87171; }
+[data-theme="dark"] .drop-up   { background: rgba(74,222,128,0.1); color: #4ade80; }
+
+/* ---- MATCHES SECTION ---- */
+.matches-section {
+  padding: var(--space-4) 0 var(--space-5);
+}
+.matches-section .league-tabs {
+  margin-bottom: var(--space-3);
+}
+
+/* ---- TWO-COL ROW ---- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+}
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* ---- ACCA COMPACT ---- */
+.acca-compact .acca-leg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.acca-compact .acca-leg:last-child { border-bottom: none; }
+.acca-compact .acca-leg-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.acca-compact .acca-leg-match {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.acca-compact .acca-leg-pick {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+.acca-compact .acca-leg-odds {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  color: var(--accent);
+}
+.acca-compact .acca-footer-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+  border-top: 2px solid var(--accent);
+}
+.acca-compact .acca-total-label,
+.acca-compact .acca-return-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+.acca-compact .acca-total-value {
+  font-size: 20px;
+  font-weight: 800;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  color: var(--accent);
+}
+.acca-compact .acca-return-value {
+  font-size: 20px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--color-text);
+}
+
+/* ---- STATS COMPACT ---- */
+.stats-compact .stat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.stats-compact .stat-row:last-child { border-bottom: none; }
+.stats-compact .stat-icon { font-size: 18px; flex-shrink: 0; }
+.stats-compact .stat-text {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+.stats-compact .stat-highlight {
+  font-weight: 700;
+  color: var(--accent);
+}
+.stats-compact .stat-league {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---- VIEW ALL LINK ---- */
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.view-all-link:hover { text-decoration: underline; }
+
+/* ---- EXPLORE COMPACT ---- */
+.explore-v2 {
+  padding: var(--space-5) 0;
+}
+.explore-v2-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+@media (max-width: 900px) {
+  .explore-v2-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .explore-v2-grid { grid-template-columns: 1fr; }
+}
+.explore-v2-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.explore-v2-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.explore-v2-card .explore-icon { font-size: 20px; flex-shrink: 0; }
+.explore-v2-card .explore-info { min-width: 0; }
+.explore-v2-card .explore-title {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+}
+.explore-v2-card .explore-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+/* ---- HIDE OLD SECTIONS ---- */
+.hero-tips,
+.totd-section,
+.value-bets-section,
+.previews-section,
+.acca-section,
+.intel-section,
+.stats-section,
+.explore-section { display: none; }
+
 </style>
 
   <script>(function(){var k='local',s={};try{s=window[k+'Storage']||s}catch(e){}window._ls=s;try{var t=s.getItem?s.getItem('tips-theme'):s['tips-theme'];if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
@@ -1229,72 +1697,78 @@
 <main>
 
 <!-- ============================================================
-     SECTION 1: HERO
+     HERO BAR (slim, data-first)
      ============================================================ -->
-<section class="hero-tips">
+<section class="hero-bar">
   <div class="container">
     <h1>Betting Tips South Africa</h1>
-    <p class="hero-sub-text">Data-driven football tips, value picks and accumulators. Powered by live odds from Betway and Stake.</p>
-    <div class="hero-trust-row">
-      <span class="hero-trust-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-        44 Licensed Operators
-      </span>
-      <span class="hero-trust-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-        9 Provincial Boards
-      </span>
-      <span class="hero-trust-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Updated Daily
-      </span>
-      <span class="hero-trust-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        Free Tips
-      </span>
+    <div class="hero-bar-right">
+      <span><span class="live-dot"></span> Live odds from Betway and Stake</span>
+      <span id="hero-timestamp">Loading...</span>
     </div>
-    <p class="hero-updated">Last updated: <strong id="hero-timestamp">Loading...</strong></p>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 2: TIP OF THE DAY
+     DASHBOARD: VALUE BETS + INTELLIGENCE FEED (side by side)
      ============================================================ -->
-<section class="totd-section">
-  <div class="container">
-    <div id="tipOfDay">
-      <div class="skeleton-card" style="max-width:720px;">
-        <div class="skeleton-line w-40"></div>
-        <div class="skeleton-line w-80"></div>
-        <div class="skeleton-line w-60"></div>
-        <div class="skeleton-line w-80"></div>
+<div class="container">
+  <div class="dash-grid">
+
+    <!-- LEFT: Tip of the Day + Value Picks -->
+    <div class="dash-panel">
+      <div class="section-head">
+        <h2>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          Value Bets
+        </h2>
+        <span class="section-badge badge-value">EV+</span>
+      </div>
+      <div id="tipOfDay">
+        <!-- Tip of day banner renders here -->
+      </div>
+      <div id="valueBetsGrid">
+        <!-- Value bet rows render here -->
+        <div class="vb-row"><div class="skeleton-line w-60"></div></div>
+        <div class="vb-row"><div class="skeleton-line w-80"></div></div>
+        <div class="vb-row"><div class="skeleton-line w-60"></div></div>
+        <div class="vb-row"><div class="skeleton-line w-40"></div></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     SECTION 3: TODAY'S VALUE PICKS
-     ============================================================ -->
-<section class="value-bets-section">
-  <div class="container">
-    <h2>Today's Value Picks</h2>
-    <p class="value-bets-subtitle">Matches where bookmaker odds exceed fair probability. Positive expected value.</p>
-    <div class="value-bets-grid" id="valueBetsGrid">
-      <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
-      <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
-      <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
+    <!-- RIGHT: Intelligence Feed (dropping odds) -->
+    <div class="dash-panel">
+      <div class="section-head">
+        <h2>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          Dropping Odds
+        </h2>
+        <span class="section-badge badge-live"><span class="live-dot" style="width:6px;height:6px;margin-right:4px;vertical-align:middle;"></span> Live</span>
+      </div>
+      <div id="intelFeed">
+        <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
+        <div class="intel-row-v2"><div class="skeleton-line w-60"></div></div>
+        <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
+        <div class="intel-row-v2"><div class="skeleton-line w-60"></div></div>
+        <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
+      </div>
     </div>
+
   </div>
-</section>
+</div>
 
 <!-- ============================================================
-     SECTION 4: TODAY'S MATCH PREVIEWS
+     TODAY'S MATCHES (full width, league tabs)
      ============================================================ -->
-<section class="previews-section">
+<section class="matches-section">
   <div class="container">
-    <h2>Today's Matches</h2>
-    <p class="previews-subtitle">Upcoming fixtures across top football leagues.</p>
+    <div class="section-head">
+      <h2>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Today's Matches
+      </h2>
+      <a href="football-odds" class="view-all-link">All odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
 
     <div class="league-tabs" role="tablist" aria-label="Football leagues">
       <button class="league-tab active" role="tab" aria-selected="true" data-league="south-africa-premiership">
@@ -1319,147 +1793,148 @@
 
     <div id="previewGrid" aria-live="polite">
       <div class="skeleton-list">
-        <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>
-        <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>
-        <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 5: ACCUMULATOR OF THE DAY
+     TWO-COL: ACCUMULATOR + TRENDING STATS
      ============================================================ -->
-<section class="acca-section">
-  <div class="container">
-    <h2>Accumulator of the Day</h2>
-    <p class="acca-subtitle">Pre-built 3-leg acca from today's best odds.</p>
-    <div id="accaContainer">
-      <div class="skeleton-card" style="max-width:600px;">
-        <div class="skeleton-line w-80"></div>
-        <div class="skeleton-line w-60"></div>
-        <div class="skeleton-line w-80"></div>
-        <div class="skeleton-line w-40"></div>
+<div class="container">
+  <div class="two-col">
+
+    <!-- Accumulator of the Day -->
+    <div class="dash-panel">
+      <div class="section-head">
+        <h2>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Accumulator
+        </h2>
+        <span class="section-badge badge-value">3 legs</span>
+      </div>
+      <div id="accaContainer" class="acca-compact">
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
       </div>
     </div>
+
+    <!-- Trending Stats -->
+    <div class="dash-panel">
+      <div class="section-head">
+        <h2>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Trending Stats
+        </h2>
+      </div>
+      <div class="stats-compact">
+        <div class="stat-row">
+          <span class="stat-icon">&#x1F525;</span>
+          <div>
+            <div class="stat-league">Premier League</div>
+            <div class="stat-text">Over 2.5 goals has landed in <span class="stat-highlight">67%</span> of matches this season</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon">&#x1F3DF;&#xFE0F;</span>
+          <div>
+            <div class="stat-league">SA Premiership</div>
+            <div class="stat-text">Home teams have won <span class="stat-highlight">48%</span> of matches this campaign</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon">&#x26BD;</span>
+          <div>
+            <div class="stat-league">Bundesliga</div>
+            <div class="stat-text">Leads Europe with an average of <span class="stat-highlight">3.1 goals</span> per game</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon">&#x1F6E1;&#xFE0F;</span>
+          <div>
+            <div class="stat-league">Serie A</div>
+            <div class="stat-text">Has the most clean sheets (<span class="stat-highlight">38%</span>) of any top-5 league</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
+</div>
 
 <!-- ============================================================
-     SECTION 6: INTELLIGENCE FEED - RECENT ODDS MOVES
+     EXPLORE (compact grid)
      ============================================================ -->
-<section class="intel-section">
+<section class="explore-v2">
   <div class="container">
-    <div class="intel-header">
-      <h2>Intelligence Feed</h2>
-      <span class="intel-live-dot"></span>
+    <div class="section-head">
+      <h2>Explore</h2>
     </div>
-    <p class="intel-subtitle">Significant odds movements across football markets. Dropping odds can signal sharp money or team news.</p>
-    <div id="intelFeed">
-      <div class="skeleton-list">
-        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
-        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
-        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
-        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 7: TRENDING STATS
-     ============================================================ -->
-<section class="stats-section">
-  <div class="container">
-    <h2>Trending Stats</h2>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-icon">&#x1F525;</span>
-        <div class="stat-body">
-          <div class="stat-league">Premier League</div>
-          <div class="stat-text">Over 2.5 goals has landed in <span class="stat-highlight">67%</span> of matches this season</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <span class="stat-icon">&#x1F3DF;&#xFE0F;</span>
-        <div class="stat-body">
-          <div class="stat-league">SA Premiership</div>
-          <div class="stat-text">Home teams have won <span class="stat-highlight">48%</span> of matches this campaign</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <span class="stat-icon">&#x26BD;</span>
-        <div class="stat-body">
-          <div class="stat-league">Bundesliga</div>
-          <div class="stat-text">Leads Europe with an average of <span class="stat-highlight">3.1 goals</span> per game</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <span class="stat-icon">&#x1F6E1;&#xFE0F;</span>
-        <div class="stat-body">
-          <div class="stat-league">Serie A</div>
-          <div class="stat-text">Has the most clean sheets (<span class="stat-highlight">38%</span>) of any top-5 league</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 8: EXPLORE
-     ============================================================ -->
-<section class="explore-section">
-  <div class="container">
-    <h2>Explore</h2>
-    <div class="explore-grid">
-      <a href="football-odds" class="explore-card">
+    <div class="explore-v2-grid">
+      <a href="football-odds" class="explore-v2-card">
         <span class="explore-icon">&#x26BD;</span>
-        <span class="explore-title">Live Football Odds</span>
-        <span class="explore-desc">Compare Betway vs Stake across 6 leagues.</span>
-        <span class="explore-arrow">Compare odds &rarr;</span>
+        <div class="explore-info">
+          <span class="explore-title">Live Football Odds</span>
+          <span class="explore-desc">Betway vs Stake across 6 leagues</span>
+        </div>
       </a>
-      <a href="sportsbook-reviews" class="explore-card">
+      <a href="sportsbook-reviews" class="explore-v2-card">
         <span class="explore-icon">&#x1F4CB;</span>
-        <span class="explore-title">44 Bookmaker Reviews</span>
-        <span class="explore-desc">Every licensed SA operator rated and ranked.</span>
-        <span class="explore-arrow">View all &rarr;</span>
+        <div class="explore-info">
+          <span class="explore-title">44 Bookmaker Reviews</span>
+          <span class="explore-desc">Every licensed SA operator rated</span>
+        </div>
       </a>
-      <a href="bonus-codes-south-africa" class="explore-card">
+      <a href="bonus-codes-south-africa" class="explore-v2-card">
         <span class="explore-icon">&#x1F381;</span>
-        <span class="explore-title">44 Promo Codes</span>
-        <span class="explore-desc">Verified welcome and reload bonus codes.</span>
-        <span class="explore-arrow">Get codes &rarr;</span>
+        <div class="explore-info">
+          <span class="explore-title">Promo Codes</span>
+          <span class="explore-desc">Verified bonus codes for 44 operators</span>
+        </div>
       </a>
-      <a href="bonus-browser" class="explore-card">
-        <span class="explore-icon">&#x1F50D;</span>
-        <span class="explore-title">Bonus Browser</span>
-        <span class="explore-desc">Filter bonuses by type, value and wagering.</span>
-        <span class="explore-arrow">Browse &rarr;</span>
-      </a>
-      <a href="betting-calculators" class="explore-card">
+      <a href="betting-calculators" class="explore-v2-card">
         <span class="explore-icon">&#x1F9EE;</span>
-        <span class="explore-title">Betting Calculators</span>
-        <span class="explore-desc">Parlay, margin, odds converter and more.</span>
-        <span class="explore-arrow">Calculate &rarr;</span>
+        <div class="explore-info">
+          <span class="explore-title">Betting Calculators</span>
+          <span class="explore-desc">Parlay, margin, odds converter</span>
+        </div>
       </a>
-      <a href="how-we-review-betting-sites" class="explore-card">
-        <span class="explore-icon">&#x2696;&#xFE0F;</span>
-        <span class="explore-title">How We Review</span>
-        <span class="explore-desc">Our 7-category independent scoring framework.</span>
-        <span class="explore-arrow">Learn more &rarr;</span>
+      <a href="bonus-browser" class="explore-v2-card">
+        <span class="explore-icon">&#x1F50D;</span>
+        <div class="explore-info">
+          <span class="explore-title">Bonus Browser</span>
+          <span class="explore-desc">Filter by type, value, wagering</span>
+        </div>
       </a>
-      <a href="legal-hub" class="explore-card">
+      <a href="guides/" class="explore-v2-card">
+        <span class="explore-icon">&#x1F4DA;</span>
+        <div class="explore-info">
+          <span class="explore-title">Betting Guides</span>
+          <span class="explore-desc">How-to guides for SA bettors</span>
+        </div>
+      </a>
+      <a href="legal-hub" class="explore-v2-card">
         <span class="explore-icon">&#x1F3DB;&#xFE0F;</span>
-        <span class="explore-title">SA Gambling Law</span>
-        <span class="explore-desc">Provincial licences, legal status and your rights.</span>
-        <span class="explore-arrow">Read more &rarr;</span>
+        <div class="explore-info">
+          <span class="explore-title">SA Gambling Law</span>
+          <span class="explore-desc">Provincial licences and your rights</span>
+        </div>
+      </a>
+      <a href="how-we-review-betting-sites" class="explore-v2-card">
+        <span class="explore-icon">&#x2696;&#xFE0F;</span>
+        <div class="explore-info">
+          <span class="explore-title">How We Review</span>
+          <span class="explore-desc">7-category scoring framework</span>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 9: HOW WE RANK
+     HOW WE RANK (SEO content)
      ============================================================ -->
 <section class="section section-alt">
   <div class="container">
@@ -1478,7 +1953,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 10: FAQ
+     FAQ (SEO content)
      ============================================================ -->
 <section class="section">
   <div class="container">
@@ -1497,12 +1972,14 @@
       <div class="faq-answer"><p>Capitec Pay, Instant EFT and Ozow are the most popular local deposit methods because they are instant and free at most bookmakers. Cards, bank transfer and voucher methods such as 1Voucher are also widely supported.</p></div>
     </div><div class="faq-item">
       <button class="faq-question" aria-expanded="false">How often are tips updated?</button>
-      <div class="faq-answer"><p>Tips are updated every time you load the page. Odds data refreshes every 5 minutes from Betway and Stake, so value picks and predictions stay current throughout the day.</p></div>
+      <div class="faq-answer"><p>Tips update every time you load the page and auto-refresh every 5 minutes. Odds data comes live from Betway and Stake, so value picks and the intelligence feed stay current throughout the day.</p></div>
     </div></div>
   </div>
 </section>
 
 </main>
+
+
 
 <footer class="site-footer">
   <div class="container">
@@ -1650,10 +2127,9 @@
     var d = toSAST(dateStr);
     var h = String(d.getUTCHours()).padStart(2, '0');
     var m = String(d.getUTCMinutes()).padStart(2, '0');
-    return h + ':' + m + ' SAST';
+    return h + ':' + m;
   }
 
-  // ---- Timestamp ----
   function updateTimestamp() {
     var el = document.getElementById('hero-timestamp');
     if (!el) return;
@@ -1681,19 +2157,16 @@
     return [];
   }
 
-  // ---- Fetch events ----
   async function fetchEvents(league) {
     var url = BASE + '/events?sport=football&status=pending&league=' + encodeURIComponent(league);
     return norm(await apiFetch(url));
   }
 
-  // ---- Fetch odds for an event ----
   async function fetchOdds(eventId) {
     var url = BASE + '/odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake';
     return await apiFetch(url);
   }
 
-  // ---- Extract ML odds from odds data ----
   function getML(bks, bkName) {
     var bkArr = bks[bkName];
     if (!bkArr || !bkArr.length) return null;
@@ -1702,26 +2175,20 @@
     return ml.odds[0];
   }
 
-  // ---- Bet side label ----
   function betSideLabel(side) {
     if (!side) return 'Unknown';
     var s = side.toLowerCase();
-    if (s === 'home' || s === '1') return 'Home Win';
-    if (s === 'away' || s === '2') return 'Away Win';
+    if (s === 'home' || s === '1') return 'Home';
+    if (s === 'away' || s === '2') return 'Away';
     if (s === 'draw' || s === 'x') return 'Draw';
     return side;
   }
 
-  // ================================================================
-  // ENRICH VALUE BETS WITH MATCH NAMES
-  // ================================================================
+  // ---- Enrich value bets with team names ----
   async function enrichBets(bets) {
-    // Collect unique event IDs
     var ids = {};
     bets.forEach(function(b) { if (b.eventId) ids[b.eventId] = true; });
     var uniqueIds = Object.keys(ids);
-
-    // Fetch odds (which contain team names) for each event
     var eventMap = {};
     await Promise.all(uniqueIds.map(async function(eid) {
       try {
@@ -1729,8 +2196,6 @@
         if (od) eventMap[eid] = od;
       } catch (e) {}
     }));
-
-    // Merge team names + league back into bets
     bets.forEach(function(b) {
       var ev = eventMap[b.eventId];
       if (ev) {
@@ -1744,18 +2209,17 @@
   }
 
   // ================================================================
-  // TIP OF THE DAY
+  // TIP OF THE DAY (compact banner)
   // ================================================================
   async function loadTipOfDay() {
     var container = document.getElementById('tipOfDay');
-    if (!container) return;
+    if (!container) return [];
 
     try {
       var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway');
       var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake');
       var allBets = [].concat(norm(bwBets), norm(skBets));
 
-      // Filter to ML (moneyline) bets only for cleaner tips
       var mlBets = allBets.filter(function(b) {
         return b.market && (b.market.name === 'ML' || b.market.name === '1X2' || b.market.name === 'Moneyline');
       });
@@ -1766,65 +2230,46 @@
       });
 
       if (!allBets.length) {
-        container.innerHTML = '<div class="totd-empty">No tip of the day right now. Check back closer to kickoff.</div>';
+        container.innerHTML = '';
         return allBets;
       }
 
-      // Enrich with team names from odds API
       allBets = await enrichBets(allBets);
-
       var tip = allBets[0];
       var ev = parseFloat(tip.expectedValue) || 100;
       var evPct = (ev - 100).toFixed(1);
       var bkName = tip.bookmaker || 'Bookmaker';
       var bkOdds = tip.bookmakerOdds || {};
-      var market = tip.market || {};
       var side = tip.betSide || '';
       var sideLabel = betSideLabel(side);
       var sideKey = side.toLowerCase();
       var sideOddsVal = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
-      var fairOddsVal = sideKey === 'home' ? (market.home || '-') : (sideKey === 'away' ? (market.away || '-') : (market.draw || market.home || '-'));
       var matchName = tip.home && tip.away ? (tip.home + ' vs ' + tip.away) : 'Match';
       var leagueName = (tip.league && (tip.league.name || tip.league)) || '';
       var betLink = bkOdds.href || '#';
 
-      // Build rationale
-      var sideOddsNum = parseFloat(sideOddsVal);
-      var fairOddsNum = parseFloat(fairOddsVal);
-      var rationale = bkName + ' offers ' + (sideOddsNum > 0 ? sideOddsNum.toFixed(2) : sideOddsVal) + ' on ' + sideLabel.toLowerCase();
-      if (tip.home && tip.away) {
-        rationale += ' for ' + tip.home + ' vs ' + tip.away;
-      }
-      if (fairOddsNum > 0) {
-        rationale += ', but the fair probability suggests odds of ' + fairOddsNum.toFixed(2);
-      }
-      rationale += '. That is +' + evPct + '% expected value.';
-
-      container.innerHTML = '<div class="totd-card">' +
-        '<div class="totd-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Tip of the Day</div>' +
-        '<div class="totd-match">' + matchName + '</div>' +
-        (leagueName ? '<div class="totd-league">' + leagueName + '</div>' : '') +
-        '<div class="totd-pick-row">' +
-          '<span class="totd-pick">' + sideLabel + '</span>' +
-          '<span class="ev-badge ev-high">+' + evPct + '% EV</span>' +
+      container.innerHTML = '<div class="totd-banner">' +
+        '<div class="totd-banner-left">' +
+          '<div class="totd-banner-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Top Pick</div>' +
+          '<div class="totd-banner-match">' + matchName + '</div>' +
+          '<div class="totd-banner-detail">' +
+            (leagueName ? '<span>' + leagueName + '</span>' : '') +
+            '<span>' + sideLabel + ' @ ' + (parseFloat(sideOddsVal) > 0 ? parseFloat(sideOddsVal).toFixed(2) : sideOddsVal) + '</span>' +
+            '<span class="ev-badge ev-high">+' + evPct + '% EV</span>' +
+          '</div>' +
         '</div>' +
-        '<div class="totd-odds-row">' +
-          '<div class="totd-odds-item"><span class="totd-odds-label">' + bkName + ' odds</span><span class="totd-odds-value highlight">' + (sideOddsNum > 0 ? sideOddsNum.toFixed(2) : sideOddsVal) + '</span></div>' +
-          '<div class="totd-odds-item"><span class="totd-odds-label">Fair odds</span><span class="totd-odds-value">' + (fairOddsNum > 0 ? fairOddsNum.toFixed(2) : fairOddsVal) + '</span></div>' +
-        '</div>' +
-        '<p class="totd-rationale">' + rationale + '</p>' +
-        '<a href="' + betLink + '" class="totd-cta" rel="nofollow noopener" target="_blank">Bet on ' + bkName + ' <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
+        '<a href="' + betLink + '" class="totd-banner-cta" rel="nofollow noopener" target="_blank">Bet on ' + bkName + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
       '</div>';
 
       return allBets;
     } catch (err) {
-      container.innerHTML = '<div class="totd-empty">No tip of the day right now. Check back closer to kickoff.</div>';
+      container.innerHTML = '';
       return [];
     }
   }
 
   // ================================================================
-  // VALUE PICKS
+  // VALUE PICKS (compact rows)
   // ================================================================
   async function loadValueBets(allBetsFromTotd) {
     var grid = document.getElementById('valueBetsGrid');
@@ -1838,7 +2283,6 @@
         var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway');
         var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake');
         allBets = [].concat(norm(bwBets), norm(skBets));
-        // Filter to ML bets
         var mlBets = allBets.filter(function(b) {
           return b.market && (b.market.name === 'ML' || b.market.name === '1X2' || b.market.name === 'Moneyline');
         });
@@ -1849,45 +2293,42 @@
         allBets = await enrichBets(allBets);
       }
 
-      if (!allBets.length) {
-        grid.innerHTML = '<div class="vb-empty" style="grid-column:1/-1;">No value bets detected right now. Check back before kickoff.</div>';
+      // Skip first (already shown as Tip of Day) and show next 5
+      var topBets = allBets.slice(1, 7);
+      if (!topBets.length) {
+        grid.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">No additional value bets right now. Check back before kickoff.</div>';
         return;
       }
 
-      var topBets = allBets.slice(0, 6);
       grid.innerHTML = topBets.map(function(bet) {
         var ev = parseFloat(bet.expectedValue) || 100;
         var evPct = (ev - 100).toFixed(1);
         var evClass = parseFloat(evPct) >= 5 ? 'ev-high' : 'ev-mid';
         var bkOdds = bet.bookmakerOdds || {};
-        var market = bet.market || {};
-        var bkName = bet.bookmaker || 'Bookmaker';
-        var betLink = bkOdds.href || '#';
-        var fairHome = market.home ? parseFloat(market.home).toFixed(2) : '-';
-        var fairAway = market.away ? parseFloat(market.away).toFixed(2) : '-';
+        var bkName = bet.bookmaker || '';
         var side = bet.betSide || '';
         var sideLabel = betSideLabel(side);
         var sideKey = side.toLowerCase();
         var sideOdds = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
-        var fairOdds = sideKey === 'home' ? fairHome : (sideKey === 'away' ? fairAway : (market.draw ? parseFloat(market.draw).toFixed(2) : fairHome));
         var leagueName = (bet.league && (bet.league.name || bet.league)) || '';
         var matchName = bet.home && bet.away ? (bet.home + ' vs ' + bet.away) : 'Match';
 
-        return '<div class="vb-card">' +
-          '<div class="vb-header"><div>' +
-            '<div class="vb-match">' + matchName + '</div>' +
-            (leagueName ? '<div class="vb-league">' + leagueName + '</div>' : '') +
-          '</div><span class="ev-badge ' + evClass + '">+' + evPct + '% EV</span></div>' +
-          '<div class="vb-bet-side">' + sideLabel + '</div>' +
-          '<div class="vb-odds-row">' +
-            '<div class="vb-odds-item"><span class="vb-odds-label">' + bkName + ' odds</span><span class="vb-odds-value bk">' + (parseFloat(sideOdds) > 0 ? parseFloat(sideOdds).toFixed(2) : '-') + '</span></div>' +
-            '<div class="vb-odds-item"><span class="vb-odds-label">Fair odds</span><span class="vb-odds-value">' + fairOdds + '</span></div>' +
+        return '<div class="vb-row">' +
+          '<div class="vb-row-left">' +
+            '<div class="vb-row-match">' + matchName + '</div>' +
+            '<div class="vb-row-league">' + leagueName + '</div>' +
           '</div>' +
-          '<a href="' + betLink + '" class="vb-link" rel="nofollow noopener" target="_blank">Bet on ' + bkName + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
+          '<div class="vb-row-center">' +
+            '<span class="vb-row-side">' + sideLabel + '</span>' +
+            '<span class="vb-row-odds">' + (parseFloat(sideOdds) > 0 ? parseFloat(sideOdds).toFixed(2) : '-') + '</span>' +
+          '</div>' +
+          '<div class="vb-row-right">' +
+            '<span class="ev-badge ' + evClass + '">+' + evPct + '%</span>' +
+          '</div>' +
         '</div>';
       }).join('');
     } catch (err) {
-      grid.innerHTML = '<div class="vb-empty" style="grid-column:1/-1;">No value bets detected right now. Check back before kickoff.</div>';
+      grid.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">Unable to load value bets. Try refreshing.</div>';
     }
   }
 
@@ -1895,7 +2336,6 @@
   // MATCH PREVIEWS
   // ================================================================
   var currentLeague = 'south-africa-premiership';
-  // Store all fetched odds for accumulator use
   var globalOddsStore = [];
 
   function calcPrediction(oddsData) {
@@ -1905,31 +2345,23 @@
     var sk = getML(bks, 'Stake');
     var ml = bw || sk;
     if (!ml) return null;
-
     var home = parseFloat(ml.home) || 0;
     var draw = parseFloat(ml.draw) || 0;
     var away = parseFloat(ml.away) || 0;
-
     if (home <= 0 && draw <= 0 && away <= 0) return null;
-
-    // Implied probabilities (raw, not normalised - good enough for comparison)
     var pHome = home > 0 ? (1 / home) : 0;
     var pDraw = draw > 0 ? (1 / draw) : 0;
     var pAway = away > 0 ? (1 / away) : 0;
     var total = pHome + pDraw + pAway;
     if (total <= 0) return null;
-
-    // Normalise
     pHome = pHome / total;
     pDraw = pDraw / total;
     pAway = pAway / total;
-
     var best = Math.max(pHome, pDraw, pAway);
     var label = 'Draw';
     var pct = Math.round(best * 100);
     if (best === pHome) label = 'Home Win';
     else if (best === pAway) label = 'Away Win';
-
     return { label: label, pct: pct, odds: home > 0 ? home : (away > 0 ? away : draw) };
   }
 
@@ -1939,30 +2371,23 @@
     if (!grid) return;
 
     grid.innerHTML = '<div class="skeleton-list">' +
-      '<div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>' +
-      '<div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>' +
-      '<div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>' +
+      '<div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>'.repeat(3) +
     '</div>';
 
     try {
       var events = await fetchEvents(league);
       var batch = events.slice(0, MAX_EVENTS);
-
       if (!batch.length) {
-        grid.innerHTML = '<div class="section-empty">' +
-          '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>' +
-          '<p>No upcoming matches found for this league.</p></div>';
+        grid.innerHTML = '<div class="section-empty"><p>No upcoming matches for this league.</p></div>';
         return;
       }
 
-      // Fetch odds in parallel
       var oddsMap = {};
       await Promise.all(batch.map(async function(ev) {
         try {
           var od = await fetchOdds(ev.id);
           if (od) {
             oddsMap[ev.id] = od;
-            // Store for accumulator
             globalOddsStore.push({ event: ev, odds: od, league: league });
           }
         } catch (e) {}
@@ -1975,7 +2400,6 @@
         var od = oddsMap[ev.id];
         var pred = calcPrediction(od);
         var time = formatTime(ev.date);
-
         var predHtml = pred
           ? '<span class="preview-prediction">' + pred.label + ' (' + pred.pct + '%)</span>'
           : '';
@@ -1995,39 +2419,31 @@
       });
       html += '</div>';
       grid.innerHTML = html;
-
-      // Build accumulator after first league load
       buildAccumulator();
     } catch (err) {
       if (currentLeague !== league) return;
-      grid.innerHTML = '<div class="section-empty">' +
-        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>' +
-        '<p>Unable to load matches right now. Please try refreshing.</p></div>';
+      grid.innerHTML = '<div class="section-empty"><p>Unable to load matches. Try refreshing.</p></div>';
     }
   }
 
   // ================================================================
-  // ACCUMULATOR OF THE DAY
+  // ACCUMULATOR (compact)
   // ================================================================
   function buildAccumulator() {
     var container = document.getElementById('accaContainer');
     if (!container) return;
 
-    // Collect all match odds with >60% implied probability on one outcome
     var candidates = [];
     var seen = {};
-
     globalOddsStore.forEach(function(item) {
       var ev = item.event;
       var od = item.odds;
       if (!od || !od.bookmakers) return;
       if (seen[ev.id]) return;
-
       var bw = getML(od.bookmakers, 'Betway');
       var sk = getML(od.bookmakers, 'Stake');
       var ml = bw || sk;
       if (!ml) return;
-
       var home = parseFloat(ml.home) || 0;
       var draw = parseFloat(ml.draw) || 0;
       var away = parseFloat(ml.away) || 0;
@@ -2036,45 +2452,29 @@
       var pAway = away > 0 ? (1 / away) : 0;
       var total = pHome + pDraw + pAway;
       if (total <= 0) return;
-
-      pHome = pHome / total;
-      pDraw = pDraw / total;
-      pAway = pAway / total;
-
+      pHome /= total; pDraw /= total; pAway /= total;
       var best = Math.max(pHome, pDraw, pAway);
       if (best < 0.6) return;
-
-      var label = 'Draw';
-      var odds = draw;
+      var label = 'Draw', odds = draw;
       if (best === pHome) { label = 'Home Win'; odds = home; }
       else if (best === pAway) { label = 'Away Win'; odds = away; }
-
       var usedBk = bw ? 'Betway' : 'Stake';
       seen[ev.id] = true;
-      candidates.push({
-        match: ev.home + ' vs ' + ev.away,
-        pick: label,
-        odds: odds,
-        prob: best,
-        bookmaker: usedBk
-      });
+      candidates.push({ match: ev.home + ' vs ' + ev.away, pick: label, odds: odds, prob: best, bookmaker: usedBk });
     });
 
-    // Sort by probability descending, take top 3
     candidates.sort(function(a, b) { return b.prob - a.prob; });
     var legs = candidates.slice(0, 3);
 
     if (legs.length < 3) {
-      container.innerHTML = '<div class="acca-empty">Acca available closer to matchday. We need at least 3 qualifying matches with strong favourites.</div>';
+      container.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">Accumulator available closer to matchday. Needs at least 3 qualifying matches.</div>';
       return;
     }
 
     var combinedOdds = 1;
-    var bookmakers = {};
     var legsHtml = '';
     legs.forEach(function(leg, i) {
       combinedOdds *= leg.odds;
-      bookmakers[leg.bookmaker] = true;
       legsHtml += '<div class="acca-leg">' +
         '<span class="acca-leg-num">' + (i + 1) + '</span>' +
         '<div class="acca-leg-info">' +
@@ -2085,44 +2485,26 @@
       '</div>';
     });
 
-    var bkNames = Object.keys(bookmakers);
-    var bkNote = bkNames.length === 1 ? ('All prices from ' + bkNames[0]) : 'Mixed prices';
     var potReturn = (100 * combinedOdds).toFixed(0);
-
-    container.innerHTML = '<div class="acca-card">' +
-      legsHtml +
-      '<div class="acca-footer">' +
-        '<div class="acca-total">' +
-          '<span class="acca-total-label">Combined odds</span>' +
-          '<span class="acca-total-value">' + combinedOdds.toFixed(2) + '</span>' +
-        '</div>' +
-        '<div class="acca-return">' +
-          '<span class="acca-return-label">R100 returns</span>' +
-          '<span class="acca-return-value">R' + potReturn + '</span>' +
-        '</div>' +
-      '</div>' +
-    '</div>' +
-    '<p class="acca-note">' + bkNote + '. Odds may change before kickoff.</p>';
+    container.innerHTML = legsHtml +
+      '<div class="acca-footer-v2">' +
+        '<div><div class="acca-total-label">Combined odds</div><div class="acca-total-value">' + combinedOdds.toFixed(2) + '</div></div>' +
+        '<div style="text-align:right;"><div class="acca-return-label">R100 returns</div><div class="acca-return-value">R' + potReturn + '</div></div>' +
+      '</div>';
   }
 
-  // ================================================================
-  // LOAD ALL LEAGUES FOR ACCUMULATOR
-  // ================================================================
   async function preloadLeaguesForAcca() {
-    // Load events + odds for all leagues in background for accumulator
     var leagueSlugs = LEAGUES.map(function(l) { return l.slug; });
     for (var i = 0; i < leagueSlugs.length; i++) {
       var slug = leagueSlugs[i];
-      if (slug === currentLeague) continue; // Already loaded by previews
+      if (slug === currentLeague) continue;
       try {
         var events = await fetchEvents(slug);
         var batch = events.slice(0, 6);
         await Promise.all(batch.map(async function(ev) {
           try {
             var od = await fetchOdds(ev.id);
-            if (od) {
-              globalOddsStore.push({ event: ev, odds: od, league: slug });
-            }
+            if (od) globalOddsStore.push({ event: ev, odds: od, league: slug });
           } catch (e) {}
         }));
       } catch (e) {}
@@ -2131,25 +2513,7 @@
   }
 
   // ================================================================
-  // TAB HANDLER
-  // ================================================================
-  function initTabs() {
-    var tabs = document.querySelectorAll('.league-tab');
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        tabs.forEach(function(t) {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        loadPreviews(tab.dataset.league);
-      });
-    });
-  }
-
-  // ================================================================
-  // INTELLIGENCE FEED - DROPPING ODDS
+  // INTELLIGENCE FEED (compact rows)
   // ================================================================
   async function loadIntelFeed() {
     var container = document.getElementById('intelFeed');
@@ -2160,11 +2524,10 @@
       drops = norm(drops);
 
       if (!drops.length) {
-        container.innerHTML = '<div class="intel-empty">No significant odds movements detected right now.</div>';
+        container.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">No significant odds movements right now.</div>';
         return;
       }
 
-      // Filter to ML (moneyline) moves only and sort by biggest drop
       var mlDrops = drops.filter(function(d) {
         return d.market && (d.market.name === 'ML' || d.market.name === '1X2' || d.market.name === 'Moneyline');
       });
@@ -2172,18 +2535,13 @@
         return Math.abs(b.odds.drop.sinceOpening || 0) - Math.abs(a.odds.drop.sinceOpening || 0);
       });
 
-      // Take top 8
-      var top = mlDrops.slice(0, 8);
-      if (!top.length) top = drops.slice(0, 8);
+      var top = mlDrops.slice(0, 10);
+      if (!top.length) top = drops.slice(0, 10);
 
-      // Fetch event details for team names
       var eventIds = [];
       var seen = {};
       top.forEach(function(d) {
-        if (!seen[d.eventId]) {
-          eventIds.push(d.eventId);
-          seen[d.eventId] = true;
-        }
+        if (!seen[d.eventId]) { eventIds.push(d.eventId); seen[d.eventId] = true; }
       });
 
       var eventMap = {};
@@ -2194,64 +2552,50 @@
         } catch (e) {}
       }));
 
-      var html = '<div class="intel-list">';
+      var html = '';
       top.forEach(function(d) {
         var ev = eventMap[d.eventId];
         var matchName = ev ? (ev.home + ' vs ' + ev.away) : ('Event #' + d.eventId);
         var leagueName = ev && ev.league ? ev.league.name : '';
-        var kickoff = ev && ev.date ? formatTime(ev.date) : '';
         var sideLabel = betSideLabel(d.betSide);
         var opening = d.odds.opening ? d.odds.opening.toFixed(2) : '-';
         var current = d.odds.current ? d.odds.current.toFixed(2) : '-';
         var dropPct = d.odds.drop && d.odds.drop.sinceOpening != null ? d.odds.drop.sinceOpening : 0;
         var dropDir = dropPct > 0 ? 'down' : 'up';
         var dropAbs = Math.abs(dropPct).toFixed(1);
-        var dropIcon = dropPct > 0
-          ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>'
-          : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
 
-        var movedAgo = '';
-        if (d.lastMovedAt) {
-          var mins = Math.round((Date.now() - d.lastMovedAt) / 60000);
-          if (mins < 60) movedAgo = mins + 'm ago';
-          else if (mins < 1440) movedAgo = Math.round(mins / 60) + 'h ago';
-          else movedAgo = Math.round(mins / 1440) + 'd ago';
-        }
-
-        html += '<div class="intel-row">' +
-          '<div class="intel-row-left">' +
-            '<div class="intel-match">' + matchName + '</div>' +
-            '<div class="intel-meta">' +
-              (leagueName ? '<span class="intel-league">' + leagueName + '</span>' : '') +
-              (kickoff ? '<span class="intel-kickoff">' + kickoff + '</span>' : '') +
-            '</div>' +
+        html += '<div class="intel-row-v2">' +
+          '<div class="intel-v2-left">' +
+            '<div class="intel-v2-match">' + matchName + '</div>' +
+            '<div class="intel-v2-meta"><span>' + leagueName + '</span><span>' + sideLabel + '</span></div>' +
           '</div>' +
-          '<div class="intel-row-center">' +
-            '<span class="intel-side">' + sideLabel + '</span>' +
-          '</div>' +
-          '<div class="intel-row-right">' +
-            '<div class="intel-odds-move">' +
-              '<span class="intel-odds-old">' + opening + '</span>' +
-              '<span class="intel-arrow">&rarr;</span>' +
-              '<span class="intel-odds-new">' + current + '</span>' +
-            '</div>' +
-            '<div class="intel-drop intel-drop--' + dropDir + '">' +
-              dropIcon + ' ' + dropAbs + '%' +
-              (movedAgo ? '<span class="intel-ago">' + movedAgo + '</span>' : '') +
-            '</div>' +
+          '<div class="intel-v2-right">' +
+            '<div class="intel-v2-odds"><span class="old">' + opening + '</span><span class="arrow">&rarr;</span><span class="new">' + current + '</span></div>' +
+            '<span class="intel-v2-drop drop-' + dropDir + '">' + dropAbs + '%</span>' +
           '</div>' +
         '</div>';
       });
-      html += '</div>';
       container.innerHTML = html;
     } catch (err) {
-      container.innerHTML = '<div class="intel-empty">Unable to load odds movements. Try refreshing.</div>';
+      container.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">Unable to load odds movements. Try refreshing.</div>';
     }
   }
 
   // ================================================================
-  // FAQ
+  // TABS + FAQ
   // ================================================================
+  function initTabs() {
+    var tabs = document.querySelectorAll('.league-tab');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        loadPreviews(tab.dataset.league);
+      });
+    });
+  }
+
   function initFaq() {
     document.querySelectorAll('.faq-question').forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -2271,16 +2615,16 @@
     initTabs();
     initFaq();
 
-    // Load Tip of the Day first (also fetches value bets data)
-    var allBets = await loadTipOfDay();
-    // Reuse the same data for value picks
+    // Load all data sections in parallel
+    var allBetsPromise = loadTipOfDay();
+    var intelPromise = loadIntelFeed();
+    var previewsPromise = loadPreviews('south-africa-premiership');
+
+    var allBets = await allBetsPromise;
     loadValueBets(allBets);
-    // Load previews for default league
-    await loadPreviews('south-africa-premiership');
-    // Preload other leagues for accumulator
+    await previewsPromise;
     preloadLeaguesForAcca();
-    // Load intelligence feed (dropping odds)
-    loadIntelFeed();
+    await intelPromise;
 
     // Auto refresh every 5 min
     setInterval(function() {
@@ -2295,5 +2639,6 @@
 
 })();
 </script>
+
 </body>
 </html>
