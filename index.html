@@ -2,7 +2,7 @@
 <html lang="en-ZA" >
 <head>
   <meta charset="UTF-8">
-  <link rel="preconnect" href="https://api.odds-api.io" crossorigin>
+  <!-- API proxied via /api (Cloudflare Worker) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Betting Tips South Africa - Free Football Tips & Value Picks | Tips</title>
   <meta name="description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.">
@@ -1613,8 +1613,8 @@
 (function () {
   'use strict';
 
-  const API_KEY = 'fb60a483e7d3f726e3f9d9836e06dc504e22d07a64873094c46a4e29fc2fb57c';
-  const BASE    = 'https://api.odds-api.io/v3';
+  // API key is server-side (Cloudflare Worker proxy)
+  const BASE    = '/api';
   const CACHE_TTL = 5 * 60 * 1000;
   const MAX_EVENTS = 10;
 
@@ -1683,13 +1683,13 @@
 
   // ---- Fetch events ----
   async function fetchEvents(league) {
-    var url = BASE + '/events?sport=football&status=pending&league=' + encodeURIComponent(league) + '&apiKey=' + API_KEY;
+    var url = BASE + '/events?sport=football&status=pending&league=' + encodeURIComponent(league);
     return norm(await apiFetch(url));
   }
 
   // ---- Fetch odds for an event ----
   async function fetchOdds(eventId) {
-    var url = BASE + '/odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake&apiKey=' + API_KEY;
+    var url = BASE + '/odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake';
     return await apiFetch(url);
   }
 
@@ -1751,8 +1751,8 @@
     if (!container) return;
 
     try {
-      var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway&apiKey=' + API_KEY);
-      var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake&apiKey=' + API_KEY);
+      var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway');
+      var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake');
       var allBets = [].concat(norm(bwBets), norm(skBets));
 
       // Filter to ML (moneyline) bets only for cleaner tips
@@ -1835,8 +1835,8 @@
       if (allBetsFromTotd && allBetsFromTotd.length) {
         allBets = allBetsFromTotd;
       } else {
-        var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway&apiKey=' + API_KEY);
-        var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake&apiKey=' + API_KEY);
+        var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway');
+        var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake');
         allBets = [].concat(norm(bwBets), norm(skBets));
         // Filter to ML bets
         var mlBets = allBets.filter(function(b) {
@@ -2156,7 +2156,7 @@
     if (!container) return;
 
     try {
-      var drops = await apiFetch(BASE + '/dropping-odds?sport=football&apiKey=' + API_KEY);
+      var drops = await apiFetch(BASE + '/dropping-odds?sport=football');
       drops = norm(drops);
 
       if (!drops.length) {

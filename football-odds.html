@@ -2,7 +2,7 @@
 <html lang="en-ZA" >
 <head>
   <meta charset="UTF-8">
-  <link rel="preconnect" href="https://api.odds-api.io" crossorigin>
+  <!-- API proxied via /api (Cloudflare Worker) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Football Odds - Betway vs Stake Comparison | Tips</title>
   <meta name="description" content="Compare live football odds from Betway and Stake across Premier League, La Liga, Bundesliga, Serie A and SA Premiership. Best odds highlighted, updated every 5 minutes.">
@@ -1152,8 +1152,8 @@
 (function () {
   'use strict';
 
-  const API_KEY = 'fb60a483e7d3f726e3f9d9836e06dc504e22d07a64873094c46a4e29fc2fb57c';
-  const BASE    = 'https://api.odds-api.io/v3';
+  // API key is server-side (Cloudflare Worker proxy)
+  const BASE    = '/api';
   const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in ms
   const MAX_EVENTS = 10; // max events to fetch odds for
 
@@ -1219,7 +1219,7 @@
 
   // ---- Fetch events for a league ----
   async function fetchEvents(league) {
-    const url = `${BASE}/events?sport=football&status=pending&league=${encodeURIComponent(league)}&apiKey=${API_KEY}`;
+    const url = `${BASE}/events?sport=football&status=pending&league=${encodeURIComponent(league)}`;
     let events = await apiFetch(url);
     // Some APIs return {data:[...]}, handle both array and wrapped
     if (Array.isArray(events)) return events;
@@ -1229,7 +1229,7 @@
 
   // ---- Fetch odds for a single event ----
   async function fetchOdds(eventId) {
-    const url = `${BASE}/odds?eventId=${encodeURIComponent(eventId)}&bookmakers=Betway,Stake&apiKey=${API_KEY}`;
+    const url = `${BASE}/odds?eventId=${encodeURIComponent(eventId)}&bookmakers=Betway,Stake`;
     return await apiFetch(url);
   }
 
@@ -1381,7 +1381,7 @@
     if (forceRefresh) {
       // Clear cache for this league
       try {
-        const url = `${BASE}/events?sport=football&status=pending&league=${encodeURIComponent(league)}&apiKey=${API_KEY}`;
+        const url = `${BASE}/events?sport=football&status=pending&league=${encodeURIComponent(league)}`;
         sessionStorage.removeItem(url);
       } catch(e) {}
     }
@@ -1395,7 +1395,7 @@
       const oddsPromises = batch.map(async ev => {
         if (forceRefresh) {
           try {
-            const url = `${BASE}/odds?eventId=${encodeURIComponent(ev.id)}&bookmakers=Betway,Stake&apiKey=${API_KEY}`;
+            const url = `${BASE}/odds?eventId=${encodeURIComponent(ev.id)}&bookmakers=Betway,Stake`;
             sessionStorage.removeItem(url);
           } catch(e) {}
         }
@@ -1436,8 +1436,8 @@
 
     try {
       const [bwBets, skBets] = await Promise.all([
-        apiFetch(`${BASE}/value-bets?sport=football&bookmaker=Betway&apiKey=${API_KEY}`),
-        apiFetch(`${BASE}/value-bets?sport=football&bookmaker=Stake&apiKey=${API_KEY}`)
+        apiFetch(`${BASE}/value-bets?sport=football&bookmaker=Betway`),
+        apiFetch(`${BASE}/value-bets?sport=football&bookmaker=Stake`)
       ]);
 
       // Normalise - APIs sometimes wrap in {data:[...]}
