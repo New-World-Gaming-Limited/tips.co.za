@@ -206,7 +206,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tips.co.za/guides/index</loc>
+    <loc>https://tips.co.za/guides</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.7</priority>
   </url>
@@ -974,5 +974,10 @@
     <loc>https://tips.co.za/withdrawals-and-payouts</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tips.co.za/football-odds</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

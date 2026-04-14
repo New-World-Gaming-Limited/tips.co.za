@@ -2,8 +2,9 @@
 <html lang="en-ZA" >
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Betting Tips South Africa - Free Football Tips, Value Picks & Accumulators | Tips</title>
+  <link rel="preconnect" href="https://api.odds-api.io" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betting Tips South Africa - Free Football Tips & Value Picks | Tips</title>
   <meta name="description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.">
   <link rel="canonical" href="https://tips.co.za/">
   <link rel="alternate" hreflang="en-za" href="https://tips.co.za/">
@@ -17,17 +18,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Betting Tips South Africa - Free Football Tips & Value Picks | Tips">
   <meta name="twitter:description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.">
+    <meta name="twitter:image" content="https://tips.co.za/assets/og-image.png">
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <meta property="og:image" content="https://tips.co.za/assets/og-image.png">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -677,6 +678,201 @@
 [data-theme="dark"] .acca-return-value { color: var(--color-text); }
 [data-theme="dark"] .acca-empty { background: var(--color-surface); border-color: var(--color-border); }
 
+/* ---- INTELLIGENCE FEED ---- */
+.intel-section {
+  padding: var(--space-10) 0;
+  background: var(--color-surface-alt);
+}
+[data-theme="dark"] .intel-section { background: var(--color-bg); }
+.intel-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+.intel-header h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+.intel-live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-success);
+  display: inline-block;
+  animation: intel-pulse 2s ease-in-out infinite;
+}
+@keyframes intel-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.intel-subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-6);
+  max-width: 640px;
+}
+.intel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.intel-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  transition: background var(--transition-interactive);
+}
+.intel-row:first-child {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.intel-row:last-child {
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+.intel-row:only-child {
+  border-radius: var(--radius-md);
+  border-bottom: 1px solid var(--color-border);
+}
+.intel-row:hover {
+  background: var(--color-surface-alt);
+}
+[data-theme="dark"] .intel-row {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+[data-theme="dark"] .intel-row:hover {
+  background: var(--color-surface-alt);
+}
+.intel-row-left { min-width: 0; }
+.intel-match {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.intel-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 2px;
+}
+.intel-league {
+  font-size: 11px;
+  color: var(--color-text-faint);
+}
+.intel-kickoff {
+  font-size: 11px;
+  color: var(--color-text-faint);
+}
+.intel-league + .intel-kickoff::before {
+  content: '\00b7';
+  margin-right: var(--space-2);
+}
+.intel-row-center {
+  flex-shrink: 0;
+}
+.intel-side {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-surface-alt);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+[data-theme="dark"] .intel-side {
+  background: rgba(255,255,255,0.06);
+  color: var(--color-text-muted);
+}
+.intel-row-right {
+  flex-shrink: 0;
+  text-align: right;
+  min-width: 110px;
+}
+.intel-odds-move {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  font-variant-numeric: tabular-nums;
+}
+.intel-odds-old {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  text-decoration: line-through;
+}
+.intel-arrow {
+  font-size: 12px;
+  color: var(--color-text-faint);
+}
+.intel-odds-new {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+.intel-drop {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.intel-drop--down {
+  color: var(--color-success);
+}
+.intel-drop--up {
+  color: var(--color-error);
+}
+.intel-ago {
+  color: var(--color-text-faint);
+  font-weight: 400;
+  margin-left: var(--space-2);
+}
+.intel-empty {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+[data-theme="dark"] .intel-empty {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+/* Intel feed responsive */
+@media (max-width: 640px) {
+  .intel-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+  }
+  .intel-row-center { order: -1; }
+  .intel-row-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: left;
+    min-width: 0;
+  }
+  .intel-odds-move { justify-content: flex-start; }
+  .intel-drop { justify-content: flex-start; margin-top: 0; }
+}
+
 /* ---- TRENDING STATS ---- */
 .stats-section {
   padding: var(--space-10) 0;
@@ -1146,7 +1342,28 @@
 </section>
 
 <!-- ============================================================
-     SECTION 6: TRENDING STATS
+     SECTION 6: INTELLIGENCE FEED - RECENT ODDS MOVES
+     ============================================================ -->
+<section class="intel-section">
+  <div class="container">
+    <div class="intel-header">
+      <h2>Intelligence Feed</h2>
+      <span class="intel-live-dot"></span>
+    </div>
+    <p class="intel-subtitle">Significant odds movements across football markets. Dropping odds can signal sharp money or team news.</p>
+    <div id="intelFeed">
+      <div class="skeleton-list">
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7: TRENDING STATS
      ============================================================ -->
 <section class="stats-section">
   <div class="container">
@@ -1185,7 +1402,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 7: EXPLORE
+     SECTION 8: EXPLORE
      ============================================================ -->
 <section class="explore-section">
   <div class="container">
@@ -1238,7 +1455,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 8: HOW WE RANK
+     SECTION 9: HOW WE RANK
      ============================================================ -->
 <section class="section section-alt">
   <div class="container">
@@ -1257,7 +1474,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 9: FAQ
+     SECTION 10: FAQ
      ============================================================ -->
 <section class="section">
   <div class="container">
@@ -1388,7 +1605,7 @@
 (function () {
   'use strict';
 
-  const API_KEY = 'c2703cb69ba1287d1e4eb20caefde3306b3c26ea247c4dfe29f6700871cc41f0';
+  const API_KEY = 'fb60a483e7d3f726e3f9d9836e06dc504e22d07a64873094c46a4e29fc2fb57c';
   const BASE    = 'https://api.odds-api.io/v3';
   const CACHE_TTL = 5 * 60 * 1000;
   const MAX_EVENTS = 10;
@@ -1878,6 +2095,107 @@
   }
 
   // ================================================================
+  // INTELLIGENCE FEED - DROPPING ODDS
+  // ================================================================
+  async function loadIntelFeed() {
+    var container = document.getElementById('intelFeed');
+    if (!container) return;
+
+    try {
+      var drops = await apiFetch(BASE + '/dropping-odds?sport=football&apiKey=' + API_KEY);
+      drops = norm(drops);
+
+      if (!drops.length) {
+        container.innerHTML = '<div class="intel-empty">No significant odds movements detected right now.</div>';
+        return;
+      }
+
+      // Filter to ML (moneyline) moves only and sort by biggest drop
+      var mlDrops = drops.filter(function(d) {
+        return d.market && (d.market.name === 'ML' || d.market.name === '1X2' || d.market.name === 'Moneyline');
+      });
+      mlDrops.sort(function(a, b) {
+        return Math.abs(b.odds.drop.sinceOpening || 0) - Math.abs(a.odds.drop.sinceOpening || 0);
+      });
+
+      // Take top 8
+      var top = mlDrops.slice(0, 8);
+      if (!top.length) top = drops.slice(0, 8);
+
+      // Fetch event details for team names
+      var eventIds = [];
+      var seen = {};
+      top.forEach(function(d) {
+        if (!seen[d.eventId]) {
+          eventIds.push(d.eventId);
+          seen[d.eventId] = true;
+        }
+      });
+
+      var eventMap = {};
+      await Promise.all(eventIds.map(async function(eid) {
+        try {
+          var od = await fetchOdds(eid);
+          if (od) eventMap[eid] = od;
+        } catch (e) {}
+      }));
+
+      var html = '<div class="intel-list">';
+      top.forEach(function(d) {
+        var ev = eventMap[d.eventId];
+        var matchName = ev ? (ev.home + ' vs ' + ev.away) : ('Event #' + d.eventId);
+        var leagueName = ev && ev.league ? ev.league.name : '';
+        var kickoff = ev && ev.date ? formatTime(ev.date) : '';
+        var sideLabel = betSideLabel(d.betSide);
+        var opening = d.odds.opening ? d.odds.opening.toFixed(2) : '-';
+        var current = d.odds.current ? d.odds.current.toFixed(2) : '-';
+        var dropPct = d.odds.drop && d.odds.drop.sinceOpening != null ? d.odds.drop.sinceOpening : 0;
+        var dropDir = dropPct > 0 ? 'down' : 'up';
+        var dropAbs = Math.abs(dropPct).toFixed(1);
+        var dropIcon = dropPct > 0
+          ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>'
+          : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+
+        var movedAgo = '';
+        if (d.lastMovedAt) {
+          var mins = Math.round((Date.now() - d.lastMovedAt) / 60000);
+          if (mins < 60) movedAgo = mins + 'm ago';
+          else if (mins < 1440) movedAgo = Math.round(mins / 60) + 'h ago';
+          else movedAgo = Math.round(mins / 1440) + 'd ago';
+        }
+
+        html += '<div class="intel-row">' +
+          '<div class="intel-row-left">' +
+            '<div class="intel-match">' + matchName + '</div>' +
+            '<div class="intel-meta">' +
+              (leagueName ? '<span class="intel-league">' + leagueName + '</span>' : '') +
+              (kickoff ? '<span class="intel-kickoff">' + kickoff + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+          '<div class="intel-row-center">' +
+            '<span class="intel-side">' + sideLabel + '</span>' +
+          '</div>' +
+          '<div class="intel-row-right">' +
+            '<div class="intel-odds-move">' +
+              '<span class="intel-odds-old">' + opening + '</span>' +
+              '<span class="intel-arrow">&rarr;</span>' +
+              '<span class="intel-odds-new">' + current + '</span>' +
+            '</div>' +
+            '<div class="intel-drop intel-drop--' + dropDir + '">' +
+              dropIcon + ' ' + dropAbs + '%' +
+              (movedAgo ? '<span class="intel-ago">' + movedAgo + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = '<div class="intel-empty">Unable to load odds movements. Try refreshing.</div>';
+    }
+  }
+
+  // ================================================================
   // FAQ
   // ================================================================
   function initFaq() {
@@ -1907,6 +2225,8 @@
     await loadPreviews('south-africa-premiership');
     // Preload other leagues for accumulator
     preloadLeaguesForAcca();
+    // Load intelligence feed (dropping odds)
+    loadIntelFeed();
 
     // Auto refresh every 5 min
     setInterval(function() {
@@ -1914,6 +2234,7 @@
       loadTipOfDay().then(function(bets) { loadValueBets(bets); });
       loadPreviews(currentLeague);
       setTimeout(preloadLeaguesForAcca, 3000);
+      loadIntelFeed();
       updateTimestamp();
     }, CACHE_TTL);
   });
