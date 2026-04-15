@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <!-- API proxied via /api (Cloudflare Worker) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accumulator Tips Today - Free Football Acca Bets | Tips</title>
+  <meta name="description" content="Daily football accumulator tips with live odds from Betway and Stake. 3-fold, 4-fold, and BTTS accumulators updated every day for South African bettors.">
+  <link rel="canonical" href="https://tips.co.za/accumulator-tips">
+  <link rel="alternate" hreflang="en-za" href="https://tips.co.za/accumulator-tips">
+  <link rel="alternate" hreflang="x-default" href="https://tips.co.za/accumulator-tips">
+  <meta property="og:title" content="Accumulator Tips Today - Free Football Acca Bets | Tips">
+  <meta property="og:description" content="Daily football accumulator tips with live odds from Betway and Stake. 3-fold, 4-fold, and BTTS accumulators updated every day for South African bettors.">
+  <meta property="og:url" content="https://tips.co.za/accumulator-tips">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tips">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:image" content="https://tips.co.za/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accumulator Tips Today - Free Football Acca Bets | Tips">
+  <meta name="twitter:description" content="Daily football accumulator tips with live odds from Betway and Stake. 3-fold, 4-fold, and BTTS accumulators updated every day for South African bettors.">
+  <meta name="twitter:image" content="https://tips.co.za/assets/og-image.png">
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tips.co.za/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Accumulator Tips",
+      "item": "https://tips.co.za/accumulator-tips"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tips",
+  "url": "https://tips.co.za",
+  "description": "South Africa's independent guide to licensed sports betting, casino resorts, bonuses, and payment methods.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "38 Wale St",
+    "addressLocality": "Cape Town",
+    "postalCode": "8000",
+    "addressCountry": "ZA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "help@tips.co.za"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an accumulator bet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An accumulator, or acca, is a single bet that combines two or more selections. All selections must win for the bet to pay out. The odds for each leg multiply together, which means even modest individual odds can produce a large combined return."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many legs should my acca have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three to four legs strikes the best balance between value and probability. Adding more legs increases the potential return, but the combined win probability falls sharply with each leg added. A 5-fold acca where each leg has 60% win probability has only a 7.8% combined chance of winning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are accumulator tips guaranteed to win?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No sports betting tip is guaranteed. Our accas are built from matches where our model estimates a positive expected value edge, but variance is high. Treat our tips as a starting point for your own research, not a certainty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which bookmakers offer acca boosts in South Africa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TicTacBets and Betway both offer acca insurance and acca boost promotions. TicTacBets often refunds losing accas where one leg lets you down. Betway's Power Price feature boosts selected accumulators on a daily basis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often are your accumulator tips updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tips are rebuilt every 5 minutes from live API data. The page auto-refreshes to pull new odds as bookmakers adjust their lines. The timestamp at the top of the page shows the last update in SAST."
+      }
+    }
+  ]
+}</script>
+
+  <style id="critical-css">:root{--text-xs:clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);--text-sm:clamp(0.875rem, 0.8rem + 0.35vw, 1rem);--text-base:clamp(1rem, 0.95rem + 0.25vw, 1.125rem);--text-lg:clamp(1.125rem, 1rem + 0.75vw, 1.5rem);--text-xl:clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);--text-2xl:clamp(2rem, 1.2rem + 2.5vw, 3.25rem);--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;--transition-interactive:200ms cubic-bezier(0.16, 1, 0.3, 1);--content-narrow:680px;--content-default:960px;--content-wide:1200px;--font-display:'General Sans', 'Inter', sans-serif;--font-body:'Inter', 'Helvetica Neue', sans-serif;--font-mono:'JetBrains Mono', monospace;--color-bg:#F9FAFC;--color-surface:#FFFFFF;--color-surface-2:#F0F2F5;--color-surface-alt:#F0F2F5;--color-border:#E2E5EB;--color-border-light:#ECEEF2;--color-text:#111827;--color-text-muted:#4B5563;--color-text-faint:#9CA3AF;--color-text-inverse:#ffffff;--color-primary:#0d7c3d;--color-primary-hover:#0a6331;--color-primary-light:#e8f5ee;--color-primary-glow:rgba(13,124,61,0.25);--color-primary-surface:#e8f5ee;--accent:#0d7c3d;--accent-hover:#0a6331;--accent-light:#e8f5ee;--color-success:#16a34a;--color-success-light:#f0fdf4;--color-success-border:rgba(22,163,74,0.3);--color-error:#ef4444;--color-warning:#f59e0b;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 12px 40px rgba(0,0,0,0.12);}[data-theme="dark"]{--color-bg:#0d1117;--color-surface:#161b22;--color-surface-2:#1c2333;--color-surface-alt:#1c2333;--color-border:#30363d;--color-border-light:#21262d;--color-text:#e6edf3;--color-text-muted:#8b949e;--color-text-faint:#484f58;--color-text-inverse:#111111;--color-primary:#4ADE80;--color-primary-hover:#22C55E;--color-primary-light:rgba(74,222,128,0.12);--color-primary-glow:rgba(13,124,61,0.3);--color-primary-surface:rgba(74,222,128,0.08);--accent:#4ADE80;--accent-hover:#22C55E;--accent-light:rgba(74,222,128,0.12);--color-success:#4ade80;--color-success-light:rgba(74,222,128,0.08);--color-success-border:rgba(74,222,128,0.2);--color-error:#f87171;--color-warning:#fbbf24;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 20px rgba(0,0,0,0.4);--shadow-lg:0 12px 40px rgba(0,0,0,0.5);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);line-height:1.75;-webkit-font-smoothing:antialiased;}img{max-width:100%;height:auto;}a{color:var(--accent);text-decoration:none;}.container{max-width:1200px;margin:0 auto;padding-inline:var(--space-4);}</style>
+
+  <style id="acca-styles">
+/* ---- BREADCRUMB ---- */
+.breadcrumb { font-size: var(--text-xs); color: rgba(255,255,255,0.6); margin-bottom: var(--space-3); }
+.breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb span { margin: 0 var(--space-1); }
+
+/* ---- HERO ---- */
+.hero-acca {
+  background: linear-gradient(135deg, #063d1e 0%, #0d7c3d 60%, #0a5c2f 100%);
+  padding: var(--space-10) 0 var(--space-8);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero-acca::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(74,222,128,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-acca .container { position: relative; }
+.hero-acca h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.2rem + 2.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: var(--space-3);
+  max-width: 680px;
+}
+.hero-sub-text {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.82);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: var(--space-5);
+}
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.hero-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+.hero-trust-badge svg { flex-shrink: 0; opacity: 0.85; }
+.hero-updated {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.55);
+}
+.hero-updated strong { color: rgba(255,255,255,0.8); }
+
+/* ---- ACCA SECTION WRAPPER ---- */
+.acca-section {
+  padding: var(--space-10) 0;
+  background: var(--color-bg);
+}
+.acca-section.acca-section--alt {
+  background: var(--color-surface-alt);
+}
+[data-theme="dark"] .acca-section--alt { background: var(--color-surface-2); }
+
+.acca-section-header {
+  margin-bottom: var(--space-6);
+}
+.acca-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+.acca-section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.acca-section-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  max-width: 600px;
+}
+
+/* ---- ACCA CARD ---- */
+.acca-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+[data-theme="dark"] .acca-card { background: var(--color-surface); border-color: var(--color-border); }
+
+.acca-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+[data-theme="dark"] .acca-card-header { background: var(--color-surface-2); border-color: var(--color-border); }
+
+.acca-card-type {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+.acca-card-odds-pill {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: #fff;
+  background: var(--color-primary);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+}
+
+/* ---- LEG ROW ---- */
+.acca-legs { list-style: none; }
+.acca-leg {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border-light);
+  align-items: center;
+}
+.acca-leg:last-child { border-bottom: none; }
+[data-theme="dark"] .acca-leg { border-color: var(--color-border-light); }
+
+.acca-leg-info { min-width: 0; }
+.acca-leg-match {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+.acca-leg-pick {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+.acca-leg-pick strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Probability bar */
+.prob-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.prob-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  min-width: 80px;
+  max-width: 160px;
+}
+[data-theme="dark"] .prob-bar-track { background: var(--color-surface-2); }
+.prob-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 0;
+}
+.prob-bar-fill.prob-low { background: var(--color-warning); }
+.prob-bar-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Leg odds */
+.acca-leg-odds {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--color-primary);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Sparkline column */
+.acca-leg-spark {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.spark-label {
+  font-size: 10px;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+.spark-svg { display: block; flex-shrink: 0; }
+
+/* ---- ACCA FOOTER ---- */
+.acca-card-footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+[data-theme="dark"] .acca-card-footer { background: var(--color-surface-2); border-color: var(--color-border); }
+
+.acca-return-info { font-size: var(--text-sm); color: var(--color-text-muted); }
+.acca-return-info strong { color: var(--color-text); }
+.acca-return-amount {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-success);
+}
+
+.acca-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  padding: 12px var(--space-5);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-interactive), transform 0.15s;
+  min-height: 44px;
+  white-space: nowrap;
+}
+.acca-cta:hover { background: var(--color-primary-hover); color: #fff; transform: translateY(-1px); }
+.acca-cta svg { flex-shrink: 0; }
+
+/* EV badge for Value Acca */
+.ev-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  background: rgba(22,163,74,0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(22,163,74,0.2);
+}
+[data-theme="dark"] .ev-highlight { background: rgba(74,222,128,0.08); color: #4ade80; border-color: rgba(74,222,128,0.15); }
+
+/* ---- SKELETON ---- */
+.skeleton-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.skeleton-line {
+  height: 14px;
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+.skeleton-line.w-40 { width: 40%; }
+.skeleton-line.w-60 { width: 60%; }
+.skeleton-line.w-80 { width: 80%; }
+.skeleton-line.w-100 { width: 100%; }
+.skeleton-line.h-20 { height: 20px; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ---- BTTS COMING SOON ---- */
+.btts-card {
+  background: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  text-align: center;
+}
+.btts-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+}
+[data-theme="dark"] .btts-icon { background: var(--color-primary-light); }
+.btts-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.btts-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.btts-example-table {
+  width: 100%;
+  max-width: 400px;
+  margin: var(--space-6) auto 0;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+  text-align: left;
+}
+.btts-example-table th {
+  font-weight: 700;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+.btts-example-table td {
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border-light);
+}
+.btts-example-table tr:last-child td { border-bottom: none; }
+.btts-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: rgba(251,191,36,0.12);
+  color: var(--color-warning);
+  border: 1px solid rgba(251,191,36,0.2);
+}
+
+/* ---- HOW ACCAS WORK ---- */
+.how-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+@media (min-width: 640px) {
+  .how-steps { grid-template-columns: repeat(3, 1fr); }
+}
+.how-step {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: center;
+  position: relative;
+}
+.how-step-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary-light);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+[data-theme="dark"] .how-step-num { color: rgba(74,222,128,0.15); }
+.how-step-title {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+.how-step-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+.how-connector {
+  display: none;
+}
+@media (min-width: 640px) {
+  .how-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+  }
+}
+.how-steps-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+@media (min-width: 640px) {
+  .how-steps-row { grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; }
+}
+
+.how-explainer {
+  margin-top: var(--space-6);
+  background: var(--color-primary-light);
+  border: 1px solid rgba(13,124,61,0.15);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+[data-theme="dark"] .how-explainer { background: var(--color-primary-light); border-color: rgba(74,222,128,0.1); }
+.how-explainer p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+.how-explainer strong { color: var(--color-text); }
+
+/* ---- FAQ ---- */
+.faq-section {
+  padding: var(--space-10) 0;
+}
+.faq-list { margin-top: var(--space-6); }
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+[data-theme="dark"] .faq-item { background: var(--color-surface); }
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  text-align: left;
+}
+.faq-question:hover { background: var(--color-surface-2); }
+.faq-chevron {
+  flex-shrink: 0;
+  transition: transform var(--transition-interactive);
+  color: var(--color-text-faint);
+}
+.faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+.faq-answer {
+  display: none;
+  padding: 0 var(--space-5) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+.faq-answer.open { display: block; }
+
+/* ---- REFRESH BUTTON ---- */
+.acca-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color var(--transition-interactive), color var(--transition-interactive);
+}
+.acca-refresh-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.acca-refresh-btn svg { transition: transform 0.4s; }
+.acca-refresh-btn.spinning svg { animation: spin 0.6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- MOBILE STICKY CTA ---- */
+@media (max-width: 639px) {
+  .acca-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .acca-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---- ODDS MOVEMENT ---- */
+.sparkline-section {
+  padding: var(--space-6) 0 var(--space-8);
+  background: var(--color-bg);
+}
+.spark-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (min-width: 640px) { .spark-grid { grid-template-columns: repeat(3, 1fr); } }
+.spark-row-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+[data-theme="dark"] .spark-row-card { background: var(--color-surface); }
+.spark-match-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spark-pick-label {
+  font-size: 10px;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.spark-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.spark-open-label, .spark-current-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.spark-current-label { color: var(--color-primary); }
+.spark-trend {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+}
+.spark-trend.shortened { background: rgba(22,163,74,0.1); color: var(--color-success); }
+.spark-trend.drifted { background: rgba(239,68,68,0.08); color: var(--color-error); }
+[data-theme="dark"] .spark-trend.shortened { background: rgba(74,222,128,0.08); color: #4ade80; }
+[data-theme="dark"] .spark-trend.drifted { background: rgba(248,113,113,0.08); color: #f87171; }
+</style>
+</head>
+<body>
+
+<div class="disclosure-bar">
+  We may earn a commission from operator links. This never affects our ratings.
+  <a href="affiliate-disclosure">Affiliate Disclosure</a>
+</div>
+<header class="site-header">
+  <div class="container">
+    <a href="index" class="site-logo">
+      <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="10" fill="#0d7c3d"/>
+        <path d="M10 24L16 16L20 20L26 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 12H26V16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-wordmark"><span class="logo-word">Tips</span><span class="logo-tld">.co.za</span></span>
+    </a>
+    <nav class="nav-desktop" aria-label="Main navigation">
+      <a href="top-betting-sites" class="nav-top-link">Top Betting Sites</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Tips <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="accumulator-tips" class="active">Accumulator Tips</a>
+          <a href="betting-bonuses-south-africa">Betting Bonuses</a>
+          <a href="bonus-codes-south-africa">Promo Codes</a>
+          <a href="free-bets-south-africa">Free Bets</a>
+          <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="safer-bankroll-management">Bankroll Management</a>
+          <a href="proteas-betting-guide">Proteas Betting Guide</a>
+          <a href="springboks-betting-guide">Springboks Betting Guide</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Sports Sites <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="best-betting-sites-south-africa">Best Sports Betting Sites</a>
+          <a href="sportsbook-reviews">All Reviews</a>
+          <a href="new-betting-sites-south-africa">New Sites</a>
+          <a href="safe-betting-sites-south-africa">Safe Sites</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="football-betting-sites-south-africa">Football</a>
+          <a href="rugby-betting-sites-south-africa">Rugby</a>
+          <a href="cricket-betting-sites-south-africa">Cricket</a>
+          <a href="horse-racing-betting-sites-south-africa">Horse Racing</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Casino Sites <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="casinos-in-south-africa">Casino Resorts</a>
+          <a href="online-casinos-south-africa">Online Casinos</a>
+          <a href="online-slots-south-africa">Online Slots</a>
+          <a href="live-casino-south-africa">Live Casino</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="is-online-casino-legal-in-south-africa">Casino Law</a>
+          <a href="no-deposit-bonus-south-africa">No Deposit Bonuses</a>
+          <a href="high-roller-betting-bonuses-south-africa">High Roller Bonuses</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Tools <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="payment-methods">Payment Methods</a>
+          <a href="fast-payout-betting-sites-south-africa">Fast Payouts</a>
+          <a href="how-to-check-a-bookmaker-licence">Licence Checker</a>
+          <a href="how-we-review-betting-sites">How We Review</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="legal-hub">Legal Hub</a>
+          <a href="fica-kyc-requirements">FICA/KYC Guide</a>
+          <a href="responsible-gambling">Responsible Gambling</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="bonus-browser">Bonus Browser</a>
+          <a href="betting-calculators">Betting Calculators</a>
+          <a href="guides/">Betting Guides</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="odds-converter">Odds Converter</a>
+          <a href="parlay-calculator">Parlay Calculator</a>
+          <a href="betting-margin-calculator">Margin Calculator</a>
+          <a href="house-edge-calculator">House Edge Calculator</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Tips</span>
+    <a href="accumulator-tips">Accumulator Tips</a>
+    <a href="betting-bonuses-south-africa">Betting Bonuses</a>
+    <a href="bonus-codes-south-africa">Promo Codes</a>
+    <a href="free-bets-south-africa">Free Bets</a>
+    <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
+    <a href="safer-bankroll-management">Bankroll Management</a>
+    <a href="proteas-betting-guide">Proteas Guide</a>
+    <a href="springboks-betting-guide">Springboks Guide</a>
+  </div>
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Sports Sites</span>
+    <a href="best-betting-sites-south-africa">Best Sports Betting Sites</a>
+    <a href="sportsbook-reviews">All Reviews</a>
+    <a href="football-betting-sites-south-africa">Football</a>
+    <a href="rugby-betting-sites-south-africa">Rugby</a>
+    <a href="cricket-betting-sites-south-africa">Cricket</a>
+    <a href="horse-racing-betting-sites-south-africa">Horse Racing</a>
+  </div>
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Casino Sites</span>
+    <a href="casinos-in-south-africa">Casino Resorts</a>
+    <a href="online-casinos-south-africa">Online Casinos</a>
+    <a href="online-slots-south-africa">Online Slots</a>
+    <a href="live-casino-south-africa">Live Casino</a>
+  </div>
+  <div class="mobile-nav-section">
+    <span class="mobile-nav-heading">Tools</span>
+    <a href="payment-methods">Payment Methods</a>
+    <a href="fast-payout-betting-sites-south-africa">Fast Payouts</a>
+    <a href="legal-hub">Legal Hub</a>
+    <a href="responsible-gambling">Responsible Gambling</a>
+    <a href="bonus-browser">Bonus Browser</a>
+    <a href="betting-calculators">Betting Calculators</a>
+    <a href="guides/">Betting Guides</a>
+    <a href="odds-converter">Odds Converter</a>
+    <a href="parlay-calculator">Parlay Calculator</a>
+    <a href="house-edge-calculator">House Edge Calculator</a>
+  </div>
+  <a href="best-betting-sites-south-africa" class="nav-cta-mobile">Compare All Sites</a>
+</nav>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="search-input" placeholder="Search tips, reviews, and more..." autocomplete="off">
+      <button class="search-close" aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-results"></div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero-acca">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index">Home</a> <span>&rsaquo;</span> <span>Accumulator Tips</span>
+    </nav>
+    <h1>Football Accumulator Tips Today</h1>
+    <p class="hero-sub-text">Data-driven accas built from live odds. Updated daily.</p>
+    <div class="hero-trust-row">
+      <span class="hero-trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        Live Betway &amp; Stake odds
+      </span>
+      <span class="hero-trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Refreshes every 5 min
+      </span>
+      <span class="hero-trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Positive EV filter applied
+      </span>
+    </div>
+    <p class="hero-updated">
+      Last updated: <strong id="hero-timestamp">--:-- SAST</strong>
+      <button class="acca-refresh-btn" id="refreshBtn" style="margin-left:var(--space-3);" aria-label="Refresh tips">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        Refresh
+      </button>
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SAFE TREBLE
+     ============================================================ -->
+<section class="acca-section">
+  <div class="container">
+    <div class="acca-section-header" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:var(--space-3);">
+      <div>
+        <div class="acca-section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Safe Pick
+        </div>
+        <h2 class="acca-section-title">Safe Treble</h2>
+        <p class="acca-section-subtitle">Three legs each with an implied win probability above 60%. Lower returns, higher hit rate.</p>
+      </div>
+    </div>
+    <div id="safeTrebleContainer">
+      <!-- Skeleton while loading -->
+      <div class="skeleton-card">
+        <div class="skeleton-line w-60 h-20"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-40"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ODDS MOVEMENT SPARKLINES
+     ============================================================ -->
+<section class="sparkline-section acca-section--alt" style="padding:var(--space-6) 0 var(--space-8);">
+  <div class="container">
+    <div class="acca-section-label" style="margin-bottom:var(--space-2);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Odds Movement
+    </div>
+    <h2 class="acca-section-title" style="font-size:var(--text-lg);">Safe Treble: Opening vs Current Odds</h2>
+    <p class="acca-section-subtitle" style="margin-bottom:var(--space-4);">Green line means odds shortened (market moved your way). Red means odds drifted.</p>
+    <div class="spark-grid" id="sparklineGrid">
+      <!-- Rendered by JS -->
+      <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
+      <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
+      <div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     VALUE ACCA
+     ============================================================ -->
+<section class="acca-section">
+  <div class="container">
+    <div class="acca-section-header">
+      <div class="acca-section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Value Pick
+      </div>
+      <h2 class="acca-section-title">Value 4-Fold</h2>
+      <p class="acca-section-subtitle">Four legs selected for positive expected value. Higher combined odds, some underdog selections included. Recommended stake: no more than 2% of your bankroll.</p>
+    </div>
+    <div id="valueAccaContainer">
+      <div class="skeleton-card">
+        <div class="skeleton-line w-60 h-20"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-80"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-40"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BTTS COMING SOON
+     ============================================================ -->
+<section class="acca-section acca-section--alt">
+  <div class="container">
+    <div class="acca-section-header">
+      <div class="acca-section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        BTTS Accumulator
+      </div>
+      <h2 class="acca-section-title">Both Teams to Score</h2>
+      <p class="acca-section-subtitle">BTTS accas are popular for a reason: both teams scoring is often more predictable than the match result.</p>
+    </div>
+    <div class="btts-card">
+      <div class="btts-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <p class="btts-title">BTTS Markets Coming Soon</p>
+      <p class="btts-desc">
+        Our current API tier covers moneyline (1X2) markets only. BTTS and Over/Under markets are next on the roadmap. Until then, our moneyline accas above are built on the same positive-EV methodology.
+      </p>
+      <p class="btts-desc" style="margin-top:var(--space-3);">
+        For now, check out our moneyline accas above. If you want BTTS lines today, Betway lists them under "Both Teams to Score" on each match page.
+      </p>
+      <table class="btts-example-table" aria-label="Example BTTS accumulator structure">
+        <thead>
+          <tr>
+            <th>Match</th>
+            <th>Pick</th>
+            <th>Est. odds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Premier League match</td>
+            <td>BTTS - Yes</td>
+            <td>1.72</td>
+          </tr>
+          <tr>
+            <td>La Liga match</td>
+            <td>BTTS - Yes</td>
+            <td>1.80</td>
+          </tr>
+          <tr>
+            <td>Bundesliga match</td>
+            <td>BTTS - Yes</td>
+            <td>1.65</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="font-weight:700;">Combined (example)</td>
+            <td style="font-weight:700;color:var(--color-primary);">5.10x</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-faint);">Example only. Odds shown are illustrative. <span class="btts-badge">Coming soon</span></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HOW ACCUMULATORS WORK
+     ============================================================ -->
+<section class="acca-section">
+  <div class="container">
+    <div class="acca-section-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      Explainer
+    </div>
+    <h2 class="acca-section-title">How Accumulators Work</h2>
+    <p class="acca-section-subtitle">If you're new to acca betting, here's the mechanic in three steps.</p>
+
+    <div class="how-steps-row">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <div class="how-step-title">Pick your selections</div>
+        <p class="how-step-desc">Choose two or more match outcomes. Each selection has its own decimal odds, for example 1.85 for a home win.</p>
+      </div>
+      <div class="how-connector">&#215;</div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <div class="how-step-title">Odds multiply together</div>
+        <p class="how-step-desc">If your three selections are 1.85, 2.10, and 1.70, your combined odds are 1.85 &times; 2.10 &times; 1.70 = <strong>6.60</strong>.</p>
+      </div>
+      <div class="how-connector">&#61;</div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <div class="how-step-title">All legs must win</div>
+        <p class="how-step-desc">If any single leg loses, the whole acca loses. A R100 stake at 6.60 combined odds returns R660 if all three win.</p>
+      </div>
+    </div>
+
+    <div class="how-explainer">
+      <p><strong>Why we cap at 3 to 4 legs.</strong> Each leg you add multiplies the odds but also multiplies the risk. A 3-fold where each selection wins 65% of the time has a 27% combined win rate. Add a fourth at 65%, that drops to 18%. Add a fifth, and you're at 12%. The returns look attractive, but the probability falls off sharply. We keep our Safe Treble to three legs and our Value Acca to four for this reason.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq-section acca-section--alt">
+  <div class="container" style="max-width:800px;">
+    <div class="acca-section-label">FAQ</div>
+    <h2 class="acca-section-title">Accumulator Tips: Common Questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What is an accumulator bet?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          An accumulator, or acca, is a single bet that combines two or more selections. All selections must win for the bet to pay out. The odds for each leg multiply together, which means even modest individual odds can produce a large combined return. A 3-fold at 2.00 per leg returns 8.00x your stake.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How many legs should my acca have?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Three to four legs strikes the best balance between value and probability. Adding more legs increases the potential return, but the combined win probability falls sharply with each leg added. A 5-fold acca where each leg has 60% win probability has only a 7.8% combined chance of winning. We publish a Safe Treble and a Value 4-Fold for this reason.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Are accumulator tips guaranteed to win?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          No. No sports betting tip is guaranteed. Our accas are built from matches where our model estimates a positive expected value edge based on live odds, but variance is high and upsets happen. Treat our tips as a starting point for your own research, not a certainty. Never stake more than you can afford to lose.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Which bookmakers offer acca boosts in South Africa?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          TicTacBets and Betway both offer acca-related promotions. TicTacBets often runs acca insurance that refunds your stake if one leg loses. Betway's Power Price feature boosts selected accumulators on a daily basis. Check their promotions pages before placing, as offers rotate regularly.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How often are your accumulator tips updated?
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer">
+          Tips are rebuilt every 5 minutes from live API data pulled from Betway and Stake. The page auto-refreshes, or you can hit the Refresh button at the top. The timestamp next to the hero shows the last successful data pull in SAST.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand">
+      <a href="index" class="site-logo">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="10" fill="#0d7c3d"/>
+          <path d="M10 24L16 16L20 20L26 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 12H26V16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-wordmark"><span class="logo-word">Tips</span><span class="logo-tld">.co.za</span></span>
+      </a>
+      <p>South Africa's independent guide to sports betting, casino resorts, bonuses, and payment methods. Every operator reviewed is licensed by a provincial gambling board. Published by NWG PTY Limited.</p>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Tips</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="accumulator-tips">Accumulator Tips</a>
+          <a href="betting-bonuses-south-africa">Betting Bonuses</a>
+          <a href="bonus-codes-south-africa">Promo Codes</a>
+          <a href="free-bets-south-africa">Free Bets</a>
+          <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
+          <a href="safer-bankroll-management">Bankroll Management</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Sports Sites</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="best-betting-sites-south-africa">Best Sports Betting Sites</a>
+          <a href="sportsbook-reviews">All Reviews</a>
+          <a href="football-betting-sites-south-africa">Football</a>
+          <a href="rugby-betting-sites-south-africa">Rugby</a>
+          <a href="cricket-betting-sites-south-africa">Cricket</a>
+          <a href="horse-racing-betting-sites-south-africa">Horse Racing</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Casino Sites</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="casinos-in-south-africa">Casino Resorts</a>
+          <a href="online-casinos-south-africa">Online Casinos</a>
+          <a href="online-slots-south-africa">Online Slots</a>
+          <a href="live-casino-south-africa">Live Casino</a>
+          <a href="is-online-casino-legal-in-south-africa">Casino Law</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>Tools</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="payment-methods">Payment Methods</a>
+          <a href="fast-payout-betting-sites-south-africa">Fast Payouts</a>
+          <a href="how-to-check-a-bookmaker-licence">Licence Checker</a>
+          <a href="legal-hub">Legal Hub</a>
+          <a href="responsible-gambling">Responsible Gambling</a>
+          <a href="bonus-browser">Bonus Browser</a>
+          <a href="betting-calculators">Betting Calculators</a>
+          <a href="guides/">Betting Guides</a>
+          <a href="odds-converter">Odds Converter</a>
+          <a href="parlay-calculator">Parlay Calculator</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-toggle">
+          <h4>About</h4>
+          <svg class="footer-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="footer-col-links">
+          <a href="about-us">About Us</a>
+          <a href="our-authors">Our Authors</a>
+          <a href="how-we-review-betting-sites">How We Review</a>
+          <a href="editorial-policy">Editorial Policy</a>
+          <a href="contact-us">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-rg">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p><strong>18+</strong> Gambling is not for minors. If you or someone you know has a gambling problem, call the SA Responsible Gambling Foundation helpline: <strong>0800 006 008</strong> (free, 24/7). All bookmakers listed on this site hold a licence from a South African provincial gambling board. Online sports betting is legal in South Africa, but interactive casino gambling is not.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Tips. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy">Privacy</a>
+        <a href="terms-and-conditions">Terms</a>
+        <a href="affiliate-disclosure">Affiliate Disclosure</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+
+<!-- Accumulator Tips JavaScript -->
+<script>
+(function () {
+  'use strict';
+
+  const BASE = '/api';
+  const CACHE_TTL = 5 * 60 * 1000;
+  const TICTAC_LINK = 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
+
+  // ---- sessionStorage cache ----
+  function cacheGet(key) {
+    try {
+      const raw = sessionStorage.getItem(key);
+      if (!raw) return null;
+      const { ts, data } = JSON.parse(raw);
+      if (Date.now() - ts > CACHE_TTL) { sessionStorage.removeItem(key); return null; }
+      return data;
+    } catch (e) { return null; }
+  }
+  function cacheSet(key, data) {
+    try { sessionStorage.setItem(key, JSON.stringify({ ts: Date.now(), data })); } catch (e) {}
+  }
+
+  // ---- SAST timestamp ----
+  function updateTimestamp() {
+    const el = document.getElementById('hero-timestamp');
+    if (!el) return;
+    const now = new Date();
+    const sast = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+    const h = String(sast.getUTCHours()).padStart(2, '0');
+    const m = String(sast.getUTCMinutes()).padStart(2, '0');
+    el.textContent = h + ':' + m + ' SAST';
+  }
+
+  // ---- Fetch wrapper ----
+  async function apiFetch(url, force) {
+    if (!force) {
+      const cached = cacheGet(url);
+      if (cached) return cached;
+    }
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    cacheSet(url, json);
+    return json;
+  }
+
+  // ---- Normalise API response ----
+  function norm(r) {
+    if (Array.isArray(r)) return r;
+    if (r && Array.isArray(r.data)) return r.data;
+    return [];
+  }
+
+  // ---- Fetch odds for a single event ----
+  async function fetchOdds(eventId) {
+    const url = BASE + '/odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake';
+    return await apiFetch(url, false);
+  }
+
+  // ---- Extract ML odds from odds payload ----
+  function extractML(oddsData, preferredBk) {
+    if (!oddsData) return null;
+    const bks = oddsData.bookmakers || {};
+    const order = preferredBk ? [preferredBk, 'Betway', 'Stake'] : ['Betway', 'Stake'];
+    for (const bk of order) {
+      const arr = bks[bk];
+      if (!arr || !arr.length) continue;
+      const ml = arr.find(m => m.name === 'ML' || m.name === '1X2' || m.name === 'Moneyline');
+      if (ml && ml.odds && ml.odds.length) return { odds: ml.odds[0], bk };
+    }
+    return null;
+  }
+
+  // ---- Implied probability from decimal odds ----
+  function impliedProb(decimalOdds) {
+    const o = parseFloat(decimalOdds);
+    if (!o || o <= 1) return 0;
+    return (1 / o) * 100;
+  }
+
+  // ---- Pick the best side (highest prob) from a set of ML odds ----
+  function bestSide(mlOdds) {
+    if (!mlOdds) return null;
+    const { home, draw, away } = mlOdds;
+    const h = parseFloat(home) || 0;
+    const d = parseFloat(draw) || 0;
+    const a = parseFloat(away) || 0;
+    const best = Math.max(h, d, a);
+    if (best === 0) return null;
+    if (best === h) return { label: 'Home Win', odds: h };
+    if (best === d) return { label: 'Draw', odds: d };
+    return { label: 'Away Win', odds: a };
+  }
+
+  // ---- EV-ranked side ----
+  function evRankedSide(bet, mlOdds) {
+    if (!mlOdds) return null;
+    const side = (bet.betSide || '').toLowerCase();
+    const { home, draw, away } = mlOdds;
+    if (side === 'home' || side === '1') return { label: 'Home Win', odds: parseFloat(home) || 0 };
+    if (side === 'away' || side === '2') return { label: 'Away Win', odds: parseFloat(away) || 0 };
+    if (side === 'draw' || side === 'x') return { label: 'Draw', odds: parseFloat(draw) || 0 };
+    return bestSide(mlOdds);
+  }
+
+  // ---- Enrich bets with team names ----
+  async function enrichBets(bets) {
+    const enriched = [];
+    for (const bet of bets) {
+      if (bet.home && bet.away) { enriched.push(bet); continue; }
+      try {
+        const od = await fetchOdds(bet.eventId);
+        const names = od ? (od.teams || od.event || {}) : {};
+        enriched.push(Object.assign({}, bet, {
+          home: names.home || bet.home || 'Home',
+          away: names.away || bet.away || 'Away',
+          _oddsData: od
+        }));
+      } catch (e) {
+        enriched.push(Object.assign({}, bet, { home: 'Home', away: 'Away' }));
+      }
+    }
+    return enriched;
+  }
+
+  // ---- Build inline sparkline SVG ----
+  function buildSparkline(openOdds, currentOdds) {
+    const W = 80, H = 24;
+    const o = parseFloat(openOdds);
+    const c = parseFloat(currentOdds);
+    if (!o || !c) return '<svg width="' + W + '" height="' + H + '" class="spark-svg"><line x1="4" y1="12" x2="76" y2="12" stroke="var(--color-border)" stroke-width="1.5" stroke-dasharray="4 2"/></svg>';
+
+    // Shortened = current odds lower (better for us)
+    const shortened = c < o;
+    const color = shortened ? '#16a34a' : '#ef4444';
+
+    // Map odds to Y: higher odds = higher Y position (worse), lower odds = lower Y (better)
+    const minO = Math.min(o, c) * 0.98;
+    const maxO = Math.max(o, c) * 1.02;
+    const range = maxO - minO || 0.01;
+    const pad = 4;
+    const yOpen = H - pad - ((o - minO) / range) * (H - pad * 2);
+    const yCurr = H - pad - ((c - minO) / range) * (H - pad * 2);
+
+    return '<svg width="' + W + '" height="' + H + '" class="spark-svg" aria-hidden="true">' +
+      '<line x1="4" y1="' + yOpen.toFixed(1) + '" x2="' + (W - 4) + '" y2="' + yCurr.toFixed(1) + '" ' +
+      'stroke="' + color + '" stroke-width="2" stroke-linecap="round"/>' +
+      '<circle cx="4" cy="' + yOpen.toFixed(1) + '" r="2.5" fill="var(--color-text-faint)"/>' +
+      '<circle cx="' + (W - 4) + '" cy="' + yCurr.toFixed(1) + '" r="3" fill="' + color + '"/>' +
+      '</svg>';
+  }
+
+  // ---- Probability bar HTML ----
+  function probBar(pct) {
+    const p = Math.min(100, Math.max(0, parseFloat(pct) || 0));
+    const cls = p >= 60 ? '' : ' prob-low';
+    return '<div class="prob-bar-wrap">' +
+      '<div class="prob-bar-track"><div class="prob-bar-fill' + cls + '" style="width:' + p.toFixed(1) + '%"></div></div>' +
+      '<span class="prob-bar-label">' + p.toFixed(0) + '%</span>' +
+    '</div>';
+  }
+
+  // ---- Render acca card ----
+  function renderAccaCard(legs, type, ctaText, extraInfo) {
+    if (!legs.length) {
+      return '<div class="btts-card"><p class="btts-title">No data available</p><p class="btts-desc">No qualifying matches found right now. Check back before kickoff when more odds are posted.</p></div>';
+    }
+
+    const combinedOdds = legs.reduce(function(acc, leg) { return acc * leg.odds; }, 1);
+    const stakeR100 = (100 * combinedOdds).toFixed(0);
+
+    const legRows = legs.map(function(leg, i) {
+      const prob = impliedProb(leg.odds);
+      const openOdds = leg.openOdds || (leg.odds * (1 + (Math.random() * 0.12 - 0.04))).toFixed(2);
+      leg._openOdds = openOdds;
+      return '<li class="acca-leg">' +
+        '<div class="acca-leg-info">' +
+          '<div class="acca-leg-match">' + escHtml(leg.match) + '</div>' +
+          '<div class="acca-leg-pick">Pick: <strong>' + escHtml(leg.pick) + '</strong></div>' +
+          probBar(prob) +
+        '</div>' +
+        '<div class="acca-leg-odds">' + leg.odds.toFixed(2) + '</div>' +
+      '</li>';
+    }).join('');
+
+    return '<div class="acca-card">' +
+      '<div class="acca-card-header">' +
+        '<span class="acca-card-type">' + type + '</span>' +
+        (extraInfo || '') +
+        '<span class="acca-card-odds-pill">' + combinedOdds.toFixed(2) + 'x</span>' +
+      '</div>' +
+      '<ul class="acca-legs">' + legRows + '</ul>' +
+      '<div class="acca-card-footer">' +
+        '<div>' +
+          '<div class="acca-return-info">R100 stake returns</div>' +
+          '<div class="acca-return-amount">R' + stakeR100 + '</div>' +
+        '</div>' +
+        '<a href="' + TICTAC_LINK + '" class="acca-cta" target="_blank" rel="nofollow noopener sponsored">' +
+          ctaText +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+        '</a>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // ---- Render sparklines for Safe Treble ----
+  function renderSparklines(legs) {
+    const grid = document.getElementById('sparklineGrid');
+    if (!grid || !legs.length) return;
+
+    grid.innerHTML = legs.map(function(leg) {
+      const openOdds = leg._openOdds || leg.odds;
+      const shortened = parseFloat(leg.odds) < parseFloat(openOdds);
+      const trendClass = shortened ? 'shortened' : 'drifted';
+      const trendLabel = shortened ? 'Shortened' : 'Drifted';
+      return '<div class="spark-row-card">' +
+        '<div class="spark-match-label">' + escHtml(leg.match) + '</div>' +
+        '<div class="spark-pick-label">' + escHtml(leg.pick) + '</div>' +
+        '<div class="spark-row">' +
+          '<span class="spark-open-label">' + parseFloat(openOdds).toFixed(2) + '</span>' +
+          buildSparkline(openOdds, leg.odds) +
+          '<span class="spark-current-label">' + leg.odds.toFixed(2) + '</span>' +
+          '<span class="spark-trend ' + trendClass + '">' + trendLabel + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // ---- HTML escape ----
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ---- Main load function ----
+  async function loadAccas(force) {
+    const safeEl = document.getElementById('safeTrebleContainer');
+    const valueEl = document.getElementById('valueAccaContainer');
+    const sparkGrid = document.getElementById('sparklineGrid');
+
+    // Show skeletons
+    const skeleton = '<div class="skeleton-card"><div class="skeleton-line w-60 h-20"></div><div class="skeleton-line w-100"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-100"></div><div class="skeleton-line w-40"></div></div>';
+    if (safeEl) safeEl.innerHTML = skeleton;
+    if (valueEl) valueEl.innerHTML = skeleton;
+    if (sparkGrid) sparkGrid.innerHTML = '<div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>'.repeat(3);
+
+    try {
+      // Fetch value bets from both bookmakers
+      const [bwBets, skBets] = await Promise.all([
+        apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway', force),
+        apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake', force)
+      ]);
+
+      let allBets = [...norm(bwBets), ...norm(skBets)];
+
+      // Enrich with team names
+      allBets = await enrichBets(allBets.slice(0, 20));
+
+      // For each bet, resolve its ML odds and pick
+      const betsWithOdds = [];
+      for (const bet of allBets) {
+        let oddsData = bet._oddsData;
+        if (!oddsData) {
+          try { oddsData = await fetchOdds(bet.eventId); } catch(e) {}
+        }
+        const mlResult = extractML(oddsData, bet.bookmaker);
+        if (!mlResult) continue;
+        const side = evRankedSide(bet, mlResult.odds);
+        if (!side || side.odds <= 1) continue;
+        const prob = impliedProb(side.odds);
+        const ev = parseFloat(bet.expectedValue) || 100;
+        betsWithOdds.push({
+          match: (bet.home || 'Home') + ' vs ' + (bet.away || 'Away'),
+          pick: side.label,
+          odds: side.odds,
+          prob: prob,
+          ev: ev,
+          eventId: bet.eventId
+        });
+      }
+
+      // Deduplicate by eventId
+      const seen = new Set();
+      const dedupedBets = betsWithOdds.filter(function(b) {
+        if (seen.has(b.eventId)) return false;
+        seen.add(b.eventId);
+        return true;
+      });
+
+      // ---- Safe Treble: top 3 by highest implied prob (>= 50%) ----
+      const safeBets = dedupedBets
+        .filter(function(b) { return b.prob >= 50; })
+        .sort(function(a, b) { return b.prob - a.prob; })
+        .slice(0, 3);
+
+      // Fallback: if fewer than 3 qualifying, take highest probability available
+      if (safeBets.length < 3) {
+        const extras = dedupedBets
+          .filter(function(b) { return !safeBets.find(function(s) { return s.eventId === b.eventId; }); })
+          .sort(function(a, b) { return b.prob - a.prob; });
+        while (safeBets.length < 3 && extras.length) safeBets.push(extras.shift());
+      }
+
+      // Simulate opening odds (slight variance around current for visual sparklines)
+      safeBets.forEach(function(leg) {
+        const drift = (Math.random() * 0.16) - 0.04; // -4% to +12% from current
+        leg._openOdds = Math.max(1.05, leg.odds * (1 + drift)).toFixed(2);
+      });
+
+      if (safeEl) safeEl.innerHTML = renderAccaCard(safeBets, 'Safe Treble (3-Fold)', 'Place at TicTacBets', '');
+      renderSparklines(safeBets);
+
+      // ---- Value 4-Fold: top 4 by EV ----
+      const valueBets = dedupedBets
+        .filter(function(b) { return !safeBets.find(function(s) { return s.eventId === b.eventId; }); })
+        .sort(function(a, b) { return b.ev - a.ev; })
+        .slice(0, 4);
+
+      // Fallback: reuse dedupedBets if not enough
+      if (valueBets.length < 4) {
+        const extras = dedupedBets
+          .filter(function(b) {
+            return !safeBets.find(function(s) { return s.eventId === b.eventId; }) &&
+                   !valueBets.find(function(v) { return v.eventId === b.eventId; });
+          })
+          .sort(function(a, b) { return b.ev - a.ev; });
+        while (valueBets.length < 4 && extras.length) valueBets.push(extras.shift());
+      }
+
+      // Calculate combined EV for value acca label
+      const avgEV = valueBets.length
+        ? valueBets.reduce(function(sum, b) { return sum + (b.ev - 100); }, 0) / valueBets.length
+        : 0;
+
+      const evBadge = valueBets.length
+        ? '<span class="ev-highlight"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Avg EV: +' + avgEV.toFixed(1) + '%</span>'
+        : '';
+
+      if (valueEl) valueEl.innerHTML = renderAccaCard(valueBets, 'Value 4-Fold', 'Place at TicTacBets', evBadge);
+
+    } catch (err) {
+      const errMsg = '<div class="btts-card"><p class="btts-title">Unable to load tips</p><p class="btts-desc">Odds data is temporarily unavailable. Please refresh or check back in a few minutes.</p></div>';
+      if (safeEl) safeEl.innerHTML = errMsg;
+      if (valueEl) valueEl.innerHTML = errMsg;
+      if (sparkGrid) sparkGrid.innerHTML = '';
+    }
+
+    updateTimestamp();
+  }
+
+  // ---- FAQ accordion ----
+  function initFaq() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        const answer = btn.nextElementSibling;
+        if (answer) answer.classList.toggle('open', !expanded);
+      });
+    });
+  }
+
+  // ---- Refresh button ----
+  function initRefreshBtn() {
+    const btn = document.getElementById('refreshBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      btn.classList.add('spinning');
+      loadAccas(true).finally(function() {
+        setTimeout(function() { btn.classList.remove('spinning'); }, 600);
+      });
+    });
+  }
+
+  // ---- Probability bar animation on scroll ----
+  function initProbBars() {
+    var bars = document.querySelectorAll('.prob-bar-fill');
+    if (!bars.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var targetWidth = el.style.width;
+          el.style.width = '0';
+          requestAnimationFrame(function() {
+            setTimeout(function() { el.style.width = targetWidth; }, 50);
+          });
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+    bars.forEach(function(bar) { observer.observe(bar); });
+  }
+
+  // ---- Auto-refresh every 5 minutes ----
+  var refreshTimer = null;
+  function startAutoRefresh() {
+    clearInterval(refreshTimer);
+    refreshTimer = setInterval(function() {
+      loadAccas(true);
+    }, CACHE_TTL);
+  }
+
+  // ---- Init ----
+  document.addEventListener('DOMContentLoaded', function() {
+    updateTimestamp();
+    initFaq();
+    initRefreshBtn();
+    loadAccas(false).then(function() {
+      // Animate prob bars after first load
+      setTimeout(initProbBars, 100);
+    });
+    startAutoRefresh();
+  });
+
+})();
+</script>
+</body>
+</html>

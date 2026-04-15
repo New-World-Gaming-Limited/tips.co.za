@@ -1,5 +1,5 @@
 /**
- * main.js — southafricancasinosites.co.za
+ * main.js — tips.co.za
  * Vanilla JS, no dependencies, ES6+
  * Features: Theme Toggle, Mobile Menu, FAQ Accordion, Copy to Clipboard,
  *           Smooth Scroll, Back to Top, Table Sorting, Active Nav Highlight,

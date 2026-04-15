@@ -22,7 +22,29 @@
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preload" href="assets/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/style.css"></noscript>
+  <style>
+  /* Critical inline CSS - above-fold reset + layout */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:#111;background:#F9FAFC}
+  [data-theme="dark"] body{color:#e6edf3;background:#0d1117}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .site-header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e5e5e5;height:56px;display:flex;align-items:center}
+  [data-theme="dark"] .site-header{background:#161b22;border-color:#30363d}
+  .disclosure-bar{font-size:12px;text-align:center;padding:6px 16px;background:#f0f2f5;color:#555}
+  [data-theme="dark"] .disclosure-bar{background:#1c2333;color:#8b949e}
+  .hero-bar{background:linear-gradient(135deg,#064e24 0%,#0d7c3d 50%,#064e24 100%);padding:18px 0;color:#fff}
+  .hero-bar h1{font-size:22px;font-weight:700;margin:0}
+  .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px 0}
+  @media(max-width:900px){.dash-grid{grid-template-columns:1fr}}
+  .dash-panel{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:16px}
+  [data-theme="dark"] .dash-panel{background:#161b22;border-color:#30363d}
+  .skeleton-line{height:14px;background:#e5e5e5;border-radius:4px;margin:8px 0;animation:pulse 1.5s ease infinite}
+  [data-theme="dark"] .skeleton-line{background:#30363d}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+  .w-40{width:40%}.w-60{width:60%}.w-80{width:80%}
+  </style>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -1535,6 +1557,215 @@
   display: block;
 }
 
+
+/* ---- PROBABILITY BAR (value bets) ---- */
+.prob-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+.prob-bar {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-border);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.prob-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.prob-bar-fill.high { background: #16a34a; }
+.prob-bar-fill.mid  { background: #eab308; }
+.prob-bar-fill.low  { background: #ef4444; }
+.prob-bar-pct {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  min-width: 32px;
+}
+
+/* ---- SPARKLINE (odds movement) ---- */
+.sparkline-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sparkline { flex-shrink: 0; }
+.sparkline path { fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.sparkline .up { stroke: #16a34a; }
+.sparkline .down { stroke: #ef4444; }
+.sparkline .flat { stroke: var(--color-text-muted); }
+
+/* ---- VALUE BET ROW (enhanced) ---- */
+.vb-row { position: relative; }
+.vb-row-detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+/* ---- ACCA PROMO BANNER ---- */
+.acca-promo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background: linear-gradient(135deg, rgba(13,124,61,0.06) 0%, rgba(13,124,61,0.02) 100%);
+  border: 1px dashed rgba(13,124,61,0.3);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-3);
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+[data-theme="dark"] .acca-promo {
+  background: linear-gradient(135deg, rgba(74,222,128,0.06) 0%, rgba(74,222,128,0.02) 100%);
+  border-color: rgba(74,222,128,0.2);
+}
+.acca-promo-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.acca-promo-text span {
+  color: var(--accent);
+}
+.acca-promo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.acca-promo-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---- MATCH CARD ENHANCED ---- */
+.preview-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  transition: border-color 0.15s;
+}
+.preview-card:hover { border-color: var(--accent); }
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+@media (max-width: 900px) {
+  .preview-grid { grid-template-columns: 1fr; }
+}
+.preview-teams {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.match-vs {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+.preview-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+.preview-prediction {
+  font-weight: 600;
+  color: var(--accent);
+}
+.preview-odds-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.preview-time {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ---- ODDS DISPLAY (for match cards) ---- */
+.preview-odds-grid {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+.preview-odds-cell {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-alt, #f0f2f5);
+  text-align: center;
+  min-width: 44px;
+}
+[data-theme="dark"] .preview-odds-cell { background: var(--color-surface-2, #1c2333); }
+.preview-odds-cell .odds-label {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  display: block;
+}
+.preview-odds-cell .odds-val {
+  font-weight: 700;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  color: var(--color-text);
+}
+.preview-odds-cell.best .odds-val { color: var(--accent); }
+
+/* ---- MOBILE ENHANCEMENTS ---- */
+@media (max-width: 640px) {
+  .hero-bar h1 { font-size: 18px; }
+  .hero-bar-right { font-size: 11px; }
+  .dash-grid { gap: var(--space-3); }
+  .dash-panel { padding: var(--space-3); }
+  .section-head h2 { font-size: 16px; }
+  .vb-row { flex-wrap: wrap; }
+  .vb-row-center { order: 3; width: 100%; margin-top: 4px; }
+  .totd-banner { flex-direction: column; align-items: flex-start; }
+  .totd-banner-cta { width: 100%; justify-content: center; padding: 12px 16px; }
+  .acca-promo { flex-direction: column; }
+  .acca-promo-link { width: 100%; justify-content: center; padding: 10px; }
+  .explore-v2-grid { grid-template-columns: 1fr 1fr; }
+  .intel-row-v2 { flex-wrap: wrap; }
+  .intel-v2-right { width: 100%; justify-content: flex-start; margin-top: 4px; }
+}
+
+/* ---- SECTION EMPTY ---- */
+.section-empty {
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
 /* ---- HIDE OLD SECTIONS ---- */
 .hero-tips,
 .totd-section,
@@ -1545,9 +1776,28 @@
 .stats-section,
 .explore-section { display: none; }
 
+
+/* ---- SVG ICON SYSTEM ---- */
+.icon-svg {
+  display: inline-block;
+  vertical-align: -3px;
+  flex-shrink: 0;
+}
+.explore-icon .icon-svg,
+.explore-icon svg {
+  color: var(--accent);
+}
+.stat-icon .icon-svg,
+.stat-icon svg {
+  color: var(--accent);
+}
+
 </style>
 
   <script>(function(){var k='local',s={};try{s=window[k+'Storage']||s}catch(e){}window._ls=s;try{var t=s.getItem?s.getItem('tips-theme'):s['tips-theme'];if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+
+  <link rel="dns-prefetch" href="https://api.fontshare.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 </head>
 <body>
 <div class="disclosure-bar">
@@ -1734,6 +1984,10 @@
         <div class="vb-row"><div class="skeleton-line w-60"></div></div>
         <div class="vb-row"><div class="skeleton-line w-40"></div></div>
       </div>
+      <div class="acca-promo">
+        <div class="acca-promo-text"><span><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span> Want to combine picks? See today's <span>accumulator tips</span></div>
+        <a href="accumulator-tips" class="acca-promo-link">View Accas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
     </div>
 
     <!-- RIGHT: Intelligence Feed (dropping odds) -->
@@ -1831,28 +2085,28 @@
       </div>
       <div class="stats-compact">
         <div class="stat-row">
-          <span class="stat-icon">&#x1F525;</span>
+          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></span>
           <div>
             <div class="stat-league">Premier League</div>
             <div class="stat-text">Over 2.5 goals has landed in <span class="stat-highlight">67%</span> of matches this season</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-icon">&#x1F3DF;&#xFE0F;</span>
+          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3M2 7h20M6 21V7M18 21V7"/></svg></span>
           <div>
             <div class="stat-league">SA Premiership</div>
             <div class="stat-text">Home teams have won <span class="stat-highlight">48%</span> of matches this campaign</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-icon">&#x26BD;</span>
+          <span class="stat-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
           <div>
             <div class="stat-league">Bundesliga</div>
             <div class="stat-text">Leads Europe with an average of <span class="stat-highlight">3.1 goals</span> per game</div>
           </div>
         </div>
         <div class="stat-row">
-          <span class="stat-icon">&#x1F6E1;&#xFE0F;</span>
+          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <div>
             <div class="stat-league">Serie A</div>
             <div class="stat-text">Has the most clean sheets (<span class="stat-highlight">38%</span>) of any top-5 league</div>
@@ -1873,57 +2127,64 @@
       <h2>Explore</h2>
     </div>
     <div class="explore-v2-grid">
+      <a href="accumulator-tips" class="explore-v2-card" style="border-color:var(--accent);">
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+        <div class="explore-info">
+          <span class="explore-title">Accumulator Tips</span>
+          <span class="explore-desc">Daily accas from live odds data</span>
+        </div>
+      </a>
       <a href="football-odds" class="explore-v2-card">
-        <span class="explore-icon">&#x26BD;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Live Football Odds</span>
           <span class="explore-desc">Betway vs Stake across 6 leagues</span>
         </div>
       </a>
       <a href="sportsbook-reviews" class="explore-v2-card">
-        <span class="explore-icon">&#x1F4CB;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">44 Bookmaker Reviews</span>
           <span class="explore-desc">Every licensed SA operator rated</span>
         </div>
       </a>
       <a href="bonus-codes-south-africa" class="explore-v2-card">
-        <span class="explore-icon">&#x1F381;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M12 8V22M3 12h18M7.5 8C6 6.5 6 4 7.5 2.5S12 2 12 5c0-3 3-3.5 4.5-2.5S18 6.5 16.5 8"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Promo Codes</span>
           <span class="explore-desc">Verified bonus codes for 44 operators</span>
         </div>
       </a>
       <a href="betting-calculators" class="explore-v2-card">
-        <span class="explore-icon">&#x1F9EE;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h5M8 14h8M8 18h3"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Betting Calculators</span>
           <span class="explore-desc">Parlay, margin, odds converter</span>
         </div>
       </a>
       <a href="bonus-browser" class="explore-v2-card">
-        <span class="explore-icon">&#x1F50D;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Bonus Browser</span>
           <span class="explore-desc">Filter by type, value, wagering</span>
         </div>
       </a>
       <a href="guides/" class="explore-v2-card">
-        <span class="explore-icon">&#x1F4DA;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h5"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Betting Guides</span>
           <span class="explore-desc">How-to guides for SA bettors</span>
         </div>
       </a>
       <a href="legal-hub" class="explore-v2-card">
-        <span class="explore-icon">&#x1F3DB;&#xFE0F;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">SA Gambling Law</span>
           <span class="explore-desc">Provincial licences and your rights</span>
         </div>
       </a>
       <a href="how-we-review-betting-sites" class="explore-v2-card">
-        <span class="explore-icon">&#x2696;&#xFE0F;</span>
+        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 7l9 4 9-4M3 7l3 9h6M18 7l-3 9h-6"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">How We Review</span>
           <span class="explore-desc">7-category scoring framework</span>
@@ -2246,7 +2507,8 @@
       var sideOddsVal = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
       var matchName = tip.home && tip.away ? (tip.home + ' vs ' + tip.away) : 'Match';
       var leagueName = (tip.league && (tip.league.name || tip.league)) || '';
-      var betLink = bkOdds.href || '#';
+      var betLink = bkName === 'Betway' ? 'https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS' : 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
+      var ctaLabel = bkName === 'Betway' ? 'Bet on Betway' : 'Bet on TicTacBets';
 
       container.innerHTML = '<div class="totd-banner">' +
         '<div class="totd-banner-left">' +
@@ -2313,10 +2575,18 @@
         var leagueName = (bet.league && (bet.league.name || bet.league)) || '';
         var matchName = bet.home && bet.away ? (bet.home + ' vs ' + bet.away) : 'Match';
 
+        var impliedProb = parseFloat(sideOdds) > 0 ? Math.round((1 / parseFloat(sideOdds)) * 100) : 0;
+        var probClass = impliedProb >= 55 ? 'high' : (impliedProb >= 35 ? 'mid' : 'low');
+        var betUrl = bkName === 'Betway' ? 'https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS' : 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
+        var ctaBk = bkName === 'Betway' ? 'Betway' : 'TicTacBets';
+
         return '<div class="vb-row">' +
           '<div class="vb-row-left">' +
             '<div class="vb-row-match">' + matchName + '</div>' +
-            '<div class="vb-row-league">' + leagueName + '</div>' +
+            '<div class="vb-row-detail">' +
+              '<span class="vb-row-league">' + leagueName + '</span>' +
+              '<div class="prob-bar-wrap"><div class="prob-bar"><div class="prob-bar-fill ' + probClass + '" style="width:' + impliedProb + '%"></div></div><span class="prob-bar-pct">' + impliedProb + '%</span></div>' +
+            '</div>' +
           '</div>' +
           '<div class="vb-row-center">' +
             '<span class="vb-row-side">' + sideLabel + '</span>' +
@@ -2404,6 +2674,23 @@
           ? '<span class="preview-prediction">' + pred.label + ' (' + pred.pct + '%)</span>'
           : '';
 
+        var bks = od ? od.bookmakers || {} : {};
+        var bwMl = getML(bks, 'Betway');
+        var skMl = getML(bks, 'Stake');
+        var dispMl = bwMl || skMl;
+        var oddsHtml = '';
+        if (dispMl) {
+          var hv = parseFloat(dispMl.home) || 0;
+          var dv = parseFloat(dispMl.draw) || 0;
+          var av = parseFloat(dispMl.away) || 0;
+          var bestVal = Math.min(hv || 999, dv || 999, av || 999);
+          oddsHtml = '<div class="preview-odds-grid">' +
+            '<div class="preview-odds-cell' + (hv === bestVal ? ' best' : '') + '"><span class="odds-label">1</span><span class="odds-val">' + (hv > 0 ? hv.toFixed(2) : '-') + '</span></div>' +
+            '<div class="preview-odds-cell' + (dv === bestVal ? ' best' : '') + '"><span class="odds-label">X</span><span class="odds-val">' + (dv > 0 ? dv.toFixed(2) : '-') + '</span></div>' +
+            '<div class="preview-odds-cell' + (av === bestVal ? ' best' : '') + '"><span class="odds-label">2</span><span class="odds-val">' + (av > 0 ? av.toFixed(2) : '-') + '</span></div>' +
+          '</div>';
+        }
+
         html += '<div class="preview-card">' +
           '<div class="preview-left">' +
             '<div class="preview-teams">' + ev.home + ' <span class="match-vs">vs</span> ' + ev.away + '</div>' +
@@ -2411,9 +2698,10 @@
               '<span class="preview-time">' + time + '</span>' +
               predHtml +
             '</div>' +
+            oddsHtml +
           '</div>' +
           '<div class="preview-right">' +
-            '<a href="football-odds" class="preview-odds-link">View odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
+            '<a href="football-odds" class="preview-odds-link">Full odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
           '</div>' +
         '</div>';
       });
@@ -2490,6 +2778,10 @@
       '<div class="acca-footer-v2">' +
         '<div><div class="acca-total-label">Combined odds</div><div class="acca-total-value">' + combinedOdds.toFixed(2) + '</div></div>' +
         '<div style="text-align:right;"><div class="acca-return-label">R100 returns</div><div class="acca-return-value">R' + potReturn + '</div></div>' +
+      '</div>' +
+      '<div style="margin-top:var(--space-3);display:flex;gap:8px;flex-wrap:wrap;">' +
+        '<a href="https://trackrt.tictacbets.co.za/o/Ss5uJL" class="totd-banner-cta" rel="nofollow noopener" target="_blank" style="flex:1;justify-content:center;">Place at TicTacBets <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
+        '<a href="accumulator-tips" class="acca-promo-link" style="flex:1;justify-content:center;">More Accas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
       '</div>';
   }
 
