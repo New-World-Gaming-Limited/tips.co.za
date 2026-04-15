@@ -203,6 +203,42 @@
 /* Update timestamp */
 .last-update{font-size:var(--text-xs,0.75rem);color:var(--color-text-muted,#6b7280);text-align:center;padding:var(--space-2,8px) 0}
 
+/* ── Pick Card UX enhancements ─────────────────────────────── */
+
+/* 1. Edge bar */
+.vb-edge-bar{height:5px;background:var(--color-border,#e2e5eb);border-radius:var(--radius-full,9999px);margin-top:var(--space-2,8px);overflow:hidden}
+.vb-edge-bar-fill{height:100%;border-radius:var(--radius-full,9999px);background:linear-gradient(90deg,#16a34a,#4ade80);transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+
+/* 2. Implied vs Fair probability row */
+.vb-prob-row{display:flex;align-items:center;gap:var(--space-3,12px);margin-top:var(--space-2,8px);flex-wrap:wrap}
+.vb-prob-implied,.vb-prob-fair{font-size:var(--text-xs,0.75rem);font-weight:600;padding:2px 8px;border-radius:var(--radius-full,9999px)}
+.vb-prob-implied{background:var(--color-surface-alt,#f0f2f5);color:var(--color-text-muted,#6b7280)}
+.vb-prob-fair{background:var(--color-primary-light,#e8f5ee);color:var(--color-primary,#0d7c3d)}
+.vb-prob-label{font-size:var(--text-xs,0.75rem);color:var(--color-text-faint,#9ca3af)}
+.vb-prob-scale{display:flex;align-items:center;gap:4px;margin-left:auto}
+.vb-prob-scale-track{width:60px;height:4px;background:var(--color-border,#e2e5eb);border-radius:var(--radius-full,9999px);position:relative}
+.vb-prob-dot{width:8px;height:8px;border-radius:50%;position:absolute;top:50%;transform:translateY(-50%);border:2px solid var(--color-surface,#fff)}
+.vb-prob-dot--implied{background:var(--color-text-faint,#9ca3af)}
+.vb-prob-dot--fair{background:var(--color-primary,#0d7c3d)}
+
+/* 3. Why this is value toggle */
+.vb-why-toggle{display:flex;align-items:center;gap:6px;margin-top:var(--space-2,8px);font-size:var(--text-xs,0.75rem);font-weight:600;color:var(--color-primary,#0d7c3d);background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-body,'Inter',sans-serif);text-align:left}
+.vb-why-toggle:hover{opacity:0.8}
+.vb-why-toggle-icon{display:inline-block;transition:transform 0.2s;font-style:normal}
+.vb-why-toggle[aria-expanded="true"] .vb-why-toggle-icon{transform:rotate(180deg)}
+.vb-why-content{display:none;margin-top:var(--space-2,8px);padding:var(--space-2,8px) var(--space-3,12px);background:var(--color-primary-light,#e8f5ee);border-radius:var(--radius-md,8px);border-left:3px solid var(--color-primary,#0d7c3d)}
+.vb-why-content.open{display:block}
+.vb-why-content p{font-size:var(--text-xs,0.75rem);color:var(--color-text-muted,#6b7280);line-height:1.6;margin:0}
+.vb-why-content p+p{margin-top:4px}
+
+/* 4. Best price row */
+.vb-best-price{display:flex;align-items:center;gap:var(--space-2,8px);margin-top:var(--space-2,8px);padding-top:var(--space-2,8px);border-top:1px solid var(--color-border,#e2e5eb)}
+.vb-best-price-label{font-size:var(--text-xs,0.75rem);color:var(--color-text-faint,#9ca3af)}
+.vb-best-price-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:var(--radius-full,9999px);font-size:var(--text-xs,0.75rem);font-weight:700;color:#fff}
+.vb-best-price-pill--tictac{background:#cc0100}
+.vb-best-price-pill--betway{background:#00a826}
+.vb-best-price-checkmark{font-size:10px}
+
 /* Dark mode overrides */
 [data-theme="dark"] .match-card{background:var(--color-surface);border-color:var(--color-border)}
 [data-theme="dark"] .match-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.3)}
@@ -212,6 +248,16 @@
 [data-theme="dark"] .odds-stats{background:var(--color-surface-alt)}
 [data-theme="dark"] .odds-skeleton{background:var(--color-surface);border-color:var(--color-border)}
 [data-theme="dark"] .skeleton-line{background:var(--color-surface-alt)}
+[data-theme="dark"] .vb-edge-bar{background:var(--color-border)}
+[data-theme="dark"] .vb-prob-implied{background:var(--color-surface-alt);color:var(--color-text-muted)}
+[data-theme="dark"] .vb-prob-fair{background:var(--color-primary-light);color:var(--color-primary)}
+[data-theme="dark"] .vb-prob-scale-track{background:var(--color-border)}
+[data-theme="dark"] .vb-prob-dot{border-color:var(--color-surface)}
+[data-theme="dark"] .vb-prob-dot--implied{background:var(--color-text-faint)}
+[data-theme="dark"] .vb-prob-dot--fair{background:var(--color-primary)}
+[data-theme="dark"] .vb-why-content{background:var(--color-primary-light);border-left-color:var(--color-primary)}
+[data-theme="dark"] .vb-why-content p{color:var(--color-text-muted)}
+[data-theme="dark"] .vb-best-price{border-top-color:var(--color-border)}
   </style>
 
   <style id="vb-page-styles">
@@ -833,6 +879,32 @@
   function renderCard(bet) {
     var affiliateClass = bet.bookmaker === 'Betway' ? 'bet-cta--betway' : 'bet-cta--tictac';
     var affiliateName = bet.bookmaker === 'Betway' ? 'Betway' : 'TicTacBets';
+    var bestPillClass = bet.bookmaker === 'Betway' ? 'vb-best-price-pill--betway' : 'vb-best-price-pill--tictac';
+
+    // 1. Edge bar — cap at 20% EV = 100% width
+    var edgePct = Math.min(Math.max(bet.ev, 0), 20);
+    var barWidth = (edgePct / 20 * 100).toFixed(1);
+
+    // 2. Implied vs Fair probability
+    var impliedProb = bet.odds > 0 ? (1 / bet.odds * 100) : 0;
+    var fairProb = impliedProb - bet.ev; // bookmaker prob minus our edge = fair prob
+    // Clamp fair prob so it doesn't go negative or above 100
+    fairProb = Math.min(Math.max(fairProb, 1), 99);
+    var impliedStr = impliedProb.toFixed(1) + '%';
+    var fairStr = fairProb.toFixed(1) + '%';
+
+    // Scale dots: position implied dot on track (0-100% of track width)
+    // Track is 60px wide. Dots represent 0-100% probability range.
+    // Implied dot at impliedProb%, Fair dot at fairProb%
+    var impliedLeft = Math.min(Math.max(impliedProb, 5), 95).toFixed(1);
+    var fairLeft = Math.min(Math.max(fairProb, 5), 95).toFixed(1);
+
+    // 3. Why this is value — unique id per card for toggle
+    var cardId = 'why-' + bet.eventId + '-' + bet.betSide;
+
+    // 4. Best price bookmaker display name
+    var bestPriceLabel = affiliateName;
+
     return '<div class="match-card">' +
       '<div class="match-card-header">' +
         '<div>' +
@@ -841,9 +913,10 @@
         '</div>' +
         '<div class="match-card-time">' + OddsEngine.formatDate(bet.date) + '</div>' +
       '</div>' +
+
       '<div class="match-card-body">' +
         '<div class="match-card-pick">' +
-          '<span class="match-card-pick-label">Bet: ' + OddsEngine.formatBetSide(bet.betSide, bet.home, bet.away) + '</span>' +
+          '<span class="match-card-pick-label">Pick: ' + OddsEngine.formatBetSide(bet.betSide, bet.home, bet.away) + '</span>' +
           '<span class="match-card-odds">' + OddsEngine.formatOdds(bet.odds) + '</span>' +
           '<span class="ev-badge ' + OddsEngine.evBadgeClass(bet.ev) + '">+' + bet.ev.toFixed(1) + '% EV</span>' +
         '</div>' +
@@ -851,7 +924,42 @@
           '<a href="' + bet.affiliate.url + '" class="bet-cta ' + affiliateClass + '" target="_blank" rel="noopener noreferrer sponsored">Bet at ' + affiliateName + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>' +
         '</div>' +
       '</div>' +
-      '<div class="match-card-commentary">' + bet.commentary + '</div>' +
+
+      // --- 1. Edge bar ---
+      '<div class="vb-edge-bar" title="EV edge: ' + bet.ev.toFixed(1) + '% (bar fills to 20% max)">' +
+        '<div class="vb-edge-bar-fill" style="width:' + barWidth + '%"></div>' +
+      '</div>' +
+
+      // --- 2. Implied vs Fair probability row ---
+      '<div class="vb-prob-row">' +
+        '<span class="vb-prob-label">Implied:</span>' +
+        '<span class="vb-prob-implied">' + impliedStr + '</span>' +
+        '<span class="vb-prob-label">Fair:</span>' +
+        '<span class="vb-prob-fair">' + fairStr + '</span>' +
+        '<span class="vb-prob-scale" title="Implied vs fair probability">' +
+          '<span class="vb-prob-scale-track">' +
+            '<span class="vb-prob-dot vb-prob-dot--implied" style="left:calc(' + impliedLeft + '% - 4px)" title="Implied: ' + impliedStr + '"></span>' +
+            '<span class="vb-prob-dot vb-prob-dot--fair" style="left:calc(' + fairLeft + '% - 4px)" title="Fair: ' + fairStr + '"></span>' +
+          '</span>' +
+        '</span>' +
+      '</div>' +
+
+      // --- 3. Why this is value toggle ---
+      '<button class="vb-why-toggle" aria-expanded="false" aria-controls="' + cardId + '" onclick="(function(btn){var content=document.getElementById(btn.getAttribute('aria-controls'));var expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));if(content)content.classList.toggle('open',!expanded);})(this)">' +
+        'Why this is value <i class="vb-why-toggle-icon" aria-hidden="true">&#x25BC;</i>' +
+      '</button>' +
+      '<div class="vb-why-content" id="' + cardId + '" role="region">' +
+        '<p>' + bet.commentary + '</p>' +
+        '<p>The bookmaker prices this at ' + impliedStr + ' probability, but our model puts the fair chance at ' + fairStr + ', giving you a ' + bet.ev.toFixed(1) + '% edge on this pick.</p>' +
+      '</div>' +
+
+      // --- 4. Best price row ---
+      '<div class="vb-best-price">' +
+        '<span class="vb-best-price-label">Best price available at</span>' +
+        '<span class="vb-best-price-pill ' + bestPillClass + '"><span class="vb-best-price-checkmark">&#x2713;</span>' + bestPriceLabel + '</span>' +
+        '<span class="vb-best-price-label">at ' + OddsEngine.formatOdds(bet.odds) + '</span>' +
+      '</div>' +
+
     '</div>';
   }
 

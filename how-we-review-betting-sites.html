@@ -59,6 +59,288 @@
   "dateModified": "2026-04-15",
   "mainEntityOfPage": "https://tips.co.za/how-we-review-betting-sites"
 }</script>
+
+  <!-- Trust Module CSS -->
+  <style id="trust-module-css">
+    /* ── Trust Module ── */
+    :root {
+      --trust-avatar-size: 40px;
+    }
+
+    .trust-module {
+      background: var(--color-surface-2, #F0F2F5);
+      border: 1px solid var(--color-border, #E2E5EB);
+      border-radius: var(--radius-md, 0.5rem);
+      padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+      margin: var(--space-4, 1rem) 0;
+    }
+
+    /* ── Verification badge bar ── */
+    .trust-verify-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2, 0.5rem) var(--space-4, 1rem);
+      font-size: var(--text-xs, 0.8125rem);
+      color: var(--color-text-muted, #4B5563);
+      padding-bottom: var(--space-3, 0.75rem);
+      border-bottom: 1px solid var(--color-border, #E2E5EB);
+      margin-bottom: var(--space-3, 0.75rem);
+    }
+    .trust-verify-bar svg {
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .trust-verify-bar-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1, 0.25rem);
+      white-space: nowrap;
+    }
+    .trust-verify-bar-item strong {
+      color: var(--color-text, #111827);
+      font-weight: 600;
+    }
+    .trust-verify-shield {
+      color: var(--color-primary, #0d7c3d);
+    }
+    .trust-verify-sep {
+      color: var(--color-border, #E2E5EB);
+      font-size: 0.7rem;
+      line-height: 1;
+      align-self: center;
+    }
+
+    /* ── Author byline block ── */
+    .trust-author {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3, 0.75rem);
+      flex-wrap: wrap;
+    }
+    .trust-author-avatar {
+      width: var(--trust-avatar-size);
+      height: var(--trust-avatar-size);
+      border-radius: var(--radius-full, 9999px);
+      background: var(--color-primary-light, #e8f5ee);
+      border: 2px solid var(--color-primary, #0d7c3d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xs, 0.8125rem);
+      font-weight: 700;
+      color: var(--color-primary, #0d7c3d);
+      font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+    .trust-author-body {
+      flex: 1;
+      min-width: 180px;
+    }
+    .trust-author-name-line {
+      font-size: var(--text-sm, 0.9375rem);
+      font-weight: 600;
+      color: var(--color-text, #111827);
+      line-height: 1.4;
+    }
+    .trust-author-name-line a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted var(--color-primary, #0d7c3d);
+    }
+    .trust-author-name-line a:hover {
+      color: var(--color-primary, #0d7c3d);
+    }
+    .trust-author-role {
+      display: inline-block;
+      font-size: var(--text-xs, 0.8125rem);
+      color: var(--color-text-muted, #4B5563);
+      font-weight: 400;
+      margin-left: var(--space-1, 0.25rem);
+    }
+    .trust-author-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-1, 0.25rem) var(--space-3, 0.75rem);
+      font-size: var(--text-xs, 0.8125rem);
+      color: var(--color-text-muted, #4B5563);
+      margin-top: var(--space-1, 0.25rem);
+      line-height: 1.5;
+    }
+    .trust-author-bio {
+      font-size: var(--text-xs, 0.8125rem);
+      color: var(--color-text-muted, #4B5563);
+      margin-top: var(--space-2, 0.5rem);
+      line-height: 1.6;
+    }
+
+    /* ── Methodology link ── */
+    .trust-methodology-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2, 0.5rem);
+      font-size: var(--text-xs, 0.8125rem);
+      color: var(--color-text-muted, #4B5563);
+      margin-top: var(--space-3, 0.75rem);
+      padding-top: var(--space-3, 0.75rem);
+      border-top: 1px solid var(--color-border, #E2E5EB);
+    }
+    .trust-methodology-link a {
+      color: var(--color-primary, #0d7c3d);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .trust-methodology-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Data freshness ── */
+    .trust-freshness {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1, 0.25rem);
+      font-size: var(--text-xs, 0.8125rem);
+      font-weight: 500;
+    }
+    .trust-freshness-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full, 9999px);
+      flex-shrink: 0;
+    }
+    .trust-freshness-dot--green  { background: #16a34a; }
+    .trust-freshness-dot--amber  { background: #d97706; }
+    .trust-freshness-dot--red    { background: #dc2626; }
+
+    /* ── Dark mode overrides ── */
+    [data-theme="dark"] .trust-module {
+      background: var(--color-surface-2, #1c2333);
+      border-color: var(--color-border, #30363d);
+    }
+    [data-theme="dark"] .trust-verify-bar {
+      border-bottom-color: var(--color-border, #30363d);
+      color: var(--color-text-muted, #8b949e);
+    }
+    [data-theme="dark"] .trust-verify-bar-item strong {
+      color: var(--color-text, #e6edf3);
+    }
+    [data-theme="dark"] .trust-verify-shield {
+      color: var(--color-primary, #4ADE80);
+    }
+    [data-theme="dark"] .trust-verify-sep {
+      color: var(--color-border, #30363d);
+    }
+    [data-theme="dark"] .trust-author-avatar {
+      background: rgba(74,222,128,0.1);
+      border-color: var(--color-primary, #4ADE80);
+      color: var(--color-primary, #4ADE80);
+    }
+    [data-theme="dark"] .trust-author-name-line {
+      color: var(--color-text, #e6edf3);
+    }
+    [data-theme="dark"] .trust-author-name-line a {
+      border-bottom-color: var(--color-primary, #4ADE80);
+    }
+    [data-theme="dark"] .trust-author-name-line a:hover {
+      color: var(--color-primary, #4ADE80);
+    }
+    [data-theme="dark"] .trust-author-meta,
+    [data-theme="dark"] .trust-author-bio,
+    [data-theme="dark"] .trust-author-role {
+      color: var(--color-text-muted, #8b949e);
+    }
+    [data-theme="dark"] .trust-methodology-link {
+      border-top-color: var(--color-border, #30363d);
+      color: var(--color-text-muted, #8b949e);
+    }
+    [data-theme="dark"] .trust-methodology-link a {
+      color: var(--color-primary, #4ADE80);
+    }
+
+    /* ── Review Process Steps (how-we-review page) ── */
+    .review-process-steps {
+      margin: var(--space-8, 2rem) 0;
+    }
+    .review-process-steps h2 {
+      font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+      font-size: var(--text-lg, 1.25rem);
+      font-weight: 700;
+      color: var(--color-text, #111827);
+      margin-bottom: var(--space-6, 1.5rem);
+      letter-spacing: -0.02em;
+    }
+    .review-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--space-4, 1rem);
+    }
+    .review-step {
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border, #E2E5EB);
+      border-radius: var(--radius-lg, 0.75rem);
+      padding: var(--space-4, 1rem);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2, 0.5rem);
+      position: relative;
+    }
+    .review-step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full, 9999px);
+      background: var(--color-primary, #0d7c3d);
+      color: #fff;
+      font-size: var(--text-xs, 0.8125rem);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+    }
+    .review-step-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .review-step-title {
+      font-size: var(--text-sm, 0.9375rem);
+      font-weight: 700;
+      color: var(--color-text, #111827);
+      font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+    }
+    .review-step-desc {
+      font-size: var(--text-xs, 0.8125rem);
+      color: var(--color-text-muted, #4B5563);
+      line-height: 1.6;
+    }
+    .review-step-connector {
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .review-steps-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    [data-theme="dark"] .review-step {
+      background: var(--color-surface, #161b22);
+      border-color: var(--color-border, #30363d);
+    }
+    [data-theme="dark"] .review-step-title {
+      color: var(--color-text, #e6edf3);
+    }
+    [data-theme="dark"] .review-step-desc {
+      color: var(--color-text-muted, #8b949e);
+    }
+    [data-theme="dark"] .review-steps-grid h2 {
+      color: var(--color-text, #e6edf3);
+    }
+    [data-theme="dark"] .review-process-steps h2 {
+      color: var(--color-text, #e6edf3);
+    }
+  </style>
+
 </head>
 <body>
 <div class="disclosure-bar">
@@ -233,9 +515,107 @@
   </div>
 </section>
 
+<!-- Trust & Verification Module -->
+<div class="container">
+<div class="trust-module" role="complementary" aria-label="Article verification information">
+
+  <!-- Verification badge bar -->
+  <div class="trust-verify-bar">
+    <span class="trust-verify-bar-item trust-verify-shield" aria-label="Verified">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <strong>Last verified: 15 April 2026</strong>
+    </span>
+    <span class="trust-verify-sep" aria-hidden="true">|</span>
+    <span class="trust-verify-bar-item">Updated weekly</span>
+    <span class="trust-verify-sep" aria-hidden="true">|</span>
+    <span class="trust-verify-bar-item">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Reviewed by <strong>Naledi Khumalo</strong>
+    </span>
+    <span class="trust-verify-sep" aria-hidden="true">|</span>
+    <span class="trust-verify-bar-item">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Fact-checked by <strong>Lerato Dlamini</strong>
+    </span>
+    <span class="trust-freshness" data-last-check="2026-04-15" aria-live="polite">
+      <span class="trust-freshness-dot trust-freshness-dot--green" role="img" aria-label="Fresh data"></span>
+      <span class="trust-freshness-text">Data checked today</span>
+    </span>
+  </div>
+
+  <!-- Author byline block -->
+  <div class="trust-author">
+    <div class="trust-author-avatar" aria-hidden="true">NK</div>
+    <div class="trust-author-body">
+      <div class="trust-author-name-line">
+        <a href="our-authors">Written by Naledi Khumalo</a><span class="trust-author-role">Compliance Editor</span>
+      </div>
+      <div class="trust-author-meta">
+        <span>Last updated: 15 April 2026</span>
+        <span>Fact-checked by Lerato Dlamini</span>
+      </div>
+      <p class="trust-author-bio">Naledi specialises in payment methods, mobile app performance, responsible-gambling tool assessment, and FICA/KYC compliance for South African operators.</p>
+    </div>
+  </div>
+
+  <!-- Methodology quick-link -->
+  <div class="trust-methodology-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span>How we review: Every operator is tested with real accounts.</span>
+    <a href="how-we-review-betting-sites">Read our methodology &rarr;</a>
+  </div>
+
+</div>
+</div>
+
+
 <section class="section">
   <div class="container">
-    <h2>Our review principles</h2>
+    
+<!-- Our Review Process Steps -->
+<div class="review-process-steps">
+  <h2>Our review process</h2>
+  <div class="review-steps-grid">
+
+    <div class="review-step">
+      <div class="review-step-number">1</div>
+      <div class="review-step-icon" aria-hidden="true">&#x1F4CB;</div>
+      <div class="review-step-title">Sign up</div>
+      <p class="review-step-desc">We create a real account using local South African details. We check the registration flow, ID verification, and FICA/KYC requirements from start to finish.</p>
+    </div>
+
+    <div class="review-step">
+      <div class="review-step-number">2</div>
+      <div class="review-step-icon" aria-hidden="true">&#x1F4B3;</div>
+      <div class="review-step-title">Deposit</div>
+      <p class="review-step-desc">We test at least two local payment methods per site, checking minimum amounts, processing times, and whether bonuses trigger correctly on first deposit.</p>
+    </div>
+
+    <div class="review-step">
+      <div class="review-step-number">3</div>
+      <div class="review-step-icon" aria-hidden="true">&#x26BD;</div>
+      <div class="review-step-title">Place bets</div>
+      <p class="review-step-desc">We place real bets across football, rugby, and cricket markets. We evaluate odds competitiveness, market depth, live betting features, and the mobile app experience.</p>
+    </div>
+
+    <div class="review-step">
+      <div class="review-step-number">4</div>
+      <div class="review-step-icon" aria-hidden="true">&#x1F4B8;</div>
+      <div class="review-step-title">Withdraw</div>
+      <p class="review-step-desc">We request a withdrawal and record the time from submission to funds in our account. Payout speed and any documentation requirements are logged precisely.</p>
+    </div>
+
+    <div class="review-step">
+      <div class="review-step-number">5</div>
+      <div class="review-step-icon" aria-hidden="true">&#x2B50;</div>
+      <div class="review-step-title">Score</div>
+      <p class="review-step-desc">We apply our seven-category scoring framework: licensing, bonuses, payout speed, payment methods, app quality, odds, and responsible-gambling tools. Scores are updated every 90 days.</p>
+    </div>
+
+  </div>
+</div>
+
+<h2>Our review principles</h2>
     <p>Tips reviews South African betting sites to three principles: independence, accuracy and usefulness. We do not allow operators to influence their scores. We verify facts before publishing. We write for South African bettors, not for search engines.</p>
 
     <h2>Who does the reviewing?</h2>
@@ -369,5 +749,44 @@
   </div>
 </footer>
 <script src="assets/main.js" defer></script>
+
+<!-- Trust Module: Data Freshness Indicator -->
+<script>
+(function() {
+  var LAST_CHECK = '2026-04-15';
+  function trustFreshnessInit() {
+    var els = document.querySelectorAll('.trust-freshness[data-last-check]');
+    if (!els.length) return;
+    var parts = LAST_CHECK.split('-');
+    var checked = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var now = new Date();
+    var diffMs = now - checked;
+    var diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    var dotClass, label;
+    if (diffDays < 7) {
+      dotClass = 'trust-freshness-dot--green';
+      label = diffDays === 0 ? 'Data checked today' : 'Data checked ' + diffDays + (diffDays === 1 ? ' day' : ' days') + ' ago';
+    } else if (diffDays < 15) {
+      dotClass = 'trust-freshness-dot--amber';
+      label = 'Data checked ' + diffDays + ' days ago';
+    } else {
+      dotClass = 'trust-freshness-dot--red';
+      label = 'Data checked ' + diffDays + ' days ago';
+    }
+    els.forEach(function(el) {
+      var dot = el.querySelector('.trust-freshness-dot');
+      var text = el.querySelector('.trust-freshness-text');
+      if (dot) dot.className = 'trust-freshness-dot ' + dotClass;
+      if (text) text.textContent = label;
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', trustFreshnessInit);
+  } else {
+    trustFreshnessInit();
+  }
+})();
+</script>
+
 </body>
 </html>
