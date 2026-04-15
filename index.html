@@ -5,19 +5,19 @@
   <!-- API proxied via /api (Cloudflare Worker) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Betting Tips South Africa - Free Football Tips & Value Picks | Tips</title>
-  <meta name="description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.">
+  <meta name="description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and TicTacBets.">
   <link rel="canonical" href="https://tips.co.za/">
   <link rel="alternate" hreflang="en-za" href="https://tips.co.za/">
   <link rel="alternate" hreflang="x-default" href="https://tips.co.za/">
   <meta property="og:title" content="Betting Tips South Africa - Free Football Tips & Value Picks | Tips">
-  <meta property="og:description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.">
+  <meta property="og:description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and TicTacBets.">
   <meta property="og:url" content="https://tips.co.za/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tips">
   <meta property="og:locale" content="en_ZA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Betting Tips South Africa - Free Football Tips & Value Picks | Tips">
-  <meta name="twitter:description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.">
+  <meta name="twitter:description" content="Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and TicTacBets.">
     <meta name="twitter:image" content="https://tips.co.za/assets/og-image.png">
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -57,7 +57,7 @@
   "@type": "WebSite",
   "name": "Tips",
   "url": "https://tips.co.za/",
-  "description": "Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and Stake.",
+  "description": "Data-driven football betting tips for South Africa. Daily value picks, match previews and accumulator tips powered by live odds from Betway and TicTacBets.",
   "publisher": {
     "@type": "Organization",
     "name": "Tips",
@@ -117,7 +117,7 @@
       "name": "How often are tips updated?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tips are updated every time you load the page. Odds data refreshes every 5 minutes from Betway and Stake, so value picks and predictions stay current throughout the day."
+        "text": "Tips are updated every time you load the page. Odds data refreshes every 5 minutes from Betway and TicTacBets, so value picks and predictions stay current throughout the day."
       }
     }
   ]
@@ -1966,7 +1966,7 @@
   <div class="container">
     <h1>Betting Tips South Africa</h1>
     <div class="hero-bar-right">
-      <span><span class="live-dot"></span> Live odds from Betway and Stake</span>
+      <span><span class="live-dot"></span> Live odds from Betway and TicTacBets</span>
       <span id="hero-timestamp">Loading...</span>
     </div>
   </div>
@@ -2151,7 +2151,7 @@
         <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Live Football Odds</span>
-          <span class="explore-desc">Betway vs Stake across 6 leagues</span>
+          <span class="explore-desc">Betway vs TicTacBets across 6 leagues</span>
         </div>
       </a>
       <a href="sportsbook-reviews" class="explore-v2-card">
@@ -2246,7 +2246,7 @@
       <div class="faq-answer"><p>Capitec Pay, Instant EFT and Ozow are the most popular local deposit methods because they are instant and free at most bookmakers. Cards, bank transfer and voucher methods such as 1Voucher are also widely supported.</p></div>
     </div><div class="faq-item">
       <button class="faq-question" aria-expanded="false">How often are tips updated?</button>
-      <div class="faq-answer"><p>Tips update every time you load the page and auto-refresh every 5 minutes. Odds data comes live from Betway and Stake, so value picks and the intelligence feed stay current throughout the day.</p></div>
+      <div class="faq-answer"><p>Tips update every time you load the page and auto-refresh every 5 minutes. Odds data comes live from Betway and TicTacBets, so value picks and the intelligence feed stay current throughout the day.</p></div>
     </div></div>
   </div>
 </section>
@@ -2364,8 +2364,11 @@
 (function () {
   'use strict';
 
-  // API key is server-side (Cloudflare Worker proxy)
-  const BASE    = '/api';
+  // API: try proxy first, fall back to direct
+  var API_KEY = 'fb60a483e7d3f726e3f9d9836e06dc504e22d07a64873094c46a4e29fc2fb57c';
+  var PROXY_BASE = '/api';
+  var DIRECT_BASE = 'https://api.odds-api.io/v3';
+  var useDirectApi = false;
   const CACHE_TTL = 5 * 60 * 1000;
   const MAX_EVENTS = 10;
 
@@ -2414,15 +2417,38 @@
     el.textContent = h + ':' + m + ' SAST';
   }
 
-  // ---- Fetch wrapper ----
-  async function apiFetch(url) {
-    var cached = cacheGet(url);
+  // ---- Fetch wrapper with proxy → direct fallback ----
+  function directUrl(path) {
+    var sep = path.indexOf('?') === -1 ? '?' : '&';
+    return DIRECT_BASE + '/' + path + sep + 'apiKey=' + API_KEY;
+  }
+  function proxyUrl(path) {
+    return PROXY_BASE + '/' + path;
+  }
+  async function apiFetch(pathOrUrl) {
+    var isFullUrl = pathOrUrl.startsWith('http') || pathOrUrl.startsWith('/api');
+    var path = isFullUrl ? pathOrUrl.replace(PROXY_BASE + '/', '').replace(DIRECT_BASE + '/', '') : pathOrUrl;
+    var cacheKey = 'api:' + path;
+    var cached = cacheGet(cacheKey);
     if (cached) return cached;
-    var res = await fetch(url);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    var json = await res.json();
-    cacheSet(url, json);
-    return json;
+    // Try proxy first, then direct
+    if (!useDirectApi) {
+      try {
+        var res = await fetch(proxyUrl(path));
+        if (res.ok) {
+          var json = await res.json();
+          cacheSet(cacheKey, json);
+          return json;
+        }
+      } catch (e) {}
+      useDirectApi = true;
+    }
+    // Direct API call
+    var res2 = await fetch(directUrl(path));
+    if (!res2.ok) throw new Error('HTTP ' + res2.status);
+    var json2 = await res2.json();
+    cacheSet(cacheKey, json2);
+    return json2;
   }
 
   function norm(r) {
@@ -2432,13 +2458,15 @@
   }
 
   async function fetchEvents(league) {
-    var url = BASE + '/events?sport=football&status=pending&league=' + encodeURIComponent(league);
-    return norm(await apiFetch(url));
+    return norm(await apiFetch('events?sport=football&status=pending&league=' + encodeURIComponent(league)));
   }
 
   async function fetchOdds(eventId) {
-    var url = BASE + '/odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake';
-    return await apiFetch(url);
+    return await apiFetch('odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake');
+  }
+
+  async function fetchEvent(eventId) {
+    return await apiFetch('events/' + encodeURIComponent(eventId));
   }
 
   function getML(bks, bkName) {
@@ -2466,16 +2494,27 @@
     var eventMap = {};
     await Promise.all(uniqueIds.map(async function(eid) {
       try {
-        var od = await fetchOdds(eid);
-        if (od) eventMap[eid] = od;
-      } catch (e) {}
+        // Try events endpoint first (lighter), fall back to odds
+        var ev = await fetchEvent(eid);
+        if (ev && ev.home) {
+          eventMap[eid] = ev;
+        } else {
+          var od = await fetchOdds(eid);
+          if (od && od.home) eventMap[eid] = od;
+        }
+      } catch (e) {
+        try {
+          var od2 = await fetchOdds(eid);
+          if (od2 && od2.home) eventMap[eid] = od2;
+        } catch (e2) {}
+      }
     }));
     bets.forEach(function(b) {
       var ev = eventMap[b.eventId];
       if (ev) {
         b.home = ev.home || '';
         b.away = ev.away || '';
-        b.league = ev.league || b.league;
+        if (ev.league) b.league = typeof ev.league === 'object' ? ev.league.name : ev.league;
         b.date = ev.date || '';
       }
     });
@@ -2490,8 +2529,8 @@
     if (!container) return [];
 
     try {
-      var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway');
-      var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake');
+      var bwBets = await apiFetch('value-bets?sport=football&bookmaker=Betway');
+      var skBets = await apiFetch('value-bets?sport=football&bookmaker=Stake');
       var allBets = [].concat(norm(bwBets), norm(skBets));
 
       var mlBets = allBets.filter(function(b) {
@@ -2555,8 +2594,8 @@
       if (allBetsFromTotd && allBetsFromTotd.length) {
         allBets = allBetsFromTotd;
       } else {
-        var bwBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Betway');
-        var skBets = await apiFetch(BASE + '/value-bets?sport=football&bookmaker=Stake');
+        var bwBets = await apiFetch('value-bets?sport=football&bookmaker=Betway');
+        var skBets = await apiFetch('value-bets?sport=football&bookmaker=Stake');
         allBets = [].concat(norm(bwBets), norm(skBets));
         var mlBets = allBets.filter(function(b) {
           return b.market && (b.market.name === 'ML' || b.market.name === '1X2' || b.market.name === 'Moneyline');
@@ -2759,7 +2798,7 @@
       var label = 'Draw', odds = draw;
       if (best === pHome) { label = 'Home Win'; odds = home; }
       else if (best === pAway) { label = 'Away Win'; odds = away; }
-      var usedBk = bw ? 'Betway' : 'Stake';
+      var usedBk = bw ? 'Betway' : 'TicTacBets';
       seen[ev.id] = true;
       candidates.push({ match: ev.home + ' vs ' + ev.away, pick: label, odds: odds, prob: best, bookmaker: usedBk });
     });
@@ -2825,7 +2864,7 @@
     if (!container) return;
 
     try {
-      var drops = await apiFetch(BASE + '/dropping-odds?sport=football');
+      var drops = await apiFetch('dropping-odds?sport=football');
       drops = norm(drops);
 
       if (!drops.length) {
@@ -2852,15 +2891,20 @@
       var eventMap = {};
       await Promise.all(eventIds.map(async function(eid) {
         try {
-          var od = await fetchOdds(eid);
-          if (od) eventMap[eid] = od;
+          var ev = await fetchEvent(eid);
+          if (ev && ev.home) { eventMap[eid] = ev; return; }
         } catch (e) {}
+        try {
+          var od = await fetchOdds(eid);
+          if (od && od.home) eventMap[eid] = od;
+        } catch (e2) {}
       }));
 
       var html = '';
       top.forEach(function(d) {
         var ev = eventMap[d.eventId];
-        var matchName = ev ? (ev.home + ' vs ' + ev.away) : ('Event #' + d.eventId);
+        if (!ev || !ev.home) return; // Skip unresolved events
+        var matchName = ev.home + ' vs ' + ev.away;
         var leagueName = ev && ev.league ? ev.league.name : '';
         var sideLabel = betSideLabel(d.betSide);
         var opening = d.odds.opening ? d.odds.opening.toFixed(2) : '-';

@@ -47,7 +47,7 @@
         "name": "How are the picks selected?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our algorithm pulls live odds from Betway and Stake, compares them against a true probability model, and identifies bets where the bookmaker price exceeds the fair value. Only bets with a positive expected value edge are included in our accumulators."
+          "text": "Our algorithm pulls live odds from Betway and TicTacBets, compares them against a true probability model, and identifies bets where the bookmaker price exceeds the fair value. Only bets with a positive expected value edge are included in our accumulators."
         }
       },
       {
@@ -71,7 +71,7 @@
         "name": "Should I bet the full accumulator or singles?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Singles are mathematically safer because variance is lower. However, accumulators multiply the odds of each leg, so even a small stake can return a meaningful amount. Many bettors split their allocation, placing the majority on singles and a small portion on accumulators."
+          "text": "Singles are mathematically safer because variance is lower. However, accumulators multiply the odds of each leg, so even a small bet can return a meaningful amount. Many bettors split their allocation, placing the majority on singles and a small portion on accumulators."
         }
       },
       {
@@ -542,7 +542,7 @@
     <!-- Editorial: How Our Accumulators Work -->
     <section class="editorial-section">
       <h2>How Our Accumulators Work</h2>
-      <p>We pull live odds from Betway and Stake simultaneously, then run each available match through a probability model that accounts for the bookmaker margin. Bets where the offered odds exceed the model's fair-value price are flagged as positive expected value. Only those bets enter the accumulator pool.</p>
+      <p>We pull live odds from Betway and TicTacBets simultaneously, then run each available match through a probability model that accounts for the bookmaker margin. Bets where the offered odds exceed the model's fair-value price are flagged as positive expected value. Only those bets enter the accumulator pool.</p>
       <p>From the pool we build three distinct accumulators. The Safe Treble draws from the top three shortest-odds value picks, keeping combined odds manageable and each leg's win probability above 50%. The Value 4-Fold selects the four bets with the highest mathematical edge regardless of odds length, maximising the theoretical return on investment per leg. The Bold 5/6-Fold combines five or six picks including some longer-priced selections, giving a high-variance bet that pays out significantly when it lands.</p>
       <p>Every leg in every accumulator must pass the positive EV filter before it is included. We do not add picks to pad the accumulator or to create round numbers. If fewer qualifying picks are available on a given day, the Bold accumulator may show fewer legs.</p>
     </section>
@@ -550,7 +550,7 @@
     <!-- Editorial: Tips for Accumulator Betting -->
     <section class="editorial-section">
       <h2>Tips for Accumulator Betting</h2>
-      <p>Never stake more on an accumulator than you can afford to lose outright. Accumulators require all legs to win, so even a strong set of individual selections can fail if one goes against you. Treat accumulators as a small part of a broader betting strategy rather than a main income source.</p>
+      <p>Never put more on an accumulator than you can afford to lose outright. Accumulators require all legs to win, so even a strong set of individual selections can fail if one goes against you. Treat accumulators as a small part of a broader betting strategy rather than a main income source.</p>
       <p>Consider each-way accumulators where your bookmaker allows them. Each-way terms give you a partial return if one leg places rather than wins, which reduces overall variance on longer accas. Ask TicTacBets about their each-way accumulator rules before placing.</p>
       <p>The longer the accumulator, the harder it is to win. A 6-fold requires six correct results in a single slip. Our algorithm gives each leg a genuine positive edge, but variance over a small sample of bets is high. A profitable long-run expected return does not mean you will win any individual bet. Bet responsibly and within your bankroll limits.</p>
     </section>
@@ -567,7 +567,7 @@
           </span>
         </button>
         <div class="faq-answer">
-          Our algorithm pulls live odds from Betway and Stake, compares them against a true probability model, and identifies bets where the bookmaker price exceeds fair value. Only bets with a positive expected value edge are included in our accumulators.
+          Our algorithm pulls live odds from Betway and TicTacBets, compares them against a true probability model, and identifies bets where the bookmaker price exceeds fair value. Only bets with a positive expected value edge are included in our accumulators.
         </div>
       </div>
 
@@ -603,7 +603,7 @@
           </span>
         </button>
         <div class="faq-answer">
-          Singles are mathematically safer because variance is lower. However, accumulators multiply the odds of each leg, so even a small stake can return a meaningful amount. Many bettors split their allocation, placing the majority on singles and a small portion on accumulators. Only stake what you can afford to lose.
+          Singles are mathematically safer because variance is lower. However, accumulators multiply the odds of each leg, so even a small bet can return a meaningful amount. Many bettors split their allocation, placing the majority on singles and a small portion on accumulators. Only bet what you can afford to lose.
         </div>
       </div>
 
