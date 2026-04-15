@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <!-- API proxied via /api (Cloudflare Worker) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Football Odds - Betway vs Stake Comparison | Tips</title>
+  <title>Live Football Odds South Africa - Betway vs Stake Comparison | Tips</title>
   <meta name="description" content="Compare live football odds from Betway and Stake across Premier League, La Liga, Bundesliga, Serie A and SA Premiership. Best odds highlighted, updated every 5 minutes.">
   <link rel="canonical" href="https://tips.co.za/football-odds">
   <link rel="alternate" hreflang="en-za" href="https://tips.co.za/football-odds">
   <link rel="alternate" hreflang="x-default" href="https://tips.co.za/football-odds">
-  <meta property="og:title" content="Live Football Odds - Betway vs Stake Comparison | Tips">
+  <meta property="og:title" content="Live Football Odds South Africa - Betway vs Stake Comparison | Tips">
   <meta property="og:description" content="Compare live football odds from Betway and Stake across Premier League, La Liga, Bundesliga, Serie A and SA Premiership. Best odds highlighted.">
   <meta property="og:url" content="https://tips.co.za/football-odds">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tips">
   <meta property="og:locale" content="en_ZA">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Live Football Odds - Betway vs Stake Comparison | Tips">
+  <meta name="twitter:title" content="Live Football Odds South Africa - Betway vs Stake Comparison | Tips">
   <meta name="twitter:description" content="Compare live football odds from Betway and Stake across Premier League, La Liga, Bundesliga, Serie A and SA Premiership. Best odds highlighted.">
     <meta name="twitter:image" content="https://tips.co.za/assets/og-image.png">
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
@@ -51,6 +51,7 @@
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Organization",
+  "logo": {"@type": "ImageObject", "url": "https://tips.co.za/assets/og-image.png", "width": 1200, "height": 630},
   "name": "Tips",
   "url": "https://tips.co.za",
   "description": "South Africa's independent guide to licensed sports betting, casino resorts, bonuses, and payment methods.",
@@ -707,6 +708,112 @@
   .odds-table td:nth-child(n+3) { display: none; }
   .odds-table .show-mobile { display: table-cell !important; }
 }
+
+/* ---- EDITORIAL SECTION BODY TEXT ---- */
+.section-body {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  max-width: 720px;
+}
+.section-body p { margin-bottom: var(--space-4); }
+.section-body p:last-child { margin-bottom: 0; }
+.section-body a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.section-body a:hover { color: var(--color-primary-hover); }
+.section-body .example-box {
+  background: var(--color-primary-light);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-4) 0;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+[data-theme="dark"] .section-body .example-box {
+  background: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+/* ---- PLACE YOUR BETS BRAND CARDS ---- */
+.place-bets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.place-bet-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-interactive);
+}
+.place-bet-card:hover { box-shadow: var(--shadow-md); }
+.place-bet-card-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.place-bet-card-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+.place-bet-card-tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  margin-left: auto;
+}
+.place-bet-card-body {
+  padding: var(--space-5) var(--space-6);
+  flex: 1;
+}
+.place-bet-card-body p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-3);
+}
+.place-bet-card-tcs {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-top: var(--space-2);
+}
+.place-bet-card-footer {
+  padding: var(--space-4) var(--space-6) var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+.place-bet-card-footer .btn-primary {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--transition-interactive);
+}
+.place-bet-card-footer .btn-primary:hover { background: var(--color-primary-hover); }
+[data-theme="dark"] .place-bet-card-footer .btn-primary { color: #0d1117; }
 </style>
 
   <script>(function(){var k='local',s={};try{s=window[k+'Storage']||s}catch(e){}window._ls=s;try{var t=s.getItem?s.getItem('tips-theme'):s['tips-theme'];if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
@@ -865,7 +972,7 @@
 <section class="hero-odds">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index">Home</a> <span>&rsaquo;</span> <span>Football Odds</span></nav>
-    <h1>Live Football Odds</h1>
+    <h1>Live Football Odds South Africa</h1>
     <p class="hero-sub-text">Compare odds from Betway and Stake across the world's top football leagues. Best price highlighted. Updated every 5 minutes.</p>
     <div class="hero-trust-row">
       <span class="hero-trust-badge">
@@ -1019,9 +1126,120 @@
 </section>
 
 <!-- ============================================================
-     SECTION 6: FAQ (verbatim from original)
+     SECTION 6: ABOUT FOOTBALL ODDS IN SOUTH AFRICA (editorial)
      ============================================================ -->
 <section class="section">
+  <div class="container">
+    <h2>About Football Odds in South Africa</h2>
+    <div class="section-body">
+      <p>This page compares live football odds from two bookmakers with publicly available odds APIs licensed for use in South Africa: Betway, which holds provincial licences issued by the Western Cape Gambling and Racing Board and the Gauteng Gambling Board, and Stake, whose odds South African bettors can access through TicTacBets. Because Stake does not operate a locally licensed platform, SA residents should place any Stake-priced bets via TicTacBets, which is a licensed local operator.</p>
+      <p>The comparison pulls odds across eight major football competitions: the English Premier League, La Liga (Spain), Bundesliga (Germany), Serie A (Italy), Ligue 1 (France), the DStv Betway Premiership (SA Premiership), the UEFA Champions League, and the UEFA Europa League. Covering the PSL alongside Europe's top five leagues reflects the reality of South African betting markets, where local and continental football draw comparable interest.</p>
+      <p>Odds update automatically every five minutes using the The Odds API, routed through a Cloudflare Worker proxy. Each fetch retrieves the latest available prices from both bookmakers. The best-priced selection in each 1X2 market is highlighted in green so you can spot value at a glance without reading two columns side by side.</p>
+      <p>Geo-targeting matters here. Only Betway and Stake offer structured, machine-readable odds feeds accessible from South Africa under licence conditions that permit comparison publishing. Other operators listed on this site do not expose similar API endpoints, which is why the comparison is limited to these two books. Coverage may expand as more operators provide accessible data feeds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7: HOW TO READ FOOTBALL ODDS (editorial)
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2>How to Read Football Odds</h2>
+    <div class="section-body">
+      <p>All odds on this page are shown in decimal format, which is the standard used by licensed South African bookmakers. Decimal odds tell you the total return per rand staked, stake included.</p>
+      <div class="example-box">
+        <strong>Example:</strong> Odds of 2.50 on a R100 bet return R250 total (R150 profit + R100 stake back).
+        <br><br>
+        <strong>Profit formula:</strong> Profit = (Odds &minus; 1) &times; Stake<br>
+        <strong>Example:</strong> (2.50 &minus; 1) &times; R100 = R150 profit
+      </div>
+      <p>Implied probability converts odds into the bookmaker's estimated chance of an outcome occurring. The formula is straightforward: divide 1 by the decimal odds. Odds of 2.50 imply a 40% probability (1 &divide; 2.50 = 0.40). Odds of 1.50 imply roughly 67%.</p>
+      <p>The sum of implied probabilities across all three outcomes in a match (home win, draw, away win) will always exceed 100%. The excess is the bookmaker margin, also called the overround or vig. A margin of 5% means the book expects to keep R5 from every R100 wagered across that market, regardless of the result.</p>
+      <p>For a full walkthrough with more examples, see our <a href="guides/how-to-read-betting-odds">how to read betting odds guide</a>. To convert between decimal, fractional, and American formats, use the <a href="odds-converter">odds converter tool</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8: UNDERSTANDING THE ODDS COMPARISON (editorial)
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <h2>Understanding the Odds Comparison</h2>
+    <div class="section-body">
+      <p>A difference of 0.10 between bookmakers looks small on a single bet. Over a full season it adds up to a meaningful amount. Sharp bettors treat line shopping as a non-negotiable part of their process.</p>
+      <div class="example-box">
+        <strong>Season example:</strong> You back 100 away wins at R100 per bet.<br>
+        At Betway: average odds of 2.00 &rarr; total return on winners = 2.00 &times; stake<br>
+        At Stake (via TicTacBets): average odds of 2.10 &rarr; total return = 2.10 &times; stake<br><br>
+        On 100 bets at R100 each, that 0.10 difference is worth <strong>R1,000 extra</strong> over the season on winning bets alone, before accounting for any improvement to your break-even win rate.
+      </div>
+      <p>The comparison table highlights the best available price in green for each of the three main markets: home win, draw, and away win. When both bookmakers show the same price, both cells are shown in the default style with no highlight. The best-price marker refreshes every time the odds update.</p>
+      <p>Comparing odds is not just about maximising profit on winners. It also shifts your break-even threshold. If you need odds of at least 2.00 to have positive expected value on a bet, getting 2.10 from one book means you can act on a wider range of predictions while staying in positive territory.</p>
+      <p>Sharp bettors always check both columns before placing. Even if you have a preferred book for deposits and withdrawals, placing your actual bets at whichever site offers the better price is a habit that compounds over time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9: WHAT ARE VALUE BETS? (editorial)
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2>What Are Value Bets?</h2>
+    <div class="section-body">
+      <p>A value bet exists when a bookmaker's odds imply a lower probability than you believe is accurate. If you think a team has a 50% chance of winning but the bookmaker is offering odds of 2.20 (which implies only 45.5%), there is a gap between the implied price and the true probability. That gap is value.</p>
+      <p>The value bets section on this page flags matches where one bookmaker's odds are noticeably higher than the other's across all three outcomes. A large gap can indicate that one book is slower to update its model, or that sharp money has moved one book's line while the other has not yet reacted. Neither situation guarantees a win, but both can indicate that the higher odds represent better expected value.</p>
+      <p>For a detailed explanation of how value betting works, how to calculate expected value, and today's flagged picks, see the <a href="value-bets">value bets page</a>. If you prefer combined bets, <a href="accumulator-tips">accumulator tips</a> publishes daily acca suggestions using selections drawn from the same odds data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10: PLACE YOUR BETS (editorial + affiliate cards)
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <h2>Place Your Bets</h2>
+    <div class="section-body">
+      <p>Once you have identified the best price, the next step is placing the bet. Both books whose odds appear on this page are accessible to South African bettors. Betway operates under a direct South African licence. Stake odds are available locally through TicTacBets, a licensed South African operator that carries Stake's markets. Either way, your funds and bets are handled by a provincially licensed entity.</p>
+    </div>
+    <div class="place-bets-grid">
+      <div class="place-bet-card">
+        <div class="place-bet-card-header">
+          <div class="place-bet-card-name">TicTacBets</div>
+          <span class="place-bet-card-tag">Stake odds</span>
+        </div>
+        <div class="place-bet-card-body">
+          <p>TicTacBets is a South African licensed bookmaker that gives local bettors access to Stake's odds and markets. You deposit in rands, withdraw in rands, and all account activity is governed by South African provincial gambling regulations. Minimum deposit from R5. Supports Capitec Pay, Instant EFT, and Ozow.</p>
+          <div class="place-bet-card-tcs">18+ | T&amp;Cs apply | Please bet responsibly</div>
+        </div>
+        <div class="place-bet-card-footer">
+          <a href="https://trackrt.tictacbets.co.za/o/Ss5uJL" class="btn-primary" target="_blank" rel="noopener noreferrer sponsored">Open TicTacBets Account</a>
+        </div>
+      </div>
+      <div class="place-bet-card">
+        <div class="place-bet-card-header">
+          <div class="place-bet-card-name">Betway</div>
+          <span class="place-bet-card-tag">Betway odds</span>
+        </div>
+        <div class="place-bet-card-body">
+          <p>Betway South Africa is one of the country's largest licensed sports betting operators, with a full SA Premiership and European football market offering. The platform includes live betting, a mobile app, and fast withdrawals via Capitec Pay. Use code BETS when registering for the welcome offer.</p>
+          <div class="place-bet-card-tcs">18+ | T&amp;Cs apply | Please bet responsibly</div>
+        </div>
+        <div class="place-bet-card-footer">
+          <a href="https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS" class="btn-primary" target="_blank" rel="noopener noreferrer sponsored">Open Betway Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11: FAQ (verbatim from original)
+     ============================================================ -->
+<section class="section section-alt">
   <div class="container">
     <h2>Frequently asked questions</h2>
     <div class="faq-list"><div class="faq-item">
