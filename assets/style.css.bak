@@ -666,7 +666,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   overflow: hidden;
   overflow-x: auto;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
+[data-theme="dark"] .table-wrap { background: var(--color-surface); }
 .table-wrap table {
   font-size: var(--text-sm);
   min-width: 500px;
@@ -739,9 +742,16 @@ table tbody tr:nth-child(even) {
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .table-responsive {
+  background: var(--color-surface);
 }
 .table-responsive table {
   min-width: 500px;
+  margin: 0;
+  border: none;
 }
 
 
@@ -2955,20 +2965,18 @@ a .code-badge:hover {
 }
 
 /* ── DATA TABLES (responsive) ──────────────────────────────────── */
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
+/* Note: .table-responsive is defined in the global table section below */
 .data-table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
+  line-height: 1.5;
 }
 .data-table thead th {
   background: var(--color-surface-alt);
   font-weight: 700;
   text-align: left;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border-bottom: 2px solid var(--color-border);
   white-space: nowrap;
   font-size: var(--text-xs);
@@ -2977,15 +2985,25 @@ a .code-badge:hover {
   color: var(--color-text-muted);
 }
 .data-table tbody td {
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--color-border-light);
   vertical-align: middle;
+  color: var(--color-text);
 }
 .data-table tbody tr:last-child td {
   border-bottom: none;
 }
+.data-table tbody tr:nth-child(even) {
+  background: var(--color-surface-alt, rgba(0,0,0,0.02));
+}
 .data-table tbody tr:hover {
   background: var(--color-primary-surface);
+}
+[data-theme="dark"] .data-table thead th {
+  background: var(--color-surface-2);
+}
+[data-theme="dark"] .data-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
 }
 
 /* ── PROMO ALL-ROOMS COMPARISON ────────────────────────────────── */
@@ -5868,12 +5886,13 @@ html {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
+  line-height: 1.5;
 }
 .comparison-table thead th {
   background: var(--color-surface-alt, #f0f2f5);
   font-weight: 700;
   text-align: left;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border-bottom: 2px solid var(--color-border);
   white-space: nowrap;
   font-size: var(--text-xs);
@@ -5882,9 +5901,10 @@ html {
   color: var(--color-text-muted);
 }
 .comparison-table tbody td {
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--color-border-light, #eceef2);
   vertical-align: middle;
+  color: var(--color-text);
 }
 .comparison-table tbody tr:last-child td {
   border-bottom: none;
@@ -5906,12 +5926,73 @@ html {
 .comparison-table a:hover {
   text-decoration: underline;
 }
+.comparison-table td strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
 [data-theme="dark"] .comparison-table thead th {
   background: var(--color-surface-2);
 }
 [data-theme="dark"] .comparison-table tbody tr:nth-child(even) {
   background: rgba(255,255,255,0.03);
 }
+
+/* Rating badge colour variants */
+.rating-badge.rating-green {
+  background: var(--color-success);
+  color: #fff;
+}
+.rating-badge.rating-amber {
+  background: #f59e0b;
+  color: #fff;
+}
+.rating-badge.rating-red {
+  background: var(--color-error);
+  color: #fff;
+}
+[data-theme="dark"] .rating-badge.rating-amber {
+  background: #fbbf24;
+  color: #111;
+}
+
+/* RG operator table (responsible-gambling page) */
+.rg-operator-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .rg-operator-table-wrap { background: var(--color-surface); }
+.rg-operator-table-wrap table { min-width: 500px; margin: 0; border: none; }
+.rg-operator-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.rg-operator-table thead th {
+  background: var(--color-surface-alt);
+  font-weight: 700;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+.rg-operator-table tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: top;
+}
+.rg-operator-table tbody tr:last-child td { border-bottom: none; }
+.rg-operator-table tbody tr:nth-child(even) { background: var(--color-surface-alt, rgba(0,0,0,0.02)); }
+.rg-operator-table tbody tr:hover { background: var(--color-primary-surface, rgba(13,124,61,0.04)); }
+[data-theme="dark"] .rg-operator-table thead th { background: var(--color-surface-2); }
+[data-theme="dark"] .rg-operator-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
 
 /* Table footnote */
 .table-note {
