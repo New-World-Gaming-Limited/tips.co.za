@@ -1326,18 +1326,7 @@ table tbody tr:nth-child(even) {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
 }
-.pros-list li::before {
-  content: '✓';
-  color: var(--color-success);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.cons-list li::before {
-  content: '✗';
-  color: var(--color-error);
-  font-weight: 700;
-  flex-shrink: 0;
-}
+/* Icons handled by inline SVGs in HTML - no ::before needed */
 
 
 /* --- SCROLL REVEALS --- */
