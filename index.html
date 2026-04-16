@@ -1987,6 +1987,7 @@
         </h2>
         <span class="section-badge badge-value">EV+</span>
       </div>
+      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Bets where the bookmaker's odds are higher than the true probability suggests. A positive EV% means the price is in your favour over the long run. <a href="value-bets" style="color:var(--color-primary,#0d7c3d);">Full value bets page</a></p>
       <div id="tipOfDay">
         <!-- Tip of day banner renders here -->
       </div>
@@ -2012,6 +2013,7 @@
         </h2>
         <span class="section-badge badge-live"><span class="live-dot" style="width:6px;height:6px;margin-right:4px;vertical-align:middle;"></span> Live</span>
       </div>
+      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Odds that are falling fast, often because sharp bettors are backing one side. A big drop can signal insider confidence. <a href="dropping-odds" style="color:var(--color-primary,#0d7c3d);">Full dropping odds page</a></p>
       <div id="intelFeed">
         <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
         <div class="intel-row-v2"><div class="skeleton-line w-60"></div></div>
@@ -2036,6 +2038,7 @@
       </h2>
       <a href="football-odds" class="view-all-link">All odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
+    <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Live odds from Betway and TicTacBets for upcoming matches. The best price for each outcome is highlighted in green so you can see which bookmaker offers better value at a glance.</p>
 
     <div class="league-tabs" role="tablist" aria-label="Football leagues">
       <button class="league-tab active" role="tab" aria-selected="true" data-league="south-africa-premiership">
@@ -2083,6 +2086,7 @@
         </h2>
         <span class="section-badge badge-value">3 legs</span>
       </div>
+      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">A multi-bet combining today's best value picks. All selections must win for the accumulator to pay out, but the combined odds mean a bigger return from a small wager. <a href="accumulator-tips" style="color:var(--color-primary,#0d7c3d);">All accumulator tips</a></p>
       <div id="accaContainer" class="acca-compact">
         <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
       </div>
@@ -2477,12 +2481,21 @@
     return ml.odds[0];
   }
 
-  function betSideLabel(side) {
+  function betSideLabel(side, market) {
     if (!side) return 'Unknown';
     var s = side.toLowerCase();
     if (s === 'home' || s === '1') return 'Home';
     if (s === 'away' || s === '2') return 'Away';
     if (s === 'draw' || s === 'x') return 'Draw';
+    if (s === 'over' || s === 'under') {
+      var line = '';
+      if (market) {
+        var m = (typeof market === 'string' ? market : (market.name || '')).match(/([\d]+\.?[\d]*)/);
+        if (m) line = ' ' + m[1];
+      }
+      var label = s === 'over' ? 'Over' : 'Under';
+      return label + line + (line ? ' Goals' : '');
+    }
     return side;
   }
 
@@ -2554,7 +2567,7 @@
       var bkName = tip.bookmaker || 'Bookmaker';
       var bkOdds = tip.bookmakerOdds || {};
       var side = tip.betSide || '';
-      var sideLabel = betSideLabel(side);
+      var sideLabel = betSideLabel(side, tip.market);
       var sideKey = side.toLowerCase();
       var sideOddsVal = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
       var matchName = tip.home && tip.away ? (tip.home + ' vs ' + tip.away) : 'Match';
@@ -2621,7 +2634,7 @@
         var bkOdds = bet.bookmakerOdds || {};
         var bkName = bet.bookmaker || '';
         var side = bet.betSide || '';
-        var sideLabel = betSideLabel(side);
+        var sideLabel = betSideLabel(side, bet.market);
         var sideKey = side.toLowerCase();
         var sideOdds = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
         var leagueName = (bet.league && (bet.league.name || bet.league)) || '';
@@ -2906,7 +2919,7 @@
         if (!ev || !ev.home) return; // Skip unresolved events
         var matchName = ev.home + ' vs ' + ev.away;
         var leagueName = ev && ev.league ? ev.league.name : '';
-        var sideLabel = betSideLabel(d.betSide);
+        var sideLabel = betSideLabel(d.betSide, d.market);
         var opening = d.odds.opening ? d.odds.opening.toFixed(2) : '-';
         var current = d.odds.current ? d.odds.current.toFixed(2) : '-';
         var dropPct = d.odds.drop && d.odds.drop.sinceOpening != null ? d.odds.drop.sinceOpening : 0;

@@ -380,12 +380,20 @@
     return day + ' ' + mon + ', ' + hrs + ':' + min;
   }
 
-  function formatBetSide(side, home, away) {
+  function formatBetSide(side, home, away, market) {
     if (side === 'home') return home;
     if (side === 'away') return away;
     if (side === 'draw') return 'Draw';
-    if (side === 'over') return 'Over';
-    if (side === 'under') return 'Under';
+    if (side === 'over' || side === 'under') {
+      // Extract the line from the market name, e.g. "Over/Under 2.5" -> "2.5"
+      var line = '';
+      if (market) {
+        var m = market.match(/([\d]+\.?[\d]*)/);
+        if (m) line = ' ' + m[1];
+      }
+      var label = side === 'over' ? 'Over' : 'Under';
+      return label + line + (line ? ' Goals' : '');
+    }
     return side;
   }
 

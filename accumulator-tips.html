@@ -756,7 +756,7 @@
       html += '<li class="acca-leg">';
       html += '<div style="flex:1">';
       html += '<div class="acca-leg-match">' + p.home + ' vs ' + p.away + '</div>';
-      html += '<div class="acca-leg-pick">' + OddsEngine.formatBetSide(p.betSide, p.home, p.away) + ' &middot; ' + p.league + '</div>';
+      html += '<div class="acca-leg-pick">' + OddsEngine.formatBetSide(p.betSide, p.home, p.away, p.market) + ' &middot; ' + p.league + '</div>';
       html += '<div class="acca-leg-commentary">' + p.commentary + '</div>';
       html += '</div>';
       html += '<div class="acca-leg-odds">' + OddsEngine.formatOdds(p.odds) + '</div>';
