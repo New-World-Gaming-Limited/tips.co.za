@@ -1135,7 +1135,7 @@
       <p>This page compares live football odds from two bookmakers accessible to South African bettors: Betway, which holds provincial licences issued by the Western Cape Gambling and Racing Board and the Gauteng Gambling Board, and TicTacBets, a licensed South African operator. Both platforms are regulated under provincial gambling boards.</p>
       <p>The comparison pulls odds across eight major football competitions: the English Premier League, La Liga (Spain), Bundesliga (Germany), Serie A (Italy), Ligue 1 (France), the DStv Betway Premiership (SA Premiership), the UEFA Champions League, and the UEFA Europa League. Covering the PSL alongside Europe's top five leagues reflects the reality of South African betting markets, where local and continental football draw comparable interest.</p>
       <p>Odds update automatically every five minutes using the The Odds API, routed through a Cloudflare Worker proxy. Each fetch retrieves the latest available prices from both bookmakers. The best-priced selection in each 1X2 market is highlighted in green so you can spot value at a glance without reading two columns side by side.</p>
-      <p>Geo-targeting matters here. Only Betway and Stake offer structured, machine-readable odds feeds accessible from South Africa under licence conditions that permit comparison publishing. Other operators listed on this site do not expose similar API endpoints, which is why the comparison is limited to these two books. Coverage may expand as more operators provide accessible data feeds.</p>
+      <p>Geo-targeting matters here. Only Betway and TicTacBets offer structured, machine-readable odds feeds accessible from South Africa under licence conditions that permit comparison publishing. Other operators listed on this site do not expose similar API endpoints, which is why the comparison is limited to these two books. Coverage may expand as more operators provide accessible data feeds.</p>
     </div>
   </div>
 </section>
@@ -1479,6 +1479,45 @@
     return await apiFetch('odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake');
   }
 
+  // ---- Fetch single event details (team names) ----
+  async function fetchEvent(eventId) {
+    return await apiFetch('events/' + encodeURIComponent(eventId));
+  }
+
+  // ---- Enrich value bets with team names ----
+  async function enrichBets(bets) {
+    var ids = {};
+    bets.forEach(function(b) { if (b.eventId) ids[b.eventId] = true; });
+    var uniqueIds = Object.keys(ids);
+    var eventMap = {};
+    await Promise.all(uniqueIds.map(async function(eid) {
+      try {
+        var ev = await fetchEvent(eid);
+        if (ev && ev.home) {
+          eventMap[eid] = ev;
+        } else {
+          var od = await fetchOdds(eid);
+          if (od && od.home) eventMap[eid] = od;
+        }
+      } catch (e) {
+        try {
+          var od2 = await fetchOdds(eid);
+          if (od2 && od2.home) eventMap[eid] = od2;
+        } catch (e2) {}
+      }
+    }));
+    bets.forEach(function(b) {
+      var ev = eventMap[b.eventId];
+      if (ev) {
+        b.home = ev.home || '';
+        b.away = ev.away || '';
+        if (ev.league) b.league = typeof ev.league === 'object' ? ev.league.name : ev.league;
+        b.date = ev.date || '';
+      }
+    });
+    return bets;
+  }
+
   // ---- Build odds table HTML ----
   function buildOddsTable(oddsData) {
     const bks = oddsData.bookmakers || {};
@@ -1706,6 +1745,9 @@
         return;
       }
 
+      // Enrich bets with team names from events API
+      allBets = await enrichBets(allBets);
+
       const topBets = allBets.slice(0, 9);
       grid.innerHTML = topBets.map(bet => {
         const ev = parseFloat(bet.expectedValue) || 100;
@@ -1713,20 +1755,23 @@
         const evClass = parseFloat(evPct) >= 5 ? 'ev-high' : 'ev-mid';
         const bkOdds = bet.bookmakerOdds || {};
         const market = bet.market || {};
-        const bkName = bet.bookmaker || 'Bookmaker';
-        const betLink = bkOdds.href || '#';
+        const bkRaw = bet.bookmaker || 'Bookmaker';
+        // Map Stake to TicTacBets for display
+        const bkName = bkRaw === 'Stake' ? 'TicTacBets' : bkRaw;
+        // Use proper affiliate links instead of API hrefs
+        const betLink = bkRaw === 'Betway' ? 'https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS' : 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
         const fairHome = market.home ? parseFloat(market.home).toFixed(2) : '-';
         const fairAway = market.away ? parseFloat(market.away).toFixed(2) : '-';
-        const bkOddsVal = parseFloat(bkOdds.home || bkOdds.away || 0);
 
         // Which side is the value bet on?
         const side = bet.betSide || '';
         const sideLabel = betSideLabel(side, market);
-        const sideOdds = side.toLowerCase() === 'home' ? (bkOdds.home || '-') : (bkOdds.away || bkOdds.home || '-');
-        const fairOdds = side.toLowerCase() === 'home' ? fairHome : fairAway;
+        const sideKey = side.toLowerCase();
+        const sideOdds = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
+        const fairOdds = sideKey === 'home' ? fairHome : fairAway;
 
         const leagueName = (bet.league && (bet.league.name || bet.league)) || '';
-        const matchName = bet.home && bet.away ? `${bet.home} vs ${bet.away}` : (bet.eventId || 'Match');
+        const matchName = bet.home && bet.away ? `${bet.home} vs ${bet.away}` : 'Match';
 
         return `<div class="vb-card">
           <div class="vb-header">
@@ -1747,7 +1792,7 @@
               <span class="vb-odds-value">${fairOdds}</span>
             </div>
           </div>
-          <a href="${betLink}" class="vb-link" rel="nofollow noopener" target="_blank">
+          <a href="${betLink}" class="vb-link" rel="nofollow noopener sponsored" target="_blank">
             Bet on ${bkName}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
