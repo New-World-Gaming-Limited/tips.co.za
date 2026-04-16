@@ -34,8 +34,6 @@
   [data-theme="dark"] .site-header{background:#161b22;border-color:#30363d}
   .disclosure-bar{font-size:12px;text-align:center;padding:6px 16px;background:#f0f2f5;color:#555}
   [data-theme="dark"] .disclosure-bar{background:#1c2333;color:#8b949e}
-  .hero-bar{background:linear-gradient(135deg,#064e24 0%,#0d7c3d 50%,#064e24 100%);padding:18px 0;color:#fff}
-  .hero-bar h1{font-size:22px;font-weight:700;margin:0}
   .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px 0}
   @media(max-width:900px){.dash-grid{grid-template-columns:1fr}}
   .dash-panel{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:16px}
@@ -126,64 +124,7 @@
 
   <!-- Tips Homepage Styles -->
   <style id="tips-styles">
-/* ---- HERO ---- */
-.hero-tips {
-  background: linear-gradient(135deg, #063d1e 0%, #0d7c3d 60%, #0a5c2f 100%);
-  padding: var(--space-10) 0 var(--space-8);
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-.hero-tips::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(74,222,128,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero-tips .container { position: relative; }
-.hero-tips h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 1.4rem + 2.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: #fff;
-  margin-bottom: var(--space-4);
-  max-width: 700px;
-}
-.hero-sub-text {
-  font-size: var(--text-base);
-  color: rgba(255,255,255,0.82);
-  max-width: 580px;
-  line-height: 1.6;
-  margin-bottom: var(--space-6);
-}
-.hero-trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-5);
-}
-.hero-trust-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: var(--radius-full);
-  padding: var(--space-1) var(--space-3);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: #fff;
-  backdrop-filter: blur(4px);
-}
-.hero-trust-badge svg { flex-shrink: 0; opacity: 0.85; }
-.hero-updated {
-  font-size: var(--text-xs);
-  color: rgba(255,255,255,0.55);
-}
-.hero-updated strong { color: rgba(255,255,255,0.8); }
+/* ---- HERO (see .homepage-hero below) ---- */
 
 /* ---- TIP OF THE DAY ---- */
 .totd-section {
@@ -1104,41 +1045,7 @@
    REDESIGNED HOMEPAGE - ACTION-FIRST LAYOUT
    ================================================================ */
 
-/* ---- HERO BAR (slim) ---- */
-.hero-bar {
-  background: linear-gradient(135deg, #064e24 0%, #0d7c3d 50%, #064e24 100%);
-  padding: 18px 0;
-  color: #fff;
-}
-.hero-bar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.hero-bar h1 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0;
-  line-height: 1.2;
-}
-.hero-bar-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 13px;
-  opacity: 0.9;
-}
-.hero-bar-right .live-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #4ade80;
-  display: inline-block;
-  animation: pulse-dot 2s infinite;
-}
+/* ---- HERO BAR: replaced by .homepage-hero ---- */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
   50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(74,222,128,0); }
@@ -1742,8 +1649,6 @@
 
 /* ---- MOBILE ENHANCEMENTS ---- */
 @media (max-width: 640px) {
-  .hero-bar h1 { font-size: 18px; }
-  .hero-bar-right { font-size: 11px; }
   .dash-grid { gap: var(--space-3); }
   .dash-panel { padding: var(--space-3); }
   .section-head h2 { font-size: 16px; }
@@ -1791,6 +1696,101 @@
 .stat-icon svg {
   color: var(--accent);
 }
+
+/* ============================================================
+   HOMEPAGE HERO
+   ============================================================ */
+.homepage-hero {
+  background: linear-gradient(145deg, #061208 0%, #0d3d1e 60%, #145A32 100%);
+  color: #fff;
+  padding: clamp(var(--space-10), 5vw, var(--space-16)) 0 clamp(var(--space-8), 4vw, var(--space-12));
+  position: relative;
+  overflow: hidden;
+}
+.homepage-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 40%);
+  pointer-events: none;
+}
+.homepage-hero .container { position: relative; z-index: 1; }
+.homepage-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.4rem + 2.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 700px;
+  margin-bottom: var(--space-4);
+}
+.homepage-hero .hero-subtitle {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.82);
+  max-width: 580px;
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+.hero-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  background: #fff;
+  color: #0d7c3d;
+  text-decoration: none;
+  transition: all var(--transition-interactive);
+  border: none;
+}
+.hero-cta-primary:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+.hero-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  transition: all var(--transition-interactive);
+}
+.hero-cta-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.hero-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+.hero-live-info {
+  margin-top: var(--space-4);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.5);
+}
+.hero-live-info strong { color: rgba(255,255,255,0.75); }
 
 </style>
 
@@ -1960,22 +1960,30 @@
 <main>
 
 <!-- ============================================================
-     HERO BAR (slim, data-first)
+     HOMEPAGE HERO
      ============================================================ -->
-<section class="hero-bar">
+<section class="homepage-hero">
   <div class="container">
-    <h1>Betting Tips South Africa</h1>
-    <div class="hero-bar-right">
-      <span><span class="live-dot"></span> Live odds from Betway and TicTacBets</span>
-      <span id="hero-timestamp">Loading...</span>
+    <h1>South Africa's Best Betting Tips and Bookmaker Reviews</h1>
+    <p class="hero-subtitle">Data-driven tips, live odds from Betway and TicTacBets, and honest reviews of 44 licensed operators. Free, independent, updated daily.</p>
+    <div class="hero-cta-row">
+      <a href="#dashboard" class="hero-cta-primary">See Today's Tips</a>
+      <a href="best-betting-sites-south-africa" class="hero-cta-secondary">Compare Bookmakers</a>
     </div>
+    <div class="hero-trust-row">
+      <span class="hero-trust-badge">&#10003; 44 Licensed Operators</span>
+      <span class="hero-trust-badge">&#10003; 9 Provincial Boards</span>
+      <span class="hero-trust-badge">&#128200; Live Odds</span>
+      <span class="hero-trust-badge">&#128336; Updated Every 5 Min</span>
+    </div>
+    <p class="hero-live-info"><strong>Last updated:</strong> <span id="hero-timestamp">Loading...</span></p>
   </div>
 </section>
 
 <!-- ============================================================
      DASHBOARD: VALUE BETS + INTELLIGENCE FEED (side by side)
      ============================================================ -->
-<div class="container">
+<div class="container" id="dashboard">
   <div class="dash-grid">
 
     <!-- LEFT: Tip of the Day + Value Picks -->
@@ -2072,70 +2080,6 @@
 </section>
 
 <!-- ============================================================
-     TWO-COL: ACCUMULATOR + TRENDING STATS
-     ============================================================ -->
-<div class="container">
-  <div class="two-col">
-
-    <!-- Accumulator of the Day -->
-    <div class="dash-panel">
-      <div class="section-head">
-        <h2>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Accumulator
-        </h2>
-        <span class="section-badge badge-value">3 legs</span>
-      </div>
-      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">A multi-bet combining today's best value picks. All selections must win for the accumulator to pay out, but the combined odds mean a bigger return from a small wager. <a href="accumulator-tips" style="color:var(--color-primary,#0d7c3d);">All accumulator tips</a></p>
-      <div id="accaContainer" class="acca-compact">
-        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
-      </div>
-    </div>
-
-    <!-- Trending Stats -->
-    <div class="dash-panel">
-      <div class="section-head">
-        <h2>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          Trending Stats
-        </h2>
-      </div>
-      <div class="stats-compact">
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></span>
-          <div>
-            <div class="stat-league">Premier League</div>
-            <div class="stat-text">Over 2.5 goals has landed in <span class="stat-highlight">67%</span> of matches this season</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3M2 7h20M6 21V7M18 21V7"/></svg></span>
-          <div>
-            <div class="stat-league">SA Premiership</div>
-            <div class="stat-text">Home teams have won <span class="stat-highlight">48%</span> of matches this campaign</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
-          <div>
-            <div class="stat-league">Bundesliga</div>
-            <div class="stat-text">Leads Europe with an average of <span class="stat-highlight">3.1 goals</span> per game</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-          <div>
-            <div class="stat-league">Serie A</div>
-            <div class="stat-text">Has the most clean sheets (<span class="stat-highlight">38%</span>) of any top-5 league</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ============================================================
      EXPLORE (compact grid)
      ============================================================ -->
 <section class="explore-v2">
@@ -2212,6 +2156,70 @@
 </section>
 
 <!-- ============================================================
+     TWO-COL: ACCUMULATOR + TRENDING STATS
+     ============================================================ -->
+<div class="container">
+  <div class="two-col">
+
+    <!-- Accumulator of the Day -->
+    <div class="dash-panel">
+      <div class="section-head">
+        <h2>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Accumulator
+        </h2>
+        <span class="section-badge badge-value">3 legs</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">A multi-bet combining today's best value picks. All selections must win for the accumulator to pay out, but the combined odds mean a bigger return from a small wager. <a href="accumulator-tips" style="color:var(--color-primary,#0d7c3d);">All accumulator tips</a></p>
+      <div id="accaContainer" class="acca-compact">
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
+      </div>
+    </div>
+
+    <!-- Trending Stats -->
+    <div class="dash-panel">
+      <div class="section-head">
+        <h2>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Trending Stats
+        </h2>
+      </div>
+      <div class="stats-compact">
+        <div class="stat-row">
+          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></span>
+          <div>
+            <div class="stat-league">Premier League</div>
+            <div class="stat-text">Over 2.5 goals has landed in <span class="stat-highlight">67%</span> of matches this season</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3M2 7h20M6 21V7M18 21V7"/></svg></span>
+          <div>
+            <div class="stat-league">SA Premiership</div>
+            <div class="stat-text">Home teams have won <span class="stat-highlight">48%</span> of matches this campaign</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
+          <div>
+            <div class="stat-league">Bundesliga</div>
+            <div class="stat-text">Leads Europe with an average of <span class="stat-highlight">3.1 goals</span> per game</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <div>
+            <div class="stat-league">Serie A</div>
+            <div class="stat-text">Has the most clean sheets (<span class="stat-highlight">38%</span>) of any top-5 league</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
      HOW WE RANK (SEO content)
      ============================================================ -->
 <section class="section section-alt">
@@ -2237,8 +2245,8 @@
   <div class="container">
     <h2>Frequently asked questions</h2>
     <div class="faq-list"><div class="faq-item">
-      <button class="faq-question" aria-expanded="false">How are your betting tips calculated?</button>
-      <div class="faq-answer"><p>Our tips are generated algorithmically from live odds data. We compare bookmaker prices against fair-value probabilities to identify positive expected value bets. The Tip of the Day is always the highest-EV value bet available.</p></div>
+      <button class="faq-question" aria-expanded="true">How are your betting tips calculated?</button>
+      <div class="faq-answer open"><p>Our tips are generated algorithmically from live odds data. We compare bookmaker prices against fair-value probabilities to identify positive expected value bets. The Tip of the Day is always the highest-EV value bet available.</p></div>
     </div><div class="faq-item">
       <button class="faq-question" aria-expanded="false">Is online betting legal in South Africa?</button>
       <div class="faq-answer"><p>Yes, when the bookmaker holds a licence issued by a South African provincial gambling board such as the Western Cape Gambling and Racing Board or the Gauteng Gambling Board. All operators listed on this site are licensed.</p></div>
@@ -2248,6 +2256,12 @@
     </div><div class="faq-item">
       <button class="faq-question" aria-expanded="false">What payment methods matter most for South African bettors?</button>
       <div class="faq-answer"><p>Capitec Pay, Instant EFT and Ozow are the most popular local deposit methods because they are instant and free at most bookmakers. Cards, bank transfer and voucher methods such as 1Voucher are also widely supported.</p></div>
+    </div><div class="faq-item">
+      <button class="faq-question" aria-expanded="false">Which bookmaker has the best signup bonus?</button>
+      <div class="faq-answer"><p>Easybet currently offers R50 with no deposit and a 150% match up to R1,500 using code NEWBONUS. Gbets offers R50 free plus 100% up to R5,000. Compare all current offers on our bonus codes page.</p></div>
+    </div><div class="faq-item">
+      <button class="faq-question" aria-expanded="false">Which is the safest betting site in South Africa?</button>
+      <div class="faq-answer"><p>Any bookmaker holding a valid provincial gambling board licence is legally safe. We list 44 licensed operators. Betway, Hollywoodbets, and Supabets are among the most established. Check our safe betting sites guide for the full ranked list.</p></div>
     </div><div class="faq-item">
       <button class="faq-question" aria-expanded="false">How often are tips updated?</button>
       <div class="faq-answer"><p>Tips update every time you load the page and auto-refresh every 5 minutes. Odds data comes live from Betway and TicTacBets, so value picks and the intelligence feed stay current throughout the day.</p></div>
@@ -2585,7 +2599,7 @@
             '<span class="ev-badge ev-high">+' + evPct + '% EV</span>' +
           '</div>' +
         '</div>' +
-        '<a href="' + betLink + '" class="totd-banner-cta" rel="nofollow noopener" target="_blank">Bet on ' + bkName + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
+        '<a href="' + betLink + '" class="totd-banner-cta" rel="nofollow noopener" target="_blank">' + ctaLabel + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
       '</div>';
 
       return allBets;
