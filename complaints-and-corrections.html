@@ -49,6 +49,26 @@
 }</script>
   <style id="critical-css">:root{--text-xs:clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);--text-sm:clamp(0.875rem, 0.8rem + 0.35vw, 1rem);--text-base:clamp(1rem, 0.95rem + 0.25vw, 1.125rem);--text-lg:clamp(1.125rem, 1rem + 0.75vw, 1.5rem);--text-xl:clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);--text-2xl:clamp(2rem, 1.2rem + 2.5vw, 3.25rem);--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;--transition-interactive:200ms cubic-bezier(0.16, 1, 0.3, 1);--content-narrow:680px;--content-default:960px;--content-wide:1200px;--font-display:'General Sans', 'Inter', sans-serif;--font-body:'Inter', 'Helvetica Neue', sans-serif;}[data-theme="dark"]{--color-bg:#0d1117;--color-surface:#161b22;--color-surface-2:#1c2333;--color-surface-alt:#1c2333;--color-border:#30363d;--color-border-light:#21262d;--color-text:#e6edf3;--color-text-muted:#8b949e;--color-text-faint:#484f58;--color-text-inverse:#111111;--color-primary:#4ADE80;--color-primary-hover:#22C55E;--color-primary-light:rgba(74,222,128,0.12);--color-primary-glow:rgba(13,124,61,0.3);--color-primary-surface:rgba(74,222,128,0.08);--accent:#4ADE80;--accent-hover:#22C55E;--accent-light:rgba(74,222,128,0.12) --color-success:#4ade80;--color-success-light:rgba(74,222,128,0.08);--color-success-border:rgba(74,222,128,0.2);--color-error:#f87171;--color-warning:#fbbf24;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 20px rgba(0,0,0,0.4);--shadow-lg:0 12px 40px rgba(0,0,0,0.5);}*, *::before, *::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text-primary);line-height:1.75;-webkit-font-smoothing:antialiased;}img{max-width:100%;height:auto;}a{color:var(--accent);text-decoration:none;}.container{max-width:1200px;margin:0 auto;padding:0 var(--space-4);}.disclosure-bar{background:var(--color-surface-2);padding:4px var(--space-4);font-size:11px;color:var(--color-text-faint);text-align:center;border-bottom:1px solid var(--color-border-light);line-height:1.4;}.site-header{position:sticky;top:0;z-index:100;background:var(--color-surface);border-bottom:1px solid var(--color-border);height:60px;}.site-header .container{display:flex;align-items:center;justify-content:space-between;height:100%;}.site-header .site-logo img{height:26px !important;}.hero{background:linear-gradient(145deg, #0a2e1a 0%, #1A6B3C 60%, #22804A 100%);color:#ffffff;padding:clamp(var(--space-8), 4vw, var(--space-12)) 0;position:relative;overflow:hidden;}.hero{background:linear-gradient(145deg, #061208 0%, #0d3d1e 60%, #145A32 100%);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 40%);pointer-events:none;}.hero .container{position:relative;z-index:1;}</style>
   <script>(function(){var k='local',s={};try{s=window[k+'Storage']||s}catch(e){}window._ls=s;try{var t=s.getItem?s.getItem('tips-theme'):s['tips-theme'];if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tips.co.za",
+  "url": "https://tips.co.za",
+  "description": "Independent reviews and comparisons of licensed South African betting sites.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "38 Wale St",
+    "addressLocality": "Cape Town",
+    "postalCode": "8000",
+    "addressCountry": "ZA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "help@tips.co.za",
+    "contactType": "customer service"
+  }
+}</script>
 </head>
 <body>
 <div class="disclosure-bar">
@@ -217,23 +237,37 @@
 
 <section class="section">
   <div class="container">
+
+    <h2>Choose the right route</h2>
+    <p>Before submitting a message, identify which of the three categories below applies. Sending to the wrong route delays resolution.</p>
+    <div class="table-responsive" style="margin-bottom:var(--space-8);">
+      <table class="comparison-table">
+        <thead><tr><th>Type</th><th>What it covers</th><th>Contact</th><th>Target response</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Editorial correction</strong></td><td>Factual error in a review, guide, or news article on this site</td><td><a href="mailto:help@tips.co.za">help@tips.co.za</a></td><td>Acknowledged within 48 hours; correction applied within 48 hours of verification</td></tr>
+          <tr><td><strong>Operator complaint</strong></td><td>Unresolved dispute with a licensed South African bookmaker</td><td>Bookmaker's complaints process, then provincial gambling board</td><td>Per board's published SLA</td></tr>
+          <tr><td><strong>Commercial enquiry</strong></td><td>Affiliate, sponsorship, or advertising enquiry</td><td><a href="mailto:help@tips.co.za">help@tips.co.za</a></td><td>5 business days</td></tr>
+        </tbody>
+      </table>
+    </div>
+
     <h2>Reporting a factual error on this site</h2>
-    <p>If you have found a factual error on any page  -  an incorrect bonus amount, wrong licence details, outdated payment information or any other inaccuracy  -  please tell us using our <a href="contact-us">contact form</a>. Include:</p>
+    <p>If you have found a factual error on any page, such as an incorrect bonus amount, wrong licence details, or outdated payment information, email <a href="mailto:help@tips.co.za">help@tips.co.za</a> or use the <a href="contact-us">contact form</a>. Include:</p>
     <ul class="market-list">
       <li>The URL of the page containing the error</li>
       <li>A clear description of what is stated incorrectly</li>
-      <li>The correct information and, if possible, a source for verification</li>
+      <li>The correct information and, where possible, a primary source for verification (such as the operator's terms page or the relevant gambling board register)</li>
     </ul>
-    <p>We aim to investigate all factual correction requests within 48 hours. Verified errors are corrected promptly and the page is updated with a note of the correction date.</p>
+    <p>We acknowledge all correction requests within 48 hours. Verified errors are corrected within 48 hours of confirmation and the page is updated with a correction notice at the top of the affected section, noting the date and nature of the change. Corrections are also recorded in the log at the bottom of this page.</p>
 
     <h2>Complaints about a bookmaker</h2>
-    <p>We are an information publisher, not a dispute resolution service. We cannot mediate between you and a bookmaker. If you have an unresolved dispute with a licensed South African bookmaker, your escalation routes are:</p>
+    <p>Tips is an information publisher, not a dispute resolution service. We cannot mediate between you and a bookmaker or compel an operator to act. If you have an unresolved dispute with a licensed South African bookmaker, the correct route is:</p>
 
     <h3>Step 1: Bookmaker internal complaints process</h3>
-    <p>All licensed operators must have a formal complaints process. Use the bookmaker's live chat, email support or phone to raise a formal complaint. Request a complaint reference number. The bookmaker must respond within a reasonable time frame under their licence obligations.</p>
+    <p>All operators licensed by a South African provincial gambling board are required to have a formal complaints process. Contact the bookmaker through its official support channel, raise a formal complaint, and request a complaint reference number. Keep a written record of all correspondence. The bookmaker must respond within a reasonable timeframe under its licence obligations.</p>
 
     <h3>Step 2: Provincial gambling board</h3>
-    <p>If the bookmaker does not resolve your complaint satisfactorily, escalate to the provincial gambling board that issued their licence. Each board has a complaints or consumer protection function. Contact details are available on each board's website.</p>
+    <p>If the bookmaker does not resolve your complaint satisfactorily, escalate to the provincial gambling board that issued its licence. Each board has a consumer protection or complaints function. Contact details are available on each board's website. The table below shows which board licences each operator listed on this site.</p>
 
     <div class="table-responsive">
       <table class="comparison-table">
@@ -245,10 +279,25 @@
     </div>
 
     <h3>Step 3: National Gambling Board</h3>
-    <p>The National Gambling Board (NGB) at www.ngb.org.za can provide guidance on escalating complaints that provincial boards have not adequately addressed.</p>
+    <p>The National Gambling Board (NGB) at <a href="https://www.ngb.org.za" rel="noopener noreferrer">ngb.org.za</a> can provide guidance on escalating complaints that provincial boards have not adequately addressed. The NGB does not handle individual disputes directly but coordinates standards across the provincial system.</p>
 
     <h2>Responsible gambling concerns</h2>
     <p>If gambling is affecting your wellbeing or that of someone close to you, the most important contact is the SA Responsible Gambling Foundation helpline: <strong>0800 006 008</strong> (free, 24/7). See also our <a href="responsible-gambling">responsible gambling guide</a> and <a href="self-exclusion-south-africa">self-exclusion guide</a>.</p>
+
+    <h2>Archived corrections log</h2>
+    <p>Verified corrections applied to pages on this site are recorded below. Each entry shows the date the correction was applied, the page affected, and a brief description of what was changed.</p>
+    <div class="table-responsive">
+      <table class="comparison-table">
+        <thead><tr><th>Date</th><th>Page</th><th>Correction</th></tr></thead>
+        <tbody>
+          <tr><td>April 2026</td><td>Betway review</td><td>Updated withdrawal processing timeframe to reflect operator's current stated 24-hour window. Previous version stated 48 hours. Source: Betway SA terms and conditions page.</td></tr>
+          <tr><td>March 2026</td><td>Regulation updates</td><td>Removed unverified claim about specific RGS notice dates pending primary source confirmation from NGB portal.</td></tr>
+          <tr><td>March 2026</td><td>How we review</td><td>Corrected scoring category weighting for payment methods section. Previous version listed an incorrect percentage. Source: internal scoring model documentation.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--color-text-muted);font-size:var(--text-sm);margin-top:var(--space-4);">This log is updated each time a verified correction is applied. The most recent correction appears at the top. Log maintained from April 2026.</p>
+
   </div>
 </section>
 </main>
