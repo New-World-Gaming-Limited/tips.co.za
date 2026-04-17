@@ -2042,7 +2042,7 @@
     <div class="section-head">
       <h2>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        Today's Matches
+        Upcoming Matches
       </h2>
       <a href="football-odds" class="view-all-link">All odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
@@ -2595,6 +2595,24 @@
     var m = String(d.getUTCMinutes()).padStart(2, '0');
     return h + ':' + m;
   }
+  function formatMatchDate(dateStr) {
+    var d = toSAST(dateStr);
+    var now = toSAST(new Date().toISOString());
+    var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var dayName = days[d.getUTCDay()];
+    var date = d.getUTCDate();
+    var month = months[d.getUTCMonth()];
+    var h = String(d.getUTCHours()).padStart(2, '0');
+    var m = String(d.getUTCMinutes()).padStart(2, '0');
+    // Check if same day
+    var isToday = d.getUTCFullYear() === now.getUTCFullYear() && d.getUTCMonth() === now.getUTCMonth() && d.getUTCDate() === now.getUTCDate();
+    var tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+    var isTomorrow = d.getUTCFullYear() === tomorrow.getUTCFullYear() && d.getUTCMonth() === tomorrow.getUTCMonth() && d.getUTCDate() === tomorrow.getUTCDate();
+    if (isToday) return 'Today, ' + h + ':' + m;
+    if (isTomorrow) return 'Tomorrow, ' + h + ':' + m;
+    return dayName + ' ' + date + ' ' + month + ', ' + h + ':' + m;
+  }
 
   function updateTimestamp() {
     var el = document.getElementById('hero-timestamp');
@@ -2760,12 +2778,14 @@
       var betLink = bkName === 'Betway' ? 'https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS' : 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
       var ctaLabel = bkName === 'Betway' ? 'Bet on Betway' : 'Bet on TicTacBets';
 
+      var tipDate = tip.date ? formatMatchDate(tip.date) : '';
       container.innerHTML = '<div class="totd-banner">' +
         '<div class="totd-banner-left">' +
           '<div class="totd-banner-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Top Pick</div>' +
           '<div class="totd-banner-match">' + matchName + '</div>' +
           '<div class="totd-banner-detail">' +
             (leagueName ? '<span>' + leagueName + '</span>' : '') +
+            (tipDate ? '<span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-right:3px;opacity:0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' + tipDate + '</span>' : '') +
             '<span>' + sideLabel + ' @ ' + (parseFloat(sideOddsVal) > 0 ? parseFloat(sideOddsVal).toFixed(2) : sideOddsVal) + '</span>' +
             '<span class="ev-badge ev-high">+' + evPct + '% EV</span>' +
           '</div>' +
@@ -2919,7 +2939,7 @@
       batch.forEach(function(ev) {
         var od = oddsMap[ev.id];
         var pred = calcPrediction(od);
-        var time = formatTime(ev.date);
+        var matchDate = formatMatchDate(ev.date);
         var predHtml = pred
           ? '<span class="preview-prediction">' + pred.label + ' (' + pred.pct + '%)</span>'
           : '';
@@ -2945,7 +2965,7 @@
           '<div class="preview-left">' +
             '<div class="preview-teams">' + ev.home + ' <span class="match-vs">vs</span> ' + ev.away + '</div>' +
             '<div class="preview-meta">' +
-              '<span class="preview-time">' + time + '</span>' +
+              '<span class="preview-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-right:4px;opacity:0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' + matchDate + '</span>' +
               predHtml +
             '</div>' +
             oddsHtml +
