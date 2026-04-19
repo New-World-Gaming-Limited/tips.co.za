@@ -1489,6 +1489,12 @@
 .prob-bar-fill.high { background: #16a34a; }
 .prob-bar-fill.mid  { background: #eab308; }
 .prob-bar-fill.low  { background: #ef4444; }
+.prob-bar-label {
+  font-size: 10px;
+  color: var(--color-text-faint, #9ca3af);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
 .prob-bar-pct {
   font-size: 11px;
   font-weight: 600;
@@ -1646,6 +1652,12 @@
   color: var(--color-text);
 }
 .preview-odds-cell.best .odds-val { color: var(--accent); }
+.preview-odds-source {
+  font-size: 10px;
+  color: var(--color-text-faint, #9ca3af);
+  margin-top: 4px;
+  letter-spacing: 0.01em;
+}
 
 /* ---- MOBILE ENHANCEMENTS ---- */
 @media (max-width: 640px) {
@@ -1750,24 +1762,25 @@
   color: #0d7c3d;
   text-decoration: none;
   transition: all var(--transition-interactive);
-  border: none;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-.hero-cta-primary:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+.hero-cta-primary:hover { background: rgba(255,255,255,0.92); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 .hero-cta-secondary {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-full);
-  font-weight: 700;
+  font-weight: 600;
   font-size: var(--text-sm);
   background: transparent;
-  color: #fff;
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
-  border: 1.5px solid rgba(255,255,255,0.35);
+  border: 1.5px solid rgba(255,255,255,0.25);
   transition: all var(--transition-interactive);
 }
-.hero-cta-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+.hero-cta-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); color: #fff; }
 .hero-trust-row {
   display: flex;
   flex-wrap: wrap;
@@ -1791,6 +1804,77 @@
   color: rgba(255,255,255,0.5);
 }
 .hero-live-info strong { color: rgba(255,255,255,0.75); }
+
+/* === Fix 6: Highlight #1 bookmaker row === */
+.bk-row-highlight {
+  background: var(--color-primary-light, #e6f4ec);
+  border-left: 3px solid var(--accent);
+}
+[data-theme="dark"] .bk-row-highlight {
+  background: rgba(13, 124, 61, 0.12);
+}
+.bk-top-pick {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+
+/* === Fix 7: Featured explore cards (Acca Tips + Football Odds) === */
+.explore-v2-card--featured {
+  grid-column: span 2;
+  background: var(--color-surface-alt, #f0f2f5);
+  border-color: var(--accent);
+  padding: var(--space-4) var(--space-5);
+}
+.explore-v2-card--featured .explore-title {
+  font-size: 16px;
+}
+.explore-v2-card--featured .explore-desc {
+  font-size: 13px;
+}
+@media (max-width: 640px) {
+  .explore-v2-card--featured { grid-column: span 1; }
+}
+
+/* === Fix 8: FAQ question sans-serif enforcement === */
+.faq-question {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 600;
+}
+.section h2,
+.container > h2 {
+  font-style: normal;
+}
+
+/* === Fix 9: Scoring grid orphan fix === */
+.scoring-grid .scoring-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+/* === Fix 10: Footer columns balanced — no change needed in CSS, handled in HTML === */
+
+/* === Fix 11: Dark mode hero contrast === */
+[data-theme="dark"] .homepage-hero {
+  background: linear-gradient(145deg, #000000 0%, #071a0d 50%, #0d3d1e 100%);
+}
+[data-theme="dark"] .homepage-hero h1 {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .homepage-hero .hero-subtitle {
+  color: rgba(255,255,255,0.75);
+}
+[data-theme="dark"] .hero-trust-badge {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+}
 
 </style>
 
@@ -1968,7 +2052,7 @@
     <p class="hero-subtitle">Data-driven tips, live odds from Betway and TicTacBets, and honest reviews of 44 licensed operators. Free, independent, updated daily.</p>
     <div class="hero-cta-row">
       <a href="#dashboard" class="hero-cta-primary">See Today's Tips</a>
-      <a href="best-betting-sites-south-africa" class="hero-cta-secondary">Compare Bookmakers</a>
+      <a href="#compare-bookmakers" class="hero-cta-secondary">Compare Bookmakers</a>
     </div>
     <div class="hero-trust-row">
       <span class="hero-trust-badge">&#10003; 44 Licensed Operators</span>
@@ -2088,14 +2172,14 @@
       <h2>Explore</h2>
     </div>
     <div class="explore-v2-grid">
-      <a href="accumulator-tips" class="explore-v2-card" style="border-color:var(--accent);">
+      <a href="accumulator-tips" class="explore-v2-card explore-v2-card--featured">
         <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Accumulator Tips</span>
           <span class="explore-desc">Daily accas from live odds data</span>
         </div>
       </a>
-      <a href="football-odds" class="explore-v2-card">
+      <a href="football-odds" class="explore-v2-card explore-v2-card--featured">
         <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
         <div class="explore-info">
           <span class="explore-title">Live Football Odds</span>
@@ -2259,11 +2343,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="bk-row-highlight">
             <td class="bk-cell">
               <span class="bk-rank">#1</span>
               <img src="assets/logos/betway.svg" alt="Betway" width="28" height="28" loading="lazy" decoding="async" class="bk-logo-sm">
               <a href="reviews/betway" class="bk-name-link">Betway</a>
+              <span class="bk-top-pick">Top Pick</span>
             </td>
             <td class="bonus-cell">100% up to R1,000</td>
             <td>24-48 hours</td>
@@ -2422,6 +2507,8 @@
           <a href="free-bets-south-africa">Free Bets</a>
           <a href="welcome-bonuses-south-africa">Welcome Bonuses</a>
           <a href="safer-bankroll-management">Bankroll Management</a>
+          <a href="guides/">Betting Guides</a>
+          <a href="accumulator-tips">Accumulator Tips</a>
         </div>
       </div>
       <div class="footer-col">
@@ -2465,9 +2552,7 @@
           <a href="responsible-gambling">Responsible Gambling</a>
           <a href="bonus-browser">Bonus Browser</a>
           <a href="betting-calculators">Betting Calculators</a>
-          <a href="guides/">Betting Guides</a>
           <a href="odds-converter">Odds Converter</a>
-          <a href="parlay-calculator">Parlay Calculator</a>
         </div>
       </div>
       <div class="footer-col">
@@ -2855,7 +2940,7 @@
             '<div class="vb-row-match">' + matchName + '</div>' +
             '<div class="vb-row-detail">' +
               '<span class="vb-row-league">' + leagueName + '</span>' +
-              '<div class="prob-bar-wrap"><div class="prob-bar"><div class="prob-bar-fill ' + probClass + '" style="width:' + impliedProb + '%"></div></div><span class="prob-bar-pct">' + impliedProb + '%</span></div>' +
+              '<div class="prob-bar-wrap"><span class="prob-bar-label">Win prob.</span><div class="prob-bar"><div class="prob-bar-fill ' + probClass + '" style="width:' + impliedProb + '%"></div></div><span class="prob-bar-pct">' + impliedProb + '%</span></div>' +
             '</div>' +
           '</div>' +
           '<div class="vb-row-center">' +
@@ -2948,17 +3033,19 @@
         var bwMl = getML(bks, 'Betway');
         var skMl = getML(bks, 'Stake');
         var dispMl = bwMl || skMl;
-        var oddsHtml = '';
-        if (dispMl) {
-          var hv = parseFloat(dispMl.home) || 0;
-          var dv = parseFloat(dispMl.draw) || 0;
-          var av = parseFloat(dispMl.away) || 0;
-          var bestVal = Math.min(hv || 999, dv || 999, av || 999);
-          oddsHtml = '<div class="preview-odds-grid">' +
-            '<div class="preview-odds-cell' + (hv === bestVal ? ' best' : '') + '"><span class="odds-label">1</span><span class="odds-val">' + (hv > 0 ? hv.toFixed(2) : '-') + '</span></div>' +
-            '<div class="preview-odds-cell' + (dv === bestVal ? ' best' : '') + '"><span class="odds-label">X</span><span class="odds-val">' + (dv > 0 ? dv.toFixed(2) : '-') + '</span></div>' +
-            '<div class="preview-odds-cell' + (av === bestVal ? ' best' : '') + '"><span class="odds-label">2</span><span class="odds-val">' + (av > 0 ? av.toFixed(2) : '-') + '</span></div>' +
-          '</div>';
+        var hv = dispMl ? (parseFloat(dispMl.home) || 0) : 0;
+        var dv = dispMl ? (parseFloat(dispMl.draw) || 0) : 0;
+        var av = dispMl ? (parseFloat(dispMl.away) || 0) : 0;
+        var hasOdds = hv > 0 || dv > 0 || av > 0;
+        var bestVal = Math.min(hv || 999, dv || 999, av || 999);
+        var oddsSource = bwMl ? 'Betway' : (skMl ? 'TicTacBets' : '');
+        var oddsHtml = '<div class="preview-odds-grid">' +
+          '<div class="preview-odds-cell' + (hasOdds && hv === bestVal ? ' best' : '') + '"><span class="odds-label">1</span><span class="odds-val">' + (hv > 0 ? hv.toFixed(2) : '-') + '</span></div>' +
+          '<div class="preview-odds-cell' + (hasOdds && dv === bestVal ? ' best' : '') + '"><span class="odds-label">X</span><span class="odds-val">' + (dv > 0 ? dv.toFixed(2) : '-') + '</span></div>' +
+          '<div class="preview-odds-cell' + (hasOdds && av === bestVal ? ' best' : '') + '"><span class="odds-label">2</span><span class="odds-val">' + (av > 0 ? av.toFixed(2) : '-') + '</span></div>' +
+        '</div>';
+        if (oddsSource && hasOdds) {
+          oddsHtml += '<div class="preview-odds-source">via ' + oddsSource + '</div>';
         }
 
         html += '<div class="preview-card">' +
@@ -2971,7 +3058,7 @@
             oddsHtml +
           '</div>' +
           '<div class="preview-right">' +
-            '<a href="football-odds" class="preview-odds-link">Full odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
+            '<a href="football-odds" class="preview-odds-link">All markets <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>' +
           '</div>' +
         '</div>';
       });
@@ -3025,8 +3112,18 @@
     var legs = candidates.slice(0, 3);
 
     if (legs.length < 3) {
-      container.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">Accumulator available closer to matchday. Needs at least 3 qualifying matches.</div>';
+      // Hide the accumulator section entirely when no legs available
+      var accaSection = container.closest('.dashboard-aside') || container.parentElement;
+      if (accaSection) {
+        container.closest('.acca-compact') && (container.closest('.acca-compact').style.display = 'none');
+      }
+      container.innerHTML = '';
+      container.style.display = 'none';
       return;
+    } else {
+      container.style.display = '';
+      var compactEl = container.closest('.acca-compact');
+      if (compactEl) compactEl.style.display = '';
     }
 
     var combinedOdds = 1;
