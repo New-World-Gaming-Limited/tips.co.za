@@ -2924,11 +2924,13 @@
       }
 
       allBets = await enrichBets(allBets);
-      // Filter to matches within 7 days
-      var sevenDays = Date.now() + 7 * 24 * 60 * 60 * 1000;
+      // Filter out past matches and limit to 7 days ahead
+      var nowMs = Date.now();
+      var sevenDays = nowMs + 7 * 24 * 60 * 60 * 1000;
       allBets = allBets.filter(function(b) {
         if (!b.date) return true;
-        return new Date(b.date).getTime() <= sevenDays;
+        var t = new Date(b.date).getTime();
+        return t >= nowMs && t <= sevenDays;
       });
       if (!allBets.length) { container.innerHTML = ''; return allBets; }
       var tip = allBets[0];
@@ -2990,10 +2992,12 @@
           return (parseFloat(b.expectedValue) || 0) - (parseFloat(a.expectedValue) || 0);
         });
         allBets = await enrichBets(allBets);
-        var sevenDays2 = Date.now() + 7 * 24 * 60 * 60 * 1000;
+        var nowMs2 = Date.now();
+        var sevenDays2 = nowMs2 + 7 * 24 * 60 * 60 * 1000;
         allBets = allBets.filter(function(b) {
           if (!b.date) return true;
-          return new Date(b.date).getTime() <= sevenDays2;
+          var t = new Date(b.date).getTime();
+          return t >= nowMs2 && t <= sevenDays2;
         });
       }
 
@@ -3022,12 +3026,13 @@
         var probClass = impliedProb >= 55 ? 'high' : (impliedProb >= 35 ? 'mid' : 'low');
         var betUrl = bkName === 'Betway' ? 'https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS' : 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
         var ctaBk = bkName === 'Betway' ? 'Betway' : 'TicTacBets';
+        var vbDate = bet.date ? formatMatchDate(bet.date) : '';
 
         return '<div class="vb-row">' +
           '<div class="vb-row-left">' +
             '<div class="vb-row-match">' + matchName + '</div>' +
             '<div class="vb-row-detail">' +
-              '<span class="vb-row-league">' + leagueName + '</span>' +
+              '<span class="vb-row-league">' + leagueName + '</span>' + (vbDate ? '<span class="vb-row-date">' + vbDate + '</span>' : '') +
               '<div class="prob-bar-wrap"><span class="prob-bar-label">Win prob.</span><div class="prob-bar"><div class="prob-bar-fill ' + probClass + '" style="width:' + impliedProb + '%"></div></div><span class="prob-bar-pct">' + impliedProb + '%</span></div>' +
             '</div>' +
           '</div>' +
@@ -3309,6 +3314,14 @@
         } catch (e2) {}
       }));
 
+      // Filter out past matches
+      var nowDO = new Date();
+      top = top.filter(function(d) {
+        var ev = eventMap[d.eventId];
+        if (!ev || !ev.date) return true;
+        return new Date(ev.date) >= nowDO;
+      });
+
       var html = '';
       top.forEach(function(d) {
         var ev = eventMap[d.eventId];
@@ -3321,11 +3334,12 @@
         var dropPct = d.odds.drop && d.odds.drop.sinceOpening != null ? d.odds.drop.sinceOpening : 0;
         var dropDir = dropPct > 0 ? 'down' : 'up';
         var dropAbs = Math.abs(dropPct).toFixed(1);
+        var matchDate = ev.date ? formatMatchDate(ev.date) : '';
 
         html += '<div class="intel-row-v2">' +
           '<div class="intel-v2-left">' +
             '<div class="intel-v2-match">' + matchName + '</div>' +
-            '<div class="intel-v2-meta"><span>' + leagueName + '</span><span>' + sideLabel + '</span></div>' +
+            '<div class="intel-v2-meta"><span>' + leagueName + '</span>' + (matchDate ? '<span>' + matchDate + '</span>' : '') + '<span>' + sideLabel + '</span></div>' +
           '</div>' +
           '<div class="intel-v2-right">' +
             '<div class="intel-v2-odds"><span class="old">' + opening + '</span><span class="arrow">&rarr;</span><span class="new">' + current + '</span></div>' +
@@ -3422,11 +3436,13 @@
           allEvents = allEvents.concat(evs.slice(0, 4));
         } catch (e) {}
       }
-      // Filter to today and tomorrow only
+      // Filter to upcoming matches only (now to 48h ahead)
       var now = new Date();
       var cutoff = new Date(now.getTime() + 48 * 60 * 60 * 1000);
       allEvents = allEvents.filter(function(e) {
-        return e.date && new Date(e.date) <= cutoff;
+        if (!e.date) return false;
+        var t = new Date(e.date);
+        return t >= now && t <= cutoff;
       });
       // Sort by date
       allEvents.sort(function(a, b) {

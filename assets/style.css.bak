@@ -6353,3 +6353,12 @@ html {
   width: 48px;
   min-width: 48px;
 }
+.vb-row-date {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-left: 8px;
+}
+.vb-row-date::before {
+  content: "·";
+  margin-right: 6px;
+}
