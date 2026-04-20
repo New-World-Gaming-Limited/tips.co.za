@@ -90,8 +90,8 @@
   --color-border: #30363d;
   --color-border-light: #21262d;
   --color-text: #e6edf3;
-  --color-text-muted: #8b949e;
-  --color-text-faint: #484f58;
+  --color-text-muted: #9ca3b0;
+  --color-text-faint: #6b7280;
   --color-text-inverse: #111111;
 
   --color-primary: #4ADE80;
