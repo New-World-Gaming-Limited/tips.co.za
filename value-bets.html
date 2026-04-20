@@ -971,6 +971,12 @@
       OddsEngine.fetchValueBets('Stake')
     ]).then(function(results) {
       var all = results[0].concat(results[1]);
+      // Filter out past matches
+      var nowMs = Date.now();
+      all = all.filter(function(b) {
+        if (!b.date) return false;
+        return new Date(b.date).getTime() > nowMs;
+      });
       all.sort(function(a, b) { return b.ev - a.ev; });
 
       if (all.length === 0) {

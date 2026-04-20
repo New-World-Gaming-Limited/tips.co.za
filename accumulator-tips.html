@@ -160,6 +160,7 @@
     .acca-leg:last-child{border-bottom:none}
     .acca-leg-match{font-size:var(--text-sm,0.875rem);font-weight:600;flex:1}
     .acca-leg-pick{font-size:var(--text-xs,0.75rem);color:var(--color-text-muted,#6b7280)}
+    .acca-leg-kickoff{color:var(--color-primary,#0d7c3d);font-weight:600}
     .acca-leg-odds{font-weight:700;font-family:var(--font-display,'General Sans',sans-serif);color:var(--color-primary,#0d7c3d)}
     .acca-leg-commentary{font-size:var(--text-xs,0.75rem);color:var(--color-text-muted,#6b7280);font-style:italic;width:100%;margin-top:2px}
 
@@ -732,6 +733,33 @@
 (function() {
   var container = document.getElementById('acca-container');
 
+  function toSAST(dateStr) {
+    var d = new Date(dateStr);
+    return new Date(d.getTime() + 2 * 60 * 60 * 1000);
+  }
+
+  function formatKickoff(dateStr) {
+    if (!dateStr) return '';
+    var d = toSAST(dateStr);
+    var now = toSAST(new Date().toISOString());
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var hh = String(d.getUTCHours()).padStart(2, '0');
+    var mm = String(d.getUTCMinutes()).padStart(2, '0');
+    var time = hh + ':' + mm;
+
+    // Check if today
+    if (d.getUTCFullYear() === now.getUTCFullYear() && d.getUTCMonth() === now.getUTCMonth() && d.getUTCDate() === now.getUTCDate()) {
+      return 'Today, ' + time;
+    }
+    // Check if tomorrow
+    var tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+    if (d.getUTCFullYear() === tomorrow.getUTCFullYear() && d.getUTCMonth() === tomorrow.getUTCMonth() && d.getUTCDate() === tomorrow.getUTCDate()) {
+      return 'Tomorrow, ' + time;
+    }
+    return days[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + months[d.getUTCMonth()] + ', ' + time;
+  }
+
   function renderAcca(acca) {
     var borderClass = acca.type === 'safe' ? 'acca-card--safe' : acca.type === 'value' ? 'acca-card--value' : 'acca-card--bold';
     var pillLabel = acca.type === 'safe' ? 'Safe' : acca.type === 'value' ? 'Value' : 'Bold';
@@ -752,11 +780,19 @@
     html += '<div class="acca-desc">' + acca.description + '</div>';
 
     html += '<ul class="acca-legs">';
-    acca.picks.forEach(function(p) {
+    // Sort legs by kickoff time (earliest first)
+    var sortedPicks = acca.picks.slice().sort(function(a, b) {
+      if (!a.date && !b.date) return 0;
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+      return new Date(a.date) - new Date(b.date);
+    });
+    sortedPicks.forEach(function(p) {
+      var kickoff = p.date ? formatKickoff(p.date) : '';
       html += '<li class="acca-leg">';
       html += '<div style="flex:1">';
       html += '<div class="acca-leg-match">' + p.home + ' vs ' + p.away + '</div>';
-      html += '<div class="acca-leg-pick">' + OddsEngine.formatBetSide(p.betSide, p.home, p.away, p.market) + ' &middot; ' + p.league + '</div>';
+      html += '<div class="acca-leg-pick">' + OddsEngine.formatBetSide(p.betSide, p.home, p.away, p.market) + ' &middot; ' + p.league + (kickoff ? ' &middot; <span class="acca-leg-kickoff">' + kickoff + '</span>' : '') + '</div>';
       html += '<div class="acca-leg-commentary">' + p.commentary + '</div>';
       html += '</div>';
       html += '<div class="acca-leg-odds">' + OddsEngine.formatOdds(p.odds) + '</div>';
@@ -783,6 +819,12 @@
       OddsEngine.fetchValueBets('Stake')
     ]).then(function(results) {
       var all = results[0].concat(results[1]);
+      // Filter out past matches - only include upcoming games
+      var nowMs = Date.now();
+      all = all.filter(function(b) {
+        if (!b.date) return false;
+        return new Date(b.date).getTime() > nowMs;
+      });
       var accas = OddsEngine.buildAccumulators(all);
 
       if (accas.length === 0) {
