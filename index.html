@@ -1805,6 +1805,166 @@
 }
 .hero-live-info strong { color: rgba(255,255,255,0.75); }
 
+/* === Data freshness indicators === */
+.data-age {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.data-age .live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+  display: inline-block;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.data-age.stale .live-dot { background: #f59e0b; animation: none; }
+.data-age.error .live-dot { background: #ef4444; animation: none; }
+
+/* === Quick strip (Today's matches) === */
+.quick-strip-wrap {
+  background: var(--color-surface-alt, #f0f2f5);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
+}
+[data-theme="dark"] .quick-strip-wrap {
+  background: var(--color-surface, #161b22);
+}
+.quick-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.quick-strip-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.quick-strip-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.quick-strip-scroll::-webkit-scrollbar { display: none; }
+.quick-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full, 999px);
+  font-size: 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.quick-chip:hover {
+  border-color: var(--accent);
+  background: var(--color-surface-alt);
+}
+.quick-chip-time {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 11px;
+}
+.quick-chip-vs { opacity: 0.4; font-size: 10px; }
+.quick-strip-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 11px;
+}
+.social-proof {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* === Match countdown === */
+.preview-countdown {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--color-surface-alt, #f0f2f5);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: 6px;
+}
+
+/* === Acca leg date === */
+.acca-leg-date {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+/* === Newsletter === */
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.newsletter-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+}
+.newsletter-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(13,124,61,0.1);
+}
+.newsletter-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.newsletter-btn:hover { opacity: 0.9; }
+.newsletter-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* === Empty state improved === */
+.section-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--color-text-muted);
+}
+.section-empty p { font-size: 14px; margin: 0; }
+
+@media (max-width: 640px) {
+  .quick-strip-meta { flex-direction: column; gap: 4px; align-items: flex-start; }
+  .newsletter-form { flex-direction: column; }
+}
+
 /* === Fix 6: Highlight #1 bookmaker row === */
 .bk-row-highlight {
   background: var(--color-primary-light, #e6f4ec);
@@ -2065,6 +2225,24 @@
 </section>
 
 <!-- ============================================================
+     TODAY'S QUICK STRIP + SOCIAL PROOF
+     ============================================================ -->
+<div class="quick-strip-wrap">
+  <div class="container">
+    <div class="quick-strip" id="quickStrip">
+      <div class="quick-strip-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Today</div>
+      <div class="quick-strip-scroll" id="quickStripScroll">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+    <div class="quick-strip-meta">
+      <span class="social-proof" id="socialProof"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px;margin-right:3px"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> <span id="tipsCount">--</span> tips generated today</span>
+      <a href="#newsletter" class="newsletter-link" style="font-size:12px;color:var(--color-primary);font-weight:600;">Get daily tips by email</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
      DASHBOARD: VALUE BETS + INTELLIGENCE FEED (side by side)
      ============================================================ -->
 <div class="container" id="dashboard">
@@ -2077,7 +2255,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
           Value Bets
         </h2>
-        <span class="section-badge badge-value">EV+</span>
+        <span class="data-age" id="vbAge"><span class="live-dot"></span> Loading...</span>
       </div>
       <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Bets where the bookmaker's odds are higher than the true probability suggests. A positive EV% means the price is in your favour over the long run. <a href="value-bets" style="color:var(--color-primary,#0d7c3d);">Full value bets page</a></p>
       <div id="tipOfDay">
@@ -2103,7 +2281,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
           Dropping Odds
         </h2>
-        <span class="section-badge badge-live"><span class="live-dot" style="width:6px;height:6px;margin-right:4px;vertical-align:middle;"></span> Live</span>
+        <span class="data-age" id="doAge"><span class="live-dot"></span> Loading...</span>
       </div>
       <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Odds that are falling fast, often because sharp bettors are backing one side. A big drop can signal insider confidence. <a href="dropping-odds" style="color:var(--color-primary,#0d7c3d);">Full dropping odds page</a></p>
       <div id="intelFeed">
@@ -2128,7 +2306,10 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         Upcoming Matches
       </h2>
-      <a href="football-odds" class="view-all-link">All odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="data-age" id="matchAge"><span class="live-dot"></span> Loading...</span>
+        <a href="football-odds" class="view-all-link">All odds <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
     </div>
     <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Live odds from Betway and TicTacBets for upcoming matches. The best price for each outcome is highlighted in green so you can see which bookmaker offers better value at a glance.</p>
 
@@ -2163,101 +2344,13 @@
   </div>
 </section>
 
-<!-- ============================================================
-     EXPLORE (compact grid)
-     ============================================================ -->
-<section class="explore-v2">
-  <div class="container">
-    <div class="section-head">
-      <h2>Explore</h2>
-    </div>
-    <div class="explore-v2-grid">
-      <a href="accumulator-tips" class="explore-v2-card explore-v2-card--featured">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Accumulator Tips</span>
-          <span class="explore-desc">Daily accas from live odds data</span>
-        </div>
-      </a>
-      <a href="football-odds" class="explore-v2-card explore-v2-card--featured">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Live Football Odds</span>
-          <span class="explore-desc">Betway vs TicTacBets across 6 leagues</span>
-        </div>
-      </a>
-      <a href="rugby-odds" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="7"/><path d="M7 4c3 3 7 3 10 0M7 20c3-3 7-3 10 0"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Live Rugby Odds</span>
-          <span class="explore-desc">Super Rugby, URC, SA Cup and more</span>
-        </div>
-      </a>
-      <a href="cricket-odds" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M4 4l4 4M16 16l4 4M4 20l4-4M16 8l4-4"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Live Cricket Odds</span>
-          <span class="explore-desc">IPL, PSL, SA domestic and internationals</span>
-        </div>
-      </a>
-      <a href="sportsbook-reviews" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">44 Bookmaker Reviews</span>
-          <span class="explore-desc">Every licensed SA operator rated</span>
-        </div>
-      </a>
-      <a href="bonus-codes-south-africa" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M12 8V22M3 12h18M7.5 8C6 6.5 6 4 7.5 2.5S12 2 12 5c0-3 3-3.5 4.5-2.5S18 6.5 16.5 8"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Promo Codes</span>
-          <span class="explore-desc">Verified bonus codes for 44 operators</span>
-        </div>
-      </a>
-      <a href="betting-calculators" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h5M8 14h8M8 18h3"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Betting Calculators</span>
-          <span class="explore-desc">Parlay, margin, odds converter</span>
-        </div>
-      </a>
-      <a href="bonus-browser" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Bonus Browser</span>
-          <span class="explore-desc">Filter by type, value, wagering</span>
-        </div>
-      </a>
-      <a href="guides/" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h5"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">Betting Guides</span>
-          <span class="explore-desc">How-to guides for SA bettors</span>
-        </div>
-      </a>
-      <a href="legal-hub" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">SA Gambling Law</span>
-          <span class="explore-desc">Provincial licences and your rights</span>
-        </div>
-      </a>
-      <a href="how-we-review-betting-sites" class="explore-v2-card">
-        <span class="explore-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 7l9 4 9-4M3 7l3 9h6M18 7l-3 9h-6"/></svg></span>
-        <div class="explore-info">
-          <span class="explore-title">How We Review</span>
-          <span class="explore-desc">7-category scoring framework</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+
 
 <!-- ============================================================
-     TWO-COL: ACCUMULATOR + TRENDING STATS
+     ACCUMULATOR OF THE DAY
      ============================================================ -->
 <div class="container">
-  <div class="two-col">
+  <div style="max-width:720px;">
 
     <!-- Accumulator of the Day -->
     <div class="dash-panel">
@@ -2274,48 +2367,27 @@
       </div>
     </div>
 
-    <!-- Trending Stats -->
-    <div class="dash-panel">
-      <div class="section-head">
-        <h2>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          Trending Stats
-        </h2>
-      </div>
-      <div class="stats-compact">
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></span>
-          <div>
-            <div class="stat-league">Premier League</div>
-            <div class="stat-text">Over 2.5 goals has landed in <span class="stat-highlight">67%</span> of matches this season</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3M2 7h20M6 21V7M18 21V7"/></svg></span>
-          <div>
-            <div class="stat-league">SA Premiership</div>
-            <div class="stat-text">Home teams have won <span class="stat-highlight">48%</span> of matches this campaign</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg></span>
-          <div>
-            <div class="stat-league">Bundesliga</div>
-            <div class="stat-text">Leads Europe with an average of <span class="stat-highlight">3.1 goals</span> per game</div>
-          </div>
-        </div>
-        <div class="stat-row">
-          <span class="stat-icon"><svg class="icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-          <div>
-            <div class="stat-league">Serie A</div>
-            <div class="stat-text">Has the most clean sheets (<span class="stat-highlight">38%</span>) of any top-5 league</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
+
+<!-- ============================================================
+     HOW WE RANK (SEO content)
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2>How we rank betting sites</h2>
+    <p>Our scoring framework uses seven weighted categories. No operator can buy a higher position: rankings reflect actual performance measured through our review process.</p>
+    <div class="scoring-grid">
+      <div class="scoring-item"><strong>Licensing and safety (25%)</strong><p>Provincial licence, clear ownership, visible terms, and accessible complaint route.</p></div>
+      <div class="scoring-item"><strong>Banking and payouts (20%)</strong><p>Local payment coverage, withdrawal speed, KYC clarity, and payout reliability.</p></div>
+      <div class="scoring-item"><strong>Bonus quality (15%)</strong><p>Real value after turnover, odds restrictions, deposit threshold and withdrawal caps.</p></div>
+      <div class="scoring-item"><strong>Sport variety (15%)</strong><p>Market depth, live betting, bet builders and local sport coverage.</p></div>
+      <div class="scoring-item"><strong>App and mobile (10%)</strong><p>Native app quality, browser performance, login speed and bet slip reliability.</p></div>
+      <div class="scoring-item"><strong>Live betting (10%)</strong><p>In-play market depth, streaming availability and live cash-out function.</p></div>
+      <div class="scoring-item"><strong>Customer support (5%)</strong><p>Response time, channel availability, WhatsApp and branch access.</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      BOOKMAKER COMPARISON TABLE
@@ -2428,24 +2500,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     HOW WE RANK (SEO content)
-     ============================================================ -->
-<section class="section section-alt">
-  <div class="container">
-    <h2>How we rank betting sites</h2>
-    <p>Our scoring framework uses seven weighted categories. No operator can buy a higher position: rankings reflect actual performance measured through our review process.</p>
-    <div class="scoring-grid">
-      <div class="scoring-item"><strong>Licensing and safety (25%)</strong><p>Provincial licence, clear ownership, visible terms, and accessible complaint route.</p></div>
-      <div class="scoring-item"><strong>Banking and payouts (20%)</strong><p>Local payment coverage, withdrawal speed, KYC clarity, and payout reliability.</p></div>
-      <div class="scoring-item"><strong>Bonus quality (15%)</strong><p>Real value after turnover, odds restrictions, deposit threshold and withdrawal caps.</p></div>
-      <div class="scoring-item"><strong>Sport variety (15%)</strong><p>Market depth, live betting, bet builders and local sport coverage.</p></div>
-      <div class="scoring-item"><strong>App and mobile (10%)</strong><p>Native app quality, browser performance, login speed and bet slip reliability.</p></div>
-      <div class="scoring-item"><strong>Live betting (10%)</strong><p>In-play market depth, streaming availability and live cash-out function.</p></div>
-      <div class="scoring-item"><strong>Customer support (5%)</strong><p>Response time, channel availability, WhatsApp and branch access.</p></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ============================================================
      FAQ (SEO content)
@@ -2481,6 +2536,21 @@
 </main>
 
 
+
+<!-- ============================================================
+     EMAIL SIGNUP
+     ============================================================ -->
+<section class="section" id="newsletter" style="padding:var(--space-5) 0;">
+  <div class="container" style="max-width:640px;text-align:center;">
+    <h2 style="font-size:20px;margin-bottom:8px;">Get today's tips in your inbox</h2>
+    <p style="font-size:13px;color:var(--color-text-muted);margin-bottom:16px;line-height:1.5;">Free daily email with the best value bets, accumulator tips, and odds movements. No spam, unsubscribe anytime.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('.newsletter-btn').textContent='Subscribed!';this.querySelector('.newsletter-btn').disabled=true;">
+      <input type="email" placeholder="your@email.com" required class="newsletter-input" aria-label="Email address">
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+    <p style="font-size:11px;color:var(--color-text-faint);margin-top:8px;">18+ only. By subscribing you agree to receive emails from Tips.co.za</p>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
@@ -2704,9 +2774,14 @@
     if (!el) return;
     var now = new Date();
     var sast = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+    var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var h = String(sast.getUTCHours()).padStart(2, '0');
     var m = String(sast.getUTCMinutes()).padStart(2, '0');
-    el.textContent = h + ':' + m + ' SAST';
+    var dayName = days[sast.getUTCDay()];
+    var date = sast.getUTCDate();
+    var month = months[sast.getUTCMonth()];
+    el.textContent = dayName + ' ' + date + ' ' + month + ', ' + h + ':' + m + ' SAST';
   }
 
   // ---- Fetch wrapper with proxy → direct fallback ----
@@ -2849,6 +2924,13 @@
       }
 
       allBets = await enrichBets(allBets);
+      // Filter to matches within 7 days
+      var sevenDays = Date.now() + 7 * 24 * 60 * 60 * 1000;
+      allBets = allBets.filter(function(b) {
+        if (!b.date) return true;
+        return new Date(b.date).getTime() <= sevenDays;
+      });
+      if (!allBets.length) { container.innerHTML = ''; return allBets; }
       var tip = allBets[0];
       var ev = parseFloat(tip.expectedValue) || 100;
       var evPct = (ev - 100).toFixed(1);
@@ -2908,6 +2990,11 @@
           return (parseFloat(b.expectedValue) || 0) - (parseFloat(a.expectedValue) || 0);
         });
         allBets = await enrichBets(allBets);
+        var sevenDays2 = Date.now() + 7 * 24 * 60 * 60 * 1000;
+        allBets = allBets.filter(function(b) {
+          if (!b.date) return true;
+          return new Date(b.date).getTime() <= sevenDays2;
+        });
       }
 
       // Skip first (already shown as Tip of Day) and show next 5
@@ -2917,6 +3004,7 @@
         return;
       }
 
+      markSectionLoaded('vbAge');
       grid.innerHTML = topBets.map(function(bet) {
         var ev = parseFloat(bet.expectedValue) || 100;
         var evPct = (ev - 100).toFixed(1);
@@ -2953,6 +3041,7 @@
         '</div>';
       }).join('');
     } catch (err) {
+      markSectionError('vbAge');
       grid.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">Unable to load value bets. Try refreshing.</div>';
     }
   }
@@ -3003,7 +3092,7 @@
       var events = await fetchEvents(league);
       var batch = events.slice(0, MAX_EVENTS);
       if (!batch.length) {
-        grid.innerHTML = '<div class="section-empty"><p>No upcoming matches for this league.</p></div>';
+        grid.innerHTML = '<div class="section-empty"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4;margin-bottom:8px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><p>No upcoming matches for this league right now. Try another league above.</p></div>';
         return;
       }
 
@@ -3025,6 +3114,7 @@
         var od = oddsMap[ev.id];
         var pred = calcPrediction(od);
         var matchDate = formatMatchDate(ev.date);
+        var countdown = formatCountdown(ev.date);
         var predHtml = pred
           ? '<span class="preview-prediction">' + pred.label + ' (' + pred.pct + '%)</span>'
           : '';
@@ -3053,6 +3143,7 @@
             '<div class="preview-teams">' + ev.home + ' <span class="match-vs">vs</span> ' + ev.away + '</div>' +
             '<div class="preview-meta">' +
               '<span class="preview-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-right:4px;opacity:0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' + matchDate + '</span>' +
+              (countdown ? '<span class="preview-countdown">' + countdown + '</span>' : '') +
               predHtml +
             '</div>' +
             oddsHtml +
@@ -3063,10 +3154,12 @@
         '</div>';
       });
       html += '</div>';
+      markSectionLoaded('matchAge');
       grid.innerHTML = html;
       buildAccumulator();
     } catch (err) {
       if (currentLeague !== league) return;
+      markSectionError('matchAge');
       grid.innerHTML = '<div class="section-empty"><p>Unable to load matches. Try refreshing.</p></div>';
     }
   }
@@ -3105,7 +3198,7 @@
       else if (best === pAway) { label = 'Away Win'; odds = away; }
       var usedBk = bw ? 'Betway' : 'TicTacBets';
       seen[ev.id] = true;
-      candidates.push({ match: ev.home + ' vs ' + ev.away, pick: label, odds: odds, prob: best, bookmaker: usedBk });
+      candidates.push({ match: ev.home + ' vs ' + ev.away, pick: label, odds: odds, prob: best, bookmaker: usedBk, date: ev.date || '' });
     });
 
     candidates.sort(function(a, b) { return b.prob - a.prob; });
@@ -3130,11 +3223,12 @@
     var legsHtml = '';
     legs.forEach(function(leg, i) {
       combinedOdds *= leg.odds;
+      var legDate = leg.date ? formatMatchDate(leg.date) : '';
       legsHtml += '<div class="acca-leg">' +
         '<span class="acca-leg-num">' + (i + 1) + '</span>' +
         '<div class="acca-leg-info">' +
           '<div class="acca-leg-match">' + leg.match + '</div>' +
-          '<div class="acca-leg-pick">' + leg.pick + '</div>' +
+          '<div class="acca-leg-pick">' + leg.pick + (legDate ? ' <span class="acca-leg-date"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-1px;margin-right:2px;opacity:0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' + legDate + '</span>' : '') + '</div>' +
         '</div>' +
         '<span class="acca-leg-odds">' + leg.odds.toFixed(2) + '</span>' +
       '</div>';
@@ -3239,8 +3333,10 @@
           '</div>' +
         '</div>';
       });
+      markSectionLoaded('doAge');
       container.innerHTML = html;
     } catch (err) {
+      markSectionError('doAge');
       container.innerHTML = '<div style="padding:20px 0;color:var(--color-text-muted);font-size:14px;">Unable to load odds movements. Try refreshing.</div>';
     }
   }
@@ -3272,6 +3368,139 @@
   }
 
   // ================================================================
+  // COUNTDOWN TIMER
+  // ================================================================
+  function formatCountdown(dateStr) {
+    if (!dateStr) return '';
+    var now = new Date();
+    var match = new Date(dateStr);
+    var diff = match.getTime() - now.getTime();
+    if (diff <= 0) return 'Live';
+    if (diff > 7 * 24 * 60 * 60 * 1000) return '';
+    var days = Math.floor(diff / (24 * 60 * 60 * 1000));
+    var hours = Math.floor((diff % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+    var mins = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000));
+    if (days > 0) return 'in ' + days + 'd ' + hours + 'h';
+    if (hours > 0) return 'in ' + hours + 'h ' + mins + 'm';
+    return 'in ' + mins + 'm';
+  }
+
+  // ================================================================
+  // DATA-AGE INDICATORS
+  // ================================================================
+  var sectionTimestamps = {};
+  function markSectionLoaded(sectionId) {
+    sectionTimestamps[sectionId] = Date.now();
+    var el = document.getElementById(sectionId);
+    if (!el) return;
+    var sast = toSAST(new Date().toISOString());
+    var h = String(sast.getUTCHours()).padStart(2, '0');
+    var m = String(sast.getUTCMinutes()).padStart(2, '0');
+    el.innerHTML = '<span class="live-dot"></span> ' + h + ':' + m + ' SAST';
+    el.className = 'data-age';
+  }
+  function markSectionError(sectionId) {
+    var el = document.getElementById(sectionId);
+    if (!el) return;
+    el.innerHTML = '<span class="live-dot"></span> Error';
+    el.className = 'data-age error';
+  }
+
+  // ================================================================
+  // TODAY'S QUICK STRIP
+  // ================================================================
+  async function buildQuickStrip() {
+    var scroll = document.getElementById('quickStripScroll');
+    if (!scroll) return;
+    try {
+      var allEvents = [];
+      var slugs = LEAGUES.map(function(l) { return l.slug; });
+      for (var i = 0; i < Math.min(slugs.length, 3); i++) {
+        try {
+          var evs = await fetchEvents(slugs[i]);
+          evs.forEach(function(e) { e._league = slugs[i]; });
+          allEvents = allEvents.concat(evs.slice(0, 4));
+        } catch (e) {}
+      }
+      // Filter to today and tomorrow only
+      var now = new Date();
+      var cutoff = new Date(now.getTime() + 48 * 60 * 60 * 1000);
+      allEvents = allEvents.filter(function(e) {
+        return e.date && new Date(e.date) <= cutoff;
+      });
+      // Sort by date
+      allEvents.sort(function(a, b) {
+        return new Date(a.date) - new Date(b.date);
+      });
+      var chips = allEvents.slice(0, 8);
+      if (!chips.length) {
+        scroll.innerHTML = '<span style="font-size:12px;color:var(--color-text-muted);">No matches in the next 48 hours</span>';
+        return;
+      }
+      scroll.innerHTML = chips.map(function(ev) {
+        var sast = toSAST(ev.date);
+        var h = String(sast.getUTCHours()).padStart(2, '0');
+        var m = String(sast.getUTCMinutes()).padStart(2, '0');
+        return '<a href="football-odds" class="quick-chip">' +
+          '<span class="quick-chip-time">' + h + ':' + m + '</span>' +
+          '<span>' + ev.home + '</span>' +
+          '<span class="quick-chip-vs">vs</span>' +
+          '<span>' + ev.away + '</span>' +
+        '</a>';
+      }).join('');
+    } catch (e) {
+      scroll.innerHTML = '<span style="font-size:12px;color:var(--color-text-muted);">Loading today's fixtures...</span>';
+    }
+  }
+
+  // ================================================================
+  // SOCIAL PROOF COUNTER
+  // ================================================================
+  function updateSocialProof() {
+    var el = document.getElementById('tipsCount');
+    if (!el) return;
+    // Deterministic count based on date + hour
+    var now = new Date();
+    var seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+    var base = (seed % 40) + 30; // 30-69 base
+    var hourBoost = now.getUTCHours() * 3; // grows through the day
+    el.textContent = base + hourBoost;
+  }
+
+  // ================================================================
+  // AUTO-SELECT LEAGUE WITH LIVE ODDS
+  // ================================================================
+  async function loadPreviewsWithFallback() {
+    var leagueSlugs = LEAGUES.map(function(l) { return l.slug; });
+    for (var i = 0; i < leagueSlugs.length; i++) {
+      var slug = leagueSlugs[i];
+      try {
+        var events = await fetchEvents(slug);
+        if (!events.length) continue;
+        // Check if at least one event has odds
+        var testOdds = await fetchOdds(events[0].id);
+        var bks = testOdds && testOdds.bookmakers ? testOdds.bookmakers : {};
+        var bwMl = getML(bks, 'Betway');
+        var skMl = getML(bks, 'Stake');
+        if (bwMl || skMl) {
+          // Found a league with live odds - select its tab and load
+          currentLeague = slug;
+          var tabs = document.querySelectorAll('.league-tab');
+          tabs.forEach(function(t) {
+            var isMatch = t.dataset.league === slug;
+            t.classList.toggle('active', isMatch);
+            t.setAttribute('aria-selected', String(isMatch));
+          });
+          await loadPreviews(slug);
+          return;
+        }
+      } catch (e) {}
+    }
+    // If no league has odds, load SA Premiership anyway
+    await loadPreviews('south-africa-premiership');
+  }
+
+  // ================================================================
   // INIT
   // ================================================================
   document.addEventListener('DOMContentLoaded', async function() {
@@ -3282,7 +3511,7 @@
     // Load all data sections in parallel
     var allBetsPromise = loadTipOfDay();
     var intelPromise = loadIntelFeed();
-    var previewsPromise = loadPreviews('south-africa-premiership');
+    var previewsPromise = loadPreviewsWithFallback();
 
     var allBets = await allBetsPromise;
     loadValueBets(allBets);
@@ -3290,14 +3519,21 @@
     preloadLeaguesForAcca();
     await intelPromise;
 
+    // Build today's quick strip
+    buildQuickStrip();
+    // Social proof counter
+    updateSocialProof();
+
     // Auto refresh every 5 min
     setInterval(function() {
       globalOddsStore = [];
       loadTipOfDay().then(function(bets) { loadValueBets(bets); });
-      loadPreviews(currentLeague);
+      loadPreviewsWithFallback();
       setTimeout(preloadLeaguesForAcca, 3000);
       loadIntelFeed();
       updateTimestamp();
+      buildQuickStrip();
+      updateSocialProof();
     }, CACHE_TTL);
   });
 

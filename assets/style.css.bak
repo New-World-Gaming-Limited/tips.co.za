@@ -659,17 +659,112 @@ h1, h2, h3, h4, h5, h6 {
 }
 .card-icon svg { width: 20px; height: 20px; }
 
+/* ── UNIFIED TABLE SYSTEM ─────────────────────────────────────── */
+/* Base wrapper: every table should be inside .table-responsive */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  margin-bottom: var(--space-4);
+}
+[data-theme="dark"] .table-responsive {
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.table-responsive table {
+  min-width: 500px;
+  margin: 0;
+  border: none;
+}
 
-/* --- TABLES --- */
+/* ── GLOBAL TABLE DEFAULTS ─────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+table thead {
+  background: var(--color-surface-2, #f0f2f5);
+}
+table th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: 700;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+}
+table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light, #eceef2);
+  color: var(--color-text);
+  text-align: left;
+  vertical-align: middle;
+}
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+table tbody tr:nth-child(even) {
+  background: var(--color-surface-alt, rgba(0,0,0,0.015));
+}
+table tbody tr:hover {
+  background: rgba(13,124,61,0.04);
+  transition: background 0.15s ease;
+}
+table tbody tr:nth-child(even):hover {
+  background: rgba(13,124,61,0.06);
+}
+[data-theme="dark"] table thead {
+  background: var(--color-surface-2);
+}
+[data-theme="dark"] table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.025);
+}
+[data-theme="dark"] table tbody tr:hover {
+  background: rgba(74,222,128,0.06);
+}
+[data-theme="dark"] table tbody tr:nth-child(even):hover {
+  background: rgba(74,222,128,0.08);
+}
+table a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+table a:hover {
+  text-decoration: underline;
+  color: var(--color-primary-hover, #0a6630);
+}
+table td strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* First column emphasis (bookmaker name) */
+table tbody td:first-child {
+  font-weight: 600;
+}
+
+/* ── TABLE-WRAP (legacy wrapper) ──────────────────────────────── */
 .table-wrap {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   overflow-x: auto;
   background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  margin-bottom: var(--space-4);
 }
-[data-theme="dark"] .table-wrap { background: var(--color-surface); }
+[data-theme="dark"] .table-wrap { background: var(--color-surface); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
 .table-wrap table {
   font-size: var(--text-sm);
   min-width: 500px;
@@ -680,11 +775,14 @@ h1, h2, h3, h4, h5, h6 {
 .table-wrap th {
   padding: var(--space-3) var(--space-4);
   text-align: left;
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   border-bottom: 2px solid var(--color-border);
   white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
 }
 .table-wrap td {
   padding: var(--space-3) var(--space-4);
@@ -696,63 +794,420 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-surface-alt, var(--color-surface-2));
 }
 .table-wrap tbody tr:hover {
-  background: var(--color-primary-light);
+  background: rgba(13,124,61,0.04);
 }
 
-/* --- GLOBAL TABLE DEFAULTS --- */
-/* Ensures ALL tables (including methodology, changelog, etc.) look good */
-table {
+/* ── COMPARISON TABLE ─────────────────────────────────────────── */
+.comparison-table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
+  line-height: 1.6;
 }
-table thead {
-  background: var(--color-surface-alt, #f0f2f5);
-}
-table th {
-  padding: var(--space-3) var(--space-4);
+.comparison-table thead th {
+  background: var(--color-surface-2, #f0f2f5);
+  font-weight: 700;
   text-align: left;
-  font-weight: 600;
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  padding: var(--space-3) var(--space-4);
   border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
 }
-table td {
+.comparison-table tbody td {
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light, #eceef2);
+  vertical-align: middle;
   color: var(--color-text);
-  text-align: left;
-  vertical-align: top;
 }
-table tbody tr:last-child td {
+.comparison-table tbody tr:last-child td {
   border-bottom: none;
 }
-table tbody tr:nth-child(even) {
-  background: var(--color-surface-alt, rgba(0,0,0,0.02));
+.comparison-table tbody tr:hover {
+  background: rgba(13,124,61,0.04);
 }
-[data-theme="dark"] table tbody tr:nth-child(even) {
-  background: rgba(255,255,255,0.03);
+.comparison-table tbody tr:nth-child(even) {
+  background: var(--color-surface-alt, rgba(0,0,0,0.015));
+}
+.comparison-table tbody tr:nth-child(even):hover {
+  background: rgba(13,124,61,0.06);
+}
+.comparison-table a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.comparison-table a:hover {
+  text-decoration: underline;
+}
+.comparison-table td strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+.comparison-table tbody td:first-child {
+  font-weight: 600;
+}
+[data-theme="dark"] .comparison-table thead th {
+  background: var(--color-surface-2);
+}
+[data-theme="dark"] .comparison-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.025);
+}
+[data-theme="dark"] .comparison-table tbody tr:hover {
+  background: rgba(74,222,128,0.06);
 }
 
-/* Responsive table wrapper for wide tables */
-.table-responsive {
+/* ── DATA TABLE ───────────────────────────────────────────────── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.data-table thead th {
+  background: var(--color-surface-2);
+  font-weight: 700;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+}
+.data-table tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: middle;
+  color: var(--color-text);
+}
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.data-table tbody tr:nth-child(even) {
+  background: var(--color-surface-alt, rgba(0,0,0,0.015));
+}
+.data-table tbody tr:hover {
+  background: rgba(13,124,61,0.04);
+}
+[data-theme="dark"] .data-table thead th {
+  background: var(--color-surface-2);
+}
+[data-theme="dark"] .data-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.025);
+}
+[data-theme="dark"] .data-table tbody tr:hover {
+  background: rgba(74,222,128,0.06);
+}
+
+/* ── COMPARE TABLE (sportsbook reviews sortable) ──────────────── */
+.compare-table-wrap, .compare-table-wrapper, .compare-mobile-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  margin-bottom: var(--space-4);
+}
+[data-theme="dark"] .compare-table-wrap,
+[data-theme="dark"] .compare-table-wrapper,
+[data-theme="dark"] .compare-mobile-scroll {
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.compare-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  table-layout: fixed;
+}
+.compare-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface-2);
+  padding: var(--space-3) var(--space-3);
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+  z-index: 2;
+}
+.compare-table thead th:nth-child(1) { width: 14%; }
+.compare-table thead th:nth-child(2) { width: 10%; }
+.compare-table thead th:nth-child(3) { width: 20%; }
+.compare-table thead th:nth-child(4) { width: 14%; }
+.compare-table thead th:nth-child(5) { width: 28%; }
+.compare-table thead th:nth-child(6) { width: 14%; }
+.compare-table tbody td {
+  padding: var(--space-3) var(--space-3);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: middle;
+  line-height: 1.5;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.compare-table tbody tr:hover {
+  background: rgba(13,124,61,0.04);
+}
+.compare-table tbody tr:nth-child(even) {
+  background: var(--color-surface-alt, rgba(0,0,0,0.015));
+}
+.compare-table tbody tr.highlight-row {
+  background: var(--color-success-light);
+  font-weight: 600;
+}
+.compare-table tbody tr.highlight-row td {
+  border-bottom-color: var(--color-success-border);
+}
+.compare-table .casino-name {
+  font-weight: 700;
+}
+[data-theme="dark"] .compare-table thead th {
+  background: var(--color-surface-2);
+}
+[data-theme="dark"] .compare-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.025);
+}
+
+/* ── ODDS TABLE (live odds pages) ─────────────────────────────── */
+.odds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.odds-table thead th {
+  background: var(--color-surface-2, #f0f2f5);
+  font-weight: 700;
+  text-align: center;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 2px solid var(--color-border);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+  white-space: nowrap;
+}
+.odds-table thead th:first-child {
+  text-align: left;
+}
+.odds-table thead th:last-child {
+  text-align: center;
+}
+.odds-table tbody td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border-light, #eceef2);
+  vertical-align: middle;
+  text-align: center;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+.odds-table tbody td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+.odds-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.odds-table tbody tr:nth-child(even) {
+  background: var(--color-surface-alt, rgba(0,0,0,0.015));
+}
+.odds-table tbody tr:hover {
+  background: rgba(13,124,61,0.04);
+}
+.odds-table tbody tr:nth-child(even):hover {
+  background: rgba(13,124,61,0.06);
+}
+/* Odds value badges */
+.odds-table .odds-val {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-full, 9999px);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  background: var(--color-surface-alt, #f0f2f5);
+  color: var(--color-text);
+  min-width: 50px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.odds-table .odds-val.best {
+  background: var(--color-success, #16a34a);
+  color: #fff;
+}
+.odds-table .btn--sm {
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full, 9999px);
+}
+[data-theme="dark"] .odds-table thead th {
+  background: var(--color-surface-2);
+}
+[data-theme="dark"] .odds-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.025);
+}
+[data-theme="dark"] .odds-table tbody tr:hover {
+  background: rgba(74,222,128,0.06);
+}
+[data-theme="dark"] .odds-table .odds-val {
+  background: rgba(255,255,255,0.08);
+  color: var(--color-text);
+}
+[data-theme="dark"] .odds-table .odds-val.best {
+  background: var(--color-success);
+  color: #fff;
+}
+
+/* ── RG OPERATOR TABLE ────────────────────────────────────────── */
+.rg-operator-table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+  margin-bottom: var(--space-4);
 }
-[data-theme="dark"] .table-responsive {
+[data-theme="dark"] .rg-operator-table-wrap {
   background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
-.table-responsive table {
-  min-width: 500px;
-  margin: 0;
-  border: none;
+.rg-operator-table-wrap table { min-width: 500px; margin: 0; border: none; }
+.rg-operator-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: 1.6;
 }
+.rg-operator-table thead th {
+  background: var(--color-surface-2);
+  font-weight: 700;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  font-family: var(--font-display, 'General Sans', 'Inter', sans-serif);
+}
+.rg-operator-table tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: top;
+  color: var(--color-text);
+}
+.rg-operator-table tbody tr:last-child td { border-bottom: none; }
+.rg-operator-table tbody tr:nth-child(even) { background: var(--color-surface-alt, rgba(0,0,0,0.015)); }
+.rg-operator-table tbody tr:hover { background: rgba(13,124,61,0.04); }
+[data-theme="dark"] .rg-operator-table thead th { background: var(--color-surface-2); }
+[data-theme="dark"] .rg-operator-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+[data-theme="dark"] .rg-operator-table tbody tr:hover { background: rgba(74,222,128,0.06); }
+
+/* Table footnote */
+.table-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+  font-style: italic;
+}
+
+/* ── SORTABLE TABLE HEADERS ───────────────────────────────────── */
+.sortable-table th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: calc(var(--space-4) + 14px);
+}
+.sortable-table th[data-sort]::after {
+  content: '';
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--color-text-faint);
+  opacity: 0.4;
+}
+.sortable-table th[data-sort].asc::after {
+  border-top: none;
+  border-bottom: 5px solid var(--color-primary);
+  opacity: 1;
+}
+.sortable-table th[data-sort].desc::after {
+  border-top: 5px solid var(--color-primary);
+  border-bottom: none;
+  opacity: 1;
+}
+.sortable-table th[data-sort]:hover {
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+}
+
+/* ── RATING BADGE COLOUR VARIANTS ─────────────────────────────── */
+.rating-badge.rating-green {
+  background: var(--color-success);
+  color: #fff;
+}
+.rating-badge.rating-amber {
+  background: #f59e0b;
+  color: #fff;
+}
+.rating-badge.rating-red {
+  background: var(--color-error);
+  color: #fff;
+}
+[data-theme="dark"] .rating-badge.rating-amber {
+  background: #fbbf24;
+  color: #111;
+}
+
+/* ── PROSE TABLE OVERRIDES ────────────────────────────────────── */
+.prose .table-responsive,
+.prose .table-wrap {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.prose table {
+  font-size: var(--text-sm);
+}
+
+/* ── MOBILE TABLE ADJUSTMENTS ─────────────────────────────────── */
+@media (max-width: 640px) {
+  table th, table td,
+  .comparison-table thead th, .comparison-table tbody td,
+  .data-table thead th, .data-table tbody td {
+    padding: var(--space-2) var(--space-3);
+    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  }
+  .table-responsive table,
+  .table-wrap table {
+    min-width: 420px;
+  }
+  .odds-table thead th, .odds-table tbody td {
+    padding: var(--space-2) var(--space-2);
+    font-size: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+  }
+}
+
 
 
 /* --- FAQ ACCORDION --- */
@@ -1024,9 +1479,6 @@ table tbody tr:nth-child(even) {
   margin-bottom: var(--space-2);
   color: var(--color-text-muted);
   line-height: 1.7;
-}
-.prose .table-wrap {
-  margin: var(--space-6) 0;
 }
 .prose .card {
   margin: var(--space-6) 0;
@@ -1315,7 +1767,6 @@ table tbody tr:nth-child(even) {
 }
 
 
-
 /* --- PROS CONS --- */
 .pros-cons {
   display: grid;
@@ -1571,64 +2022,7 @@ a .code-badge:hover {
   }
 }
 
-/* --- COMPARISON TABLE (large) --- */
-.compare-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-.compare-table {
-  width: 100%;
-  min-width: 780px;
-  border-collapse: collapse;
-  font-size: var(--text-sm);
-  table-layout: fixed;
-}
-.compare-table thead th {
-  position: sticky;
-  top: 0;
-  background: var(--color-surface-2);
-  padding: var(--space-3) var(--space-3);
-  font-weight: 700;
-  text-align: left;
-  border-bottom: 2px solid var(--color-border);
-  white-space: nowrap;
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
-}
-.compare-table thead th:nth-child(1) { width: 14%; }
-.compare-table thead th:nth-child(2) { width: 10%; }
-.compare-table thead th:nth-child(3) { width: 20%; }
-.compare-table thead th:nth-child(4) { width: 14%; }
-.compare-table thead th:nth-child(5) { width: 28%; }
-.compare-table thead th:nth-child(6) { width: 14%; }
-.compare-table tbody td {
-  padding: var(--space-2) var(--space-3);
-  border-bottom: 1px solid var(--color-border-light);
-  vertical-align: middle;
-  line-height: 1.4;
-  text-align: left;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-.compare-table tbody tr:hover {
-  background: var(--color-primary-light);
-}
-.compare-table tbody tr.highlight-row {
-  background: var(--color-success-light);
-  font-weight: 600;
-}
-.compare-table tbody tr.highlight-row td {
-  border-bottom-color: var(--color-success-border);
-}
-.compare-table .casino-name {
-  font-weight: 700;
-  white-space: nowrap;
-}
+/* compare-table code-cell utility */
 .compare-table .code-cell {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
@@ -2964,47 +3358,6 @@ a .code-badge:hover {
   padding: var(--space-1) var(--space-3);
 }
 
-/* ── DATA TABLES (responsive) ──────────────────────────────────── */
-/* Note: .table-responsive is defined in the global table section below */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--text-sm);
-  line-height: 1.5;
-}
-.data-table thead th {
-  background: var(--color-surface-alt);
-  font-weight: 700;
-  text-align: left;
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 2px solid var(--color-border);
-  white-space: nowrap;
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
-}
-.data-table tbody td {
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
-  vertical-align: middle;
-  color: var(--color-text);
-}
-.data-table tbody tr:last-child td {
-  border-bottom: none;
-}
-.data-table tbody tr:nth-child(even) {
-  background: var(--color-surface-alt, rgba(0,0,0,0.02));
-}
-.data-table tbody tr:hover {
-  background: var(--color-primary-surface);
-}
-[data-theme="dark"] .data-table thead th {
-  background: var(--color-surface-2);
-}
-[data-theme="dark"] .data-table tbody tr:nth-child(even) {
-  background: rgba(255,255,255,0.03);
-}
 
 /* ── PROMO ALL-ROOMS COMPARISON ────────────────────────────────── */
 .promos-table .code-badge {
@@ -5881,126 +6234,6 @@ html {
   border-color: var(--color-border);
 }
 
-/* ======== COMPARISON TABLE ======== */
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--text-sm);
-  line-height: 1.5;
-}
-.comparison-table thead th {
-  background: var(--color-surface-alt, #f0f2f5);
-  font-weight: 700;
-  text-align: left;
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 2px solid var(--color-border);
-  white-space: nowrap;
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
-}
-.comparison-table tbody td {
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light, #eceef2);
-  vertical-align: middle;
-  color: var(--color-text);
-}
-.comparison-table tbody tr:last-child td {
-  border-bottom: none;
-}
-.comparison-table tbody tr:hover {
-  background: var(--color-primary-surface, rgba(13,124,61,0.04));
-}
-.comparison-table tbody tr:nth-child(even) {
-  background: var(--color-surface-alt, rgba(0,0,0,0.02));
-}
-.comparison-table tbody tr:nth-child(even):hover {
-  background: var(--color-primary-surface, rgba(13,124,61,0.06));
-}
-.comparison-table a {
-  color: var(--color-primary);
-  font-weight: 600;
-  text-decoration: none;
-}
-.comparison-table a:hover {
-  text-decoration: underline;
-}
-.comparison-table td strong {
-  font-weight: 700;
-  color: var(--color-text);
-}
-[data-theme="dark"] .comparison-table thead th {
-  background: var(--color-surface-2);
-}
-[data-theme="dark"] .comparison-table tbody tr:nth-child(even) {
-  background: rgba(255,255,255,0.03);
-}
-
-/* Rating badge colour variants */
-.rating-badge.rating-green {
-  background: var(--color-success);
-  color: #fff;
-}
-.rating-badge.rating-amber {
-  background: #f59e0b;
-  color: #fff;
-}
-.rating-badge.rating-red {
-  background: var(--color-error);
-  color: #fff;
-}
-[data-theme="dark"] .rating-badge.rating-amber {
-  background: #fbbf24;
-  color: #111;
-}
-
-/* RG operator table (responsible-gambling page) */
-.rg-operator-table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-}
-[data-theme="dark"] .rg-operator-table-wrap { background: var(--color-surface); }
-.rg-operator-table-wrap table { min-width: 500px; margin: 0; border: none; }
-.rg-operator-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--text-sm);
-  line-height: 1.5;
-}
-.rg-operator-table thead th {
-  background: var(--color-surface-alt);
-  font-weight: 700;
-  text-align: left;
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 2px solid var(--color-border);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
-}
-.rg-operator-table tbody td {
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
-  vertical-align: top;
-}
-.rg-operator-table tbody tr:last-child td { border-bottom: none; }
-.rg-operator-table tbody tr:nth-child(even) { background: var(--color-surface-alt, rgba(0,0,0,0.02)); }
-.rg-operator-table tbody tr:hover { background: var(--color-primary-surface, rgba(13,124,61,0.04)); }
-[data-theme="dark"] .rg-operator-table thead th { background: var(--color-surface-2); }
-[data-theme="dark"] .rg-operator-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.03); }
-
-/* Table footnote */
-.table-note {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  margin-top: var(--space-3);
-  font-style: italic;
-}
 
 /* ======== AUTHOR BYLINE (INNER PAGES) ======== */
 .author-info {
@@ -6045,4 +6278,78 @@ html {
 }
 [data-theme="dark"] .section-alt {
   background: var(--color-surface-2);
+}
+
+/* ── SORTABLE TABLE ──────────────────────────────────── */
+.sortable-table th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: var(--space-6);
+}
+.sortable-table th[data-sort]::after {
+  content: '\2195';
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.3;
+  font-size: 12px;
+}
+.sortable-table th.sort-asc::after {
+  content: '\2191';
+  opacity: 0.8;
+}
+.sortable-table th.sort-desc::after {
+  content: '\2193';
+  opacity: 0.8;
+}
+.bk-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 160px;
+}
+.bk-rank {
+  font-weight: 800;
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  min-width: 24px;
+}
+.bk-logo-sm {
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.bk-name-link {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.bk-name-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.bonus-cell {
+  min-width: 180px;
+}
+.promo-code-inline {
+  display: inline-block;
+  background: var(--color-primary-surface, rgba(13,124,61,0.08));
+  color: var(--color-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: 6px;
+  letter-spacing: 0.03em;
+}
+.action-cell {
+  white-space: nowrap;
+}
+
+.bk-rank-cell {
+  text-align: center;
+  width: 48px;
+  min-width: 48px;
 }
