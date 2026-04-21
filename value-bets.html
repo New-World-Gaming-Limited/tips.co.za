@@ -958,7 +958,7 @@
       '</div>' +
 
       // --- 3. Why this is value toggle ---
-      '<button class="vb-why-toggle" aria-expanded="false" aria-controls="' + cardId + '" onclick="(function(btn){var content=document.getElementById(btn.getAttribute('aria-controls'));var expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));if(content)content.classList.toggle('open',!expanded);})(this)">' +
+      '<button class="vb-why-toggle" aria-expanded="false" aria-controls="' + cardId + '" data-vb-toggle="1">' +
         'Why this is value <i class="vb-why-toggle-icon" aria-hidden="true">&#x25BC;</i>' +
       '</button>' +
       '<div class="vb-why-content" id="' + cardId + '" role="region">' +
@@ -1050,6 +1050,17 @@
         if (answer) answer.classList.toggle('open', !expanded);
       });
     });
+  });
+
+  // Delegated Why-this-is-value toggle handler (avoids quote escaping issues)
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest ? e.target.closest('[data-vb-toggle]') : null;
+    if (!btn) return;
+    var id = btn.getAttribute('aria-controls');
+    var content = id ? document.getElementById(id) : null;
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (content) content.classList.toggle('open', !expanded);
   });
 
   // Initialise: wait for OddsEngine to be available (loaded via defer)

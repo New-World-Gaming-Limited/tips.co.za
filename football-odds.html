@@ -1467,15 +1467,18 @@
   var BETWAY_URL  = 'https://new.betway.co.za/reg/?btag=P56088-PR27125-CM92449-TS1997077&signupcode=BETS';
   var TICTAC_URL  = 'https://trackrt.tictacbets.co.za/o/Ss5uJL';
 
-  // League key map: data-league value -> API sport key
+  // League key map: data-league value -> API league slug (v3 API format)
   var LEAGUE_KEYS = {
-    'south-africa-premiership': 'soccer_south_africa_premier_division',
-    'england-premier-league':   'soccer_epl',
-    'spain-laliga':             'soccer_spain_la_liga',
-    'germany-bundesliga':       'soccer_germany_bundesliga',
-    'italy-serie-a':            'soccer_italy_serie_a',
-    'france-ligue-1':           'soccer_france_ligue_one'
+    'south-africa-premiership': 'south-africa-premiership',
+    'england-premier-league':   'england-premier-league',
+    'spain-laliga':             'spain-laliga',
+    'germany-bundesliga':       'germany-bundesliga',
+    'italy-serie-a':            'italy-serie-a',
+    'france-ligue-1':           'france-ligue-1'
   };
+
+  // Per-event odds cache (keyed by eventId)
+  var eventOddsCache = {};
 
   // ---- Utility: sessionStorage cache ----
   function cacheGet(key) {
@@ -1563,14 +1566,94 @@
     return [];
   }
 
-  // ---- Fetch odds from new API format ----
-  // Returns array of events with bookmakers array
-  async function fetchOddsForLeague(sportKey, market) {
-    var path = 'odds?sport=' + encodeURIComponent(sportKey)
-      + '&regions=za,eu'
-      + '&markets=' + encodeURIComponent(market)
-      + '&bookmakers=Betway,Stake';
-    return normArr(await apiFetch(path));
+  // ---- Fetch odds: two-step (events list -> per-event odds) ----
+  // Returns array of { id, home, away, commence_time, bookmakers: [{key,title,markets:[{key,outcomes:[{name,price,point}]}]}] }
+  async function fetchOddsForLeague(leagueSlug) {
+    // Step 1: fetch upcoming events for the league
+    var eventsPath = 'events?sport=football&league=' + encodeURIComponent(leagueSlug);
+    var events = normArr(await apiFetch(eventsPath));
+    var now = Date.now();
+    var upcoming = events.filter(function(e) {
+      if (e.status && e.status !== 'pending') return false;
+      if (!e.date) return false;
+      return new Date(e.date).getTime() > now - 60 * 60 * 1000; // allow 1h grace
+    }).sort(function(a, b) { return new Date(a.date) - new Date(b.date); });
+
+    // Step 2: fetch odds for up to (MAX_EVENTS * 2) events in parallel, then keep ones that actually have data
+    var candidates = upcoming.slice(0, MAX_EVENTS * 2);
+    var oddsResults = await Promise.all(candidates.map(function(ev) {
+      return fetchEventOdds(ev.id).then(function(d) {
+        return { base: ev, odds: d };
+      }).catch(function() { return { base: ev, odds: null }; });
+    }));
+
+    // Transform into the shape the renderer expects
+    var out = [];
+    oddsResults.forEach(function(r) {
+      var base = r.base;
+      var odds = r.odds;
+      var bookmakersObj = odds && odds.bookmakers ? odds.bookmakers : {};
+      var bookmakers = adaptBookmakers(bookmakersObj, base.home, base.away);
+      // Only keep events with at least one bookmaker market
+      if (!bookmakers.length) return;
+      out.push({
+        id: base.id,
+        home_team: base.home,
+        away_team: base.away,
+        commence_time: base.date,
+        bookmakers: bookmakers
+      });
+    });
+    return out;
+  }
+
+  async function fetchEventOdds(eventId) {
+    if (eventOddsCache[eventId]) return eventOddsCache[eventId];
+    var data = await apiFetch('odds?eventId=' + encodeURIComponent(eventId) + '&bookmakers=Betway,Stake');
+    eventOddsCache[eventId] = data;
+    return data;
+  }
+
+  // Adapt API response shape -> legacy renderer shape
+  // API: bookmakers: { "Betway": [ {name:"ML", odds:[{home,draw,away}]}, {name:"Both Teams To Score", odds:[{yes,no}]}, ... ] }
+  // Renderer expects: [{ key, title, markets: [{ key: 'h2h'|'totals'|'btts', outcomes: [{name,price,point}] }] }]
+  function adaptBookmakers(bkObj, homeTeam, awayTeam) {
+    var list = [];
+    Object.keys(bkObj || {}).forEach(function(bkName) {
+      var markets = bkObj[bkName] || [];
+      var adaptedMarkets = [];
+      markets.forEach(function(m) {
+        var mName = (m.name || '').toLowerCase();
+        var oddsRow = (m.odds && m.odds[0]) || {};
+        if (mName === 'ml' || mName === 'moneyline' || mName === 'match result' || mName === '1x2') {
+          var outcomes = [];
+          if (oddsRow.home != null) outcomes.push({ name: homeTeam, price: parseFloat(oddsRow.home) });
+          if (oddsRow.draw != null) outcomes.push({ name: 'Draw', price: parseFloat(oddsRow.draw) });
+          if (oddsRow.away != null) outcomes.push({ name: awayTeam, price: parseFloat(oddsRow.away) });
+          if (outcomes.length) adaptedMarkets.push({ key: 'h2h', outcomes: outcomes });
+        } else if (mName === 'both teams to score' || mName === 'btts') {
+          var bttsOut = [];
+          if (oddsRow.yes != null) bttsOut.push({ name: 'Yes', price: parseFloat(oddsRow.yes) });
+          if (oddsRow.no != null) bttsOut.push({ name: 'No', price: parseFloat(oddsRow.no) });
+          if (bttsOut.length) adaptedMarkets.push({ key: 'btts', outcomes: bttsOut });
+        } else if (mName === 'total' || mName === 'totals' || mName.indexOf('over/under') === 0 || mName.indexOf('goals over') !== -1) {
+          // Totals across multiple rows (each row is a line): find 2.5
+          (m.odds || []).forEach(function(r) {
+            var line = parseFloat(r.hdp != null ? r.hdp : (r.line != null ? r.line : r.point));
+            if (!line && line !== 0) line = 2.5;
+            if (r.over != null) adaptedMarkets.push({ key: 'totals', outcomes: [ { name: 'Over', price: parseFloat(r.over), point: line }, { name: 'Under', price: parseFloat(r.under), point: line } ] });
+          });
+        }
+      });
+      if (adaptedMarkets.length) {
+        list.push({
+          key: bkName.toLowerCase(),
+          title: bkName,
+          markets: adaptedMarkets
+        });
+      }
+    });
+    return list;
   }
 
   // ---- Parse outcomes from a bookmaker's market ----
@@ -1762,56 +1845,39 @@
 
     showSkeleton();
 
-    var sportKey = LEAGUE_KEYS[league];
-    if (!sportKey) {
+    var leagueSlug = LEAGUE_KEYS[league];
+    if (!leagueSlug) {
       grid.innerHTML = '<div class="odds-empty"><p>League not configured.</p></div>';
       return;
     }
 
-    // BTTS market - show unavailable message
-    if (market === 'btts') {
-      var path = 'odds?sport=' + encodeURIComponent(sportKey)
-        + '&regions=za,eu&markets=btts&bookmakers=Betway,Stake';
-      if (forceRefresh) cacheClear('api:' + path);
-      try {
-        var data = normArr(await apiFetch(path));
-        var filtered = data.filter(function(ev) {
-          var bks = ev.bookmakers || [];
-          return bks.some(function(b) {
-            return b.markets && b.markets.some(function(m) { return m.key === 'btts'; });
-          });
-        });
-        if (!filtered.length) {
-          grid.innerHTML = '<div class="odds-empty">'
-            + '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>'
-            + '<p>BTTS market not available for this league right now.</p>'
-            + '</div>';
-          updateTimestamp();
-          return;
-        }
-        if (currentLeague !== league || currentMarket !== market) return;
-        grid.innerHTML = buildMatchCards(filtered.slice(0, MAX_EVENTS), 'btts');
-      } catch (err) {
-        if (currentLeague !== league || currentMarket !== market) return;
-        grid.innerHTML = '<div class="odds-empty">'
-          + '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>'
-          + '<p>BTTS market not available for this league right now.</p>'
-          + '</div>';
-      }
-      updateTimestamp();
-      return;
+    if (forceRefresh) {
+      // Clear both events list cache and per-event caches
+      cacheClear('api:events?sport=football&league=' + encodeURIComponent(leagueSlug));
+      eventOddsCache = {};
     }
 
-    var oddsPath = 'odds?sport=' + encodeURIComponent(sportKey)
-      + '&regions=za,eu&markets=' + encodeURIComponent(market)
-      + '&bookmakers=Betway,Stake';
-    if (forceRefresh) cacheClear('api:' + oddsPath);
-
     try {
-      var events = normArr(await apiFetch(oddsPath));
-      var batch = events.slice(0, MAX_EVENTS);
+      var events = await fetchOddsForLeague(leagueSlug);
+      // Keep only events that have the requested market in at least one bookmaker
+      var filtered = events.filter(function(ev) {
+        return (ev.bookmakers || []).some(function(b) {
+          return (b.markets || []).some(function(m) { return m.key === market; });
+        });
+      });
       if (currentLeague !== league || currentMarket !== market) return;
-      grid.innerHTML = buildMatchCards(batch, market);
+      if (!filtered.length) {
+        var msg = market === 'btts' ? 'BTTS market not available for this league right now.'
+          : market === 'totals' ? 'Totals market not available for this league right now.'
+          : 'No odds available for this league right now.';
+        grid.innerHTML = '<div class="odds-empty">'
+          + '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>'
+          + '<p>' + msg + '</p>'
+          + '</div>';
+        updateTimestamp();
+        return;
+      }
+      grid.innerHTML = buildMatchCards(filtered.slice(0, MAX_EVENTS), market);
     } catch (err) {
       if (currentLeague !== league || currentMarket !== market) return;
       grid.innerHTML = '<div class="odds-empty">'
@@ -1841,6 +1907,20 @@
     return side;
   }
 
+  // Resolve event id -> {home, away, league, date} (cached)
+  var eventMetaCache = {};
+  async function resolveEventMeta(eventId) {
+    if (eventMetaCache[eventId]) return eventMetaCache[eventId];
+    try {
+      var ev = await apiFetch('events/' + encodeURIComponent(eventId));
+      eventMetaCache[eventId] = ev;
+      return ev;
+    } catch (e) {
+      eventMetaCache[eventId] = null;
+      return null;
+    }
+  }
+
   async function loadValueBets() {
     var grid = document.getElementById('valueBetsGrid');
     if (!grid) return;
@@ -1854,6 +1934,7 @@
       var skBets = results[1];
 
       var allBets = normArr(bwBets).concat(normArr(skBets));
+      // Filter out past matches once we resolve dates
       allBets.sort(function(a, b) { return (parseFloat(b.expectedValue) || 0) - (parseFloat(a.expectedValue) || 0); });
 
       if (!allBets.length) {
@@ -1861,7 +1942,28 @@
         return;
       }
 
-      var topBets = allBets.slice(0, 9);
+      // Resolve event metadata in parallel for top 15 candidates, then keep 9 future ones
+      var candidates = allBets.slice(0, 15);
+      var metas = await Promise.all(candidates.map(function(b) { return resolveEventMeta(b.eventId); }));
+      var nowMs = Date.now();
+      var enriched = [];
+      for (var i = 0; i < candidates.length; i++) {
+        var meta = metas[i];
+        if (!meta || !meta.home || !meta.away) continue;
+        if (meta.date && new Date(meta.date).getTime() < nowMs) continue; // past game
+        candidates[i]._home = meta.home;
+        candidates[i]._away = meta.away;
+        candidates[i]._league = meta.league && meta.league.name ? meta.league.name : '';
+        enriched.push(candidates[i]);
+        if (enriched.length >= 9) break;
+      }
+
+      if (!enriched.length) {
+        grid.innerHTML = '<div class="vb-empty" style="grid-column:1/-1;">No value bets detected right now. Check back before kickoff.</div>';
+        return;
+      }
+
+      var topBets = enriched;
       grid.innerHTML = topBets.map(function(bet) {
         var ev = parseFloat(bet.expectedValue) || 100;
         var evPct = (ev - 100).toFixed(1);
@@ -1878,8 +1980,9 @@
         var sideKey = side.toLowerCase();
         var sideOdds = sideKey === 'home' ? (bkOdds.home || '-') : (sideKey === 'away' ? (bkOdds.away || bkOdds.home || '-') : (bkOdds.draw || bkOdds.home || '-'));
         var fairOdds = sideKey === 'home' ? fairHome : fairAway;
-        var leagueName = (bet.league && (bet.league.name || bet.league)) || '';
-        var matchName = bet.home && bet.away ? (bet.home + ' vs ' + bet.away) : 'Match';
+        var leagueName = bet._league || ((bet.league && (bet.league.name || bet.league)) || '');
+        var matchName = (bet._home && bet._away) ? (bet._home + ' vs ' + bet._away)
+                       : (bet.home && bet.away ? (bet.home + ' vs ' + bet.away) : 'Match');
 
         return '<div class="vb-card">'
           + '<div class="vb-header">'
