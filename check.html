@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Brand Check - tips.co.za</title>
+<style>
+  * { box-sizing: border-box; }
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-alt: #1c2333;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #9ca3b0;
+    --primary: #4ADE80;
+    --warn: #f59e0b;
+    --danger: #f85149;
+  }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0;
+  }
+  .notice {
+    background: #422e00;
+    border: 1px solid #6b4a00;
+    color: #fde68a;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  .stats {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    border-radius: 6px;
+    min-width: 160px;
+  }
+  .stat-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .controls input, .controls select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+  }
+  .controls input { flex: 1; min-width: 200px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  thead {
+    background: var(--surface-alt);
+  }
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--surface-alt); }
+  .brand-logo {
+    width: 40px; height: 40px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #fff;
+    padding: 4px;
+  }
+  .brand-swatch {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'SF Mono', 'Monaco', monospace;
+    letter-spacing: 0.02em;
+    min-width: 80px;
+    text-align: center;
+  }
+  .swatch-combo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .hex {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .promo {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #1a2e1a;
+    color: var(--primary);
+    border: 1px solid #2a4d2a;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .brand-name { font-weight: 600; }
+  .exit-link {
+    color: #58a6ff;
+    text-decoration: none;
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 11px;
+    word-break: break-all;
+  }
+  .exit-link:hover { text-decoration: underline; }
+  .host-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .host-tag.mapped {
+    background: #0e2d18;
+    color: var(--primary);
+    border-color: #2a4d2a;
+  }
+  .badge-unmapped {
+    background: var(--surface-alt);
+    color: var(--muted);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+  .test-btn {
+    display: inline-block;
+    padding: 4px 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+    font-size: 11px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .test-btn:hover { background: var(--surface-alt); border-color: var(--primary); color: var(--primary); }
+  .rank-pill {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    background: var(--surface-alt);
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .variants-note {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  @media (max-width: 800px) {
+    .container { padding: 12px; }
+    table { font-size: 12px; }
+    th, td { padding: 6px 8px; }
+    .brand-logo { width: 28px; height: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Brand Check</h1>
+    <p class="subtitle">API snapshot from <code>api.bets.com.au/api/brandbonus/all?siteid=149&countrycode=ZA</code>. Not indexed.</p>
+  </header>
+
+  <div class="notice">
+    This page is internal. It shows every brand record returned by the API, colour tokens, promo data and the masked exit URL each affiliate link on the site points to.
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="controls">
+    <input type="search" id="search" placeholder="Filter by brand name, host, promo code...">
+    <select id="filter-mapped">
+      <option value="all">All brands</option>
+      <option value="mapped">Mapped to a site host only</option>
+      <option value="unmapped">Unmapped brands</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Logo</th>
+        <th>Brand</th>
+        <th>Colours</th>
+        <th>Promo</th>
+        <th>Bonus</th>
+        <th>Masked Exit URL</th>
+        <th>Mapped Host</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="brand-table"></tbody>
+  </table>
+
+  <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">
+    Source: <code>/data/brands.json</code> (260 records, 173 unique brands) &middot; Mappings: <code>/data/brand-links.json</code>
+  </p>
+</div>
+
+<script>
+(async function(){
+  const [brandsResp, mappingsResp] = await Promise.all([
+    fetch('data/brands.json').then(r => r.json()),
+    fetch('data/brand-links.json').then(r => r.json()).catch(() => [])
+  ]);
+
+  const brands = brandsResp;
+  const mappings = mappingsResp;
+
+  // Build brandId → host set
+  const idToHost = {};
+  mappings.forEach(m => {
+    if (!idToHost[m.brandId]) idToHost[m.brandId] = [];
+    idToHost[m.brandId].push(m.host);
+  });
+
+  // Dedupe: pick best variant per brand name (same logic as alignment script)
+  const byName = {};
+  brands.forEach(b => {
+    const key = b.BrandName.toLowerCase();
+    if (!byName[key]) byName[key] = [];
+    byName[key].push(b);
+  });
+
+  const uniqueBrands = Object.keys(byName).sort().map(key => {
+    const variants = byName[key];
+    // Prefer a variant that has a mapped host
+    const mapped = variants.find(v => idToHost[v.BrandId]);
+    const chosen = mapped || variants.sort((a,b) => a.BrandId - b.BrandId)[0];
+    return { chosen, variants, key };
+  });
+
+  // Stats
+  const mappedCount = uniqueBrands.filter(u => idToHost[u.chosen.BrandId]).length;
+  const statsEl = document.getElementById('stats');
+  statsEl.innerHTML = `
+    <div class="stat"><div class="stat-label">API Records</div><div class="stat-value">${brands.length}</div></div>
+    <div class="stat"><div class="stat-label">Unique Brands</div><div class="stat-value">${uniqueBrands.length}</div></div>
+    <div class="stat"><div class="stat-label">Mapped to Site</div><div class="stat-value">${mappedCount}</div></div>
+    <div class="stat"><div class="stat-label">Mapped Hosts</div><div class="stat-value">${mappings.length}</div></div>
+  `;
+
+  const tbody = document.getElementById('brand-table');
+  const searchEl = document.getElementById('search');
+  const filterEl = document.getElementById('filter-mapped');
+
+  function esc(s){ return (s == null ? '' : String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  function render() {
+    const q = searchEl.value.trim().toLowerCase();
+    const filter = filterEl.value;
+    let rows = '';
+    let idx = 0;
+    uniqueBrands.forEach(u => {
+      const b = u.chosen;
+      const hosts = idToHost[b.BrandId] || [];
+      const isMapped = hosts.length > 0;
+      if (filter === 'mapped' && !isMapped) return;
+      if (filter === 'unmapped' && isMapped) return;
+      if (q) {
+        const hay = [b.BrandName, b.Promocode, b.VerBonusText, (hosts||[]).join(' '), b.Hyperlinkurl].join(' ').toLowerCase();
+        if (!hay.includes(q)) return;
+      }
+      idx++;
+      const hostsHtml = hosts.length
+        ? hosts.map(h => `<span class="host-tag mapped">${esc(h)}</span>`).join(' ')
+        : '<span class="badge-unmapped">no site mapping</span>';
+      const variantsNote = u.variants.length > 1
+        ? `<div class="variants-note">${u.variants.length} variants in API</div>`
+        : '';
+      rows += `
+        <tr>
+          <td><span class="rank-pill">${idx}</span></td>
+          <td><img class="brand-logo" src="${esc(b.Imageurl)}" alt="${esc(b.BrandName)}" loading="lazy" onerror="this.style.display='none'"></td>
+          <td>
+            <div class="brand-name">${esc(b.BrandName)}</div>
+            <div class="hex">id ${b.BrandId}${b.Ranking ? ' · rank ' + b.Ranking : ''}</div>
+            ${variantsNote}
+          </td>
+          <td>
+            <div class="swatch-combo">
+              <span class="brand-swatch" style="background:${esc(b.BaseColour)};color:${esc(b.TextColour)};">${esc(b.BaseColour)}</span>
+              <span class="hex">text ${esc(b.TextColour)}</span>
+            </div>
+          </td>
+          <td>${b.Promocode ? `<span class="promo">${esc(b.Promocode)}</span>` : '<span class="hex">—</span>'}</td>
+          <td>
+            <div>${esc(b.VerBonusText || '—')}</div>
+            ${b.VerBonusInfo ? `<div class="hex">${esc(b.VerBonusInfo)}</div>` : ''}
+          </td>
+          <td><a class="exit-link" href="${esc(b.Hyperlinkurl)}" target="_blank" rel="noopener">${esc(b.Hyperlinkurl.replace('https://www.tips.co.za', ''))}</a></td>
+          <td>${hostsHtml}</td>
+          <td><a class="test-btn" href="${esc(b.Hyperlinkurl)}" target="_blank" rel="noopener">Test →</a></td>
+        </tr>`;
+    });
+    if (!rows) rows = '<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--muted);">No matches</td></tr>';
+    tbody.innerHTML = rows;
+  }
+
+  searchEl.addEventListener('input', render);
+  filterEl.addEventListener('change', render);
+  render();
+})();
+</script>
+</body>
+</html>
