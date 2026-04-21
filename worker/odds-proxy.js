@@ -6,7 +6,8 @@
  * Features:
  *   - API key stays server-side (bound as ODDS_API_KEY secret)
  *   - Edge cache: 2 min for most endpoints, 30s for dropping-odds
- *   - Per-IP rate limiting: 30 req/min via in-memory counter (resets per isolate)
+ *   - Stale-while-revalidate: serve expired cache instantly, refresh in background
+ *   - Per-IP rate limiting: 60 req/min via in-memory counter (resets per isolate)
  *   - CORS locked to tips.co.za + localhost dev
  *   - Strips apiKey from any incoming query string (defence in depth)
  */
@@ -31,8 +32,11 @@ const CACHE_TTL = {
 };
 
 // Rate limiting: requests per minute per IP
-const RATE_LIMIT = 30;
+const RATE_LIMIT = 60;
 const rateCounts = new Map();
+
+// Stale-while-revalidate window (seconds past TTL during which we serve stale + refresh)
+const SWR_WINDOW = 300;
 
 // Clean up rate limiter every 60s
 setInterval(() => rateCounts.clear(), 60_000);
@@ -102,46 +106,61 @@ export default {
     // Check Cloudflare cache first
     const cache = caches.default;
     const cacheKey = new Request(url.toString(), request);
-    let response = await cache.match(cacheKey);
+    let cached = await cache.match(cacheKey);
 
-    if (!response) {
-      // Fetch from upstream
+    // Helper: fetch fresh from upstream and cache with extended SWR window
+    const fetchFresh = async () => {
       const upstream = await fetch(upstreamUrl, {
         headers: {
-          'User-Agent': 'tips.co.za-proxy/1.0',
+          'User-Agent': 'tips.co.za-proxy/1.1',
           'Accept': 'application/json',
         },
       });
-
-      // Clone and prepare response with cache headers
       const body = await upstream.text();
-      response = new Response(body, {
+      // Cache-Control max-age is ttl (browser), s-maxage is ttl+SWR_WINDOW (edge)
+      const resp = new Response(body, {
         status: upstream.status,
         headers: {
           ...corsHeaders(origin),
           'Content-Type': 'application/json',
-          'Cache-Control': `public, max-age=${ttl}, s-maxage=${ttl}`,
-          'X-Cache': 'MISS',
+          'Cache-Control': `public, max-age=${ttl}, s-maxage=${ttl + SWR_WINDOW}`,
+          'X-Cache-TTL': String(ttl),
+          'X-Cached-At': new Date().toISOString(),
           'X-Proxy': 'tips-odds-proxy',
         },
       });
-
-      // Store in edge cache (only for successful responses)
       if (upstream.ok) {
-        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+        ctx.waitUntil(cache.put(cacheKey, resp.clone()));
       }
-    } else {
-      // Cache hit — add CORS headers and cache indicator
-      response = new Response(response.body, {
-        status: response.status,
-        headers: {
-          ...Object.fromEntries(response.headers),
-          ...corsHeaders(origin),
-          'X-Cache': 'HIT',
-        },
-      });
+      return resp;
+    };
+
+    if (!cached) {
+      // Full miss: fetch and serve
+      const fresh = await fetchFresh();
+      fresh.headers.set('X-Cache', 'MISS');
+      return fresh;
     }
 
+    // Cache hit: decide if it's fresh or stale-within-SWR
+    const cachedAt = cached.headers.get('X-Cached-At');
+    const age = cachedAt ? (Date.now() - new Date(cachedAt).getTime()) / 1000 : 0;
+    const isStale = age > ttl;
+
+    // Always return cached immediately; if stale, refresh in background
+    if (isStale) {
+      ctx.waitUntil(fetchFresh());
+    }
+
+    const response = new Response(cached.body, {
+      status: cached.status,
+      headers: {
+        ...Object.fromEntries(cached.headers),
+        ...corsHeaders(origin),
+        'X-Cache': isStale ? 'STALE' : 'HIT',
+        'X-Cache-Age': String(Math.round(age)),
+      },
+    });
     return response;
   },
 };

@@ -371,22 +371,33 @@
 
   function formatDate(iso) {
     if (!iso) return '';
-    // Convert to SAST (UTC+2)
-    var d = new Date(new Date(iso).getTime() + 2 * 60 * 60 * 1000);
-    var now = new Date(Date.now() + 2 * 60 * 60 * 1000);
-    var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var hrs = d.getUTCHours().toString().padStart(2, '0');
-    var min = d.getUTCMinutes().toString().padStart(2, '0');
-    var time = hrs + ':' + min;
-    if (d.getUTCFullYear() === now.getUTCFullYear() && d.getUTCMonth() === now.getUTCMonth() && d.getUTCDate() === now.getUTCDate()) {
-      return 'Today, ' + time;
+    var TZ = 'Africa/Johannesburg';
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    // Extract SAST parts using Intl (DST-safe, future-proof)
+    try {
+      var dateParts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: TZ, weekday: 'short', day: 'numeric', month: 'short', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', hour12: false
+      }).formatToParts(d).reduce(function(acc, p) { acc[p.type] = p.value; return acc; }, {});
+      var time = dateParts.hour + ':' + dateParts.minute;
+      // Today/tomorrow comparison in SAST
+      var ymd = function(date) {
+        var p = new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year:'numeric', month:'2-digit', day:'2-digit' }).format(date);
+        return p;
+      };
+      var now = new Date();
+      var tmr = new Date(now.getTime() + 86400000);
+      if (ymd(d) === ymd(now)) return 'Today, ' + time;
+      if (ymd(d) === ymd(tmr)) return 'Tomorrow, ' + time;
+      return dateParts.weekday + ' ' + dateParts.day + ' ' + dateParts.month + ', ' + time;
+    } catch (e) {
+      // Fallback: UTC+2 (no DST in SA)
+      var dd = new Date(d.getTime() + 2 * 60 * 60 * 1000);
+      var hrs = dd.getUTCHours().toString().padStart(2, '0');
+      var min = dd.getUTCMinutes().toString().padStart(2, '0');
+      return dd.getUTCDate() + '/' + (dd.getUTCMonth()+1) + ' ' + hrs + ':' + min;
     }
-    var tmr = new Date(now.getTime() + 86400000);
-    if (d.getUTCFullYear() === tmr.getUTCFullYear() && d.getUTCMonth() === tmr.getUTCMonth() && d.getUTCDate() === tmr.getUTCDate()) {
-      return 'Tomorrow, ' + time;
-    }
-    return days[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + months[d.getUTCMonth()] + ', ' + time;
   }
 
   function formatBetSide(side, home, away, market) {
