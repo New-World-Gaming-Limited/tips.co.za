@@ -4,6 +4,12 @@
 /top-betting-sites  /best-betting-sites-south-africa  301
 /top-betting-sites.html  /best-betting-sites-south-africa  301
 
+# Palacebet removed (not active in our panel)
+/reviews/palacebet  /betting-bonuses-south-africa  301
+/reviews/palacebet.html  /betting-bonuses-south-africa  301
+/promo-code/palacebet  /betting-bonuses-south-africa  301
+/promo-code/palacebet.html  /betting-bonuses-south-africa  301
+
 # Category pages mistyped as /reviews/{slug} (they live at root)
 /reviews/card-betting-sites  /card-betting-sites  301
 /reviews/1voucher-betting-sites  /1voucher-betting-sites  301

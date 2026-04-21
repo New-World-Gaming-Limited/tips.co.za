@@ -1,898 +1,232 @@
-[
-  {
-    "host": "easybet.co.za",
-    "brandName": "Easybet",
-    "brandId": 1241,
-    "baseColour": "#FED702",
-    "textColour": "#000000",
-    "promoCode": "NEWBONUS",
-    "bonus": "Free R50 + 150% MATCH to R1500",
-    "bonusInfo": "use promo code NEWBONUS",
-    "terms": "18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202502/Feb07/ORG_easy-bet-logo2083_18752.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9b577ef9230623171008/149/",
-    "ranking": 1
+{
+  "22c78280220928083006": {
+    "slug": "yesplay",
+    "name": "Yesplay",
+    "url": "https://www.tips.co.za/link/22c78280220928083006/149/"
   },
-  {
-    "host": "betway.co.za",
-    "brandName": "betway",
-    "brandId": 152,
-    "baseColour": "#181818",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "R10 Free Bet & 10 Aviator Flights",
-    "bonusInfo": "with promo code BETS",
-    "terms": "Join betway South Africa with promo code BETS and get access to a welcome package that includes 10 Free Spins on 12 Masks of Fire DrumsTM, 10 Free Flights on Aviator and a R10 Free Bet. T&Cs apply. No persons under the age of 18 years are permitted to gamble. Winners know when to stop. National Responsible Gambling Programme: 0800 006 008. Warning: Gambling involves risk. By gambling on this website, you run the risk that you may lose.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201901/Jan15/ORG_betway5525_49731.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/65974d59190114175723/149/",
-    "ranking": 2
+  "123310f2230612153349": {
+    "slug": "tictacbets",
+    "name": "TicTacBets",
+    "url": "https://www.tips.co.za/link/123310f2230612153349/149/"
   },
-  {
-    "host": "new.betway.co.za",
-    "brandName": "betway",
-    "brandId": 152,
-    "baseColour": "#181818",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "R10 Free Bet & 10 Aviator Flights",
-    "bonusInfo": "with promo code BETS",
-    "terms": "Join betway South Africa with promo code BETS and get access to a welcome package that includes 10 Free Spins on 12 Masks of Fire DrumsTM, 10 Free Flights on Aviator and a R10 Free Bet. T&Cs apply. No persons under the age of 18 years are permitted to gamble. Winners know when to stop. National Responsible Gambling Programme: 0800 006 008. Warning: Gambling involves risk. By gambling on this website, you run the risk that you may lose.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201901/Jan15/ORG_betway5525_49731.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/65974d59190114175723/149/",
-    "ranking": 2
+  "96a5aad0181116205024": {
+    "slug": "hollywoodbets",
+    "name": "Hollywood bets",
+    "url": "https://www.tips.co.za/link/96a5aad0181116205024/149/"
   },
-  {
-    "host": "betway.com",
-    "brandName": "betway",
-    "brandId": 152,
-    "baseColour": "#181818",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "R10 Free Bet & 10 Aviator Flights",
-    "bonusInfo": "with promo code BETS",
-    "terms": "Join betway South Africa with promo code BETS and get access to a welcome package that includes 10 Free Spins on 12 Masks of Fire DrumsTM, 10 Free Flights on Aviator and a R10 Free Bet. T&Cs apply. No persons under the age of 18 years are permitted to gamble. Winners know when to stop. National Responsible Gambling Programme: 0800 006 008. Warning: Gambling involves risk. By gambling on this website, you run the risk that you may lose.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201901/Jan15/ORG_betway5525_49731.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/65974d59190114175723/149/",
-    "ranking": 2
+  "4e6a1c8250506082921": {
+    "slug": "mzansibet",
+    "name": "Mzansibet",
+    "url": "https://www.tips.co.za/link/4e6a1c8250506082921/149/"
   },
-  {
-    "host": "10bet.co.za",
-    "brandName": "10bet",
-    "brandId": 162,
-    "baseColour": "#4e454a",
-    "textColour": "#fff",
-    "promoCode": "Code Activated",
-    "bonus": "Deposit R3,000 Get R3,000",
-    "bonusInfo": "100% bonus up to R3,000",
-    "terms": "Your first deposit at 10bet should be of at least R20. Get 100% up to R3,000 Bonus to bet on sports or games. New customers only. 18+ T&Cs and wagering requirements apply. To activate the bonus, select it from the cashier.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202406/Jun04/ORG_10bet1155_10404.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/a82c3234190213122144/149/",
-    "ranking": 1
+  "6f4efc2a190222151445": {
+    "slug": "world-sports-betting",
+    "name": "World Sports Betting",
+    "url": "https://www.tips.co.za/link/6f4efc2a190222151445/149/"
   },
-  {
-    "host": "betfred.co.za",
-    "brandName": "Betfred",
-    "brandId": 172,
-    "baseColour": "#005a99",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "up to R21,000 + 750 Spins",
-    "bonusInfo": "with promo code NEWBONUS",
-    "terms": "Get up to R21,000 in bonus funds and earn up to 750 Free Spins over the course of your first three deposits when you register with promo code NEWBONUS.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202302/Feb15/ORG_Betfred5283_47554.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/4d0a9382190213123654/149/",
-    "ranking": 2
+  "c1ccd283260225142949": {
+    "slug": "zarbet",
+    "name": "ZARbet",
+    "url": "https://www.tips.co.za/link/c1ccd283260225142949/149/"
   },
-  {
-    "host": "supabets.co.za",
-    "brandName": "Supabets",
-    "brandId": 194,
-    "baseColour": "#EB0028",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Free R50 bonus sign up",
-    "bonusInfo": "Plus 100% up to R5,000 & 100 FS",
-    "terms": "18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202308/Aug23/ORG_supabets2942_26480.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/83a75fb3190222144052/149/",
-    "ranking": 3
+  "37324ebc260401081308": {
+    "slug": "firstbet",
+    "name": "Firstbet",
+    "url": "https://www.tips.co.za/link/37324ebc260401081308/149/"
   },
-  {
-    "host": "gbets.co.za",
-    "brandName": "Gbets",
-    "brandId": 203,
-    "baseColour": "#13372e",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "R1,000 Bonus",
-    "bonusInfo": "use code \"NEWBONUS\"",
-    "terms": "Use the Gbets promo code NEWBONUS. 18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_GBets1679_15115.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9947adce190222182544/149/",
-    "ranking": 2
+  "754825e7260306164405": {
+    "slug": "apexbets",
+    "name": "Apex Bets",
+    "url": "https://www.tips.co.za/link/754825e7260306164405/149/"
   },
-  {
-    "host": "yesplay.bet",
-    "brandName": "Yesplay",
-    "brandId": 1121,
-    "baseColour": "#fd7a01",
-    "textColour": "#000000",
-    "promoCode": "Applied",
-    "bonus": "Deposit R3000 Get R3000",
-    "bonusInfo": "Exclusive Offer",
-    "terms": "18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_Yesplay3853_34687.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/22c78280220928083006/149/",
-    "ranking": 2
+  "56eef481260312134641": {
+    "slug": "bettabets",
+    "name": "Bettabets",
+    "url": "https://www.tips.co.za/link/56eef481260312134641/149/"
   },
-  {
-    "host": "sportingbet.co.za",
-    "brandName": "Sportingbet SA",
-    "brandId": 157,
-    "baseColour": "#0988d1",
-    "textColour": "#fafafa",
-    "promoCode": "PROMOCODE",
-    "bonus": " Up to R3,000 + 300 Spins",
-    "bonusInfo": "3 Deposit Bonuses",
-    "terms": "Earn up to R3,000 in bonus funds PLUS 300 Free Spins, on your first three deposits. To get started, register and make a First Deposit *Min R10 and get 100% free up to R1,000 plus 100 free slot spins. | T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_SportingBet4929_44370.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/24faf4f7190201004832/149/",
-    "ranking": 1
+  "f86b8ed2260325172212": {
+    "slug": "ready-set-bet",
+    "name": "Ready Set Bet",
+    "url": "https://www.tips.co.za/link/f86b8ed2260325172212/149/"
   },
-  {
-    "host": "trackrt.tictacbets.co.za",
-    "brandName": "TicTacBets",
-    "brandId": 1236,
-    "baseColour": "#cc0100",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "100% up to R5,000 + 50 spins",
-    "bonusInfo": "Use promo code NEWBONUS",
-    "terms": "Register using the code NEWBONUS to claim the best bonus on Tic Tac Sports Betting. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_Tictacbets2625_23628.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/123310f2230612153349/149/",
-    "ranking": 2
+  "da843839260420121951": {
+    "slug": "play-co-za",
+    "name": "Play.co.za",
+    "url": "https://www.tips.co.za/link/da843839260420121951/149/"
   },
-  {
-    "host": "tictacbets.co.za",
-    "brandName": "TicTacBets",
-    "brandId": 1236,
-    "baseColour": "#cc0100",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "100% up to R5,000 + 50 spins",
-    "bonusInfo": "Use promo code NEWBONUS",
-    "terms": "Register using the code NEWBONUS to claim the best bonus on Tic Tac Sports Betting. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_Tictacbets2625_23628.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/123310f2230612153349/149/",
-    "ranking": 2
+  "b59122e3260212095714": {
+    "slug": "lucky-fish",
+    "name": "Lucky Fish",
+    "url": "https://www.tips.co.za/link/b59122e3260212095714/149/"
   },
-  {
-    "host": "lulabet.co.za",
-    "brandName": "Lulabet",
-    "brandId": 1124,
-    "baseColour": "#171B38",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Bet R50 Get R50",
-    "bonusInfo": "with code NEWBONUS",
-    "terms": "18+. T&Cs apply",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Lulabet5117_46063.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d383b695221010094649/149/",
-    "ranking": 2
+  "65974d59190114175723": {
+    "slug": "betway",
+    "name": "betway",
+    "url": "https://www.tips.co.za/link/65974d59190114175723/149/"
   },
-  {
-    "host": "zarbet.co.za",
-    "brandName": "ZARbet",
-    "brandId": 1610,
-    "baseColour": "#000000",
-    "textColour": "#faf9f9",
-    "promoCode": "BETS",
-    "bonus": "Get up to R3,750 + 25FS",
-    "bonusInfo": "125% with promo code BETS",
-    "terms": "The ZARbet code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202507/Jul24/ORG_zarbet4354_39195.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/53abeed4250711122151/149/",
-    "ranking": 2
+  "abbe2981260305131326": {
+    "slug": "boltbet",
+    "name": "Boltbet",
+    "url": "https://www.tips.co.za/link/abbe2981260305131326/149/"
   },
-  {
-    "host": "playtsogo.co.za",
-    "brandName": "playTSOGO",
-    "brandId": 1569,
-    "baseColour": "#0F2D84",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Exclusive: R10,000 + 25 Bet, 50 Spins + 25 Flights",
-    "bonusInfo": "Use promo code NEWBONUS",
-    "terms": "The PlayTSOGO promo code is NEWBONUS. When you use this code you get No Deposit 50 Bonus Spins + 25 Bonus Bet + 25 Bonus Flights PLUS 100% up to R10 000 + 20 bonus spins. This is exclusive for new users. T&Cs apply. Over 18s only.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_play-tsogo5039_45364.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/cea024e1250411234748/149/",
-    "ranking": 2
+  "ea2c5f83251119131705": {
+    "slug": "easybet",
+    "name": "Easybet",
+    "url": "https://www.tips.co.za/link/ea2c5f83251119131705/149/"
   },
-  {
-    "host": "worldsportsbetting.co.za",
-    "brandName": "World Sports Betting",
-    "brandId": 196,
-    "baseColour": "#041467",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "R20,000 Bonus (100%)",
-    "bonusInfo": "use promo code NEWBONUS",
-    "terms": "18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_World Sports Betting logo1719_15472.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/6f4efc2a190222151445/149/",
-    "ranking": 1
+  "ea4ccdb3260111202147": {
+    "slug": "saffaluck",
+    "name": "SaffaLuck",
+    "url": "https://www.tips.co.za/link/ea4ccdb3260111202147/149/"
   },
-  {
-    "host": "supersportbet.co.za",
-    "brandName": "Supersportbet",
-    "brandId": 1651,
-    "baseColour": "#111fa3",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit R5000 Get R5000",
-    "bonusInfo": "+250 Bonus Spins & R25 Bonus Bet",
-    "terms": "18+. T&Cs apply. The Supersportbet code is NEWBONUS.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202509/Sep12/ORG_Supersportbet4004_36044.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/e04f6c5d250912114745/149/",
-    "ranking": 2
+  "d2432c08251010140647": {
+    "slug": "jackpot-city",
+    "name": "Jackpot City",
+    "url": "https://www.tips.co.za/link/d2432c08251010140647/149/"
   },
-  {
-    "host": "jabulabets.co.za",
-    "brandName": "Jabula Bets",
-    "brandId": 1548,
-    "baseColour": "#282625",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Get 150% up to R15,000",
-    "bonusInfo": "use promo code BETS",
-    "terms": "18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202601/Jan13/ORG_jabula-bets4247_38230.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/cc9032a0250318120530/149/",
-    "ranking": 2
+  "e3a2695b251113123942": {
+    "slug": "jabula-bets",
+    "name": "Jabula Bets",
+    "url": "https://www.tips.co.za/link/e3a2695b251113123942/149/"
   },
-  {
-    "host": "palacebet.co.za",
-    "brandName": "Palacebet",
-    "brandId": 1100,
-    "baseColour": "#000000",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Sign Up + Get R50 Free",
-    "bonusInfo": "+ 50% deposit bonus up to R2000",
-    "terms": "18+. T&Cs apply. This promotion is only applicable to new sign-ups only. Please note that a new customer is defined as someone who has successfully verified their account in accordance with regulation and has not made a deposit of real money successfully. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202207/Jul04/ORG_Palacebet logo1814_16333.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/f258e09220704151406/149/",
-    "ranking": 2
+  "279463eb251113094421": {
+    "slug": "playbet",
+    "name": "playbet.co.za",
+    "url": "https://www.tips.co.za/link/279463eb251113094421/149/"
   },
-  {
-    "host": "pantherbet.co.za",
-    "brandName": "Pantherbet",
-    "brandId": 1655,
-    "baseColour": "#000000",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Get up to R14,000 (170%)",
-    "bonusInfo": "use promo code BETS ",
-    "terms": "18+. T&Cs apply. The Pantherbet promo code is BETS. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_panther-bet5260_47346.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/f21fedfc250912164402/149/",
-    "ranking": 2
+  "a0fbbdac260126175628": {
+    "slug": "luckystake",
+    "name": "Luckystake",
+    "url": "https://www.tips.co.za/link/a0fbbdac260126175628/149/"
   },
-  {
-    "host": "playabets.co.za",
-    "brandName": "Playa Bets",
-    "brandId": 201,
-    "baseColour": "#7DB913",
-    "textColour": "#000000",
-    "promoCode": "NEWBONUS",
-    "bonus": "100% Sign-Up Bonus",
-    "bonusInfo": "Get R5000 in free bets",
-    "terms": "Join Playabets with bonus code NEWBONUS and get 100% deposit bonus up to R5000 in free bets. 18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202308/Aug23/ORG_playa1671_15043.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9cfaf6cf190222182019/149/",
-    "ranking": 2
+  "a82c3234190213122144": {
+    "slug": "10bet",
+    "name": "10bet",
+    "url": "https://www.tips.co.za/link/a82c3234190213122144/149/"
   },
-  {
-    "host": "betolimp.co.za",
-    "brandName": "BetOlimp",
-    "brandId": 198,
-    "baseColour": "#af2700",
-    "textColour": "#f7f7f7",
-    "promoCode": "NEWBONUS",
-    "bonus": "R3000 Deposit Match (100%)",
-    "bonusInfo": "Use Promo Code NEWBONUS",
-    "terms": "Use code NEWBONUS on signup. 18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202505/May14/ORG_4643_41796.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/fbbda1b8190222151703/149/",
-    "ranking": 2
+  "4c4b662d260118205831": {
+    "slug": "betbus",
+    "name": "betbus",
+    "url": "https://www.tips.co.za/link/4c4b662d260118205831/149/"
   },
-  {
-    "host": "apexbets.co.za",
-    "brandName": "Apex Bets",
-    "brandId": 1900,
-    "baseColour": "#1b1a1f",
-    "textColour": "#fcf8f8",
-    "promoCode": "BETS",
-    "bonus": "up to R30,000 in bonuses",
-    "bonusInfo": "join with promo code BETS",
-    "terms": "The Apex Bets code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar06/ORG_ApexBets4394_39558.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/754825e7260306164405/149/",
-    "ranking": 2
+  "d7d4ec31251106143909": {
+    "slug": "wanejo-bets",
+    "name": "Wanejo Bets",
+    "url": "https://www.tips.co.za/link/d7d4ec31251106143909/149/"
   },
-  {
-    "host": "betshezi.co.za",
-    "brandName": "Betshezi",
-    "brandId": 1134,
-    "baseColour": "#000000",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit R2000 Get R2000",
-    "bonusInfo": "with promo code NEWBONUS",
-    "terms": "18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202211/Nov07/ORG_betshezi-logo3722_33508.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9a796eb9221107160023/149/",
-    "ranking": 2
+  "84859e24260114103647": {
+    "slug": "bravobet",
+    "name": "Bravobet",
+    "url": "https://www.tips.co.za/link/84859e24260114103647/149/"
   },
-  {
-    "host": "virginbet.co.za",
-    "brandName": "Virgin Bet",
-    "brandId": 1678,
-    "baseColour": "#E10A0A",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Richard Branson's Betting Site",
-    "bonusInfo": "use promo code BETS",
-    "terms": "The Virgin Bet promo code in South Africa is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_virgin-bet4632_41693.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d39aa076250922085716/149/",
-    "ranking": 3
+  "fbbda1b8190222151703": {
+    "slug": "betolimp",
+    "name": "BetOlimp",
+    "url": "https://www.tips.co.za/link/fbbda1b8190222151703/149/"
   },
-  {
-    "host": "luckystake.co.za",
-    "brandName": "Luckystake",
-    "brandId": 1846,
-    "baseColour": "#292929",
-    "textColour": "#fdfcfc",
-    "promoCode": "BETS",
-    "bonus": "Luckystake Loyalty Program",
-    "bonusInfo": "use promo code BETS",
-    "terms": "The Luckystake code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202601/Jan27/ORG_lucky-stake1735_15621.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/a0fbbdac260126175628/149/",
-    "ranking": 2
+  "4dbe84a5251015082400": {
+    "slug": "betxchange",
+    "name": "betXchange",
+    "url": "https://www.tips.co.za/link/4dbe84a5251015082400/149/"
   },
-  {
-    "host": "saffaluck.co.za",
-    "brandName": "SaffaLuck",
-    "brandId": 1798,
-    "baseColour": "#001F12",
-    "textColour": "#fdfcfc",
-    "promoCode": "BETS (not required)",
-    "bonus": "Get a 100% First Deposit Bonus",
-    "bonusInfo": "Double your play",
-    "terms": "The SaffaLuck referral code is BETS, but there is no requirement to use a code when you sign up for sports betting or casino play.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202601/Jan12/ORG_saffaluck2094_18856.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/cc3c4dcd260111201048/149/",
-    "ranking": 2
+  "9a796eb9221107160023": {
+    "slug": "betshezi",
+    "name": "Betshezi",
+    "url": "https://www.tips.co.za/link/9a796eb9221107160023/149/"
   },
-  {
-    "host": "play.co.za",
-    "brandName": "Play.co.za",
-    "brandId": 1959,
-    "baseColour": "#1b1a1f",
-    "textColour": "#fcf8f8",
-    "promoCode": "BETS",
-    "bonus": "Deposit R9000 Get R9000",
-    "bonusInfo": "with promo code BETS",
-    "terms": "The Play.co.za code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202604/Apr20/ORG_playcoza3823_34412.png",
-    "hyperlinkurl": "https://www.tips.co.za/link/e442b805260420115653/149/",
-    "ranking": 2
+  "7f57b3bb251121120813": {
+    "slug": "swifty-sports",
+    "name": "Swifty",
+    "url": "https://www.tips.co.za/link/7f57b3bb251121120813/149/"
   },
-  {
-    "host": "www.play.co.za",
-    "brandName": "Play.co.za",
-    "brandId": 1959,
-    "baseColour": "#1b1a1f",
-    "textColour": "#fcf8f8",
-    "promoCode": "BETS",
-    "bonus": "Deposit R9000 Get R9000",
-    "bonusInfo": "with promo code BETS",
-    "terms": "The Play.co.za code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202604/Apr20/ORG_playcoza3823_34412.png",
-    "hyperlinkurl": "https://www.tips.co.za/link/e442b805260420115653/149/",
-    "ranking": 2
+  "d39aa076250922085716": {
+    "slug": "virgin-bet",
+    "name": "Virgin Bet",
+    "url": "https://www.tips.co.za/link/d39aa076250922085716/149/"
   },
-  {
-    "host": "betbus.co.za",
-    "brandName": "betbus",
-    "brandId": 1827,
-    "baseColour": "#401010",
-    "textColour": "#fdfcfc",
-    "promoCode": "BETS",
-    "bonus": "Deposit R5,000 Get R5,000",
-    "bonusInfo": "use promo code BETS ",
-    "terms": "The betbus code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202601/Jan18/ORG_betbus2561_23057.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/4c4b662d260118205831/149/",
-    "ranking": 2
+  "9947adce190222182544": {
+    "slug": "gbets",
+    "name": "Gbets",
+    "url": "https://www.tips.co.za/link/9947adce190222182544/149/"
   },
-  {
-    "host": "bet.co.za",
-    "brandName": "Bet.co.za",
-    "brandId": 158,
-    "baseColour": "#000010",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "R5,000 bonus",
-    "bonusInfo": "with bonus code NEWBONUS",
-    "terms": "18+ only. T&Cs apply.  New customers only. Email must be verified prior to participation. Min deposit R50. Max bonus amount R5000. Exclusive offer when you use the bet.co.za promo code NEWBONUS.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202211/Nov08/ORG_Betcoza3429_30872.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d1c723c2190201004641/149/",
-    "ranking": 2
+  "83a75fb3190222144052": {
+    "slug": "supabets",
+    "name": "Supabets",
+    "url": "https://www.tips.co.za/link/83a75fb3190222144052/149/"
   },
-  {
-    "host": "betcoza.co.za",
-    "brandName": "Bet.co.za",
-    "brandId": 158,
-    "baseColour": "#000010",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "R5,000 bonus",
-    "bonusInfo": "with bonus code NEWBONUS",
-    "terms": "18+ only. T&Cs apply.  New customers only. Email must be verified prior to participation. Min deposit R50. Max bonus amount R5000. Exclusive offer when you use the bet.co.za promo code NEWBONUS.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202211/Nov08/ORG_Betcoza3429_30872.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d1c723c2190201004641/149/",
-    "ranking": 2
+  "24faf4f7190201004832": {
+    "slug": "sportingbet",
+    "name": "Sportingbet SA",
+    "url": "https://www.tips.co.za/link/24faf4f7190201004832/149/"
   },
-  {
-    "host": "mzansibet.co.za",
-    "brandName": "Mzansibet",
-    "brandId": 1573,
-    "baseColour": "#001F12",
-    "textColour": "#fdfcfc",
-    "promoCode": "NEWBONUS (not required)",
-    "bonus": "Bet R50, Get R50 Extra Bet",
-    "bonusInfo": "use promo code NEWBONUS (not required)",
-    "terms": "The Mzansibet promo code is NEWBONUS for casino. There is no requirement to use a code to avail of the \"Bet R50, Get R50 Extra Bet\" sport welcome bonus. To qualify, place your first real-money sports bet of at least R50 at minimum odds of 2.0. 18+. T&Cs apply.  ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202505/May06/ORG_Mzansibet2645_23814.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/4e6a1c8250506082921/149/",
-    "ranking": 2
+  "e04f6c5d250912114745": {
+    "slug": "supersportbet",
+    "name": "Supersportbet",
+    "url": "https://www.tips.co.za/link/e04f6c5d250912114745/149/"
   },
-  {
-    "host": "marathonbet.co.za",
-    "brandName": "Marathonbet",
-    "brandId": 169,
-    "baseColour": "#003d79",
-    "textColour": "#ffffff",
-    "promoCode": "MAXBONUS",
-    "bonus": "Bet €250 Get €250",
-    "bonusInfo": "Use promo code MAXBONUS",
-    "terms": "18+ only. T&Cs apply. begambleaware.org",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201903/Mar18/ORG_Marathonbet4552_40979.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/913fc41190213123015/149/",
-    "ranking": 2
+  "d383b695221010094649": {
+    "slug": "lulabet",
+    "name": "Lulabet",
+    "url": "https://www.tips.co.za/link/d383b695221010094649/149/"
   },
-  {
-    "host": "captainsbet.com",
-    "brandName": "CaptainsBet",
-    "brandId": 1609,
-    "baseColour": "#1F2032",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit $100 Get $135",
-    "bonusInfo": "use promo code NEWBONUS",
-    "terms": "You can get up to $135 (100%) with promo code NEWBONUS. $35 more than the default bonus offer. 18+. T&Cs apply",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202507/Jul10/ORG_CaptainsBet4029_36266.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/b01d08cb250710092845/149/",
-    "ranking": 2
+  "4d0a9382190213123654": {
+    "slug": "betfred",
+    "name": "Betfred",
+    "url": "https://www.tips.co.za/link/4d0a9382190213123654/149/"
   },
-  {
-    "host": "captainsbet.co.za",
-    "brandName": "CaptainsBet",
-    "brandId": 1609,
-    "baseColour": "#1F2032",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit $100 Get $135",
-    "bonusInfo": "use promo code NEWBONUS",
-    "terms": "You can get up to $135 (100%) with promo code NEWBONUS. $35 more than the default bonus offer. 18+. T&Cs apply",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202507/Jul10/ORG_CaptainsBet4029_36266.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/b01d08cb250710092845/149/",
-    "ranking": 2
+  "2675704c230119095924": {
+    "slug": "pokerbet",
+    "name": "Pokerbet",
+    "url": "https://www.tips.co.za/link/2675704c230119095924/149/"
   },
-  {
-    "host": "soccershop.co.za",
-    "brandName": "Soccershop",
-    "brandId": 1352,
-    "baseColour": "#0578B4",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Deposit R7500 Get R7500",
-    "bonusInfo": "use referral code BETS",
-    "terms": "Join SoccerShop.bet with promo code BETS and unlock the 100% deposit bonus up to R7500. Deposit R200 or more and place bets equal to 5x the value of your 1st\r\ndeposit at odds of 1/1 or more. Then email support@soccershop.bet to claim your bonus. 18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9ebdf908240402101657/149/",
-    "ranking": 2
+  "9cfaf6cf190222182019": {
+    "slug": "playabets",
+    "name": "Playa Bets",
+    "url": "https://www.tips.co.za/link/9cfaf6cf190222182019/149/"
   },
-  {
-    "host": "soccershop.com",
-    "brandName": "Soccershop",
-    "brandId": 1352,
-    "baseColour": "#0578B4",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Deposit R7500 Get R7500",
-    "bonusInfo": "use referral code BETS",
-    "terms": "Join SoccerShop.bet with promo code BETS and unlock the 100% deposit bonus up to R7500. Deposit R200 or more and place bets equal to 5x the value of your 1st\r\ndeposit at odds of 1/1 or more. Then email support@soccershop.bet to claim your bonus. 18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9ebdf908240402101657/149/",
-    "ranking": 2
+  "680f3cc0190222145659": {
+    "slug": "topbet",
+    "name": "Topbet",
+    "url": "https://www.tips.co.za/link/680f3cc0190222145659/149/"
   },
-  {
-    "host": "soccershopbet.co.za",
-    "brandName": "Soccershop",
-    "brandId": 1352,
-    "baseColour": "#0578B4",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Deposit R7500 Get R7500",
-    "bonusInfo": "use referral code BETS",
-    "terms": "Join SoccerShop.bet with promo code BETS and unlock the 100% deposit bonus up to R7500. Deposit R200 or more and place bets equal to 5x the value of your 1st\r\ndeposit at odds of 1/1 or more. Then email support@soccershop.bet to claim your bonus. 18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/9ebdf908240402101657/149/",
-    "ranking": 2
+  "cb8b024250912114850": {
+    "slug": "betjets",
+    "name": "Betjets",
+    "url": "https://www.tips.co.za/link/cb8b024250912114850/149/"
   },
-  {
-    "host": "mozzart.co.za",
-    "brandName": "Mozzart",
-    "brandId": 1342,
-    "baseColour": "#0E1C42",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit €400 Get €400",
-    "bonusInfo": "With promo code NEWBONUS",
-    "terms": "18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_mozzart4298_38687.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/eb66b33e240311111456/149/",
-    "ranking": 2
+  "cdd1553e250807152717": {
+    "slug": "mbet",
+    "name": "Mbet",
+    "url": "https://www.tips.co.za/link/cdd1553e250807152717/149/"
   },
-  {
-    "host": "mozzartbet.co.za",
-    "brandName": "Mozzart",
-    "brandId": 1342,
-    "baseColour": "#0E1C42",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit €400 Get €400",
-    "bonusInfo": "With promo code NEWBONUS",
-    "terms": "18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_mozzart4298_38687.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/eb66b33e240311111456/149/",
-    "ranking": 2
+  "9ebdf908240402101657": {
+    "slug": "soccershop-bet",
+    "name": "Soccershop",
+    "url": "https://www.tips.co.za/link/9ebdf908240402101657/149/"
   },
-  {
-    "host": "pokerstars.co.za",
-    "brandName": "Pokerstars",
-    "brandId": 660,
-    "baseColour": "#000000",
-    "textColour": "#fdfcfc",
-    "promoCode": "STARS400",
-    "bonus": "Deposit £400 Get £400",
-    "bonusInfo": "100% Deposit Bonus up to £400",
-    "terms": "18+ only",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202009/Sep29/ORG_Pokerstars logo2580_23225.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/f8d3aa8b200922160006/149/",
-    "ranking": 2
+  "a7e22907190222183413": {
+    "slug": "sportybet",
+    "name": "Sportybet",
+    "url": "https://www.tips.co.za/link/a7e22907190222183413/149/"
   },
-  {
-    "host": "pokerstars.com",
-    "brandName": "Pokerstars",
-    "brandId": 660,
-    "baseColour": "#000000",
-    "textColour": "#fdfcfc",
-    "promoCode": "STARS400",
-    "bonus": "Deposit £400 Get £400",
-    "bonusInfo": "100% Deposit Bonus up to £400",
-    "terms": "18+ only",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202009/Sep29/ORG_Pokerstars logo2580_23225.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/f8d3aa8b200922160006/149/",
-    "ranking": 2
+  "2804dacf251113122143": {
+    "slug": "pantherbet",
+    "name": "Pantherbet",
+    "url": "https://www.tips.co.za/link/2804dacf251113122143/149/"
   },
-  {
-    "host": "supabet.co.za",
-    "brandName": "Supabet",
-    "brandId": 1615,
-    "baseColour": "#080808",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Bet €100 Get €100",
-    "bonusInfo": "with promo code NEWBONUS",
-    "terms": "18+ only. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202507/Jul28/ORG_supabet5365_48294.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/5c5b78da250724181120/149/",
-    "ranking": 1
+  "fc59c2b0190621090941": {
+    "slug": "dafabet",
+    "name": "Dafabet",
+    "url": "https://www.tips.co.za/link/fc59c2b0190621090941/149/"
   },
-  {
-    "host": "sportybet.co.za",
-    "brandName": "Sportybet",
-    "brandId": 205,
-    "baseColour": "#481A1A",
-    "textColour": "#000000",
-    "promoCode": "NEWBONUS",
-    "bonus": "KES 1,000 Bonus",
-    "bonusInfo": "150% on 1st Deposit",
-    "terms": "18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_SportyBet logo4258_38326.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/a7e22907190222183413/149/",
-    "ranking": 3
+  "d1c723c2190201004641": {
+    "slug": "bet-co-za",
+    "name": "Bet.co.za",
+    "url": "https://www.tips.co.za/link/d1c723c2190201004641/149/"
   },
-  {
-    "host": "sportybet.com",
-    "brandName": "Sportybet",
-    "brandId": 205,
-    "baseColour": "#481A1A",
-    "textColour": "#000000",
-    "promoCode": "NEWBONUS",
-    "bonus": "KES 1,000 Bonus",
-    "bonusInfo": "150% on 1st Deposit",
-    "terms": "18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_SportyBet logo4258_38326.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/a7e22907190222183413/149/",
-    "ranking": 3
-  },
-  {
-    "host": "1xbet.co.za",
-    "brandName": "1xBet",
-    "brandId": 305,
-    "baseColour": "#1A5685",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit R3900. Get R3900",
-    "bonusInfo": "Use code NEWBONUS for $30 extra bonus",
-    "terms": "Get 30% more bonus when you use the 1xbet code NEWBONUS. T&Cs apply. Over 18s only. If you make a R3000 first deposit without a promo code, you will receive a R3000 bonus, if you use promo code NEWBONUS you can then deposit R3900 and you will receive a R3900 bonus.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201906/Jun12/ORG_1xbet logo1890_17014.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d6a163ef190612112956/149/",
-    "ranking": 1
-  },
-  {
-    "host": "1xbet.com",
-    "brandName": "1xBet",
-    "brandId": 305,
-    "baseColour": "#1A5685",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit R3900. Get R3900",
-    "bonusInfo": "Use code NEWBONUS for $30 extra bonus",
-    "terms": "Get 30% more bonus when you use the 1xbet code NEWBONUS. T&Cs apply. Over 18s only. If you make a R3000 first deposit without a promo code, you will receive a R3000 bonus, if you use promo code NEWBONUS you can then deposit R3900 and you will receive a R3900 bonus.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/201906/Jun12/ORG_1xbet logo1890_17014.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d6a163ef190612112956/149/",
-    "ranking": 1
-  },
-  {
-    "host": "spinbet.co.za",
-    "brandName": "Spinbet",
-    "brandId": 1439,
-    "baseColour": "#211442",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Deposit $6000 Get $6000",
-    "bonusInfo": "with code NEWBONUS",
-    "terms": "18+. T&Cs apply",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_spinbet4021_36195.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/1ae0d17a240902220434/149/",
-    "ranking": 2
-  },
-  {
-    "host": "photofinish.co.za",
-    "brandName": "Photofinish",
-    "brandId": 1616,
-    "baseColour": "#478480",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "Own Virtual Horses. Win for Real.",
-    "bonusInfo": "Own Virtual Horses. Win for Real.",
-    "terms": "The Photofinish promo code is NEWBONUS. 18+. T&Cs apply",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202507/Jul28/ORG_photo-finish-live3217_28963.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/bdc64a4a250728183640/149/",
-    "ranking": 2
-  },
-  {
-    "host": "topbet.co.za",
-    "brandName": "Topbet",
-    "brandId": 195,
-    "baseColour": "#000000",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Deposit R1000 Get R1000",
-    "bonusInfo": "with promo code BETS",
-    "terms": "Join Topbet with promo code BETS and avail of their 100% welcome match bonus up to R1000.\r\n18+ only. T&Cs apply. Winners know when to stop.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202504/Apr04/ORG_topbet3540_31870.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/680f3cc0190222145659/149/",
-    "ranking": 2
-  },
-  {
-    "host": "mbet.co.za",
-    "brandName": "Mbet",
-    "brandId": 1627,
-    "baseColour": "#05154F",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "100% up to R2000",
-    "bonusInfo": "use promo code BETS",
-    "terms": "Join Mbet with promo code BETS and enjoy online betting with their 1st Deposit match bonus (100%) up to R2000. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202508/Aug10/ORG_mbet5406_48659.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/cdd1553e250807152717/149/",
-    "ranking": 2
-  },
-  {
-    "host": "bethog.co.za",
-    "brandName": "BetHog",
-    "brandId": 1482,
-    "baseColour": "#18181B",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "100% Deposit up to $5,000",
-    "bonusInfo": "with code NEWBONUS",
-    "terms": "18+. T&Cs apply",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202411/Nov13/ORG_bethog-logo4816_43353.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/23313376241112175621/149/",
-    "ranking": 1
-  },
-  {
-    "host": "swiftybets.co.za",
-    "brandName": "Swifty",
-    "brandId": 1759,
-    "baseColour": "#001F12",
-    "textColour": "#fdfcfc",
-    "promoCode": "BETS",
-    "bonus": "Deposit R3000 Get R3000",
-    "bonusInfo": "use promo code BETS ",
-    "terms": "The Swifty Sports code is BETS. 18+. T&Cs apply. Get a 100% Matched Bonus Bet up to R3000 for the Swifty sportsbook.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Swifty4966_44704.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/7f57b3bb251121120813/149/",
-    "ranking": 2
-  },
-  {
-    "host": "swifty.co.za",
-    "brandName": "Swifty",
-    "brandId": 1759,
-    "baseColour": "#001F12",
-    "textColour": "#fdfcfc",
-    "promoCode": "BETS",
-    "bonus": "Deposit R3000 Get R3000",
-    "bonusInfo": "use promo code BETS ",
-    "terms": "The Swifty Sports code is BETS. 18+. T&Cs apply. Get a 100% Matched Bonus Bet up to R3000 for the Swifty sportsbook.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Swifty4966_44704.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/7f57b3bb251121120813/149/",
-    "ranking": 2
-  },
-  {
-    "host": "swiftysports.co.za",
-    "brandName": "Swifty",
-    "brandId": 1759,
-    "baseColour": "#001F12",
-    "textColour": "#fdfcfc",
-    "promoCode": "BETS",
-    "bonus": "Deposit R3000 Get R3000",
-    "bonusInfo": "use promo code BETS ",
-    "terms": "The Swifty Sports code is BETS. 18+. T&Cs apply. Get a 100% Matched Bonus Bet up to R3000 for the Swifty sportsbook.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Swifty4966_44704.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/7f57b3bb251121120813/149/",
-    "ranking": 2
-  },
-  {
-    "host": "pokerbet.co.za",
-    "brandName": "Pokerbet",
-    "brandId": 1172,
-    "baseColour": "#3C3D65",
-    "textColour": "#ffffff",
-    "promoCode": "MAXBET",
-    "bonus": "Get R100 free + R2000 (100%)",
-    "bonusInfo": "Use promo code MAXBET",
-    "terms": "Use code MAXBET when you open a new account to get an additional R100 free (no deposit) + 100% up to R2000. T&Cs apply. Over 18s. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Poker bet3486_31378.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/2675704c230119095924/149/",
-    "ranking": 2
-  },
-  {
-    "host": "playbet.co.za",
-    "brandName": "playbet.co.za",
-    "brandId": 1739,
-    "baseColour": "#CB151A",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "R50 +50 Spins on Signup",
-    "bonusInfo": "with promo code BETS",
-    "terms": "The playbet.co.za promo code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202511/Nov13/ORG_playbet-co-za2281_20534.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d396cd75251113093940/149/",
-    "ranking": 2
-  },
-  {
-    "host": "luckyfish.co.za",
-    "brandName": "Lucky Fish",
-    "brandId": 1626,
-    "baseColour": "#00252b",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "R50 Sign Up Bonus",
-    "bonusInfo": "use promo code NEWBONUS",
-    "terms": "The Lucky Fish code is NEWBONUS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202511/Nov06/ORG_lucky-fish1143_10294.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/bc1ac76e250807152825/149/",
-    "ranking": 2
-  },
-  {
-    "host": "bettabets.co.za",
-    "brandName": "Bettabets",
-    "brandId": 1908,
-    "baseColour": "#FAE80B",
-    "textColour": "#000000",
-    "promoCode": "BETS",
-    "bonus": "Deposit R50+ for Match Bonus up to R2500",
-    "bonusInfo": "use promo code BETS to start",
-    "terms": "The bettabets.co.za promo code is BETS. 18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar12/ORG_bettabets35362_48271.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/56eef481260312134641/149/",
-    "ranking": 2
-  },
-  {
-    "host": "betxchange.co.za",
-    "brandName": "betXchange",
-    "brandId": 1715,
-    "baseColour": "#0033cc",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "R20,000 Money Back",
-    "bonusInfo": "Use referral code NEWBONUS",
-    "terms": "18+. T&Cs apply. The betXchange promo code is NEWBONUS. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202601/Jan15/ORG_betxchange3400_30606.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/f1600f69251013161439/149/",
-    "ranking": 2
-  },
-  {
-    "host": "betjets.co.za",
-    "brandName": "Betjets",
-    "brandId": 1652,
-    "baseColour": "#012169",
-    "textColour": "#ffffff",
-    "promoCode": "BETS",
-    "bonus": "Deposit R2,000 Get R2,000",
-    "bonusInfo": "use promo code BETS ",
-    "terms": "18+. T&Cs apply. ",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202509/Sep12/ORG_Betjets5126_46141.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/cb8b024250912114850/149/",
-    "ranking": 2
-  },
-  {
-    "host": "wanejobets.co.za",
-    "brandName": "Wanejo Bets",
-    "brandId": 1734,
-    "baseColour": "#202020",
-    "textColour": "#000000",
-    "promoCode": "BETS",
-    "bonus": "Deposit R10,000 Get R10,000",
-    "bonusInfo": "with promo code BETS",
-    "terms": "The Wanejo Bets promo code is BETS and gives you access to the WB22 welcome deposit bonus of 100% up to R10,000. 18+. T&Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Wanejo3674_33070.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d7d4ec31251106143909/149/",
-    "ranking": 2
-  },
-  {
-    "host": "jackpotcity.co.za",
-    "brandName": "Jackpot City",
-    "brandId": 1713,
-    "baseColour": "#181818",
-    "textColour": "#ffffff",
-    "promoCode": "NEWBONUS",
-    "bonus": "100% up to R4000 + Spins",
-    "bonusInfo": "with promo code NEWBONUS",
-    "terms": "The Jackpot City promo code is NEWBONUS. 18+ only. Gamble responsibly. Ts and Cs apply.",
-    "imageUrl": "https://www.imageservera.com/uploadedimages/202510/Oct10/ORG_JackpotCity3652_32875.svg",
-    "hyperlinkurl": "https://www.tips.co.za/link/d2432c08251010140647/149/",
-    "ranking": 2
+  "cea024e1250411234748": {
+    "slug": "playtsogo",
+    "name": "playTSOGO",
+    "url": "https://www.tips.co.za/link/cea024e1250411234748/149/"
   }
-]
+}
