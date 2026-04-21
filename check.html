@@ -1,398 +1,1226 @@
 <!DOCTYPE html>
 <html lang="en-ZA">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<meta name="googlebot" content="noindex, nofollow">
-<title>Brand Check - tips.co.za</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Brand Check | Tips.co.za</title>
+  <meta name="description" content="Internal brand audit page showing every brand with its mapped logo, colour, promo code, review page and exit link.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://tips.co.za/check">
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" as="style">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script>(function(){var k='local',s={};try{s=window[k+'Storage']||s}catch(e){}window._ls=s;try{var t=s.getItem?s.getItem('tips-theme'):s['tips-theme'];if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 <style>
-  * { box-sizing: border-box; }
-  :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface-alt: #1c2333;
-    --border: #30363d;
-    --text: #e6edf3;
-    --muted: #9ca3b0;
-    --primary: #4ADE80;
-    --warn: #f59e0b;
-    --danger: #f85149;
-  }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 24px;
-  }
-  header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 16px;
-    margin-bottom: 24px;
-  }
-  h1 {
-    margin: 0 0 4px;
-    font-size: 22px;
-    letter-spacing: -0.01em;
-  }
-  .subtitle {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 0;
-  }
-  .notice {
-    background: #422e00;
-    border: 1px solid #6b4a00;
-    color: #fde68a;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    font-size: 13px;
-  }
-  .stats {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 12px 16px;
-    border-radius: 6px;
-    min-width: 160px;
-  }
-  .stat-label {
-    color: var(--muted);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-  }
-  .stat-value {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--primary);
-  }
-  .controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .controls input, .controls select {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 13px;
-  }
-  .controls input { flex: 1; min-width: 200px; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    font-size: 13px;
-  }
-  thead {
-    background: var(--surface-alt);
-  }
-  th {
-    text-align: left;
-    padding: 10px 12px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:hover { background: var(--surface-alt); }
-  .brand-logo-wrap {
-    width: 56px;
-    height: 40px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 6px;
-    overflow: hidden;
-  }
-  .brand-logo {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
-  .brand-swatch {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    font-family: 'SF Mono', 'Monaco', monospace;
-    letter-spacing: 0.02em;
-    min-width: 80px;
-    text-align: center;
-  }
-  .swatch-combo {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .hex {
-    font-family: 'SF Mono', 'Monaco', monospace;
-    font-size: 10px;
-    color: var(--muted);
-  }
-  .promo {
-    display: inline-block;
-    padding: 2px 8px;
-    background: #1a2e1a;
-    color: var(--primary);
-    border: 1px solid #2a4d2a;
-    border-radius: 4px;
-    font-family: 'SF Mono', 'Monaco', monospace;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .brand-name { font-weight: 600; }
-  .exit-link {
-    color: #58a6ff;
-    text-decoration: none;
-    font-family: 'SF Mono', 'Monaco', monospace;
-    font-size: 11px;
-    word-break: break-all;
-  }
-  .exit-link:hover { text-decoration: underline; }
-  .host-tag {
-    display: inline-block;
-    padding: 2px 6px;
-    background: var(--surface-alt);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-family: 'SF Mono', 'Monaco', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .host-tag.mapped {
-    background: #0e2d18;
-    color: var(--primary);
-    border-color: #2a4d2a;
-  }
-  .badge-unmapped {
-    background: var(--surface-alt);
-    color: var(--muted);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 10px;
-  }
-  .test-btn {
-    display: inline-block;
-    padding: 4px 8px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    color: var(--text);
-    font-size: 11px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .test-btn:hover { background: var(--surface-alt); border-color: var(--primary); color: var(--primary); }
-  .rank-pill {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
-    text-align: center;
-    background: var(--surface-alt);
-    border-radius: 50%;
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--muted);
-  }
-  .variants-note {
-    font-size: 10px;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-  @media (max-width: 800px) {
-    .container { padding: 12px; }
-    table { font-size: 12px; }
-    th, td { padding: 6px 8px; }
-    .brand-logo-wrap { width: 44px; height: 30px; padding: 3px 4px; }
-  }
+.check-page{padding:var(--space-6,1.5rem) 0}
+.check-stats{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-4)}
+.check-stat{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:12px 16px;min-width:140px}
+.check-stat-num{font-size:1.5rem;font-weight:700;line-height:1;color:var(--color-text)}
+.check-stat-num.ok{color:var(--color-primary)}
+.check-stat-num.warn{color:#c17900}
+.check-stat-num.err{color:#c11b2a}
+.check-stat-lbl{font-size:.75rem;color:var(--color-text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.04em}
+
+.check-toolbar{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-4);align-items:center}
+.check-toolbar-search{flex:1;min-width:220px;position:relative;display:flex;align-items:center;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:8px 12px;gap:8px}
+.check-toolbar-search input{flex:1;border:0;outline:0;background:transparent;font:inherit;color:var(--color-text)}
+.check-chips{display:flex;flex-wrap:wrap;gap:6px}
+.check-chip{background:var(--color-surface);border:1px solid var(--color-border);border-radius:999px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer;color:var(--color-text)}
+.check-chip[aria-pressed="true"]{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+
+.check-table-wrap{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden}
+.check-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.check-table thead th{text-align:left;padding:12px 14px;background:var(--color-surface-2,#f4f6f8);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted);border-bottom:1px solid var(--color-border);white-space:nowrap}
+.check-table tbody td{padding:12px 14px;border-bottom:1px solid var(--color-border);vertical-align:middle}
+.check-table tbody tr:nth-child(even){background:var(--color-surface-2,#f9fafc)}
+.check-table tbody tr:last-child td{border-bottom:0}
+
+.check-td-logo{width:88px}
+.check-logo-wrap{width:60px;height:42px;border-radius:8px;padding:6px;background:var(--base,#eee);box-shadow:0 1px 3px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center}
+.check-logo{max-width:100%;max-height:100%;object-fit:contain}
+.check-logo--missing{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;font-weight:700}
+
+.check-brand-name{font-weight:700;color:var(--color-text)}
+.check-brand-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.check-pill{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:999px;background:var(--color-surface-2,#eef0f3);color:var(--color-text-muted);font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:.02em}
+.check-pill--ok{background:#e8f4ec;color:#0d7c3d}
+.check-pill--warn{background:#fef3d0;color:#8a6300}
+.check-pill--err{background:#fde2e4;color:#a11d2a}
+[data-theme="dark"] .check-pill{background:#1e2530;color:var(--color-text-muted)}
+[data-theme="dark"] .check-pill--ok{background:#0f2e1b;color:#4ade80}
+[data-theme="dark"] .check-pill--warn{background:#322608;color:#fbbf24}
+[data-theme="dark"] .check-pill--err{background:#2d0f12;color:#f87171}
+
+.check-swatch{width:28px;height:28px;border-radius:6px;display:inline-block;border:1px solid var(--color-border);vertical-align:middle;margin-right:8px}
+.check-mono{font-family:'JetBrains Mono','ui-monospace',monospace;font-size:.78rem;color:var(--color-text-muted)}
+
+.check-code{display:inline-block;font-family:'JetBrains Mono',monospace;font-weight:800;padding:3px 8px;border-radius:6px;background:var(--color-primary-light,#e6f3ec);color:var(--color-primary);font-size:.82rem;letter-spacing:.04em}
+.check-bonus{font-size:.78rem;color:var(--color-text-muted);margin-top:4px;max-width:200px}
+
+.check-link{color:var(--color-primary);text-decoration:none;font-weight:600;font-size:.85rem}
+.check-link:hover{text-decoration:underline}
+.check-link--exit{display:inline-block;background:var(--color-primary);color:#fff;padding:4px 10px;border-radius:6px;font-weight:700;font-size:.78rem}
+.check-link--exit:hover{background:var(--color-primary-hover,#0a5d2e);text-decoration:none}
+
+.check-exit{display:flex;flex-direction:column;gap:6px;max-width:320px}
+.check-exit-url{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--color-text-muted);word-break:break-all;line-height:1.3;background:var(--color-surface-2,#f4f6f8);padding:4px 6px;border-radius:4px;max-height:36px;overflow:hidden}
+[data-theme="dark"] .check-exit-url{background:#1e2530}
+
+.check-badge{display:inline-block;font-size:.68rem;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.check-badge--ok{background:#e8f4ec;color:#0d7c3d}
+.check-badge--warn{background:#fef3d0;color:#8a6300}
+.check-badge--err{background:#fde2e4;color:#a11d2a}
+[data-theme="dark"] .check-badge--ok{background:#0f2e1b;color:#4ade80}
+[data-theme="dark"] .check-badge--warn{background:#322608;color:#fbbf24}
+[data-theme="dark"] .check-badge--err{background:#2d0f12;color:#f87171}
+
+.check-missing{color:#c11b2a;font-weight:600;font-size:.8rem}
+.check-muted{color:var(--color-text-muted);font-size:.78rem}
+
+@media (max-width:900px){
+  .check-table thead{display:none}
+  .check-table tbody td{display:block;padding:8px 14px;border-bottom:0}
+  .check-table tbody tr{display:block;padding:12px 0;border-bottom:1px solid var(--color-border)}
+  .check-td-logo{width:auto;padding-top:14px !important}
+}
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>Brand Check</h1>
-    <p class="subtitle">API snapshot from <code>api.bets.com.au/api/brandbonus/all?siteid=149&countrycode=ZA</code>. Not indexed.</p>
-  </header>
-
-  <div class="notice">
-    This page is internal. It shows every brand record returned by the API, colour tokens, promo data and the masked exit URL each affiliate link on the site points to.
+<div class="disclosure-bar">Internal audit page. Not indexed.</div>
+<header class="site-header">
+  <div class="container">
+    <a href="" class="site-logo">
+      <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="10" fill="#0d7c3d"/>
+        <path d="M10 24L16 16L20 20L26 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 12H26V16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-wordmark"><span class="logo-word">Tips</span><span class="logo-tld">.co.za</span></span>
+    </a>
+    <nav class="nav-desktop" aria-label="Main navigation">
+      <a href="best-betting-sites-south-africa" class="nav-top-link">Top Betting Sites</a>
+      <a href="bonus-codes-south-africa" class="nav-top-link">Promo Codes</a>
+      <a href="sportsbook-reviews" class="nav-top-link">All Reviews</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
   </div>
-
-  <div class="stats" id="stats"></div>
-
-  <div class="controls">
-    <input type="search" id="search" placeholder="Filter by brand name, host, promo code...">
-    <select id="filter-mapped">
-      <option value="all">All brands</option>
-      <option value="mapped">Mapped to a site host only</option>
-      <option value="unmapped">Unmapped brands</option>
-    </select>
+</header>
+<main>
+<section class="hero hero-sm">
+  <div class="container">
+    <div class="breadcrumb" style="margin-bottom:var(--space-2);"><a href="/">Home</a> <span>&#8250;</span> Check</div>
+    <h1>Brand check</h1>
+    <p>Every brand mapped to its logo, colour, review page and exit link. Snapshot 2026-04-21 17:19 UTC.</p>
   </div>
+</section>
 
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Logo</th>
-        <th>Brand</th>
-        <th>Colours</th>
-        <th>Promo</th>
-        <th>Bonus</th>
-        <th>Masked Exit URL</th>
-        <th>Mapped Host</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="brand-table"></tbody>
-  </table>
+<section class="section check-page">
+  <div class="container">
 
-  <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">
-    Source: <code>/data/brands.json</code> (260 records, 173 unique brands) &middot; Mappings: <code>/data/brand-links.json</code>
-  </p>
-</div>
+    <div class="check-stats">
+      <div class="check-stat"><div class="check-stat-num ok">46</div><div class="check-stat-lbl">Brands (API)</div></div>
+      <div class="check-stat"><div class="check-stat-num err">0/46</div><div class="check-stat-lbl">Real local SVG</div></div>
+      <div class="check-stat"><div class="check-stat-num warn">38</div><div class="check-stat-lbl">Placeholder SVG</div></div>
+      <div class="check-stat"><div class="check-stat-num ok">46/46</div><div class="check-stat-lbl">Review page</div></div>
+      <div class="check-stat"><div class="check-stat-num ok">46/46</div><div class="check-stat-lbl">Exit link</div></div>
+    </div>
 
+    <div class="check-toolbar">
+      <label class="check-toolbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="checkSearch" placeholder="Filter by brand name or slug...">
+      </label>
+      <div class="check-chips">
+        <button class="check-chip" aria-pressed="true" data-filter="all">All</button>
+        <button class="check-chip" aria-pressed="false" data-filter="placeholder">Placeholder logo</button>
+        <button class="check-chip" aria-pressed="false" data-filter="remote">Remote only (no local)</button>
+        <button class="check-chip" aria-pressed="false" data-filter="noexit">Missing exit</button>
+      </div>
+    </div>
+
+    <div class="check-table-wrap">
+      <table class="check-table">
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Brand / Slug</th>
+            <th>Base colour</th>
+            <th>Promo / Bonus</th>
+            <th>Review page</th>
+            <th>Exit link</th>
+          </tr>
+        </thead>
+        <tbody id="checkTbody">
+<tr data-name="10bet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#4e454a"><img src="https://www.imageservera.com/uploadedimages/202406/Jun04/ORG_10bet1155_10404.svg" alt="10bet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">10bet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 162</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">10bet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#4e454a"></div>
+    <code class="check-mono">#4e454a</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">Code Activated</code>
+    <div class="check-bonus">Deposit R3,000 Get R3,000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/10bet" class="check-link">reviews/10bet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/a82c3234190213122144/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/a82c3234190213122144/149/">https://www.tips.co.za/link/a82c3234190213122144/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: a82c3234190213122144</div></td>
+</tr>
+<tr data-name="apex bets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#1b1a1f"><img src="https://www.imageservera.com/uploadedimages/202603/Mar06/ORG_ApexBets4394_39558.svg" alt="Apex Bets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Apex Bets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1900</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">apexbets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#1b1a1f"></div>
+    <code class="check-mono">#1b1a1f</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">up to R30,000 in bonuses</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/apexbets" class="check-link">reviews/apexbets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/754825e7260306164405/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/754825e7260306164405/149/">https://www.tips.co.za/link/754825e7260306164405/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 754825e7260306164405</div></td>
+</tr>
+<tr data-name="bet.co.za" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#000010"><img src="https://www.imageservera.com/uploadedimages/202211/Nov08/ORG_Betcoza3429_30872.svg" alt="Bet.co.za" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Bet.co.za</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 158</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">bet-co-za</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#000010"></div>
+    <code class="check-mono">#000010</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">R5,000 bonus</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/bet-co-za" class="check-link">reviews/bet-co-za</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/d1c723c2190201004641/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/d1c723c2190201004641/149/">https://www.tips.co.za/link/d1c723c2190201004641/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: d1c723c2190201004641</div></td>
+</tr>
+<tr data-name="betbus" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#401010"><img src="https://www.imageservera.com/uploadedimages/202601/Jan18/ORG_betbus2561_23057.svg" alt="betbus" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">betbus</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1827</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betbus</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#401010"></div>
+    <code class="check-mono">#401010</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R5,000 Get R5,000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betbus" class="check-link">reviews/betbus</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/4c4b662d260118205831/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/4c4b662d260118205831/149/">https://www.tips.co.za/link/4c4b662d260118205831/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 4c4b662d260118205831</div></td>
+</tr>
+<tr data-name="betfred" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#005a99"><img src="https://www.imageservera.com/uploadedimages/202302/Feb15/ORG_Betfred5283_47554.svg" alt="Betfred" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Betfred</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 172</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betfred</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#005a99"></div>
+    <code class="check-mono">#005a99</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">up to R21,000 + 750 Spins</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betfred" class="check-link">reviews/betfred</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/4d0a9382190213123654/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/4d0a9382190213123654/149/">https://www.tips.co.za/link/4d0a9382190213123654/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 4d0a9382190213123654</div></td>
+</tr>
+<tr data-name="betjets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#012169"><img src="https://www.imageservera.com/uploadedimages/202509/Sep12/ORG_Betjets5126_46141.svg" alt="Betjets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Betjets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1652</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betjets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#012169"></div>
+    <code class="check-mono">#012169</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R2,000 Get R2,000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betjets" class="check-link">reviews/betjets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/cb8b024250912114850/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/cb8b024250912114850/149/">https://www.tips.co.za/link/cb8b024250912114850/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: cb8b024250912114850</div></td>
+</tr>
+<tr data-name="betolimp" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#af2700"><img src="https://www.imageservera.com/uploadedimages/202505/May14/ORG_4643_41796.svg" alt="BetOlimp" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">BetOlimp</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 198</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betolimp</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#af2700"></div>
+    <code class="check-mono">#af2700</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">R3000 Deposit Match (100%)</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betolimp" class="check-link">reviews/betolimp</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/fbbda1b8190222151703/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/fbbda1b8190222151703/149/">https://www.tips.co.za/link/fbbda1b8190222151703/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: fbbda1b8190222151703</div></td>
+</tr>
+<tr data-name="betshezi" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#000000"><img src="https://www.imageservera.com/uploadedimages/202211/Nov07/ORG_betshezi-logo3722_33508.svg" alt="Betshezi" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Betshezi</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1134</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betshezi</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#000000"></div>
+    <code class="check-mono">#000000</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">Deposit R2000 Get R2000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betshezi" class="check-link">reviews/betshezi</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/9a796eb9221107160023/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/9a796eb9221107160023/149/">https://www.tips.co.za/link/9a796eb9221107160023/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 9a796eb9221107160023</div></td>
+</tr>
+<tr data-name="bettabets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#FAE80B"><img src="https://www.imageservera.com/uploadedimages/202603/Mar12/ORG_bettabets35362_48271.svg" alt="Bettabets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Bettabets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1908</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">bettabets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#FAE80B"></div>
+    <code class="check-mono">#FAE80B</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R50+ for Match Bonus up to R2500</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/bettabets" class="check-link">reviews/bettabets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/56eef481260312134641/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/56eef481260312134641/149/">https://www.tips.co.za/link/56eef481260312134641/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 56eef481260312134641</div></td>
+</tr>
+<tr data-name="betway" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#181818"><img src="https://www.imageservera.com/uploadedimages/201901/Jan15/ORG_betway5525_49731.svg" alt="betway" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">betway</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 152</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betway</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#181818"></div>
+    <code class="check-mono">#181818</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">R10 Free Bet &amp; 10 Aviator Flights</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betway" class="check-link">reviews/betway</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/65974d59190114175723/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/65974d59190114175723/149/">https://www.tips.co.za/link/65974d59190114175723/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 65974d59190114175723</div></td>
+</tr>
+<tr data-name="betxchange" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#0033cc"><img src="https://www.imageservera.com/uploadedimages/202601/Jan15/ORG_betxchange3464_31184.svg" alt="betXchange" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">betXchange</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1717</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">betxchange</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#0033cc"></div>
+    <code class="check-mono">#0033cc</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">R20,000 Money Back</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/betxchange" class="check-link">reviews/betxchange</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/4dbe84a5251015082400/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/4dbe84a5251015082400/149/">https://www.tips.co.za/link/4dbe84a5251015082400/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 4dbe84a5251015082400</div></td>
+</tr>
+<tr data-name="boltbet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#737373"><img src="https://www.imageservera.com/uploadedimages/202603/Mar05/ORG_Boltbet1716_15446.png" alt="Boltbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Boltbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1895</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">boltbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#737373"></div>
+    <code class="check-mono">#737373</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Get up to R5000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/boltbet" class="check-link">reviews/boltbet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/abbe2981260305131326/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/abbe2981260305131326/149/">https://www.tips.co.za/link/abbe2981260305131326/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: abbe2981260305131326</div></td>
+</tr>
+<tr data-name="bravobet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#001F24"><img src="https://www.imageservera.com/uploadedimages/202601/Jan14/ORG_Bravobet5308_47781.png" alt="Bravobet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Bravobet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1808</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">bravobet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#001F24"></div>
+    <code class="check-mono">#001F24</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit Match up to R15, 000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/bravobet" class="check-link">reviews/bravobet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/84859e24260114103647/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/84859e24260114103647/149/">https://www.tips.co.za/link/84859e24260114103647/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 84859e24260114103647</div></td>
+</tr>
+<tr data-name="dafabet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#ad1f23"><img src="https://www.imageservera.com/uploadedimages/201907/Jul17/ORG_Dafabet5237_47139.svg" alt="Dafabet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Dafabet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 310</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">dafabet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#ad1f23"></div>
+    <code class="check-mono">#ad1f23</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">Code </code>
+    <div class="check-bonus">Asia&#x27;s #1 Betting Site</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/dafabet" class="check-link">reviews/dafabet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/fc59c2b0190621090941/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/fc59c2b0190621090941/149/">https://www.tips.co.za/link/fc59c2b0190621090941/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: fc59c2b0190621090941</div></td>
+</tr>
+<tr data-name="easybet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#FED702"><img src="https://www.imageservera.com/uploadedimages/202502/Feb07/ORG_easy-bet-logo2083_18752.svg" alt="Easybet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Easybet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1756</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">easybet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#FED702"></div>
+    <code class="check-mono">#FED702</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">MAXBONUS</code>
+    <div class="check-bonus">Free R50 + 150% MATCH to R1500</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/easybet" class="check-link">reviews/easybet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/ea2c5f83251119131705/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/ea2c5f83251119131705/149/">https://www.tips.co.za/link/ea2c5f83251119131705/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: ea2c5f83251119131705</div></td>
+</tr>
+<tr data-name="firstbet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#3FC9FC"><img src="https://www.imageservera.com/uploadedimages/202604/Apr01/ORG_Firstbet4173_37564.svg" alt="Firstbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Firstbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1938</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">firstbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#3FC9FC"></div>
+    <code class="check-mono">#3FC9FC</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R10,000 Get R10,000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/firstbet" class="check-link">reviews/firstbet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/37324ebc260401081308/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/37324ebc260401081308/149/">https://www.tips.co.za/link/37324ebc260401081308/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 37324ebc260401081308</div></td>
+</tr>
+<tr data-name="gbets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#13372e"><img src="https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_GBets1679_15115.svg" alt="Gbets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Gbets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 203</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">gbets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#13372e"></div>
+    <code class="check-mono">#13372e</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">R1,000 Bonus</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/gbets" class="check-link">reviews/gbets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/9947adce190222182544/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/9947adce190222182544/149/">https://www.tips.co.za/link/9947adce190222182544/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 9947adce190222182544</div></td>
+</tr>
+<tr data-name="hollywood bets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#52287b"><img src="https://www.imageservera.com/uploadedimages/202207/Jul04/ORG_Hollywoodbets3585_32270.svg" alt="Hollywood bets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Hollywood bets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 150</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">hollywoodbets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#52287b"></div>
+    <code class="check-mono">#52287b</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">R25 + 50 spins</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/hollywoodbets" class="check-link">reviews/hollywoodbets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/96a5aad0181116205024/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/96a5aad0181116205024/149/">https://www.tips.co.za/link/96a5aad0181116205024/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 96a5aad0181116205024</div></td>
+</tr>
+<tr data-name="jabula bets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#282625"><img src="https://www.imageservera.com/uploadedimages/202601/Jan13/ORG_jabula-bets1672_15055.svg" alt="Jabula Bets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Jabula Bets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1746</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">jabula-bets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#282625"></div>
+    <code class="check-mono">#282625</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">MAXBONUS</code>
+    <div class="check-bonus">Get 150% up to R15,000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/jabula-bets" class="check-link">reviews/jabula-bets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/e3a2695b251113123942/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/e3a2695b251113123942/149/">https://www.tips.co.za/link/e3a2695b251113123942/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: e3a2695b251113123942</div></td>
+</tr>
+<tr data-name="jackpot city" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#181818"><img src="https://www.imageservera.com/uploadedimages/202510/Oct10/ORG_JackpotCity3652_32875.svg" alt="Jackpot City" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Jackpot City</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1713</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">jackpot-city</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#181818"></div>
+    <code class="check-mono">#181818</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">100% up to R4000 + Spins</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/jackpot-city" class="check-link">reviews/jackpot-city</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/d2432c08251010140647/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/d2432c08251010140647/149/">https://www.tips.co.za/link/d2432c08251010140647/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: d2432c08251010140647</div></td>
+</tr>
+<tr data-name="lucky fish" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#00252b"><img src="https://www.imageservera.com/uploadedimages/202511/Nov06/ORG_lucky-fish1143_10294.svg" alt="Lucky Fish" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Lucky Fish</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1860</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">lucky-fish</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#00252b"></div>
+    <code class="check-mono">#00252b</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">TOPBONUS</code>
+    <div class="check-bonus">R50 Sign Up Bonus</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/lucky-fish" class="check-link">reviews/lucky-fish</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/b59122e3260212095714/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/b59122e3260212095714/149/">https://www.tips.co.za/link/b59122e3260212095714/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: b59122e3260212095714</div></td>
+</tr>
+<tr data-name="luckystake" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#292929"><img src="https://www.imageservera.com/uploadedimages/202601/Jan27/ORG_lucky-stake1735_15621.svg" alt="Luckystake" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Luckystake</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1846</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">luckystake</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#292929"></div>
+    <code class="check-mono">#292929</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Luckystake Loyalty Program</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/luckystake" class="check-link">reviews/luckystake</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/a0fbbdac260126175628/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/a0fbbdac260126175628/149/">https://www.tips.co.za/link/a0fbbdac260126175628/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: a0fbbdac260126175628</div></td>
+</tr>
+<tr data-name="lulabet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#171B38"><img src="https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Lulabet5117_46063.svg" alt="Lulabet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Lulabet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1124</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">lulabet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#171B38"></div>
+    <code class="check-mono">#171B38</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">Bet R50 Get R50</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/lulabet" class="check-link">reviews/lulabet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/d383b695221010094649/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/d383b695221010094649/149/">https://www.tips.co.za/link/d383b695221010094649/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: d383b695221010094649</div></td>
+</tr>
+<tr data-name="mbet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#05154F"><img src="https://www.imageservera.com/uploadedimages/202508/Aug10/ORG_mbet5406_48659.svg" alt="Mbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Mbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1627</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">mbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#05154F"></div>
+    <code class="check-mono">#05154F</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">100% up to R2000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/mbet" class="check-link">reviews/mbet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/cdd1553e250807152717/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/cdd1553e250807152717/149/">https://www.tips.co.za/link/cdd1553e250807152717/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: cdd1553e250807152717</div></td>
+</tr>
+<tr data-name="mzansibet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#001F12"><img src="https://www.imageservera.com/uploadedimages/202505/May06/ORG_Mzansibet2645_23814.svg" alt="Mzansibet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Mzansibet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1573</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">mzansibet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#001F12"></div>
+    <code class="check-mono">#001F12</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS (not required)</code>
+    <div class="check-bonus">Bet R50, Get R50 Extra Bet</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/mzansibet" class="check-link">reviews/mzansibet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/4e6a1c8250506082921/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/4e6a1c8250506082921/149/">https://www.tips.co.za/link/4e6a1c8250506082921/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 4e6a1c8250506082921</div></td>
+</tr>
+<tr data-name="pantherbet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#000000"><img src="https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_panther-bet5260_47346.svg" alt="Pantherbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Pantherbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1744</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">pantherbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#000000"></div>
+    <code class="check-mono">#000000</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">MAXBONUS</code>
+    <div class="check-bonus">Get up to R14,000 (170%)</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/pantherbet" class="check-link">reviews/pantherbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/2804dacf251113122143/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/2804dacf251113122143/149/">https://www.tips.co.za/link/2804dacf251113122143/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 2804dacf251113122143</div></td>
+</tr>
+<tr data-name="play.co.za" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#1b1a1f"><img src="https://www.imageservera.com/uploadedimages/202604/Apr20/ORG_playcoza3823_34412.png" alt="Play.co.za" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Play.co.za</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1961</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">play-co-za</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#1b1a1f"></div>
+    <code class="check-mono">#1b1a1f</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">MAXBET</code>
+    <div class="check-bonus">Deposit R9000 Get R9000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/play-co-za" class="check-link">reviews/play-co-za</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/da843839260420121951/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/da843839260420121951/149/">https://www.tips.co.za/link/da843839260420121951/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: da843839260420121951</div></td>
+</tr>
+<tr data-name="playa bets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#7DB913"><img src="https://www.imageservera.com/uploadedimages/202308/Aug23/ORG_playa1671_15043.svg" alt="Playa Bets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Playa Bets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 201</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">playabets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#7DB913"></div>
+    <code class="check-mono">#7DB913</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">100% Sign-Up Bonus</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/playabets" class="check-link">reviews/playabets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/9cfaf6cf190222182019/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/9cfaf6cf190222182019/149/">https://www.tips.co.za/link/9cfaf6cf190222182019/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 9cfaf6cf190222182019</div></td>
+</tr>
+<tr data-name="playbet.co.za" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#CB151A"><img src="https://www.imageservera.com/uploadedimages/202511/Nov13/ORG_playbet-co-za3338_30053.svg" alt="playbet.co.za" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">playbet.co.za</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1741</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">playbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#CB151A"></div>
+    <code class="check-mono">#CB151A</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">R50 + 50 Spins on Signup</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/playbet" class="check-link">reviews/playbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/279463eb251113094421/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/279463eb251113094421/149/">https://www.tips.co.za/link/279463eb251113094421/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 279463eb251113094421</div></td>
+</tr>
+<tr data-name="playtsogo" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#0F2D84"><img src="https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_play-tsogo5039_45364.svg" alt="playTSOGO" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">playTSOGO</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1569</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">playtsogo</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#0F2D84"></div>
+    <code class="check-mono">#0F2D84</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">Exclusive: R10,000 + 25 Bet, 50 Spins + 25 Flights</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/playtsogo" class="check-link">reviews/playtsogo</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/cea024e1250411234748/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/cea024e1250411234748/149/">https://www.tips.co.za/link/cea024e1250411234748/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: cea024e1250411234748</div></td>
+</tr>
+<tr data-name="pokerbet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#3C3D65"><img src="https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Poker bet3486_31378.svg" alt="Pokerbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Pokerbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1172</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">pokerbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#3C3D65"></div>
+    <code class="check-mono">#3C3D65</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">MAXBET</code>
+    <div class="check-bonus">Get R100 free + R2000 (100%)</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/pokerbet" class="check-link">reviews/pokerbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/2675704c230119095924/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/2675704c230119095924/149/">https://www.tips.co.za/link/2675704c230119095924/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 2675704c230119095924</div></td>
+</tr>
+<tr data-name="ready set bet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#0578B4"><img src="https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg" alt="Ready Set Bet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Ready Set Bet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1915</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">ready-set-bet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#0578B4"></div>
+    <code class="check-mono">#0578B4</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R7500 Get R7500</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/ready-set-bet" class="check-link">reviews/ready-set-bet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/f86b8ed2260325172212/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/f86b8ed2260325172212/149/">https://www.tips.co.za/link/f86b8ed2260325172212/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: f86b8ed2260325172212</div></td>
+</tr>
+<tr data-name="saffaluck" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#001F12"><img src="https://www.imageservera.com/uploadedimages/202601/Jan12/ORG_saffaluck4170_37536.svg" alt="SaffaLuck" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">SaffaLuck</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1799</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">saffaluck</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#001F12"></div>
+    <code class="check-mono">#001F12</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS (not required)</code>
+    <div class="check-bonus">Get a 100% First Deposit Bonus</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/saffaluck" class="check-link">reviews/saffaluck</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/ea4ccdb3260111202147/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/ea4ccdb3260111202147/149/">https://www.tips.co.za/link/ea4ccdb3260111202147/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: ea4ccdb3260111202147</div></td>
+</tr>
+<tr data-name="soccershop" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#0578B4"><img src="https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg" alt="Soccershop" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Soccershop</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1352</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">soccershop-bet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#0578B4"></div>
+    <code class="check-mono">#0578B4</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R7500 Get R7500</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/soccershop-bet" class="check-link">reviews/soccershop-bet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/9ebdf908240402101657/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/9ebdf908240402101657/149/">https://www.tips.co.za/link/9ebdf908240402101657/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 9ebdf908240402101657</div></td>
+</tr>
+<tr data-name="sportingbet sa" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#0988d1"><img src="https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_SportingBet4929_44370.svg" alt="Sportingbet SA" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Sportingbet SA</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 157</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">sportingbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#0988d1"></div>
+    <code class="check-mono">#0988d1</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">PROMOCODE</code>
+    <div class="check-bonus"> Up to R3,000 + 300 Spins</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/sportingbet" class="check-link">reviews/sportingbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/24faf4f7190201004832/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/24faf4f7190201004832/149/">https://www.tips.co.za/link/24faf4f7190201004832/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 24faf4f7190201004832</div></td>
+</tr>
+<tr data-name="sportybet" data-haslocal="0" data-placeholder="0" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#481A1A"><img src="https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_SportyBet logo4258_38326.svg" alt="Sportybet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Sportybet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 205</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">sportybet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#481A1A"></div>
+    <code class="check-mono">#481A1A</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">KES 1,000 Bonus</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/sportybet" class="check-link">reviews/sportybet</a> <span class="check-badge check-badge--warn">Remote only</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/a7e22907190222183413/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/a7e22907190222183413/149/">https://www.tips.co.za/link/a7e22907190222183413/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: a7e22907190222183413</div></td>
+</tr>
+<tr data-name="supabets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#EB0028"><img src="https://www.imageservera.com/uploadedimages/202308/Aug23/ORG_supabets2942_26480.svg" alt="Supabets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Supabets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 194</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">supabets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#EB0028"></div>
+    <code class="check-mono">#EB0028</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">Free R50 bonus sign up</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/supabets" class="check-link">reviews/supabets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/83a75fb3190222144052/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/83a75fb3190222144052/149/">https://www.tips.co.za/link/83a75fb3190222144052/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 83a75fb3190222144052</div></td>
+</tr>
+<tr data-name="supersportbet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#111fa3"><img src="https://www.imageservera.com/uploadedimages/202509/Sep12/ORG_Supersportbet4004_36044.svg" alt="Supersportbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Supersportbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1651</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">supersportbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#111fa3"></div>
+    <code class="check-mono">#111fa3</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">Deposit R5000 Get R5000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/supersportbet" class="check-link">reviews/supersportbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/e04f6c5d250912114745/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/e04f6c5d250912114745/149/">https://www.tips.co.za/link/e04f6c5d250912114745/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: e04f6c5d250912114745</div></td>
+</tr>
+<tr data-name="swifty" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#001F12"><img src="https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Swifty4966_44704.svg" alt="Swifty" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Swifty</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1759</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">swifty-sports</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#001F12"></div>
+    <code class="check-mono">#001F12</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R3000 Get R3000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/swifty-sports" class="check-link">reviews/swifty-sports</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/7f57b3bb251121120813/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/7f57b3bb251121120813/149/">https://www.tips.co.za/link/7f57b3bb251121120813/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 7f57b3bb251121120813</div></td>
+</tr>
+<tr data-name="tictacbets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#cc0100"><img src="https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_Tictacbets2625_23628.svg" alt="TicTacBets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">TicTacBets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1236</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">tictacbets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#cc0100"></div>
+    <code class="check-mono">#cc0100</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">100% up to R5,000 + 50 spins</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/tictacbets" class="check-link">reviews/tictacbets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/123310f2230612153349/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/123310f2230612153349/149/">https://www.tips.co.za/link/123310f2230612153349/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 123310f2230612153349</div></td>
+</tr>
+<tr data-name="topbet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#000000"><img src="https://www.imageservera.com/uploadedimages/202504/Apr04/ORG_topbet3540_31870.svg" alt="Topbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Topbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 195</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">topbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#000000"></div>
+    <code class="check-mono">#000000</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R1000 Get R1000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/topbet" class="check-link">reviews/topbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/680f3cc0190222145659/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/680f3cc0190222145659/149/">https://www.tips.co.za/link/680f3cc0190222145659/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 680f3cc0190222145659</div></td>
+</tr>
+<tr data-name="virgin bet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#E10A0A"><img src="https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_virgin-bet4632_41693.svg" alt="Virgin Bet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Virgin Bet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1678</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">virgin-bet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#E10A0A"></div>
+    <code class="check-mono">#E10A0A</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Richard Branson&#x27;s Betting Site</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/virgin-bet" class="check-link">reviews/virgin-bet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/d39aa076250922085716/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/d39aa076250922085716/149/">https://www.tips.co.za/link/d39aa076250922085716/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: d39aa076250922085716</div></td>
+</tr>
+<tr data-name="wanejo bets" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#202020"><img src="https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Wanejo3674_33070.svg" alt="Wanejo Bets" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Wanejo Bets</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1734</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">wanejo-bets</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#202020"></div>
+    <code class="check-mono">#202020</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">BETS</code>
+    <div class="check-bonus">Deposit R10,000 Get R10,000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/wanejo-bets" class="check-link">reviews/wanejo-bets</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/d7d4ec31251106143909/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/d7d4ec31251106143909/149/">https://www.tips.co.za/link/d7d4ec31251106143909/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: d7d4ec31251106143909</div></td>
+</tr>
+<tr data-name="world sports betting" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#041467"><img src="https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_World Sports Betting logo1719_15472.svg" alt="World Sports Betting" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">World Sports Betting</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 196</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">world-sports-betting</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#041467"></div>
+    <code class="check-mono">#041467</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">NEWBONUS</code>
+    <div class="check-bonus">R20,000 Bonus (100%)</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/world-sports-betting" class="check-link">reviews/world-sports-betting</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/6f4efc2a190222151445/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/6f4efc2a190222151445/149/">https://www.tips.co.za/link/6f4efc2a190222151445/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 6f4efc2a190222151445</div></td>
+</tr>
+<tr data-name="yesplay" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#fd7a01"><img src="https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_Yesplay3853_34687.svg" alt="Yesplay" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">Yesplay</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1121</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">yesplay</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#fd7a01"></div>
+    <code class="check-mono">#fd7a01</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">Applied</code>
+    <div class="check-bonus">Deposit R3000 Get R3000</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/yesplay" class="check-link">reviews/yesplay</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/22c78280220928083006/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/22c78280220928083006/149/">https://www.tips.co.za/link/22c78280220928083006/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: 22c78280220928083006</div></td>
+</tr>
+<tr data-name="zarbet" data-haslocal="0" data-placeholder="1" data-hasexit="1">
+  <td class="check-td-logo">
+    <div class="check-logo-wrap" style="--base:#000000"><img src="https://www.imageservera.com/uploadedimages/202507/Jul24/ORG_zarbet3127_28146.svg" alt="ZARbet" class="check-logo" loading="lazy" referrerpolicy="no-referrer"></div>
+  </td>
+  <td class="check-td-brand">
+    <div class="check-brand-name">ZARbet</div>
+    <div class="check-brand-meta">
+      <span class="check-muted">ID 1874</span>
+      <span class="check-pill check-pill--ok" title="Slug source: brand-links">zarbet</span>
+    </div>
+  </td>
+  <td class="check-td-colour">
+    <div class="check-swatch" style="background:#000000"></div>
+    <code class="check-mono">#000000</code>
+  </td>
+  <td class="check-td-code">
+    <code class="check-code">TOPBONUS</code>
+    <div class="check-bonus">Get up to R3,750 + 25FS</div>
+  </td>
+  <td class="check-td-review"><a href="reviews/zarbet" class="check-link">reviews/zarbet</a> <span class="check-badge check-badge--warn">Remote (placeholder local)</span></td>
+  <td class="check-td-exit"><div class="check-exit"><a href="https://www.tips.co.za/link/c1ccd283260225142949/149/" class="check-link check-link--exit" target="_blank" rel="sponsored noopener noreferrer">Open &#8599;</a><code class="check-exit-url" title="https://www.tips.co.za/link/c1ccd283260225142949/149/">https://www.tips.co.za/link/c1ccd283260225142949/149/</code></div><div class="check-muted check-mono" style="font-size:.72rem;margin-top:4px;">hash: c1ccd283260225142949</div></td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Tips. Internal audit page.</span>
+      <span><a href="/">Home</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
 <script>
-(async function(){
-  const [brandsResp, mappingsResp] = await Promise.all([
-    fetch('data/brands.json').then(r => r.json()),
-    fetch('data/brand-links.json').then(r => r.json()).catch(() => [])
-  ]);
+(function(){
+  var tbody = document.getElementById('checkTbody');
+  var search = document.getElementById('checkSearch');
+  var chips = document.querySelectorAll('.check-chip');
+  if(!tbody) return;
+  var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+  var activeFilter = 'all';
+  var term = '';
 
-  const brands = brandsResp;
-  const mappings = mappingsResp;
-
-  // Build brandId → host set
-  const idToHost = {};
-  mappings.forEach(m => {
-    if (!idToHost[m.brandId]) idToHost[m.brandId] = [];
-    idToHost[m.brandId].push(m.host);
-  });
-
-  // Dedupe: pick best variant per brand name (same logic as alignment script)
-  const byName = {};
-  brands.forEach(b => {
-    const key = b.BrandName.toLowerCase();
-    if (!byName[key]) byName[key] = [];
-    byName[key].push(b);
-  });
-
-  const uniqueBrands = Object.keys(byName).sort().map(key => {
-    const variants = byName[key];
-    // Prefer a variant that has a mapped host
-    const mapped = variants.find(v => idToHost[v.BrandId]);
-    const chosen = mapped || variants.sort((a,b) => a.BrandId - b.BrandId)[0];
-    return { chosen, variants, key };
-  });
-
-  // Stats
-  const mappedCount = uniqueBrands.filter(u => idToHost[u.chosen.BrandId]).length;
-  const statsEl = document.getElementById('stats');
-  statsEl.innerHTML = `
-    <div class="stat"><div class="stat-label">API Records</div><div class="stat-value">${brands.length}</div></div>
-    <div class="stat"><div class="stat-label">Unique Brands</div><div class="stat-value">${uniqueBrands.length}</div></div>
-    <div class="stat"><div class="stat-label">Mapped to Site</div><div class="stat-value">${mappedCount}</div></div>
-    <div class="stat"><div class="stat-label">Mapped Hosts</div><div class="stat-value">${mappings.length}</div></div>
-  `;
-
-  const tbody = document.getElementById('brand-table');
-  const searchEl = document.getElementById('search');
-  const filterEl = document.getElementById('filter-mapped');
-
-  function esc(s){ return (s == null ? '' : String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-
-  function render() {
-    const q = searchEl.value.trim().toLowerCase();
-    const filter = filterEl.value;
-    let rows = '';
-    let idx = 0;
-    uniqueBrands.forEach(u => {
-      const b = u.chosen;
-      const hosts = idToHost[b.BrandId] || [];
-      const isMapped = hosts.length > 0;
-      if (filter === 'mapped' && !isMapped) return;
-      if (filter === 'unmapped' && isMapped) return;
-      if (q) {
-        const hay = [b.BrandName, b.Promocode, b.VerBonusText, (hosts||[]).join(' '), b.Hyperlinkurl].join(' ').toLowerCase();
-        if (!hay.includes(q)) return;
-      }
-      idx++;
-      const hostsHtml = hosts.length
-        ? hosts.map(h => `<span class="host-tag mapped">${esc(h)}</span>`).join(' ')
-        : '<span class="badge-unmapped">no site mapping</span>';
-      const variantsNote = u.variants.length > 1
-        ? `<div class="variants-note">${u.variants.length} variants in API</div>`
-        : '';
-      rows += `
-        <tr>
-          <td><span class="rank-pill">${idx}</span></td>
-          <td><span class="brand-logo-wrap" style="background:${esc(b.BaseColour) || '#ffffff'};"><img class="brand-logo" src="${esc(b.Imageurl)}" alt="${esc(b.BrandName)}" loading="lazy" onerror="this.style.display='none'"></span></td>
-          <td>
-            <div class="brand-name">${esc(b.BrandName)}</div>
-            <div class="hex">id ${b.BrandId}${b.Ranking ? ' · rank ' + b.Ranking : ''}</div>
-            ${variantsNote}
-          </td>
-          <td>
-            <div class="swatch-combo">
-              <span class="brand-swatch" style="background:${esc(b.BaseColour)};color:${esc(b.TextColour)};">${esc(b.BaseColour)}</span>
-              <span class="hex">text ${esc(b.TextColour)}</span>
-            </div>
-          </td>
-          <td>${b.Promocode ? `<span class="promo">${esc(b.Promocode)}</span>` : '<span class="hex">—</span>'}</td>
-          <td>
-            <div>${esc(b.VerBonusText || '—')}</div>
-            ${b.VerBonusInfo ? `<div class="hex">${esc(b.VerBonusInfo)}</div>` : ''}
-          </td>
-          <td><a class="exit-link" href="${esc(b.Hyperlinkurl)}" target="_blank" rel="noopener">${esc(b.Hyperlinkurl.replace('https://www.tips.co.za', ''))}</a></td>
-          <td>${hostsHtml}</td>
-          <td><a class="test-btn" href="${esc(b.Hyperlinkurl)}" target="_blank" rel="noopener">Test →</a></td>
-        </tr>`;
+  function apply(){
+    rows.forEach(function(tr){
+      var name = tr.dataset.name || '';
+      var hasLocal = tr.dataset.haslocal === '1';
+      var placeholder = tr.dataset.placeholder === '1';
+      var hasExit = tr.dataset.hasexit === '1';
+      var show = true;
+      if(term && name.indexOf(term) === -1) show = false;
+      if(activeFilter === 'placeholder' && !placeholder) show = false;
+      if(activeFilter === 'remote' && tr.dataset.placeholder === '0' && hasLocal) show = false;
+      if(activeFilter === 'noexit' && hasExit) show = false;
+      tr.style.display = show ? '' : 'none';
     });
-    if (!rows) rows = '<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--muted);">No matches</td></tr>';
-    tbody.innerHTML = rows;
   }
 
-  searchEl.addEventListener('input', render);
-  filterEl.addEventListener('change', render);
-  render();
+  search.addEventListener('input', function(){ term = this.value.trim().toLowerCase(); apply(); });
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      activeFilter = chip.dataset.filter;
+      apply();
+    });
+  });
 })();
 </script>
 </body>
