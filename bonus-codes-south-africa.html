@@ -158,880 +158,641 @@
   </div>
 </section>
 
-<section class="section">
+<!-- PROMO_TABLE_START --><section class="section promo-table-section">
   <div class="container">
-    <div class="promo-hub-grid">
-
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/easybet.svg" alt="Easybet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Easybet</div>
-            <div class="promo-hub-bonus">R50 Sign-Up + 150% up to R1,500</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/easybet" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
+    <style>
+.promo-table-section{padding:var(--space-6,1.5rem) 0}
+.promo-toolbar{display:flex;flex-wrap:wrap;gap:var(--space-3,.75rem);align-items:center;margin-bottom:var(--space-5,1.25rem);padding:var(--space-4,1rem);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md,.5rem)}
+.promo-toolbar-search{flex:1;min-width:220px;position:relative}
+.promo-toolbar-search input{width:100%;padding:.55rem .9rem .55rem 2.25rem;border:1px solid var(--color-border);border-radius:var(--radius-md,.5rem);background:var(--color-bg);color:var(--color-text);font-size:.95rem;font-family:inherit}
+.promo-toolbar-search input:focus{outline:2px solid var(--color-primary);outline-offset:-1px}
+.promo-toolbar-search svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);color:var(--color-text-muted);pointer-events:none}
+.promo-chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.promo-chip{padding:.35rem .85rem;border:1px solid var(--color-border);border-radius:9999px;background:var(--color-surface);color:var(--color-text-muted);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s ease;font-family:inherit}
+.promo-chip:hover{border-color:var(--color-primary);color:var(--color-primary)}
+.promo-chip[aria-pressed="true"]{background:var(--color-primary);color:#fff;border-color:var(--color-primary)}
+.promo-table-wrap{overflow-x:auto;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md,.5rem)}
+.promo-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:720px}
+.promo-table thead th{text-align:left;padding:.75rem 1rem;font-weight:600;color:var(--color-text-muted);background:var(--color-surface-2);border-bottom:1px solid var(--color-border);white-space:nowrap;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.promo-table thead th.sortable{cursor:pointer;user-select:none}
+.promo-table thead th.sortable:hover{color:var(--color-text)}
+.promo-table thead th .sort-indicator{display:inline-block;margin-left:.25rem;opacity:.4;font-size:.7em}
+.promo-table thead th[aria-sort="ascending"] .sort-indicator,
+.promo-table thead th[aria-sort="descending"] .sort-indicator{opacity:1;color:var(--color-primary)}
+.promo-table tbody tr{border-bottom:1px solid var(--color-border-light,var(--color-border))}
+.promo-table tbody tr:last-child{border-bottom:0}
+.promo-table tbody tr:hover{background:var(--color-surface-2)}
+.promo-table td{padding:.75rem 1rem;vertical-align:middle}
+.promo-table td.name-cell{font-weight:600;color:var(--color-text)}
+.promo-table td.name-cell a{color:inherit;text-decoration:none}
+.promo-table td.name-cell a:hover{color:var(--color-primary)}
+.promo-brand{display:flex;align-items:center;gap:.65rem}
+.promo-brand img{width:32px;height:32px;object-fit:contain;border-radius:6px;background:#fff;padding:3px;border:1px solid var(--color-border)}
+.promo-code-cell{font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:.03em;color:var(--color-primary)}
+.promo-code-cell.no-code{color:var(--color-text-muted);font-weight:400;font-family:inherit;font-style:italic;font-size:.88em}
+.promo-type-badge{display:inline-block;padding:.2rem .55rem;border-radius:9999px;font-size:.72rem;font-weight:600;background:var(--color-primary-light);color:var(--color-primary);white-space:nowrap}
+.promo-table .copy-btn{padding:.3rem .7rem;border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);border-radius:.35rem;font-size:.78rem;cursor:pointer;font-family:inherit;transition:all .15s ease}
+.promo-table .copy-btn:hover{border-color:var(--color-primary);color:var(--color-primary)}
+.promo-table .copy-btn.copied{background:var(--color-success,#16a34a);color:#fff;border-color:var(--color-success,#16a34a)}
+.promo-table .cta-btn{display:inline-block;padding:.45rem .9rem;background:var(--color-primary);color:#fff;border-radius:.35rem;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .15s ease}
+.promo-table .cta-btn:hover{background:var(--color-primary-hover)}
+.promo-empty{padding:2.5rem 1rem;text-align:center;color:var(--color-text-muted)}
+.promo-count{color:var(--color-text-muted);font-size:.88rem}
+@media (max-width:720px){
+  .promo-toolbar{padding:.75rem}
+  .promo-toolbar-search{flex-basis:100%}
+  .promo-table{font-size:.85rem}
+  .promo-table td,.promo-table thead th{padding:.55rem .65rem}
+  .promo-brand img{width:26px;height:26px}
+  .promo-chips{font-size:.8rem}
+}
+</style>
+    <div class="promo-toolbar">
+      <label class="promo-toolbar-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="promoSearch" placeholder="Search by brand..." aria-label="Search promo codes by brand">
+      </label>
+      <div class="promo-chips" role="group" aria-label="Filter by promo type">
+        <button class="promo-chip" aria-pressed="true" data-filter="all">All</button>
+  <button class="promo-chip" aria-pressed="false" data-filter="Deposit Match">Deposit Match</button>
+  <button class="promo-chip" aria-pressed="false" data-filter="Free Bet">Free Bet</button>
+  <button class="promo-chip" aria-pressed="false" data-filter="Sign-Up">Sign-Up</button>
+  <button class="promo-chip" aria-pressed="false" data-filter="Welcome">Welcome</button>
       </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betway.svg" alt="Betway" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Betway</div>
-            <div class="promo-hub-bonus">100% up to R1,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betway" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/hollywoodbets.svg" alt="Hollywoodbets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Hollywoodbets</div>
-            <div class="promo-hub-bonus">R25 Free Bet + 50 Free Spins</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/hollywoodbets" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/10bet.svg" alt="10bet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">10bet</div>
-            <div class="promo-hub-bonus">100% up to R3,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/10bet" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betfred.svg" alt="Betfred" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Betfred</div>
-            <div class="promo-hub-bonus">R50 Free Bet on Sign-Up</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betfred" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/gbets.svg" alt="Gbets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Gbets</div>
-            <div class="promo-hub-bonus">R50 Free Bet + 100% up to R5,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">GFWETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('GFWETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/gbets" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/supabets.svg" alt="Supabets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Supabets</div>
-            <div class="promo-hub-bonus">R50 Free Bet + 100% up to R2,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/supabets" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/sportingbet.svg" alt="Sportingbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Sportingbet</div>
-            <div class="promo-hub-bonus">100% up to R2,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/sportingbet" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/world-sports-betting.svg" alt="World Sports Betting" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">World Sports Betting</div>
-            <div class="promo-hub-bonus">100% up to R20,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/world-sports-betting" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/yesplay.svg" alt="YesPlay" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">YesPlay</div>
-            <div class="promo-hub-bonus">R50 Free Bet on Sign-Up</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/yesplay" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/lulabet.svg" alt="Lulabet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Lulabet</div>
-            <div class="promo-hub-bonus">100% up to R5,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/lulabet" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/tictacbets.svg" alt="TicTacBets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">TicTacBets</div>
-            <div class="promo-hub-bonus">100% up to R5,000 + 50 Spins</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/tictacbets" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/zarbet.svg" alt="ZARbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">ZARbet</div>
-            <div class="promo-hub-bonus">R50 Free Bet + 100% up to R3,750</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/zarbet" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/playtsogo.svg" alt="PlayTsogo" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">PlayTsogo</div>
-            <div class="promo-hub-bonus">R25 Free Bet on Sign-Up</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/playtsogo" class="promo-hub-link">Details</a>
-          <a href="#" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/supersportbet.svg" alt="SuperSportBet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">SuperSportBet</div>
-            <div class="promo-hub-bonus">R5,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/supersportbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/e04f6c5d250912114745/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/sunbet.svg" alt="Sunbet South Africa" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Sunbet South Africa</div>
-            <div class="promo-hub-bonus">R1000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/sunbet" class="promo-hub-link">Details</a>
-          <a href="https://www.sunbet.co.za" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/jabula-bets.svg" alt="Jabula Bets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Jabula Bets</div>
-            <div class="promo-hub-bonus">R1000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">JABULA30</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('JABULA30');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/jabula-bets" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/cc9032a0250318120530/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/pantherbet.svg" alt="Pantherbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Pantherbet</div>
-            <div class="promo-hub-bonus">R2,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/pantherbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/f21fedfc250912164402/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/playabets.svg" alt="PlayaBets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">PlayaBets</div>
-            <div class="promo-hub-bonus">R3,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">SWAPLAY</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('SWAPLAY');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/playabets" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/9cfaf6cf190222182019/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betolimp.svg" alt="BetOlimp" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">BetOlimp</div>
-            <div class="promo-hub-bonus">R3000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">OLFOOT</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('OLFOOT');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betolimp" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/fbbda1b8190222151703/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/apexbets.svg" alt="Apexbets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Apexbets</div>
-            <div class="promo-hub-bonus">R5000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/apexbets" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/754825e7260306164405/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betshezi.svg" alt="Betshezi" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Betshezi</div>
-            <div class="promo-hub-bonus">R50</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">STYVIP</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('STYVIP');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betshezi" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/9a796eb9221107160023/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/virgin-bet.svg" alt="Virgin Bet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Virgin Bet</div>
-            <div class="promo-hub-bonus">R3,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/virgin-bet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/d39aa076250922085716/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/luckystake.svg" alt="LuckyStake" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">LuckyStake</div>
-            <div class="promo-hub-bonus">R3000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/luckystake" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/a0fbbdac260126175628/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/shayabets.svg" alt="ShayaBets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">ShayaBets</div>
-            <div class="promo-hub-bonus">Instant welcome bonus + free spins (details in T&Cs)</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/shayabets" class="promo-hub-link">Details</a>
-          <a href="https://www.shayabets.co.za" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/neo-bet.svg" alt="NEO.bet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">NEO.bet</div>
-            <div class="promo-hub-bonus">R1,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/neo-bet" class="promo-hub-link">Details</a>
-          <a href="https://www.neobet.co.za" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/saffaluck.svg" alt="SaffaLuck" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">SaffaLuck</div>
-            <div class="promo-hub-bonus">R3,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">IBETSZA</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('IBETSZA');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/saffaluck" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/cc3c4dcd260111201048/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/mzansibet.svg" alt="Mzansibet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Mzansibet</div>
-            <div class="promo-hub-bonus">R500</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/mzansibet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/4e6a1c8250506082921/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/lucky-fish.svg" alt="Lucky Fish" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Lucky Fish</div>
-            <div class="promo-hub-bonus">R50</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">LUFOOT</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('LUFOOT');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/lucky-fish" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/bc1ac76e250807152825/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/soccershop-bet.svg" alt="Soccershop.bet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Soccershop.bet</div>
-            <div class="promo-hub-bonus">R7,500</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/soccershop-bet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/9ebdf908240402101657/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/jackpot-city.svg" alt="Jackpot City" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Jackpot City</div>
-            <div class="promo-hub-bonus">R4,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">CORG4000</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('CORG4000');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/jackpot-city" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/d2432c08251010140647/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/pokerbet.svg" alt="Pokerbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Pokerbet</div>
-            <div class="promo-hub-bonus">R2000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">GGSA</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('GGSA');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/pokerbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/2675704c230119095924/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/wanejo-bets.svg" alt="Wanejo Bets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Wanejo Bets</div>
-            <div class="promo-hub-bonus">R2000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">SEEKER</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('SEEKER');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/wanejo-bets" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/d7d4ec31251106143909/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/swifty-sports.svg" alt="Swifty Sports" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Swifty Sports</div>
-            <div class="promo-hub-bonus">R3,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/swifty-sports" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/7f57b3bb251121120813/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/goldrush.svg" alt="Goldrush" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Goldrush</div>
-            <div class="promo-hub-bonus">R25,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/goldrush" class="promo-hub-link">Details</a>
-          <a href="https://www.goldrush.co.za" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/playbet.svg" alt="Playbet South Africa" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Playbet South Africa</div>
-            <div class="promo-hub-bonus">R50</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/playbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/d396cd75251113093940/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/bettabets.svg" alt="Bettabets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Bettabets</div>
-            <div class="promo-hub-bonus">R2,500</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">STVIP</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('STVIP');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/bettabets" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/56eef481260312134641/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betbus.svg" alt="Betbus" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Betbus</div>
-            <div class="promo-hub-bonus">R100</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">SPIN50</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('SPIN50');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betbus" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/4c4b662d260118205831/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betjets.svg" alt="BetJets" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">BetJets</div>
-            <div class="promo-hub-bonus">R1000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">SPORTS10</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('SPORTS10');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betjets" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/cb8b024250912114850/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/betxchange.svg" alt="betXchange" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">betXchange</div>
-            <div class="promo-hub-bonus">R20,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/betxchange" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/f1600f69251013161439/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/bet-co-za.svg" alt="Bet.co.za" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Bet.co.za</div>
-            <div class="promo-hub-bonus">R5,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/bet-co-za" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/d1c723c2190201004641/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/topbet.svg" alt="Topbet South Africa" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Topbet South Africa</div>
-            <div class="promo-hub-bonus">R30</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/topbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/680f3cc0190222145659/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="assets/logos/sportpesa.svg" alt="SportPesa South Africa" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">SportPesa South Africa</div>
-            <div class="promo-hub-bonus">Free bet ZAR 180.01 on first bet of exactly ZAR 180.01 (new </div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="promo-code/sportpesa" class="promo-hub-link">Details</a>
-          <a href="https://www.sportpesa.co.za" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/202604/Apr01/ORG_Firstbet4173_37564.svg" alt="Firstbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Firstbet</div>
-            <div class="promo-hub-bonus">Deposit R10,000 Get R10,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/firstbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/37324ebc260401081308/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/202604/Apr20/ORG_playcoza3823_34412.png" alt="Play.co.za" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Play.co.za</div>
-            <div class="promo-hub-bonus">Deposit R9,000 Get R9,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">MAXBET</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('MAXBET');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/play-co-za" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/da843839260420121951/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg" alt="Ready Set Bet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Ready Set Bet</div>
-            <div class="promo-hub-bonus">Deposit R7,500 Get R7,500</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/ready-set-bet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/f86b8ed2260325172212/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/202601/Jan14/ORG_Bravobet5308_47781.png" alt="Bravobet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Bravobet</div>
-            <div class="promo-hub-bonus">Up to R15,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/bravobet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/84859e24260114103647/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/202603/Mar05/ORG_Boltbet1716_15446.png" alt="Boltbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Boltbet</div>
-            <div class="promo-hub-bonus">Up to R5,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/boltbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/abbe2981260305131326/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/202508/Aug10/ORG_mbet5406_48659.svg" alt="Mbet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Mbet</div>
-            <div class="promo-hub-bonus">100% up to R2,000</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">BETS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('BETS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/mbet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/cdd1553e250807152717/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_SportyBet%20logo4258_38326.svg" alt="Sportybet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Sportybet</div>
-            <div class="promo-hub-bonus">Welcome bonus</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/sportybet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/a7e22907190222183413/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
-      <div class="promo-hub-card">
-        <div class="promo-hub-header">
-          <img src="https://www.imageservera.com/uploadedimages/201907/Jul17/ORG_Dafabet5237_47139.svg" alt="Dafabet" width="40" height="40" class="brand-logo" loading="lazy">
-          <div>
-            <div class="promo-hub-name">Dafabet</div>
-            <div class="promo-hub-bonus">Welcome bonus</div>
-          </div>
-        </div>
-        <div class="promo-hub-code">
-          <span class="promo-code-tag">NEWBONUS</span>
-          <button class="promo-copy-sm" onclick="navigator.clipboard.writeText('NEWBONUS');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
-        </div>
-        <div class="promo-hub-actions">
-          <a href="reviews/dafabet" class="promo-hub-link">Details</a>
-          <a href="https://www.tips.co.za/link/fc59c2b0190621090941/149/" class="promo-hub-cta" target="_blank" rel="noopener noreferrer sponsored">Claim</a>
-        </div>
-      </div>
+      <span class="promo-count" id="promoCount">51 offers</span>
+    </div>
+    <div class="promo-table-wrap">
+      <table class="promo-table" id="promoTable">
+        <thead>
+          <tr>
+            <th class="sortable" data-sort="name">Brand<span class="sort-indicator">&#9650;</span></th>
+            <th class="sortable" data-sort="bonus">Bonus<span class="sort-indicator">&#9650;</span></th>
+            <th>Promo Code</th>
+            <th class="sortable" data-sort="type">Type<span class="sort-indicator">&#9650;</span></th>
+            <th>Claim</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr data-name="easybet" data-type="Sign-Up" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/easybet"><div class="promo-brand"><img src="assets/logos/easybet.svg" alt="Easybet logo" loading="lazy" width="32" height="32"><span>Easybet</span></div></a></td>
+  <td>R50 Sign-Up + 150% up to R1,500</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Sign-Up</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betway" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betway"><div class="promo-brand"><img src="assets/logos/betway.svg" alt="Betway logo" loading="lazy" width="32" height="32"><span>Betway</span></div></a></td>
+  <td>100% up to R1,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="hollywoodbets" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/hollywoodbets"><div class="promo-brand"><img src="assets/logos/hollywoodbets.svg" alt="Hollywoodbets logo" loading="lazy" width="32" height="32"><span>Hollywoodbets</span></div></a></td>
+  <td>R25 Free Bet + 50 Free Spins</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="10bet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/10bet"><div class="promo-brand"><img src="assets/logos/10bet.svg" alt="10bet logo" loading="lazy" width="32" height="32"><span>10bet</span></div></a></td>
+  <td>100% up to R3,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betfred" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betfred"><div class="promo-brand"><img src="assets/logos/betfred.svg" alt="Betfred logo" loading="lazy" width="32" height="32"><span>Betfred</span></div></a></td>
+  <td>R50 Free Bet on Sign-Up</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="gbets" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/gbets"><div class="promo-brand"><img src="assets/logos/gbets.svg" alt="Gbets logo" loading="lazy" width="32" height="32"><span>Gbets</span></div></a></td>
+  <td>R50 Free Bet + 100% up to R5,000</td>
+  <td><span class="promo-code-cell">GFWETS</span> <button class="copy-btn" data-code="GFWETS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="supabets" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/supabets"><div class="promo-brand"><img src="assets/logos/supabets.svg" alt="Supabets logo" loading="lazy" width="32" height="32"><span>Supabets</span></div></a></td>
+  <td>R50 Free Bet + 100% up to R2,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="sportingbet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/sportingbet"><div class="promo-brand"><img src="assets/logos/sportingbet.svg" alt="Sportingbet logo" loading="lazy" width="32" height="32"><span>Sportingbet</span></div></a></td>
+  <td>100% up to R2,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="world sports betting" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/world-sports-betting"><div class="promo-brand"><img src="assets/logos/world-sports-betting.svg" alt="World Sports Betting logo" loading="lazy" width="32" height="32"><span>World Sports Betting</span></div></a></td>
+  <td>100% up to R20,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="yesplay" data-type="Free Bet" data-hascode="0">
+  <td class="name-cell"><a href="promo-code/yesplay"><div class="promo-brand"><img src="assets/logos/yesplay.svg" alt="YesPlay logo" loading="lazy" width="32" height="32"><span>YesPlay</span></div></a></td>
+  <td>R50 Free Bet on Sign-Up</td>
+  <td><span class="promo-code-cell no-code">Not required</span> </td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="lulabet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/lulabet"><div class="promo-brand"><img src="assets/logos/lulabet.svg" alt="Lulabet logo" loading="lazy" width="32" height="32"><span>Lulabet</span></div></a></td>
+  <td>100% up to R5,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="tictacbets" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/tictacbets"><div class="promo-brand"><img src="assets/logos/tictacbets.svg" alt="TicTacBets logo" loading="lazy" width="32" height="32"><span>TicTacBets</span></div></a></td>
+  <td>100% up to R5,000 + 50 Spins</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="zarbet" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/zarbet"><div class="promo-brand"><img src="assets/logos/zarbet.svg" alt="ZARbet logo" loading="lazy" width="32" height="32"><span>ZARbet</span></div></a></td>
+  <td>R50 Free Bet + 100% up to R3,750</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="playtsogo" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/playtsogo"><div class="promo-brand"><img src="assets/logos/playtsogo.svg" alt="PlayTsogo logo" loading="lazy" width="32" height="32"><span>PlayTsogo</span></div></a></td>
+  <td>R25 Free Bet on Sign-Up</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="supersportbet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/supersportbet"><div class="promo-brand"><img src="assets/logos/supersportbet.svg" alt="SuperSportBet logo" loading="lazy" width="32" height="32"><span>SuperSportBet</span></div></a></td>
+  <td>R5,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/e04f6c5d250912114745/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="sunbet south africa" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/sunbet"><div class="promo-brand"><img src="assets/logos/sunbet.svg" alt="Sunbet South Africa logo" loading="lazy" width="32" height="32"><span>Sunbet South Africa</span></div></a></td>
+  <td>R1000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.sunbet.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="jabula bets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/jabula-bets"><div class="promo-brand"><img src="assets/logos/jabula-bets.svg" alt="Jabula Bets logo" loading="lazy" width="32" height="32"><span>Jabula Bets</span></div></a></td>
+  <td>R1000</td>
+  <td><span class="promo-code-cell">JABULA30</span> <button class="copy-btn" data-code="JABULA30">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/cc9032a0250318120530/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="pantherbet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/pantherbet"><div class="promo-brand"><img src="assets/logos/pantherbet.svg" alt="Pantherbet logo" loading="lazy" width="32" height="32"><span>Pantherbet</span></div></a></td>
+  <td>R2,000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/f21fedfc250912164402/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="playabets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/playabets"><div class="promo-brand"><img src="assets/logos/playabets.svg" alt="PlayaBets logo" loading="lazy" width="32" height="32"><span>PlayaBets</span></div></a></td>
+  <td>R3,000</td>
+  <td><span class="promo-code-cell">SWAPLAY</span> <button class="copy-btn" data-code="SWAPLAY">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/9cfaf6cf190222182019/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betolimp" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betolimp"><div class="promo-brand"><img src="assets/logos/betolimp.svg" alt="BetOlimp logo" loading="lazy" width="32" height="32"><span>BetOlimp</span></div></a></td>
+  <td>R3000</td>
+  <td><span class="promo-code-cell">OLFOOT</span> <button class="copy-btn" data-code="OLFOOT">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/fbbda1b8190222151703/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="apexbets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/apexbets"><div class="promo-brand"><img src="assets/logos/apexbets.svg" alt="Apexbets logo" loading="lazy" width="32" height="32"><span>Apexbets</span></div></a></td>
+  <td>R5000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/754825e7260306164405/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betshezi" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betshezi"><div class="promo-brand"><img src="assets/logos/betshezi.svg" alt="Betshezi logo" loading="lazy" width="32" height="32"><span>Betshezi</span></div></a></td>
+  <td>R50</td>
+  <td><span class="promo-code-cell">STYVIP</span> <button class="copy-btn" data-code="STYVIP">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/9a796eb9221107160023/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="virgin bet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/virgin-bet"><div class="promo-brand"><img src="assets/logos/virgin-bet.svg" alt="Virgin Bet logo" loading="lazy" width="32" height="32"><span>Virgin Bet</span></div></a></td>
+  <td>R3,000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/d39aa076250922085716/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="luckystake" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/luckystake"><div class="promo-brand"><img src="assets/logos/luckystake.svg" alt="LuckyStake logo" loading="lazy" width="32" height="32"><span>LuckyStake</span></div></a></td>
+  <td>R3000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/a0fbbdac260126175628/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="shayabets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/shayabets"><div class="promo-brand"><img src="assets/logos/shayabets.svg" alt="ShayaBets logo" loading="lazy" width="32" height="32"><span>ShayaBets</span></div></a></td>
+  <td>Instant welcome bonus + free spins (details in T&amp;Cs)</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.shayabets.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="neo.bet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/neo-bet"><div class="promo-brand"><img src="assets/logos/neo-bet.svg" alt="NEO.bet logo" loading="lazy" width="32" height="32"><span>NEO.bet</span></div></a></td>
+  <td>R1,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.neobet.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="saffaluck" data-type="Welcome" data-hascode="0">
+  <td class="name-cell"><a href="promo-code/saffaluck"><div class="promo-brand"><img src="assets/logos/saffaluck.svg" alt="SaffaLuck logo" loading="lazy" width="32" height="32"><span>SaffaLuck</span></div></a></td>
+  <td>R3,000</td>
+  <td><span class="promo-code-cell no-code">Not required</span> </td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/cc3c4dcd260111201048/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="mzansibet" data-type="Welcome" data-hascode="0">
+  <td class="name-cell"><a href="promo-code/mzansibet"><div class="promo-brand"><img src="assets/logos/mzansibet.svg" alt="Mzansibet logo" loading="lazy" width="32" height="32"><span>Mzansibet</span></div></a></td>
+  <td>R500</td>
+  <td><span class="promo-code-cell no-code">Not required</span> </td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/4e6a1c8250506082921/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="lucky fish" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/lucky-fish"><div class="promo-brand"><img src="assets/logos/lucky-fish.svg" alt="Lucky Fish logo" loading="lazy" width="32" height="32"><span>Lucky Fish</span></div></a></td>
+  <td>R50</td>
+  <td><span class="promo-code-cell">LUFOOT</span> <button class="copy-btn" data-code="LUFOOT">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/bc1ac76e250807152825/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="soccershop.bet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/soccershop-bet"><div class="promo-brand"><img src="assets/logos/soccershop-bet.svg" alt="Soccershop.bet logo" loading="lazy" width="32" height="32"><span>Soccershop.bet</span></div></a></td>
+  <td>R7,500</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/9ebdf908240402101657/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="jackpot city" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/jackpot-city"><div class="promo-brand"><img src="assets/logos/jackpot-city.svg" alt="Jackpot City logo" loading="lazy" width="32" height="32"><span>Jackpot City</span></div></a></td>
+  <td>R4,000</td>
+  <td><span class="promo-code-cell">CORG4000</span> <button class="copy-btn" data-code="CORG4000">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/d2432c08251010140647/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="pokerbet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/pokerbet"><div class="promo-brand"><img src="assets/logos/pokerbet.svg" alt="Pokerbet logo" loading="lazy" width="32" height="32"><span>Pokerbet</span></div></a></td>
+  <td>R2000</td>
+  <td><span class="promo-code-cell">GGSA</span> <button class="copy-btn" data-code="GGSA">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/2675704c230119095924/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="wanejo bets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/wanejo-bets"><div class="promo-brand"><img src="assets/logos/wanejo-bets.svg" alt="Wanejo Bets logo" loading="lazy" width="32" height="32"><span>Wanejo Bets</span></div></a></td>
+  <td>R2000</td>
+  <td><span class="promo-code-cell">SEEKER</span> <button class="copy-btn" data-code="SEEKER">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/d7d4ec31251106143909/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="swifty sports" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/swifty-sports"><div class="promo-brand"><img src="assets/logos/swifty-sports.svg" alt="Swifty Sports logo" loading="lazy" width="32" height="32"><span>Swifty Sports</span></div></a></td>
+  <td>R3,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/7f57b3bb251121120813/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="goldrush" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/goldrush"><div class="promo-brand"><img src="assets/logos/goldrush.svg" alt="Goldrush logo" loading="lazy" width="32" height="32"><span>Goldrush</span></div></a></td>
+  <td>R25,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.goldrush.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="playbet south africa" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/playbet"><div class="promo-brand"><img src="assets/logos/playbet.svg" alt="Playbet South Africa logo" loading="lazy" width="32" height="32"><span>Playbet South Africa</span></div></a></td>
+  <td>R50</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/d396cd75251113093940/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="bettabets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/bettabets"><div class="promo-brand"><img src="assets/logos/bettabets.svg" alt="Bettabets logo" loading="lazy" width="32" height="32"><span>Bettabets</span></div></a></td>
+  <td>R2,500</td>
+  <td><span class="promo-code-cell">STVIP</span> <button class="copy-btn" data-code="STVIP">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/56eef481260312134641/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betbus" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betbus"><div class="promo-brand"><img src="assets/logos/betbus.svg" alt="Betbus logo" loading="lazy" width="32" height="32"><span>Betbus</span></div></a></td>
+  <td>R100</td>
+  <td><span class="promo-code-cell">SPIN50</span> <button class="copy-btn" data-code="SPIN50">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/4c4b662d260118205831/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betjets" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betjets"><div class="promo-brand"><img src="assets/logos/betjets.svg" alt="BetJets logo" loading="lazy" width="32" height="32"><span>BetJets</span></div></a></td>
+  <td>R1000</td>
+  <td><span class="promo-code-cell">SPORTS10</span> <button class="copy-btn" data-code="SPORTS10">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/cb8b024250912114850/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="betxchange" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/betxchange"><div class="promo-brand"><img src="assets/logos/betxchange.svg" alt="betXchange logo" loading="lazy" width="32" height="32"><span>betXchange</span></div></a></td>
+  <td>R20,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/f1600f69251013161439/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="bet.co.za" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/bet-co-za"><div class="promo-brand"><img src="assets/logos/bet-co-za.svg" alt="Bet.co.za logo" loading="lazy" width="32" height="32"><span>Bet.co.za</span></div></a></td>
+  <td>R5,000</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/d1c723c2190201004641/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="topbet south africa" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/topbet"><div class="promo-brand"><img src="assets/logos/topbet.svg" alt="Topbet South Africa logo" loading="lazy" width="32" height="32"><span>Topbet South Africa</span></div></a></td>
+  <td>R30</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/680f3cc0190222145659/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="sportpesa south africa" data-type="Free Bet" data-hascode="1">
+  <td class="name-cell"><a href="promo-code/sportpesa"><div class="promo-brand"><img src="assets/logos/sportpesa.svg" alt="SportPesa South Africa logo" loading="lazy" width="32" height="32"><span>SportPesa South Africa</span></div></a></td>
+  <td>Free bet ZAR 180.01 on first bet of exactly ZAR 180.01 (new </td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Free Bet</span></td>
+  <td><a href="https://www.sportpesa.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="firstbet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="reviews/firstbet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/202604/Apr01/ORG_Firstbet4173_37564.svg" alt="Firstbet logo" loading="lazy" width="32" height="32"><span>Firstbet</span></div></a></td>
+  <td>Deposit R10,000 Get R10,000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="https://www.tips.co.za/link/37324ebc260401081308/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="play.co.za" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="reviews/play-co-za"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/202604/Apr20/ORG_playcoza3823_34412.png" alt="Play.co.za logo" loading="lazy" width="32" height="32"><span>Play.co.za</span></div></a></td>
+  <td>Deposit R9,000 Get R9,000</td>
+  <td><span class="promo-code-cell">MAXBET</span> <button class="copy-btn" data-code="MAXBET">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="https://www.tips.co.za/link/da843839260420121951/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="ready set bet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="reviews/ready-set-bet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg" alt="Ready Set Bet logo" loading="lazy" width="32" height="32"><span>Ready Set Bet</span></div></a></td>
+  <td>Deposit R7,500 Get R7,500</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="https://www.tips.co.za/link/f86b8ed2260325172212/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="bravobet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="reviews/bravobet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/202601/Jan14/ORG_Bravobet5308_47781.png" alt="Bravobet logo" loading="lazy" width="32" height="32"><span>Bravobet</span></div></a></td>
+  <td>Up to R15,000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="https://www.tips.co.za/link/84859e24260114103647/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="boltbet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="reviews/boltbet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/202603/Mar05/ORG_Boltbet1716_15446.png" alt="Boltbet logo" loading="lazy" width="32" height="32"><span>Boltbet</span></div></a></td>
+  <td>Up to R5,000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="https://www.tips.co.za/link/abbe2981260305131326/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="mbet" data-type="Deposit Match" data-hascode="1">
+  <td class="name-cell"><a href="reviews/mbet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/202508/Aug10/ORG_mbet5406_48659.svg" alt="Mbet logo" loading="lazy" width="32" height="32"><span>Mbet</span></div></a></td>
+  <td>100% up to R2,000</td>
+  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-type-badge">Deposit Match</span></td>
+  <td><a href="https://www.tips.co.za/link/cdd1553e250807152717/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="sportybet" data-type="Welcome" data-hascode="1">
+  <td class="name-cell"><a href="reviews/sportybet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_SportyBet%20logo4258_38326.svg" alt="Sportybet logo" loading="lazy" width="32" height="32"><span>Sportybet</span></div></a></td>
+  <td>Welcome bonus</td>
+  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/a7e22907190222183413/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+<tr data-name="dafabet" data-type="Welcome" data-hascode="0">
+  <td class="name-cell"><a href="reviews/dafabet"><div class="promo-brand"><img src="https://www.imageservera.com/uploadedimages/201907/Jul17/ORG_Dafabet5237_47139.svg" alt="Dafabet logo" loading="lazy" width="32" height="32"><span>Dafabet</span></div></a></td>
+  <td>Welcome bonus</td>
+  <td><span class="promo-code-cell no-code">Not required</span> </td>
+  <td><span class="promo-type-badge">Welcome</span></td>
+  <td><a href="https://www.tips.co.za/link/fc59c2b0190621090941/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
+</tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var table = document.getElementById('promoTable');
+  if(!table) return;
+  var tbody = table.querySelector('tbody');
+  var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+  var countEl = document.getElementById('promoCount');
+  var searchEl = document.getElementById('promoSearch');
+  var chips = document.querySelectorAll('.promo-chip');
+  var state = { filter: 'all', query: '', sort: null, dir: 'asc' };
+
+  function applyFilters(){
+    var shown = 0;
+    rows.forEach(function(tr){
+      var name = tr.dataset.name;
+      var type = tr.dataset.type;
+      var matchFilter = state.filter === 'all' || type === state.filter;
+      var matchQuery = !state.query || name.indexOf(state.query) !== -1;
+      var visible = matchFilter && matchQuery;
+      tr.style.display = visible ? '' : 'none';
+      if(visible) shown++;
+    });
+    if(countEl) countEl.textContent = shown + (shown === 1 ? ' offer' : ' offers');
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      state.filter = chip.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  if(searchEl){
+    searchEl.addEventListener('input', function(e){
+      state.query = (e.target.value || '').trim().toLowerCase();
+      applyFilters();
+    });
+  }
+
+  function sortBy(key){
+    var dir = state.sort === key && state.dir === 'asc' ? 'desc' : 'asc';
+    state.sort = key;
+    state.dir = dir;
+    // Update header indicator
+    table.querySelectorAll('th.sortable').forEach(function(th){
+      th.removeAttribute('aria-sort');
+      var ind = th.querySelector('.sort-indicator');
+      if(ind) ind.innerHTML = '&#9650;';
+    });
+    var head = table.querySelector('th.sortable[data-sort="' + key + '"]');
+    if(head){
+      head.setAttribute('aria-sort', dir === 'asc' ? 'ascending' : 'descending');
+      var ind = head.querySelector('.sort-indicator');
+      if(ind) ind.innerHTML = dir === 'asc' ? '&#9650;' : '&#9660;';
+    }
+    // Get value for sort
+    function getVal(tr){
+      if(key === 'name') return tr.dataset.name;
+      if(key === 'type') return tr.dataset.type;
+      if(key === 'bonus') {
+        var t = tr.cells[1].textContent;
+        var m = t.match(/R\s?([\d,]+)/);
+        return m ? parseInt(m[1].replace(/,/g,''),10) : 0;
+      }
+      return '';
+    }
+    var sorted = rows.slice().sort(function(a,b){
+      var va = getVal(a), vb = getVal(b);
+      if(typeof va === 'number' && typeof vb === 'number') {
+        return dir === 'asc' ? va - vb : vb - va;
+      }
+      va = String(va); vb = String(vb);
+      return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+    });
+    sorted.forEach(function(tr){ tbody.appendChild(tr); });
+  }
+
+  table.querySelectorAll('th.sortable').forEach(function(th){
+    th.addEventListener('click', function(){ sortBy(th.dataset.sort); });
+  });
+
+  // Copy buttons
+  table.addEventListener('click', function(e){
+    var btn = e.target.closest('.copy-btn');
+    if(!btn) return;
+    var code = btn.dataset.code;
+    if(navigator.clipboard && code) {
+      navigator.clipboard.writeText(code).then(function(){
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  });
+})();
+</script><!-- PROMO_TABLE_END -->
+
+<script>
+(function(){
+  var table = document.getElementById('promoTable');
+  if(!table) return;
+  var tbody = table.querySelector('tbody');
+  var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+  var countEl = document.getElementById('promoCount');
+  var searchEl = document.getElementById('promoSearch');
+  var chips = document.querySelectorAll('.promo-chip');
+  var state = { filter: 'all', query: '', sort: null, dir: 'asc' };
+
+  function applyFilters(){
+    var shown = 0;
+    rows.forEach(function(tr){
+      var name = tr.dataset.name;
+      var type = tr.dataset.type;
+      var matchFilter = state.filter === 'all' || type === state.filter;
+      var matchQuery = !state.query || name.indexOf(state.query) !== -1;
+      var visible = matchFilter && matchQuery;
+      tr.style.display = visible ? '' : 'none';
+      if(visible) shown++;
+    });
+    if(countEl) countEl.textContent = shown + (shown === 1 ? ' offer' : ' offers');
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      state.filter = chip.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  if(searchEl){
+    searchEl.addEventListener('input', function(e){
+      state.query = (e.target.value || '').trim().toLowerCase();
+      applyFilters();
+    });
+  }
+
+  function sortBy(key){
+    var dir = state.sort === key && state.dir === 'asc' ? 'desc' : 'asc';
+    state.sort = key;
+    state.dir = dir;
+    // Update header indicator
+    table.querySelectorAll('th.sortable').forEach(function(th){
+      th.removeAttribute('aria-sort');
+      var ind = th.querySelector('.sort-indicator');
+      if(ind) ind.innerHTML = '&#9650;';
+    });
+    var head = table.querySelector('th.sortable[data-sort="' + key + '"]');
+    if(head){
+      head.setAttribute('aria-sort', dir === 'asc' ? 'ascending' : 'descending');
+      var ind = head.querySelector('.sort-indicator');
+      if(ind) ind.innerHTML = dir === 'asc' ? '&#9650;' : '&#9660;';
+    }
+    // Get value for sort
+    function getVal(tr){
+      if(key === 'name') return tr.dataset.name;
+      if(key === 'type') return tr.dataset.type;
+      if(key === 'bonus') {
+        var t = tr.cells[1].textContent;
+        var m = t.match(/R\s?([\d,]+)/);
+        return m ? parseInt(m[1].replace(/,/g,''),10) : 0;
+      }
+      return '';
+    }
+    var sorted = rows.slice().sort(function(a,b){
+      var va = getVal(a), vb = getVal(b);
+      if(typeof va === 'number' && typeof vb === 'number') {
+        return dir === 'asc' ? va - vb : vb - va;
+      }
+      va = String(va); vb = String(vb);
+      return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+    });
+    sorted.forEach(function(tr){ tbody.appendChild(tr); });
+  }
+
+  table.querySelectorAll('th.sortable').forEach(function(th){
+    th.addEventListener('click', function(){ sortBy(th.dataset.sort); });
+  });
+
+  // Copy buttons
+  table.addEventListener('click', function(e){
+    var btn = e.target.closest('.copy-btn');
+    if(!btn) return;
+    var code = btn.dataset.code;
+    if(navigator.clipboard && code) {
+      navigator.clipboard.writeText(code).then(function(){
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      });
+    }
+  });
+})();
+</script>
 
 <section class="section section-alt">
   <div class="container">
