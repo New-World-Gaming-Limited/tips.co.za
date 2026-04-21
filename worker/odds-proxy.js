@@ -31,19 +31,25 @@ const CACHE_TTL = {
   'dropping-odds':  30,   // 30 sec (fast-moving data)
 };
 
-// Rate limiting: requests per minute per IP
+// Rate limiting: requests per minute per IP (bucketed by epoch-minute, auto-expires)
 const RATE_LIMIT = 60;
 const rateCounts = new Map();
 
 // Stale-while-revalidate window (seconds past TTL during which we serve stale + refresh)
 const SWR_WINDOW = 300;
 
-// Clean up rate limiter every 60s
-setInterval(() => rateCounts.clear(), 60_000);
-
 function checkRateLimit(ip) {
-  const count = (rateCounts.get(ip) || 0) + 1;
-  rateCounts.set(ip, count);
+  const now = Date.now();
+  const minute = Math.floor(now / 60000);
+  const key = ip + ':' + minute;
+  // Purge stale buckets occasionally (keeps map small in a long-lived isolate)
+  if (rateCounts.size > 500) {
+    for (const k of rateCounts.keys()) {
+      if (!k.endsWith(':' + minute)) rateCounts.delete(k);
+    }
+  }
+  const count = (rateCounts.get(key) || 0) + 1;
+  rateCounts.set(key, count);
   return count <= RATE_LIMIT;
 }
 
