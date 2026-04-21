@@ -1579,8 +1579,8 @@
       return new Date(e.date).getTime() > now - 60 * 60 * 1000; // allow 1h grace
     }).sort(function(a, b) { return new Date(a.date) - new Date(b.date); });
 
-    // Step 2: fetch odds for up to (MAX_EVENTS * 2) events in parallel, then keep ones that actually have data
-    var candidates = upcoming.slice(0, MAX_EVENTS * 2);
+    // Step 2: fetch odds for up to MAX_EVENTS*4 upcoming events in parallel (API coverage is patchy)
+    var candidates = upcoming.slice(0, MAX_EVENTS * 4);
     var oddsResults = await Promise.all(candidates.map(function(ev) {
       return fetchEventOdds(ev.id).then(function(d) {
         return { base: ev, odds: d };
