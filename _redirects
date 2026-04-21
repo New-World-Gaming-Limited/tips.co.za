@@ -3,3 +3,35 @@
 
 /top-betting-sites  /best-betting-sites-south-africa  301
 /top-betting-sites.html  /best-betting-sites-south-africa  301
+
+# Category pages mistyped as /reviews/{slug} (they live at root)
+/reviews/card-betting-sites  /card-betting-sites  301
+/reviews/1voucher-betting-sites  /1voucher-betting-sites  301
+/reviews/bank-transfer-betting-sites  /bank-transfer-betting-sites  301
+/reviews/capitec-pay-betting-sites  /capitec-pay-betting-sites  301
+/reviews/instant-eft-betting-sites  /instant-eft-betting-sites  301
+/reviews/ozow-betting-sites  /ozow-betting-sites  301
+/reviews/skrill-betting-sites  /skrill-betting-sites  301
+/reviews/best-betting-sites-south-africa  /best-betting-sites-south-africa  301
+/reviews/new-betting-sites-south-africa  /new-betting-sites-south-africa  301
+/reviews/mobile-betting-sites-south-africa  /mobile-betting-sites-south-africa  301
+/reviews/fast-payout-betting-sites-south-africa  /fast-payout-betting-sites-south-africa  301
+/reviews/football-betting-sites-south-africa  /football-betting-sites-south-africa  301
+/reviews/rugby-betting-sites-south-africa  /rugby-betting-sites-south-africa  301
+/reviews/cricket-betting-sites-south-africa  /cricket-betting-sites-south-africa  301
+/reviews/horse-racing-betting-sites-south-africa  /horse-racing-betting-sites-south-africa  301
+/reviews/tennis-betting-sites-south-africa  /tennis-betting-sites-south-africa  301
+/reviews/payment-methods  /payment-methods  301
+/reviews/betting-bonuses-south-africa  /betting-bonuses-south-africa  301
+/reviews/welcome-bonuses-south-africa  /welcome-bonuses-south-africa  301
+/reviews/bonus-codes-south-africa  /bonus-codes-south-africa  301
+/reviews/free-bets-south-africa  /free-bets-south-africa  301
+/reviews/no-deposit-bonus-south-africa  /no-deposit-bonus-south-africa  301
+/reviews/how-we-review-betting-sites  /how-we-review-betting-sites  301
+/reviews/android-betting-apps-south-africa  /android-betting-apps-south-africa  301
+/reviews/iphone-betting-apps-south-africa  /iphone-betting-apps-south-africa  301
+/reviews/best-betting-apps-south-africa  /best-betting-apps-south-africa  301
+
+# /reviews/ with no brand → reviews index
+/reviews  /best-betting-sites-south-africa  301
+/reviews/  /best-betting-sites-south-africa  301
