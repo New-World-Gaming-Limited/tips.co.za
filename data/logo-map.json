@@ -1,0 +1,314 @@
+{
+  "10bet": {
+    "brandName": "10bet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202406/Jun04/ORG_10bet1155_10404.svg",
+    "baseColour": "#4e454a",
+    "textColour": "#fff",
+    "promoCode": "Code Activated",
+    "bonusText": "Deposit R3,000 Get R3,000"
+  },
+  "apexbets": {
+    "brandName": "Apex Bets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202603/Mar06/ORG_ApexBets4394_39558.svg",
+    "baseColour": "#1b1a1f",
+    "textColour": "#fcf8f8",
+    "promoCode": "BETS",
+    "bonusText": "up to R30,000 in bonuses"
+  },
+  "bet-co-za": {
+    "brandName": "Bet.co.za",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202211/Nov08/ORG_Betcoza3429_30872.svg",
+    "baseColour": "#000010",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R5,000 bonus"
+  },
+  "betbus": {
+    "brandName": "betbus",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202601/Jan18/ORG_betbus2561_23057.svg",
+    "baseColour": "#401010",
+    "textColour": "#fdfcfc",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R5,000 Get R5,000"
+  },
+  "betfred": {
+    "brandName": "Betfred",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202302/Feb15/ORG_Betfred5283_47554.svg",
+    "baseColour": "#005a99",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "up to R21,000 + 750 Spins"
+  },
+  "betjets": {
+    "brandName": "Betjets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202509/Sep12/ORG_Betjets5126_46141.svg",
+    "baseColour": "#012169",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R2,000 Get R2,000"
+  },
+  "betolimp": {
+    "brandName": "BetOlimp",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202505/May14/ORG_4643_41796.svg",
+    "baseColour": "#af2700",
+    "textColour": "#f7f7f7",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R3000 Deposit Match (100%)"
+  },
+  "betshezi": {
+    "brandName": "Betshezi",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202211/Nov07/ORG_betshezi-logo3722_33508.svg",
+    "baseColour": "#000000",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Deposit R2000 Get R2000"
+  },
+  "bettabets": {
+    "brandName": "Bettabets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202603/Mar12/ORG_bettabets35362_48271.svg",
+    "baseColour": "#FAE80B",
+    "textColour": "#000000",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R50+ for Match Bonus up to R2500"
+  },
+  "betway": {
+    "brandName": "betway",
+    "imageurl": "https://www.imageservera.com/uploadedimages/201901/Jan15/ORG_betway5525_49731.svg",
+    "baseColour": "#181818",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "R10 Free Bet & 10 Aviator Flights"
+  },
+  "betxchange": {
+    "brandName": "betXchange",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202601/Jan15/ORG_betxchange3400_30606.svg",
+    "baseColour": "#0033cc",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R20,000 Money Back"
+  },
+  "easybet": {
+    "brandName": "Easybet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202502/Feb07/ORG_easy-bet-logo2083_18752.svg",
+    "baseColour": "#FED702",
+    "textColour": "#000000",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Free R50 + 150% MATCH to R1500"
+  },
+  "gbets": {
+    "brandName": "Gbets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_GBets1679_15115.svg",
+    "baseColour": "#13372e",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R1,000 Bonus"
+  },
+  "hollywoodbets": {
+    "brandName": "Hollywood bets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202207/Jul04/ORG_Hollywoodbets3585_32270.svg",
+    "baseColour": "#52287b",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R25 + 50 spins"
+  },
+  "jabula-bets": {
+    "brandName": "Jabula Bets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202601/Jan13/ORG_jabula-bets4247_38230.svg",
+    "baseColour": "#282625",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "Get 150% up to R15,000"
+  },
+  "jackpot-city": {
+    "brandName": "Jackpot City",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202510/Oct10/ORG_JackpotCity3652_32875.svg",
+    "baseColour": "#181818",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "100% up to R4000 + Spins"
+  },
+  "lucky-fish": {
+    "brandName": "Lucky Fish",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202511/Nov06/ORG_lucky-fish1143_10294.svg",
+    "baseColour": "#00252b",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R50 Sign Up Bonus"
+  },
+  "luckystake": {
+    "brandName": "Luckystake",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202601/Jan27/ORG_lucky-stake1735_15621.svg",
+    "baseColour": "#292929",
+    "textColour": "#fdfcfc",
+    "promoCode": "BETS",
+    "bonusText": "Luckystake Loyalty Program"
+  },
+  "lulabet": {
+    "brandName": "Lulabet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Lulabet5117_46063.svg",
+    "baseColour": "#171B38",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Bet R50 Get R50"
+  },
+  "mzansibet": {
+    "brandName": "Mzansibet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202505/May06/ORG_Mzansibet2645_23814.svg",
+    "baseColour": "#001F12",
+    "textColour": "#fdfcfc",
+    "promoCode": "NEWBONUS (not required)",
+    "bonusText": "Bet R50, Get R50 Extra Bet"
+  },
+  "palacebet": {
+    "brandName": "Palacebet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202207/Jul04/ORG_Palacebet logo1814_16333.svg",
+    "baseColour": "#000000",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Sign Up + Get R50 Free"
+  },
+  "pantherbet": {
+    "brandName": "Pantherbet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_panther-bet5260_47346.svg",
+    "baseColour": "#000000",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "Get up to R14,000 (170%)"
+  },
+  "playabets": {
+    "brandName": "Playa Bets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202308/Aug23/ORG_playa1671_15043.svg",
+    "baseColour": "#7DB913",
+    "textColour": "#000000",
+    "promoCode": "NEWBONUS",
+    "bonusText": "100% Sign-Up Bonus"
+  },
+  "playtsogo": {
+    "brandName": "playTSOGO",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_play-tsogo5039_45364.svg",
+    "baseColour": "#0F2D84",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Exclusive: R10,000 + 25 Bet, 50 Spins + 25 Flights"
+  },
+  "pokerbet": {
+    "brandName": "Pokerbet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Poker bet3486_31378.svg",
+    "baseColour": "#3C3D65",
+    "textColour": "#ffffff",
+    "promoCode": "MAXBET",
+    "bonusText": "Get R100 free + R2000 (100%)"
+  },
+  "saffaluck": {
+    "brandName": "SaffaLuck",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202601/Jan12/ORG_saffaluck2094_18856.svg",
+    "baseColour": "#001F12",
+    "textColour": "#fdfcfc",
+    "promoCode": "BETS (not required)",
+    "bonusText": "Get a 100% First Deposit Bonus"
+  },
+  "soccershop-bet": {
+    "brandName": "Soccershop",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202408/Aug09/ORG_soccer-shop-logo1542_13884.svg",
+    "baseColour": "#0578B4",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R7500 Get R7500"
+  },
+  "sportingbet": {
+    "brandName": "Sportingbet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_SportingBet1366_12295.svg",
+    "baseColour": "#0988d1",
+    "textColour": "#000000",
+    "promoCode": "Code Activated",
+    "bonusText": "Up to R3,000 + 300 spins"
+  },
+  "supabets": {
+    "brandName": "Supabets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202308/Aug23/ORG_supabets2942_26480.svg",
+    "baseColour": "#EB0028",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Free R50 bonus sign up"
+  },
+  "supersportbet": {
+    "brandName": "Supersportbet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202509/Sep12/ORG_Supersportbet4004_36044.svg",
+    "baseColour": "#111fa3",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "Deposit R5000 Get R5000"
+  },
+  "swifty-sports": {
+    "brandName": "Swifty",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Swifty4966_44704.svg",
+    "baseColour": "#001F12",
+    "textColour": "#fdfcfc",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R3000 Get R3000"
+  },
+  "tictacbets": {
+    "brandName": "TicTacBets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202509/Sep30/ORG_Tictacbets2625_23628.svg",
+    "baseColour": "#cc0100",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "100% up to R5,000 + 50 spins"
+  },
+  "topbet": {
+    "brandName": "Topbet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202504/Apr04/ORG_topbet3540_31870.svg",
+    "baseColour": "#000000",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R1000 Get R1000"
+  },
+  "virgin-bet": {
+    "brandName": "Virgin Bet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202510/Oct01/ORG_virgin-bet4632_41693.svg",
+    "baseColour": "#E10A0A",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "Richard Branson's Betting Site"
+  },
+  "wanejo-bets": {
+    "brandName": "Wanejo Bets",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202603/Mar13/ORG_Wanejo3674_33070.svg",
+    "baseColour": "#202020",
+    "textColour": "#000000",
+    "promoCode": "BETS",
+    "bonusText": "Deposit R10,000 Get R10,000"
+  },
+  "world-sports-betting": {
+    "brandName": "World Sports Betting",
+    "imageurl": "https://www.imageservera.com/uploadedimages/201902/Feb22/ORG_World Sports Betting logo1719_15472.svg",
+    "baseColour": "#041467",
+    "textColour": "#ffffff",
+    "promoCode": "NEWBONUS",
+    "bonusText": "R20,000 Bonus (100%)"
+  },
+  "yesplay": {
+    "brandName": "Yesplay",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202211/Nov09/ORG_Yesplay3853_34687.svg",
+    "baseColour": "#fd7a01",
+    "textColour": "#000000",
+    "promoCode": "Applied",
+    "bonusText": "Deposit R3000 Get R3000"
+  },
+  "zarbet": {
+    "brandName": "ZARbet",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202507/Jul24/ORG_zarbet4354_39195.svg",
+    "baseColour": "#000000",
+    "textColour": "#faf9f9",
+    "promoCode": "BETS",
+    "bonusText": "Get up to R3,750 + 25FS"
+  },
+  "playbet": {
+    "brandName": "playbet.co.za",
+    "imageurl": "https://www.imageservera.com/uploadedimages/202511/Nov13/ORG_playbet-co-za2281_20534.svg",
+    "baseColour": "#CB151A",
+    "textColour": "#ffffff",
+    "promoCode": "BETS",
+    "bonusText": "R50 +50 Spins on Signup"
+  }
+}
