@@ -1,0 +1,232 @@
+{
+  "10bet": {
+    "base": "#4e454a",
+    "text": "#fff",
+    "name": "10bet"
+  },
+  "apexbets": {
+    "base": "#1b1a1f",
+    "text": "#fcf8f8",
+    "name": "Apex Bets"
+  },
+  "bet-co-za": {
+    "base": "#000010",
+    "text": "#ffffff",
+    "name": "Bet.co.za"
+  },
+  "betbus": {
+    "base": "#401010",
+    "text": "#fdfcfc",
+    "name": "betbus"
+  },
+  "betfred": {
+    "base": "#005a99",
+    "text": "#ffffff",
+    "name": "Betfred"
+  },
+  "betjets": {
+    "base": "#012169",
+    "text": "#ffffff",
+    "name": "Betjets"
+  },
+  "betolimp": {
+    "base": "#af2700",
+    "text": "#f7f7f7",
+    "name": "BetOlimp"
+  },
+  "betshezi": {
+    "base": "#000000",
+    "text": "#ffffff",
+    "name": "Betshezi"
+  },
+  "bettabets": {
+    "base": "#FAE80B",
+    "text": "#000000",
+    "name": "Bettabets"
+  },
+  "betway": {
+    "base": "#181818",
+    "text": "#ffffff",
+    "name": "betway"
+  },
+  "betxchange": {
+    "base": "#0033cc",
+    "text": "#ffffff",
+    "name": "betXchange"
+  },
+  "boltbet": {
+    "base": "#737373",
+    "text": "#fcf8f8",
+    "name": "Boltbet"
+  },
+  "bravobet": {
+    "base": "#001F24",
+    "text": "#000000",
+    "name": "Bravobet"
+  },
+  "dafabet": {
+    "base": "#af0000",
+    "text": "#000000",
+    "name": "Dafabet"
+  },
+  "easybet": {
+    "base": "#FED702",
+    "text": "#000000",
+    "name": "Easybet"
+  },
+  "firstbet": {
+    "base": "#3fc9fc",
+    "text": "#000000",
+    "name": "Firstbet"
+  },
+  "gbets": {
+    "base": "#13372e",
+    "text": "#ffffff",
+    "name": "Gbets"
+  },
+  "hollywoodbets": {
+    "base": "#52287b",
+    "text": "#ffffff",
+    "name": "Hollywood bets"
+  },
+  "jabula-bets": {
+    "base": "#282625",
+    "text": "#ffffff",
+    "name": "Jabula Bets"
+  },
+  "jackpot-city": {
+    "base": "#181818",
+    "text": "#ffffff",
+    "name": "Jackpot City"
+  },
+  "lucky-fish": {
+    "base": "#00252b",
+    "text": "#ffffff",
+    "name": "Lucky Fish"
+  },
+  "luckystake": {
+    "base": "#292929",
+    "text": "#fdfcfc",
+    "name": "Luckystake"
+  },
+  "lulabet": {
+    "base": "#171B38",
+    "text": "#ffffff",
+    "name": "Lulabet"
+  },
+  "mbet": {
+    "base": "#000c24",
+    "text": "#ffffff",
+    "name": "Mbet"
+  },
+  "mzansibet": {
+    "base": "#001F12",
+    "text": "#fdfcfc",
+    "name": "Mzansibet"
+  },
+  "pantherbet": {
+    "base": "#000000",
+    "text": "#ffffff",
+    "name": "Pantherbet"
+  },
+  "play-co-za": {
+    "base": "#292a2f",
+    "text": "#fcf8f8",
+    "name": "Play.co.za"
+  },
+  "playabets": {
+    "base": "#7DB913",
+    "text": "#000000",
+    "name": "Playa Bets"
+  },
+  "playbet": {
+    "base": "#CB151A",
+    "text": "#ffffff",
+    "name": "playbet.co.za"
+  },
+  "playtsogo": {
+    "base": "#0F2D84",
+    "text": "#ffffff",
+    "name": "playTSOGO"
+  },
+  "pokerbet": {
+    "base": "#3C3D65",
+    "text": "#ffffff",
+    "name": "Pokerbet"
+  },
+  "ready-set-bet": {
+    "base": "#024dfc",
+    "text": "#ffffff",
+    "name": "Ready Set Bet"
+  },
+  "saffaluck": {
+    "base": "#001F12",
+    "text": "#fdfcfc",
+    "name": "SaffaLuck"
+  },
+  "soccershop-bet": {
+    "base": "#0578B4",
+    "text": "#ffffff",
+    "name": "Soccershop"
+  },
+  "sportingbet": {
+    "base": "#0988d1",
+    "text": "#fafafa",
+    "name": "Sportingbet SA"
+  },
+  "sportybet": {
+    "base": "#e41827",
+    "text": "#000000",
+    "name": "Sportybet"
+  },
+  "supabets": {
+    "base": "#EB0028",
+    "text": "#ffffff",
+    "name": "Supabets"
+  },
+  "supersportbet": {
+    "base": "#111fa3",
+    "text": "#ffffff",
+    "name": "Supersportbet"
+  },
+  "swifty-sports": {
+    "base": "#001F12",
+    "text": "#fdfcfc",
+    "name": "Swifty"
+  },
+  "tictacbets": {
+    "base": "#cc0100",
+    "text": "#ffffff",
+    "name": "TicTacBets"
+  },
+  "topbet": {
+    "base": "#000000",
+    "text": "#ffffff",
+    "name": "Topbet"
+  },
+  "virgin-bet": {
+    "base": "#E10A0A",
+    "text": "#ffffff",
+    "name": "Virgin Bet"
+  },
+  "wanejo-bets": {
+    "base": "#202020",
+    "text": "#000000",
+    "name": "Wanejo Bets"
+  },
+  "world-sports-betting": {
+    "base": "#041467",
+    "text": "#ffffff",
+    "name": "World Sports Betting"
+  },
+  "yesplay": {
+    "base": "#fd7a01",
+    "text": "#000000",
+    "name": "Yesplay"
+  },
+  "zarbet": {
+    "base": "#000000",
+    "text": "#fcf8f8",
+    "name": "ZARbet"
+  }
+}
