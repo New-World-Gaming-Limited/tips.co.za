@@ -54,8 +54,19 @@
     "contactType": "customer service"
   }
 }</script>
+
+<style>
+.promo-code-cell{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:6px;background:var(--color-surface-alt,#f0f2f5);color:var(--color-text,#111);font-size:.88rem;display:inline-block}
+[data-theme="dark"] .promo-code-cell{background:#1c2333;color:#e6edf3}
+.promo-code-cell[data-code-type="branded"]{background:#fff7e0;color:#7a4f00;border:1px solid #f5c63a;position:relative}
+[data-theme="dark"] .promo-code-cell[data-code-type="branded"]{background:#2a2410;color:#f5c63a;border-color:#7a4f00}
+.promo-code-cell[data-code-type="branded"]::after{content:"BRAND CODE";display:block;position:absolute;top:-8px;right:-4px;background:#f5c63a;color:#7a4f00;font-size:8px;padding:1px 5px;border-radius:3px;letter-spacing:.06em;font-weight:800;font-family:inherit;line-height:1.2}
+[data-theme="dark"] .promo-code-cell[data-code-type="branded"]::after{background:#f5c63a;color:#1a1500}
+.promo-code-cell.no-code,.promo-code-cell[data-code-type="default"]{}
+</style>
 </head>
 <body>
+<a class="skip-to-content" href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;background:#0d6b3e;color:#fff;padding:8px 14px;border-radius:4px;z-index:10000;text-decoration:none;font-weight:600;" onfocus="this.style.left='12px';this.style.top='12px';this.style.width='auto';this.style.height='auto';" onblur="this.style.left='-9999px';">Skip to main content</a>
 <div class="disclosure-bar">
   We may earn a commission from operator links. This never affects our ratings.
   <a href="affiliate-disclosure">Affiliate Disclosure</a>
@@ -71,48 +82,11 @@
       <span class="logo-wordmark"><span class="logo-word">Tips</span><span class="logo-tld">.co.za</span></span>
     </a>
     <nav class="nav-desktop" aria-label="Main navigation">
-      <a href="best-betting-sites-south-africa" class="nav-top-link">Top Betting Sites</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger">Tips <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
-        <div class="nav-dropdown-menu">
-          <a href="accumulator-tips">Accumulator Tips</a>
-          <a href="value-bets">Value Bets</a>
-          <a href="dropping-odds">Dropping Odds</a>
-          <a href="betting-bonuses-south-africa">Betting Bonuses</a>
-          <a href="bonus-codes-south-africa">Promo Codes</a>
-          <a href="free-bets-south-africa">Free Bets</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger">Sports Sites <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
-        <div class="nav-dropdown-menu">
-          <a href="best-betting-sites-south-africa">Best Betting Sites</a>
-          <a href="sportsbook-reviews">All Reviews</a>
-          <a href="football-betting-sites-south-africa">Football</a>
-          <a href="rugby-betting-sites-south-africa">Rugby</a>
-          <a href="cricket-betting-sites-south-africa">Cricket</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger">Casino Sites <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
-        <div class="nav-dropdown-menu">
-          <a href="online-casinos-south-africa">Online Casinos</a>
-          <a href="online-slots-south-africa">Online Slots</a>
-          <a href="live-casino-south-africa">Live Casino</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger">Tools <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 3 3-3"/></svg></button>
-        <div class="nav-dropdown-menu">
-          <a href="bonus-browser">Bonus Browser</a>
-          <a href="betting-calculators">Betting Calculators</a>
-          <a href="guides/">Betting Guides</a>
-          <div class="nav-dropdown-divider"></div>
-          <a href="odds-converter">Odds Converter</a>
-          <a href="parlay-calculator">Parlay Calculator</a>
-          <a href="legal-hub">Legal Hub</a>
-        </div>
-      </div>
+      <a href="best-betting-sites-south-africa" class="nav-top-link">Best Bookmakers</a>
+      <a href="tips" class="nav-top-link">Today&#39;s Tips</a>
+      <a href="betting-bonuses-south-africa" class="nav-top-link">Bonuses</a>
+      <a href="guides/" class="nav-top-link">Guides</a>
+      <a href="sportsbook-reviews" class="nav-top-link">Reviews</a>
     </nav>
     <div class="nav-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
@@ -126,39 +100,59 @@
 </header>
 <nav class="mobile-nav" aria-label="Mobile navigation">
   <div class="mobile-nav-section">
-    <a href="best-betting-sites-south-africa" class="nav-cta-mobile" style="margin-bottom:var(--space-3);">Top Betting Sites</a>
+    <a href="best-betting-sites-south-africa" class="mobile-nav-heading-link">Best Bookmakers &rarr;</a>
+    <a href="best-betting-sites-south-africa">Top 14 ranked</a>
+    <a href="new-betting-sites-south-africa">New sites</a>
+    <a href="safe-betting-sites-south-africa">Safest sites</a>
+    <a href="fast-payout-betting-sites-south-africa">Fast payouts</a>
   </div>
   <div class="mobile-nav-section">
-    <span class="mobile-nav-heading">Tips</span>
-        <a href="accumulator-tips">Accumulator Tips</a>
-          <a href="value-bets">Value Bets</a>
-    <a href="dropping-odds">Dropping Odds</a>
-    <a href="betting-bonuses-south-africa">Betting Bonuses</a>
-    <a href="bonus-codes-south-africa">Promo Codes</a>
-    <a href="free-bets-south-africa">Free Bets</a>
+    <a href="tips" class="mobile-nav-heading-link">Today&#39;s Tips &rarr;</a>
+    <a href="accumulator-tips">Accumulator tips</a>
+    <a href="value-bets">Value bets</a>
+    <a href="dropping-odds">Dropping odds</a>
+    <a href="football-odds">Football odds</a>
   </div>
   <div class="mobile-nav-section">
-    <span class="mobile-nav-heading">Sports Sites</span>
-    <a href="best-betting-sites-south-africa">Best Betting Sites</a>
-    <a href="sportsbook-reviews">All Reviews</a>
+    <a href="betting-bonuses-south-africa" class="mobile-nav-heading-link">Bonuses &rarr;</a>
+    <a href="bonus-codes-south-africa">Promo codes</a>
+    <a href="free-bets-south-africa">Free bets</a>
+    <a href="welcome-bonuses-south-africa">Welcome bonuses</a>
+    <a href="bonus-browser">Bonus browser</a>
   </div>
   <div class="mobile-nav-section">
-    <span class="mobile-nav-heading">Tools</span>
-    <a href="bonus-browser">Bonus Browser</a>
+    <a href="guides/" class="mobile-nav-heading-link">Guides &rarr;</a>
+    <a href="how-we-review-betting-sites">How we review</a>
+    <a href="fica-kyc-requirements">FICA &amp; KYC</a>
+    <a href="legal-hub">Legal hub</a>
+    <a href="responsible-gambling">Responsible gambling</a>
+    <a href="payment-methods">Payment methods</a>
     <a href="betting-calculators">Calculators</a>
-    <a href="guides/">Guides</a>
   </div>
+  <div class="mobile-nav-section">
+    <a href="sportsbook-reviews" class="mobile-nav-heading-link">Reviews &rarr;</a>
+    <a href="football-betting-sites-south-africa">Football</a>
+    <a href="rugby-betting-sites-south-africa">Rugby</a>
+    <a href="cricket-betting-sites-south-africa">Cricket</a>
+    <a href="horse-racing-betting-sites-south-africa">Horse racing</a>
+  </div>
+  <a href="best-betting-sites-south-africa" class="nav-cta-mobile">Compare All Sites</a>
 </nav>
 <main>
 <section class="hero hero-sm">
   <div class="container">
     <div class="breadcrumb" style="margin-bottom:var(--space-2);"><a href="/">Home</a> <span>&#8250;</span> Promo Codes</div>
     <h1>Betting promo codes South Africa</h1>
-    <p class="hero-sub">All 44 verified promo codes for April 2026. Tap to copy, then claim your bonus.</p>
+    <p class="hero-sub">All 46 verified promo codes for April 2026. Tap to copy, then claim your bonus.</p>
   </div>
 </section>
 
-<!-- PROMO_TABLE_START --><section class="section promo-table-section">
+<!-- PROMO_TABLE_START -->
+<div class="newbonus-note" style="background:var(--color-surface-alt,#f0f2f5);border:1px solid var(--color-border,#e2e5eb);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:.9rem;color:var(--color-text-muted,#555);display:flex;gap:10px;align-items:center;line-height:1.5;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--color-primary,#1641B4);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+<span><strong>About NEWBONUS:</strong> Most operators accept the universal code <strong>NEWBONUS</strong> at registration to unlock the listed welcome offer. Where an operator uses its own code (highlighted in gold), enter that one instead.</span>
+</div>
+<section class="section promo-table-section">
   <div class="container">
     <style>
 .promo-table-section{padding:var(--space-6,1.5rem) 0}
@@ -236,63 +230,63 @@
 <tr data-name="easybet" data-type="Sign-Up" data-hascode="1">
   <td class="name-cell"><a href="promo-code/easybet"><div class="promo-brand"><img alt="Easybet logo" loading="lazy" width="32" height="32" src="assets/logos/easybet.svg" data-brand="easybet" style="background:#FED702;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Easybet</span></div></a></td>
   <td>R50 Sign-Up + 150% up to R1,500</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Sign-Up</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betway" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betway"><div class="promo-brand"><img alt="Betway logo" loading="lazy" width="32" height="32" src="assets/logos/betway.svg" data-brand="betway" style="background:#181818;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Betway</span></div></a></td>
   <td>100% up to R1,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="hollywoodbets" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/hollywoodbets"><div class="promo-brand"><img alt="Hollywoodbets logo" loading="lazy" width="32" height="32" src="assets/logos/hollywoodbets.svg" data-brand="hollywoodbets" style="background:#52287b;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Hollywoodbets</span></div></a></td>
   <td>R25 Free Bet + 50 Free Spins</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="10bet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="promo-code/10bet"><div class="promo-brand"><img alt="10bet logo" loading="lazy" width="32" height="32" src="assets/logos/10bet.svg" data-brand="10bet" style="background:#4e454a;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>10bet</span></div></a></td>
   <td>100% up to R3,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betfred" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betfred"><div class="promo-brand"><img alt="Betfred logo" loading="lazy" width="32" height="32" src="assets/logos/betfred.svg" data-brand="betfred" style="background:#005a99;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Betfred</span></div></a></td>
   <td>R50 Free Bet on Sign-Up</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="gbets" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/gbets"><div class="promo-brand"><img alt="Gbets logo" loading="lazy" width="32" height="32" src="assets/logos/gbets.svg" data-brand="gbets" style="background:#13372e;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Gbets</span></div></a></td>
   <td>R50 Free Bet + 100% up to R5,000</td>
-  <td><span class="promo-code-cell">GFWETS</span> <button class="copy-btn" data-code="GFWETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">GFWETS</span> <button class="copy-btn" data-code="GFWETS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="supabets" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/supabets"><div class="promo-brand"><img alt="Supabets logo" loading="lazy" width="32" height="32" src="assets/logos/supabets.svg" data-brand="supabets" style="background:#EB0028;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Supabets</span></div></a></td>
   <td>R50 Free Bet + 100% up to R2,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="sportingbet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="promo-code/sportingbet"><div class="promo-brand"><img alt="Sportingbet logo" loading="lazy" width="32" height="32" src="assets/logos/sportingbet.svg" data-brand="sportingbet" style="background:#0988d1;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Sportingbet</span></div></a></td>
   <td>100% up to R2,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="world sports betting" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="promo-code/world-sports-betting"><div class="promo-brand"><img alt="World Sports Betting logo" loading="lazy" width="32" height="32" src="assets/logos/world-sports-betting.svg" data-brand="world-sports-betting" style="background:#041467;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>World Sports Betting</span></div></a></td>
   <td>100% up to R20,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
@@ -306,112 +300,112 @@
 <tr data-name="lulabet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="promo-code/lulabet"><div class="promo-brand"><img alt="Lulabet logo" loading="lazy" width="32" height="32" src="assets/logos/lulabet.svg" data-brand="lulabet" style="background:#171B38;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Lulabet</span></div></a></td>
   <td>100% up to R5,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="tictacbets" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="promo-code/tictacbets"><div class="promo-brand"><img alt="TicTacBets logo" loading="lazy" width="32" height="32" src="assets/logos/tictacbets.svg" data-brand="tictacbets" style="background:#cc0100;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>TicTacBets</span></div></a></td>
   <td>100% up to R5,000 + 50 Spins</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="zarbet" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/zarbet"><div class="promo-brand"><img alt="ZARbet logo" loading="lazy" width="32" height="32" src="assets/logos/zarbet.svg" data-brand="zarbet" style="background:#000000;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>ZARbet</span></div></a></td>
   <td>R50 Free Bet + 100% up to R3,750</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="playtsogo" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/playtsogo"><div class="promo-brand"><img alt="PlayTsogo logo" loading="lazy" width="32" height="32" src="assets/logos/playtsogo.svg" data-brand="playtsogo" style="background:#0F2D84;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>PlayTsogo</span></div></a></td>
   <td>R25 Free Bet on Sign-Up</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="#" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="supersportbet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/supersportbet"><div class="promo-brand"><img alt="SuperSportBet logo" loading="lazy" width="32" height="32" src="assets/logos/supersportbet.svg" data-brand="supersportbet" style="background:#111fa3;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>SuperSportBet</span></div></a></td>
   <td>R5,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/e04f6c5d250912114745/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="sunbet south africa" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/sunbet"><div class="promo-brand"><img src="assets/logos/sunbet.svg" alt="Sunbet South Africa logo" loading="lazy" width="32" height="32"><span>Sunbet South Africa</span></div></a></td>
   <td>R1000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.sunbet.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="jabula bets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/jabula-bets"><div class="promo-brand"><img alt="Jabula Bets logo" loading="lazy" width="32" height="32" src="assets/logos/jabula-bets.svg" data-brand="jabula-bets" style="background:#282625;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Jabula Bets</span></div></a></td>
   <td>R1000</td>
-  <td><span class="promo-code-cell">JABULA30</span> <button class="copy-btn" data-code="JABULA30">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">JABULA30</span> <button class="copy-btn" data-code="JABULA30">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/e3a2695b251113123942/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="pantherbet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/pantherbet"><div class="promo-brand"><img alt="Pantherbet logo" loading="lazy" width="32" height="32" src="assets/logos/pantherbet.svg" data-brand="pantherbet" style="background:#000000;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Pantherbet</span></div></a></td>
   <td>R2,000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/2804dacf251113122143/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="playabets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/playabets"><div class="promo-brand"><img alt="PlayaBets logo" loading="lazy" width="32" height="32" src="assets/logos/playabets.svg" data-brand="playabets" style="background:#7DB913;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>PlayaBets</span></div></a></td>
   <td>R3,000</td>
-  <td><span class="promo-code-cell">SWAPLAY</span> <button class="copy-btn" data-code="SWAPLAY">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">SWAPLAY</span> <button class="copy-btn" data-code="SWAPLAY">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/9cfaf6cf190222182019/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betolimp" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betolimp"><div class="promo-brand"><img alt="BetOlimp logo" loading="lazy" width="32" height="32" src="assets/logos/betolimp.svg" data-brand="betolimp" style="background:#af2700;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>BetOlimp</span></div></a></td>
   <td>R3000</td>
-  <td><span class="promo-code-cell">OLFOOT</span> <button class="copy-btn" data-code="OLFOOT">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">OLFOOT</span> <button class="copy-btn" data-code="OLFOOT">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/fbbda1b8190222151703/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="apexbets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/apexbets"><div class="promo-brand"><img alt="Apexbets logo" loading="lazy" width="32" height="32" src="assets/logos/apexbets.svg" data-brand="apexbets" style="background:#1b1a1f;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Apexbets</span></div></a></td>
   <td>R5000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/754825e7260306164405/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betshezi" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betshezi"><div class="promo-brand"><img alt="Betshezi logo" loading="lazy" width="32" height="32" src="assets/logos/betshezi.svg" data-brand="betshezi" style="background:#000000;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Betshezi</span></div></a></td>
   <td>R50</td>
-  <td><span class="promo-code-cell">STYVIP</span> <button class="copy-btn" data-code="STYVIP">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">STYVIP</span> <button class="copy-btn" data-code="STYVIP">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/9a796eb9221107160023/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="virgin bet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/virgin-bet"><div class="promo-brand"><img alt="Virgin Bet logo" loading="lazy" width="32" height="32" src="assets/logos/virgin-bet.svg" data-brand="virgin-bet" style="background:#E10A0A;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Virgin Bet</span></div></a></td>
   <td>R3,000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/d39aa076250922085716/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="luckystake" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/luckystake"><div class="promo-brand"><img alt="LuckyStake logo" loading="lazy" width="32" height="32" src="assets/logos/luckystake.svg" data-brand="luckystake" style="background:#292929;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>LuckyStake</span></div></a></td>
   <td>R3000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/a0fbbdac260126175628/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="shayabets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/shayabets"><div class="promo-brand"><img src="assets/logos/shayabets.png" alt="ShayaBets logo" loading="lazy" width="32" height="32"><span>ShayaBets</span></div></a></td>
   <td>Instant welcome bonus + free spins (details in T&amp;Cs)</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.shayabets.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="neo.bet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/neo-bet"><div class="promo-brand"><img src="assets/logos/neo-bet.svg" alt="NEO.bet logo" loading="lazy" width="32" height="32"><span>NEO.bet</span></div></a></td>
   <td>R1,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.neobet.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
@@ -432,154 +426,154 @@
 <tr data-name="lucky fish" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/lucky-fish"><div class="promo-brand"><img alt="Lucky Fish logo" loading="lazy" width="32" height="32" src="assets/logos/lucky-fish.svg" data-brand="lucky-fish" style="background:#00252b;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Lucky Fish</span></div></a></td>
   <td>R50</td>
-  <td><span class="promo-code-cell">LUFOOT</span> <button class="copy-btn" data-code="LUFOOT">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">LUFOOT</span> <button class="copy-btn" data-code="LUFOOT">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/b59122e3260212095714/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="soccershop.bet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/soccershop-bet"><div class="promo-brand"><img alt="Soccershop.bet logo" loading="lazy" width="32" height="32" src="assets/logos/soccershop-bet.svg" data-brand="soccershop-bet" style="background:#0578B4;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Soccershop.bet</span></div></a></td>
   <td>R7,500</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/9ebdf908240402101657/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="jackpot city" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/jackpot-city"><div class="promo-brand"><img alt="Jackpot City logo" loading="lazy" width="32" height="32" src="assets/logos/jackpot-city.svg" data-brand="jackpot-city" style="background:#181818;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Jackpot City</span></div></a></td>
   <td>R4,000</td>
-  <td><span class="promo-code-cell">CORG4000</span> <button class="copy-btn" data-code="CORG4000">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">CORG4000</span> <button class="copy-btn" data-code="CORG4000">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/d2432c08251010140647/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="pokerbet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/pokerbet"><div class="promo-brand"><img alt="Pokerbet logo" loading="lazy" width="32" height="32" src="assets/logos/pokerbet.svg" data-brand="pokerbet" style="background:#3C3D65;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Pokerbet</span></div></a></td>
   <td>R2000</td>
-  <td><span class="promo-code-cell">GGSA</span> <button class="copy-btn" data-code="GGSA">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">GGSA</span> <button class="copy-btn" data-code="GGSA">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/2675704c230119095924/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="wanejo bets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/wanejo-bets"><div class="promo-brand"><img alt="Wanejo Bets logo" loading="lazy" width="32" height="32" src="assets/logos/wanejo-bets.svg" data-brand="wanejo-bets" style="background:#202020;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Wanejo Bets</span></div></a></td>
   <td>R2000</td>
-  <td><span class="promo-code-cell">SEEKER</span> <button class="copy-btn" data-code="SEEKER">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">SEEKER</span> <button class="copy-btn" data-code="SEEKER">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/d7d4ec31251106143909/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="swifty sports" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/swifty-sports"><div class="promo-brand"><img alt="Swifty Sports logo" loading="lazy" width="32" height="32" src="assets/logos/swifty-sports.svg" data-brand="swifty-sports" style="background:#001F12;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Swifty Sports</span></div></a></td>
   <td>R3,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/7f57b3bb251121120813/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="goldrush" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/goldrush"><div class="promo-brand"><img src="assets/logos/goldrush.png" alt="Goldrush logo" loading="lazy" width="32" height="32"><span>Goldrush</span></div></a></td>
   <td>R25,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.goldrush.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="playbet south africa" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/playbet"><div class="promo-brand"><img alt="Playbet South Africa logo" loading="lazy" width="32" height="32" src="assets/logos/playbet.svg" data-brand="playbet" style="background:#CB151A;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Playbet South Africa</span></div></a></td>
   <td>R50</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/279463eb251113094421/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="bettabets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/bettabets"><div class="promo-brand"><img alt="Bettabets logo" loading="lazy" width="32" height="32" src="assets/logos/bettabets.svg" data-brand="bettabets" style="background:#FAE80B;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Bettabets</span></div></a></td>
   <td>R2,500</td>
-  <td><span class="promo-code-cell">STVIP</span> <button class="copy-btn" data-code="STVIP">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">STVIP</span> <button class="copy-btn" data-code="STVIP">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/56eef481260312134641/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betbus" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betbus"><div class="promo-brand"><img alt="Betbus logo" loading="lazy" width="32" height="32" src="assets/logos/betbus.svg" data-brand="betbus" style="background:#401010;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Betbus</span></div></a></td>
   <td>R100</td>
-  <td><span class="promo-code-cell">SPIN50</span> <button class="copy-btn" data-code="SPIN50">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">SPIN50</span> <button class="copy-btn" data-code="SPIN50">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/4c4b662d260118205831/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betjets" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betjets"><div class="promo-brand"><img alt="BetJets logo" loading="lazy" width="32" height="32" src="assets/logos/betjets.svg" data-brand="betjets" style="background:#012169;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>BetJets</span></div></a></td>
   <td>R1000</td>
-  <td><span class="promo-code-cell">SPORTS10</span> <button class="copy-btn" data-code="SPORTS10">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">SPORTS10</span> <button class="copy-btn" data-code="SPORTS10">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/cb8b024250912114850/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="betxchange" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/betxchange"><div class="promo-brand"><img alt="betXchange logo" loading="lazy" width="32" height="32" src="assets/logos/betxchange.svg" data-brand="betxchange" style="background:#0033cc;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>betXchange</span></div></a></td>
   <td>R20,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/4dbe84a5251015082400/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="bet.co.za" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/bet-co-za"><div class="promo-brand"><img alt="Bet.co.za logo" loading="lazy" width="32" height="32" src="assets/logos/bet-co-za.svg" data-brand="bet-co-za" style="background:#000010;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Bet.co.za</span></div></a></td>
   <td>R5,000</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/d1c723c2190201004641/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="topbet south africa" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="promo-code/topbet"><div class="promo-brand"><img alt="Topbet South Africa logo" loading="lazy" width="32" height="32" src="assets/logos/topbet.svg" data-brand="topbet" style="background:#000000;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Topbet South Africa</span></div></a></td>
   <td>R30</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/680f3cc0190222145659/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="sportpesa south africa" data-type="Free Bet" data-hascode="1">
   <td class="name-cell"><a href="promo-code/sportpesa"><div class="promo-brand"><img src="assets/logos/sportpesa.png" alt="SportPesa South Africa logo" loading="lazy" width="32" height="32"><span>SportPesa South Africa</span></div></a></td>
   <td>Free bet ZAR 180.01 on first bet of exactly ZAR 180.01 (new </td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Free Bet</span></td>
   <td><a href="https://www.sportpesa.co.za" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="firstbet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="reviews/firstbet"><div class="promo-brand"><img alt="Firstbet logo" loading="lazy" width="32" height="32" src="assets/logos/firstbet.svg" data-brand="firstbet" style="background:#3fc9fc;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Firstbet</span></div></a></td>
   <td>Deposit R10,000 Get R10,000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="https://www.tips.co.za/link/37324ebc260401081308/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="play.co.za" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="reviews/play-co-za"><div class="promo-brand"><img alt="Play.co.za logo" loading="lazy" width="32" height="32" src="assets/logos/play-co-za.svg" data-brand="play-co-za" style="background:#292a2f;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Play.co.za</span></div></a></td>
   <td>Deposit R9,000 Get R9,000</td>
-  <td><span class="promo-code-cell">MAXBET</span> <button class="copy-btn" data-code="MAXBET">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">MAXBET</span> <button class="copy-btn" data-code="MAXBET">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="https://www.tips.co.za/link/da843839260420121951/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="ready set bet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="reviews/ready-set-bet"><div class="promo-brand"><img alt="Ready Set Bet logo" loading="lazy" width="32" height="32" src="assets/logos/soccershop-bet.svg" data-brand="soccershop-bet" style="background:#0578B4;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Ready Set Bet</span></div></a></td>
   <td>Deposit R7,500 Get R7,500</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="https://www.tips.co.za/link/f86b8ed2260325172212/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="bravobet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="reviews/bravobet"><div class="promo-brand"><img alt="Bravobet logo" loading="lazy" width="32" height="32" src="assets/logos/bravobet.svg" data-brand="bravobet" style="background:#001F24;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Bravobet</span></div></a></td>
   <td>Up to R15,000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="https://www.tips.co.za/link/84859e24260114103647/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="boltbet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="reviews/boltbet"><div class="promo-brand"><img alt="Boltbet logo" loading="lazy" width="32" height="32" src="assets/logos/boltbet.svg" data-brand="boltbet" style="background:#737373;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Boltbet</span></div></a></td>
   <td>Up to R5,000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="https://www.tips.co.za/link/abbe2981260305131326/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="mbet" data-type="Deposit Match" data-hascode="1">
   <td class="name-cell"><a href="reviews/mbet"><div class="promo-brand"><img alt="Mbet logo" loading="lazy" width="32" height="32" src="assets/logos/mbet.svg" data-brand="mbet" style="background:#000c24;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Mbet</span></div></a></td>
   <td>100% up to R2,000</td>
-  <td><span class="promo-code-cell">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="branded">BETS</span> <button class="copy-btn" data-code="BETS">Copy</button></td>
   <td><span class="promo-type-badge">Deposit Match</span></td>
   <td><a href="https://www.tips.co.za/link/cdd1553e250807152717/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
 <tr data-name="sportybet" data-type="Welcome" data-hascode="1">
   <td class="name-cell"><a href="reviews/sportybet"><div class="promo-brand"><img alt="Sportybet logo" loading="lazy" width="32" height="32" src="assets/logos/sportybet.svg" data-brand="sportybet" style="background:#e41827;border-radius:6px;padding:4px;object-fit:contain;box-sizing:border-box;"><span>Sportybet</span></div></a></td>
   <td>Welcome bonus</td>
-  <td><span class="promo-code-cell">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
+  <td><span class="promo-code-cell" data-code-type="default">NEWBONUS</span> <button class="copy-btn" data-code="NEWBONUS">Copy</button></td>
   <td><span class="promo-type-badge">Welcome</span></td>
   <td><a href="https://www.tips.co.za/link/a7e22907190222183413/149/" class="cta-btn" target="_blank" rel="noopener noreferrer sponsored">Claim</a></td>
 </tr>
