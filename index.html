@@ -1713,21 +1713,113 @@
    HOMEPAGE HERO
    ============================================================ */
 .homepage-hero {
-  background: linear-gradient(145deg, #061208 0%, #0d3d1e 60%, #145A32 100%);
+  background: #061208;
   color: #fff;
-  padding: clamp(var(--space-10), 5vw, var(--space-16)) 0 clamp(var(--space-8), 4vw, var(--space-12));
+  padding: clamp(var(--space-12), 6vw, var(--space-20)) 0 clamp(var(--space-10), 5vw, var(--space-16));
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+.homepage-hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: image-set(url('assets/img/hero-stadium.webp') type('image/webp'), url('assets/img/hero-stadium.jpg') type('image/jpeg'));
+  background-image: -webkit-image-set(url('assets/img/hero-stadium.webp') type('image/webp'), url('assets/img/hero-stadium.jpg') type('image/jpeg'));
+  background-size: cover;
+  background-position: center 40%;
+  filter: saturate(1.05);
+  pointer-events: none;
 }
 .homepage-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 40%);
+  z-index: 1;
+  background: linear-gradient(105deg, rgba(6,18,8,0.92) 0%, rgba(6,18,8,0.78) 38%, rgba(13,61,30,0.55) 65%, rgba(20,90,50,0.35) 100%),
+              linear-gradient(180deg, rgba(6,18,8,0.25) 0%, rgba(6,18,8,0) 30%, rgba(6,18,8,0.55) 100%);
   pointer-events: none;
 }
-.homepage-hero .container { position: relative; z-index: 1; }
+@media (max-width: 640px) {
+  .homepage-hero .hero-bg {
+    background-image: image-set(url('assets/img/hero-stadium-sm.webp') type('image/webp'), url('assets/img/hero-stadium-sm.jpg') type('image/jpeg'));
+    background-image: -webkit-image-set(url('assets/img/hero-stadium-sm.webp') type('image/webp'), url('assets/img/hero-stadium-sm.jpg') type('image/jpeg'));
+  }
+  .homepage-hero::before {
+    background: linear-gradient(180deg, rgba(6,18,8,0.7) 0%, rgba(6,18,8,0.85) 100%);
+  }
+}
+.section-band {
+  position: relative;
+  height: clamp(120px, 12vw, 180px);
+  background-image: url('assets/img/band-pitch.webp');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  isolation: isolate;
+}
+.section-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-bg) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, var(--color-bg) 100%);
+  pointer-events: none;
+}
+.acca-hero {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  background: #0d3d1e;
+  margin-bottom: var(--space-6);
+}
+.acca-hero .acca-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/img/acca-collage.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.55;
+}
+.acca-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(95deg, rgba(6,18,8,0.92) 0%, rgba(6,18,8,0.55) 60%, rgba(13,61,30,0.25) 100%);
+  z-index: 1;
+}
+.acca-hero > * { position: relative; z-index: 2; }
+.acca-hero, .acca-hero p, .acca-hero span, .acca-hero strong, .acca-hero div { color: #fff; }
+.acca-hero .acca-leg, .acca-hero .acca-row, .acca-hero .acca-item { color: rgba(255,255,255,0.92) !important; }
+.acca-hero .acca-leg-num, .acca-hero .acca-num { background: rgba(74,222,128,0.2) !important; color: #4ade80 !important; border:1px solid rgba(74,222,128,0.3) !important; }
+.acca-hero .acca-team, .acca-hero .acca-match, .acca-hero .acca-name, .acca-hero .acca-leg-match { color: #fff !important; font-weight:600; }
+.acca-hero .acca-leg-date, .acca-hero .acca-leg-pick { color: rgba(255,255,255,0.7) !important; }
+.acca-hero .acca-leg-odds { color: #fff !important; font-weight:700; }
+.acca-hero .acca-leg, .acca-hero .acca-card { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.1) !important; }
+.acca-hero .acca-footer, .acca-hero .acca-footer-v { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.12) !important; color:#fff; }
+.acca-hero .acca-return-value { color:#4ade80 !important; font-weight:700; }
+.acca-hero .acca-return-label { color: rgba(255,255,255,0.65) !important; }
+.acca-hero .acca-return { color:#4ade80 !important; }
+.acca-hero .acca-promo-link { background: rgba(255,255,255,0.1) !important; color:#fff !important; border:1px solid rgba(255,255,255,0.25) !important; }
+.acca-hero .acca-promo-link:hover { background: rgba(255,255,255,0.18) !important; }
+@media (min-width: 901px) {
+  .dash-grid { align-items: start; }
+  .dash-grid > .acca-hero { position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow: visible; }
+}
+.acca-hero .acca-meta, .acca-hero .acca-sub, .acca-hero .acca-time, .acca-hero .acca-league { color: rgba(255,255,255,0.65) !important; }
+.acca-hero .acca-odds, .acca-hero .odds-cell { color: #4ade80 !important; font-weight:700; }
+.acca-hero .acca-pick { color: rgba(255,255,255,0.85) !important; }
+.acca-hero hr, .acca-hero .acca-divider { border-color: rgba(255,255,255,0.15) !important; }
+.acca-hero .btn, .acca-hero .btn-primary, .acca-hero a.acca-cta, .acca-hero button { background:#fff !important; color:#0d3d1e !important; border:0; font-weight:700; }
+.acca-hero .btn:hover, .acca-hero .btn-primary:hover, .acca-hero a.acca-cta:hover { background: rgba(255,255,255,0.9) !important; }
+.acca-hero .acca-summary, .acca-hero .acca-totals { background: rgba(255,255,255,0.08) !important; border: 1px solid rgba(255,255,255,0.15) !important; }
+.acca-hero .data-age { color: rgba(255,255,255,0.7) !important; }
+.acca-hero .live-dot { background:#4ade80 !important; box-shadow:0 0 0 3px rgba(74,222,128,0.25) !important; }
+.acca-hero .section-badge { background: rgba(255,255,255,0.15) !important; color:#fff !important; border:1px solid rgba(255,255,255,0.25) !important; }
+.acca-hero .skeleton-line { background: rgba(255,255,255,0.1) !important; }
+.acca-hero .skeleton-line::after { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent) !important; }
+.homepage-hero .container { position: relative; z-index: 2; }
 .homepage-hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 1.4rem + 2.5vw, 3.5rem);
@@ -2022,6 +2114,7 @@
 /* === Fix 10: Footer columns balanced, no change needed in CSS, handled in HTML === */
 
 /* === Fix 11: Dark mode hero contrast === */
+[data-theme="dark"] .homepage-hero::before { background: linear-gradient(105deg, rgba(0,0,0,0.94) 0%, rgba(6,18,8,0.82) 40%, rgba(13,61,30,0.55) 70%, rgba(20,90,50,0.3) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%); }
 [data-theme="dark"] .homepage-hero {
   background: linear-gradient(145deg, #000000 0%, #071a0d 50%, #0d3d1e 100%);
 }
@@ -2140,9 +2233,10 @@
      HOMEPAGE HERO
      ============================================================ -->
 <section class="homepage-hero">
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
     <h1>Find a winning bet today</h1>
-    <p class="hero-subtitle">Free expert tips, live odds compared across SA's licensed bookmakers, and honest reviews of all 46 operators. Updated every five minutes.</p>
+    <p class="hero-subtitle">Free daily tips backed by live odds from SA's licensed bookmakers. Independent ratings of all 46 operators. Updated every five minutes.</p>
     <div class="hero-cta-row">
       <a href="#dashboard" class="hero-cta-primary">See today's tips &rarr;</a>
       <a href="#compare-bookmakers" class="hero-cta-link" style="background:transparent;border:0;padding:0;color:rgba(255,255,255,0.85);font-size:.95rem;font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,0.4);">or compare bookmakers</a>
@@ -2201,33 +2295,31 @@
         <div class="vb-row"><div class="skeleton-line w-60"></div></div>
         <div class="vb-row"><div class="skeleton-line w-40"></div></div>
       </div>
-      <div class="acca-promo">
-        <div class="acca-promo-text"><span><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span> Want to combine picks? See today's <span>accumulator tips</span></div>
-        <a href="accumulator-tips" class="acca-promo-link">View Accas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
     </div>
 
-    <!-- RIGHT: Intelligence Feed (dropping odds) -->
-    <div class="dash-panel">
+    <!-- RIGHT: Today's Accumulator (the build-from-picks counterpart) -->
+    <div class="dash-panel acca-hero">
+      <div class="acca-hero-bg" aria-hidden="true"></div>
       <div class="section-head">
-        <h2>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-          Dropping Odds
+        <h2 style="color:#fff;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Today's Accumulator
         </h2>
-        <span class="data-age" id="doAge"><span class="live-dot"></span> Loading...</span>
+        <span class="section-badge badge-value">3 legs</span>
       </div>
-      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Odds that are falling fast, often because sharp bettors are backing one side. A big drop can signal insider confidence. <a href="dropping-odds" style="color:var(--color-primary,#0d7c3d);">Full dropping odds page</a></p>
-      <div id="intelFeed">
-        <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
-        <div class="intel-row-v2"><div class="skeleton-line w-60"></div></div>
-        <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
-        <div class="intel-row-v2"><div class="skeleton-line w-60"></div></div>
-        <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.78);margin:0 0 12px;line-height:1.5;">Today's three-leg multi built from our highest-rated value picks. All legs must win, but combined odds mean a bigger return from a small stake. <a href="accumulator-tips" style="color:#86efac;font-weight:600;">All accumulator tips</a></p>
+      <div id="accaContainer" class="acca-compact">
+        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
       </div>
     </div>
 
   </div>
 </div>
+
+<!-- ============================================================
+     SECTION BAND (visual divider, sports atmosphere)
+     ============================================================ -->
+<div class="section-band" aria-hidden="true"></div>
 
 <!-- ============================================================
      TODAY'S MATCHES (full width, league tabs)
@@ -2237,7 +2329,7 @@
     <div class="section-head">
       <h2>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        Upcoming Matches
+        Today's Fixtures &amp; Best Odds
       </h2>
       <div style="display:flex;align-items:center;gap:12px;">
         <span class="data-age" id="matchAge"><span class="live-dot"></span> Loading...</span>
@@ -2280,45 +2372,50 @@
 
 
 <!-- ============================================================
-     ACCUMULATOR OF THE DAY
+     DROPPING ODDS STRIP (slim, under matches)
      ============================================================ -->
-<div class="container">
-  <div style="max-width:720px;">
-
-    <!-- Accumulator of the Day -->
-    <div class="dash-panel">
-      <div class="section-head">
-        <h2>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Accumulator
-        </h2>
-        <span class="section-badge badge-value">3 legs</span>
-      </div>
-      <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">A multi-bet combining today's best value picks. All selections must win for the accumulator to pay out, but the combined odds mean a bigger return from a small wager. <a href="accumulator-tips" style="color:var(--color-primary,#0d7c3d);">All accumulator tips</a></p>
-      <div id="accaContainer" class="acca-compact">
-        <div class="skeleton-card"><div class="skeleton-line w-80"></div><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div></div>
+<div class="container" style="margin-top:var(--space-6);">
+  <div class="dash-panel">
+    <div class="section-head">
+      <h2>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        Dropping Odds
+      </h2>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="data-age" id="doAge"><span class="live-dot"></span> Loading...</span>
+        <a href="dropping-odds" class="view-all-link">Full feed <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
-
+    <p style="font-size:13px;color:var(--color-text-muted,#555);margin:0 0 12px;line-height:1.5;">Prices that have fallen sharply in the last few hours, often because sharp bettors are backing one side.</p>
+    <div id="intelFeed">
+      <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
+      <div class="intel-row-v2"><div class="skeleton-line w-60"></div></div>
+      <div class="intel-row-v2"><div class="skeleton-line w-80"></div></div>
+    </div>
   </div>
 </div>
 
 <!-- ============================================================
-     HOW WE RANK (SEO content)
+     HOW WE RANK (collapsed methodology, links to full page)
      ============================================================ -->
-<section class="section section-alt">
+<section class="section section-alt" style="padding-top:var(--space-8);padding-bottom:var(--space-8);">
   <div class="container">
-    <h2>How we rank betting sites</h2>
-    <p>Our scoring framework uses seven weighted categories. No operator can buy a higher position: rankings reflect actual performance measured through our review process.</p>
-    <div class="scoring-grid">
-      <div class="scoring-item"><strong>Licensing and safety (25%)</strong><p>Provincial licence, clear ownership, visible terms, and accessible complaint route.</p></div>
-      <div class="scoring-item"><strong>Banking and payouts (20%)</strong><p>Local payment coverage, withdrawal speed, KYC clarity, and payout reliability.</p></div>
-      <div class="scoring-item"><strong>Bonus quality (15%)</strong><p>Real value after turnover, odds restrictions, deposit threshold and withdrawal caps.</p></div>
-      <div class="scoring-item"><strong>Sport variety (15%)</strong><p>Market depth, live betting, bet builders and local sport coverage.</p></div>
-      <div class="scoring-item"><strong>App and mobile (10%)</strong><p>Native app quality, browser performance, login speed and bet slip reliability.</p></div>
-      <div class="scoring-item"><strong>Live betting (10%)</strong><p>In-play market depth, streaming availability and live cash-out function.</p></div>
-      <div class="scoring-item"><strong>Customer support (5%)</strong><p>Response time, channel availability, WhatsApp and branch access.</p></div>
-    </div>
+    <details class="methodology-details" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);">
+      <summary style="cursor:pointer;font-weight:700;font-size:var(--text-lg);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);">
+        <span>How we rank betting sites</span>
+        <span style="font-size:13px;font-weight:500;color:var(--color-text-muted);">7 weighted criteria &middot; click to expand</span>
+      </summary>
+      <p style="margin-top:var(--space-4);color:var(--color-text-muted);line-height:1.6;">Our scoring framework uses seven weighted categories. No operator can buy a higher position. Rankings reflect actual performance measured through our review process. <a href="how-we-review">Read the full methodology</a>.</p>
+      <div class="scoring-grid" style="margin-top:var(--space-4);">
+        <div class="scoring-item"><strong>Licensing and safety (25%)</strong><p>Provincial licence, clear ownership, visible terms, and accessible complaint route.</p></div>
+        <div class="scoring-item"><strong>Banking and payouts (20%)</strong><p>Local payment coverage, withdrawal speed, KYC clarity, and payout reliability.</p></div>
+        <div class="scoring-item"><strong>Bonus quality (15%)</strong><p>Real value after turnover, odds restrictions, deposit threshold and withdrawal caps.</p></div>
+        <div class="scoring-item"><strong>Sport variety (15%)</strong><p>Market depth, live betting, bet builders and local sport coverage.</p></div>
+        <div class="scoring-item"><strong>App and mobile (10%)</strong><p>Native app quality, browser performance, login speed and bet slip reliability.</p></div>
+        <div class="scoring-item"><strong>Live betting (10%)</strong><p>In-play market depth, streaming availability and live cash-out function.</p></div>
+        <div class="scoring-item"><strong>Customer support (5%)</strong><p>Response time, channel availability, WhatsApp and branch access.</p></div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -2334,7 +2431,7 @@
       </h2>
       <a href="best-betting-sites-south-africa" class="view-all-link">All 46 operators <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
-    <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin:0 0 var(--space-4);line-height:1.6;">Side-by-side comparison of South Africa's top licensed bookmakers. Click column headers to sort. All operators hold a valid provincial gambling board licence.</p>
+    <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin:0 0 var(--space-4);line-height:1.6;">The seven highest-rated SA bookmakers based on our scoring. Sort by any column. <a href="best-betting-sites-south-africa">See the full ranked list of all 46 operators</a>.</p>
 
     <div class="table-responsive">
       <table class="comparison-table sortable-table" id="homepageCompareTable">
